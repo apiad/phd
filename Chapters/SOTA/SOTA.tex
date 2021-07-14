@@ -7,6 +7,70 @@ Intro del estado del arte
 
 - importancia de la semántica
 
+% PAPER ICAII
+
+Humans try to represent the world we live in and facts and events that happen using language. Language enables ideas to be structured so that they can be shared them with other people.
+Generally, one of the most common ways of representing arbitrary pieces of knowledge is through the notion of concepts and actions~\cite{teleologies}.
+By understanding the world as composed of concepts interacting with each other through actions, humans can communicate a large variety and
+complexity of information and knowledge.
+The simplest way of combining concepts and actions is through binary relations, where one concept acts as the subject and another as the target.
+This simple structure is very common in human languages.
+More than 75\% of languages have a syntactic structure that follows either the SVO (subject-verb-object) or SOV (subject-object-verb) order~\cite{cambridge}.
+Also, Subject-Verb-Object is the most common order in Creole languages, which has been suggested as an indication that is the most natural order
+for human psychology.~\cite{diamond2013rise}.
+As an example, from the sentence ``Arnold drives a car'' and we obtain an Subject-Verb-Object triplet \verb|(Arnold, drives, car)|.
+
+This structure is ubiquitous in many different problems in the field of Natural Language Processing.
+Different authors have employed a Subject-Verb-Object for similar structure or representing knowledge extracted from natural text, in a variety of domains~\cite{never-ending-learner,emotinet}.
+Thus, a representation based on Subject-Verb-Object triplet is suitable for the generic representation of knowledge, independently of the domain.
+
+Ontologies are one of the most common representations of knowledge in a digital format.
+Ontologies, knowledge bases, semantic nets, and similar computational representations, are often built on the concept of the Subject-Verb-Object triplet, even if the individual components are referred to by using different terms (i.e., relations in RDF triplets or predicates in logic knowledge bases).
+
+The rise of the semantic web has encouraged the creation of large scale ontologies and knowledge bases in several domains.
+Some ontologies represent general domains, such as DBPedia, and collect a large proportion of common human knowledge.
+Others, such as Ivanovic and Budimac~(\cite{IVANOVIC20145158}) operate in a more specific domain but incorporate more detailed facts about the domain.
+One of the biggest obstacles to the development of the semantic web is the amount of effort and time it takes for human experts to build ontologies by hand~\cite{gomez2006ontological, petasis2011ontology}.
+In this sense, the field of ontology learning~\cite{buitelaar2005ontology} studies the techniques and methodologies that enable the automatic or semi-automatic extraction of ontologies from unstructured sources of information, such as natural text~\cite{mitchell2015never,emotinet}.
+
+One of the most important issues in ontology learning from natural text is how to recognize which knowledge is relevant in a domain. Usually, in a corpus of natural text, a large portion of the information will be spurious or unimportant~\cite{Kanya2009InformationE}.
+Humans have an innate ability to forget the spurious or unimportant facts that are presented to us daily, and only store for long term that piece of knowledge that is relevant for a particular purpose.
+Several relevance metrics have been proposed~\cite{manning2008introduction, brank2005survey}.
+In general, the most relevant knowledge can be related to the actions and concepts that appear most often in a domain.
+
+% PAPER JBI
+
+The exponential growth of the Internet in the last decades has produced a massive surplus of textual information in all areas of human endeavor. This scenario presents both an opportunity and a challenge for researchers. On the one hand, a growing body of scientific literature is readily available, where potential solutions for critical problems could be found by linking partial results published in distinct documents. On the other hand, the extent of the information available cannot be processed by humans alone in a reasonable time frame. Hence,  efforts have recently been directed towards designing automatic techniques that can discover relevant pieces of information in large corpora, make logical connections, and synthesize useful knowledge.
+The first step in many of these techniques involves the collection, processing and annotation of data that can be used to train machine learning algorithms or build expert systems through the use of natural language processing techniques.
+
+The digital health sector is of great interest to the research community given the potential social benefits derived from applying automatic knowledge discovery technologies. The research community has produced a large number of annotated corpora in different sub-domains of this sector, from specific (e.g., drug-disease~\cite{goldberg1996drug} or gene-protein interactions~\cite{tanabe2005genetag}) to broad in scope and domain (e.g., clinical trial reports~\cite{nye2018corpus}).
+Domain-specific corpora and technologies are of critical importance in high-precision medicine.
+However, systems built for very specific domains are arguably harder to generalize and extend than systems built on general-purpose conceptualizations.
+As such, there is a growing interest in designing annotation models and corpora with general-purpose semantics that can be used in a variety of domains or as a component in more specialized systems.
+
+Besides domain, language is another dimension that has been the focus of recent research.
+Most of the largest linguistic resources are based on English sources, motivated in part by the abundance of available raw material~(e.g., online encyclopedias, research papers), which is not surprising given that English is the most predominant language in science, technology and communications.
+However, English-based resources are not always directly applicable to other languages.
+Even though automatic translation has reached impressive accuracy in open domains, it is still a challenge to create cross-language resources, such as with Spanish, which is less predominant in technical domains~\cite{villegas2018mespen}.
+Instead of focusing on specific niche languages, one possible line of research is designing resources that are
+language-agnostic, in the sense that they can be generalized to multiple languages with little effort, by virtue
+of being based on underlying common characteristics shared by many languages.
+
+Designing annotation models that can generalize to multiple domains requires deciding on a basic representation of language that covers a broad range of semantics.
+Moreover, these representations should be as independent of syntax and grammatical rules as possible, if they are
+expected to generalize to multiple languages.
+Recent work~\cite{estevez2018gathering} suggests that Subject-Action-Target triplets can be used to detect a large number of semantic interactions in natural language, independent of domain and relatively independent of language, since
+more than 75\% of human languages employ some variation of the Subject-Verb-Object grammatical structure~\cite{crystal2004cambridge}.
+Likewise, several ontological representations often agree in a number of general-purpose relations, (e.g., \textit{is-a} hyponyms, \textit{part-of} holonyms) that are useful in any domain.
+Other conceptualizations allow the capture of semantics closer to natural language, such as Abstract Meaning Representation, AMR~\cite{banarescu2013abstract}.
+The construction of corpora annotated with general-purpose semantic structures like Subject-Action-Target and high-level ontological relations is the first step in the design of systems that can discover knowledge automatically in a variety of domains and scenarios.
+
+Research in knowledge discovery requires not only linguistic resources~(e.g., annotated corpora) but also computational resources and infrastructures that enable researchers to systematically evaluate their results and compare them objectively with alternative approaches.
+This involves the formal definition of tasks and the design of objective evaluation metrics that ensure fair comparison is possible.
+Even better is a publicly available evaluation system where researchers can submit their results, guaranteeing the same evaluation criteria is applied and freeing researchers from reproducing the evaluation environment. Such a system would also guarantee a more transparent and reproducible research process, and would provide a centralized repository of existing approaches, helping new researchers to update on the state-of-the-art.
+
+% RESUMEN DEL PROCESO
+
 - explicar el proceso y las tareas
   - definir un esquema de anotacion, modelo semántico, que sea bueno
   - herramientas con las que hacer la anotacion
@@ -16,9 +80,113 @@ Intro del estado del arte
   - diseñar entornos de evaluación (challenges) para comparar sistemas
   - construir ontologías
 
-  \section{Modelos Semánticos de Anotación de Lenguaje Natural}
+  \section{Modelos Semánticos de Anotación}
+
+  Knowledge discovery is a field of computer science that shows an accelerated growth in the past three decades.
+  Advances in this area have been applied in many domains, from databases~\cite{fayyad1996data, knowledgeDatabase} to
+  images~\cite{lu2016visual} and natural language text~\cite{carlson2010toward}.
+  Specifically in natural language text, this field is highly relevant in the biomedical and health domains,
+  where it is used for performing tasks such as
+  Named Entity Recognition~(NER), Relationship Extraction and Hypothesis Generation, among others.~\cite{simpson2012biomedical}.
+  These tasks generally use annotated corpora for learning the characteristics that appear in the text and mapping them to knowledge structures.
+  For each task, specific annotation models have been designed that focus on specific elements of the text.
+  For example, in NER tasks is more important to focus on nominal phrases than other grammatical constructions.
+
+  Despite that these domain-specific tasks are different, most of them share common characteristics. For example, most tasks deal with the detection of relevant entities and their relations. Hence, promoting general-purpose annotation models would allow the design of reusable and cross-domain knowledge discovery techniques.
+  In this line, several domain-independent semantic representations have been developed~(e.g., AMR~\cite{amr}, PropBank~\cite{propbank}, FrameNet~\cite{framenet}).
+  However, these representations rely heavily on fine-grained lexicons that define specific semantic roles for each word meaning. Therefore, developing knowledge discovery systems with this level of detail supposes great challenges. Using more coarse-grained semantic representation, even with the loss of some representational capacity, would simplify the creation of automatic techniques based on machine learning.
+  This representation could also be used as the first stage in a pipeline for a domain-specific task, thus reusing resources and techniques in domains with few available resources.
+  In this section we present a review of relevant annotation models from which we draw inspiration.
+  We focus general-purpose annotation models~\ref{sec:general} as well as on annotation models that have been applied to the health domain~\ref{sec:health}.
+
+  \subsection{General-purpose annotation models}\label{sec:general}
+
+  Several general-purpose semantic annotation models have been developed, that attempt to represent the semantics of a sentence beyond the syntactic structure.
+  These models are loosely based on the Subject-Verb-Object grammatical structure that is pervasive in human language.
+
+  PropBank~\cite{propbank} proposes a general purpose annotation schema, based on annotating predicates (verbs) as the main semantic constituents of a sentence. ProbBank's annotation schema is able to represent several semantic relations, including the agent that causes an action, the receiver of the effects of an action, time and location modifiers, and causal relationships.
+  One key characteristic of PropBank is that every predicate defines custom semantic roles, i.e., the predicate ``\textit{accept}'' defines roles for the agent who accepts~(\texttt{ARG0}), the object that is accepted~(\texttt{ARG1}), and the agent from whom that object is accepted.
+
+  FrameNet~\cite{framenet} is a lexical database and an annotated corpus that models the semantic roles and relations in a natural language sentence through conceptual structures named \textit{frames}. Frames represent general-purpose concepts, or events, that define the possible semantic relations in which those concepts can be realized in natural language.
+
+  VerbNet~\cite{verbnet} is a verb lexicon that also defines specific semantic roles for each verb. In VerbNet, verbs are organized in a hierarchy, and linked through different thematic roles, such as agents, cause, source, or topic. These elements allow to capture the semantic representation of sentences.
+
+  PropBank semantic roles are similar to the thematic roles defined in VerbNet and frame elements in FrameNet. As such, there are resources that link these semantic structures~\cite{semlink}.
+
+  A more recent proposal is Abstract Meaning Representation~\cite[ARM]{amr}. AMR constitutes a semantic representation schema for English sentences that also attempts to cover a wide range of semantic relations with a general-purpose model.
+  AMR includes PropBank semantic roles, as well as coreference resolution within the same sentence, named entities and types, negation, and other modifiers in a graph structure that represents the meaning of a natural language sentence.
+  However, even though AMR captures the full semantic meaning of a sentence, for the purpose of knowledge discovery it is still considerably abstract, and additional processing is necessary to extract concrete structures of knowledge~\cite{rao2017biomedical}.
+
+  The annotation model proposed in this research shares similarities from general-purpose semantic annotation models such as AMR and PropBank.
+  In contrast to these resources, our model makes no distinction between different types of actions, which are loosely related to verbs, as explained in Section~\ref{sec:model}. Instead, we define two general-purpose roles, the agent that performs and action, and the receiver of the effects of the action. These roles roughly correspond to \texttt{ARG0} and \texttt{ARG1} respectively in PropBank, although in specific cases their semantic meaning might differ.
+  This simplification is directed towards enabling the automation of the annotation process with the use of machine learning techniques.
+  Another key difference of our model is the inclusion of general-purpose taxonomic relations~(e.g, \textit{hypernomy}/\textit{hyponomy} and \textit{meronym}/\textit{holonym}) that are inferred from the sentence. These relations are directed towards easing the automatic construction of knowledge bases.
+
+  \subsection{Annotations models in the health domain}\label{sec:health}
+
+  Knowledge discovery tasks in the health domain are often supported by the construction of manually-annotated corpora.
+  Several task-specific annotation models have been developed for this purpose. One example is the  {DrugSemantics} corpus~\cite{moreno2017drugsemantics} where product characteristics are annotated, and  {BARR2}~\cite{barr2} which is concerned with biomedical abbreviations.
+  Many corpora include specific types of named entities relevant to the medical domain, such as {DDI}~\cite{ddi} which annotates drugs and other substances.
+  Other examples include {i2b2}~\cite{i2b2} which annotates medications, dosages and other details of drug administration and  {CLEF}~\cite{clef} which annotate different types of conditions, devices and their results in specific clinical cases.
+  Given the specificity of the annotated concepts, most of these resources are built by biomedical experts.
+
+  The previous examples are corpora helpful in designing techniques oriented towards narrow tasks,
+  where the annotation model is specifically designed to only consider portions of the text relevant to the concepts of interests (i.e., medical entities, genes, etc.).
+  An alternative approach that attempts to model a wide range of the semantics of a document is {Bio-AMR}~\cite{bioamr}.
+  This corpus contains health-related sentences annotated with their AMR structure, a general-purpose semantic representation of natural text.
+  Another relevant resource is BioFrameNet~\cite{bioframenet}, an extension to FrameNet with specific semantic roles for the biomedical domain.
+  A positive consequence of using general-purpose semantic annotations is that it doesn't necessarily require experts in biomedical areas to participate in the annotation process.
+
+  The {eHealth-KD} corpus~\cite{martinez2018overview} attempts to achieve a middle ground by representing a broad range of knowledge with a simple annotation model based on Subject-Action-Target triplets and 4 additional semantic relations.
+  However, after the annotation process several shortcomings were identified.
+  One example is the necessity for including {causality} and {entailment} as explicit relations, rather than representing them through actions, given the importance of this type of assertions in medical texts.
+  Likewise, the annotation lacks the ability to represent coreferences (``\textit{this}'', ``\textit{that}''), and for this reason many sentences cannot be fully annotated.
+  Also, complex linguistic constructions that represent composite concepts (e.g., ``\textit{the patients that received treatment}'') are difficult to annotate, especially when they participate in other relations.
+  This paper extends the annotation model used by the eHealth-KD corpus with semantic elements used in general-purpose annotation models, such as AMR and PropBank.
+  This extension allows solving the aforementioned issues and increases its representational power without adding an overly complex set of new semantic roles and relations.
 
   \section{Herramientas de Anotación}
+
+  An important element to consider in Knowledge Discovery research is the existence of computational
+  resources and infrastructure that supports the development of new approaches.
+  The creation of linguistic resources often stems from a process of manual annotation by human
+  experts, which requires computational tools for the actual annotation as well as mechanisms for merging
+  annotations and computing agreement, ideally in a collaborative environment.
+  Once the resources are created, it is necessary to distribute the corresponding corpus, baselines, and tools among the research community, often through online source code sharing platforms.
+
+  An extensive analysis and comparison of several annotation tools is provided in~\citet{annotation-tools}.
+  Table~\ref{tab:annotation-tools} summarizes the main characteristics we considered relevant for this research and identifies the most appropriate annotation tool among  a subset of  popular alternatives.
+  We consider as requisites web-based, open source annotation tools that allow multi-label span annotations as well as relation annotations. Support for collaborative annotation, at least partially, is also highly desirable.
+  Of the analyzed tools, we identified Brat~\cite{brat} and WebAnno~\cite{webanno}, as they comply with all the aforementioned requisites. In our research, we preferred Brat to WebAnno because, even though WebAnno provides more features, Brat allows an easier setup. It is not only faster to start an annotation project using this tool, but also to train annotators to use its interface.
+
+  \begin{table}[htb]
+      \centering
+      \resizebox{\textwidth}{!}{
+      \begin{tabular}{r|cccccccccccc}
+          \textbf{Characteristics} & \rotatebox{90}{\textbf{GATE Teamware}} & \rotatebox{90}{\textbf{Knowtator}} & \rotatebox{90}{\textbf{WebAnno}} & \rotatebox{90}{\textbf{Brat}} & \rotatebox{90}{\textbf{BioQRator}} & \rotatebox{90}{\textbf{CATMA}} & \rotatebox{90}{\textbf{prodigy}} & \rotatebox{90}{\textbf{TextAE}} & \rotatebox{90}{\textbf{LightTag}} & \rotatebox{90}{\textbf{Djangology}} & \rotatebox{90}{\textbf{MyMiner}} & \rotatebox{90}{\textbf{WAT-SL}} \\ \midrule
+          multi-label annotations &     &     & \ok & \ok &     & \ok &     &     & \ok & \ok &     &     \\ % F1
+          relation annotations    &     & \ok & \ok & \ok & \ok &     &     & \ok & \ok &     & \ap &     \\ % F3
+          allows custom model    & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok \\ %
+          collaborative interface & \ok &     & \ap & \ap & \ap & \ap & \ap &     & \ok & \ok &     & \ap \\ % F10
+          web-based interface     & \ok &     & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok \\ %
+          can be self-hosted      & \ok & \ok & \ok & \ok &     & \ok & \ok & \ok &     & \ok &     & \ok \\ %
+          open source license     & \ok & \ok & \ok & \ok &     & \ok &     & \ok &     & \ok & \ok & \ok \\ % T2
+          citation                &\cite{gate}&\cite{knowtator}&\cite{webanno}&\cite{brat}&\cite{bioqrator}&\cite{catma}&\cite{prodigy}&\cite{textae}&\cite{lighttag}&\cite{djangology}&\cite{myminer}&\cite{watsl}\\
+          \bottomrule
+      \end{tabular}}
+      \caption{Qualitative comparison of popular annotation tools. Adapted from Table 3 in~\citet{annotation-tools}, Table~3. A symbol~\ap~indicates that the corresponding feature is only partially supported.}
+      \label{tab:annotation-tools}
+  \end{table}
+
+  The public distribution of annotated corpora and related resources, e.g., baselines, evaluation scripts,
+  loading and formatting scripts, etc., is often enabled via open source code sharing platforms.
+  Arguably the most popular options are Github\footnote{\url{https://github.com}} and
+  Gitlab\footnote{\url{https://gitlab.com}}, which provide similar features despite minor
+  differences in their core business models.
+  It is also possible to share the corresponding resources via institutional hosting platforms or
+  other ad-hoc solutions. This could be convenient in the case of legal requirements, complex licenses that are incompatible with open source idiosyncrasies or any other consideration
+  that disallows full public sharing.
+  In our case, all resources are publicly available in a collection of Gitlab repositories\footnote{\url{https://ehealthkd.gitlab.io}}.
 
   \section{Anotación Semi-Automática}
 
@@ -72,9 +240,162 @@ However, despite the growing body of research, it is still a challenge to apply 
 
   \section{Recursos Lingüísticos}
 
+  Different semantic relations have been established  in the state of the art, many of these giving rise to the construction of corpora. We focus on two approaches: corpora or annotation models to represent knowledge in many domains as well as those specifically about health.
+  The table~\ref{tab:corpora}  presents the seven characteristics relevant to our corpus and indicates which of them are present in a sample of corpora from the state-of-the-art.
+  These characteristics can be understood in the following terms:
+  \begin{enumerate}
+  \item \textit{general-purpose annotation:} applicability of the underlying annotation model to any domain;
+  \item \textit{independence of syntax:} capturing semantic aspects rather than syntactic relations in sentences;
+  \item \textit{ontological knowledge:} supporting inheritance and composition between concepts;
+  \item \textit{composite concepts:} allowing the annotation of concepts that involve other sub-concepts;
+  \item \textit{attributes:} modeling attributes for each annotated entity such as quantifiers~(e.g., number of occurrences) or qualifiers~(e.g., degree of certainty);
+  \item \textit{contextual relations:} modeling relations that only occur when conditioned by a specific context; and,
+  \item \textit{causality / entailment:} including relations for representing causality and/or entailment.
+  \end{enumerate}
+
+  \begin{table}[htb]
+      \centering
+      \begin{tabular}{ll|c|c|c|c|c|c|c|c}
+          & \textbf{Characteristics} & \rotatebox{90}{\textbf{Ixa MedGS}~\cite{ORONOZ2015318}} & \rotatebox{90}{\textbf{DrugSemantics}~\cite{moreno2017drugsemantics}} & \rotatebox{90}{\textbf{DDI}~\cite{herrero2013ddi}} &
+          \rotatebox{90}{\textbf{Bio AMR}~\cite{bioamr}} &
+          \rotatebox{90}{\textbf{YAGO}~\cite{suchanek2007yago}} & \rotatebox{90}{\textbf{ConceptNet}~\cite{speer2017conceptnet}} & \rotatebox{90}{\textbf{eHealth-KD v1}~\cite{ehealth}} &
+          \rotatebox{90}{\textbf{eHealth-KD v2}} \\ \midrule
+          1 & general-purpose annotation &     &     &     & \ok & \ok & \ok & \ok & \ok \\
+          2 & independence of syntax      & \ok & \ok & \ok &     & \ok & \ok & \ok & \ok \\
+          3 & ontological knowledge      &     &     &     & \ok & \ok & \ok & \ok & \ok \\
+          4 & composite concepts  &     &     &     & \ok &     &     & \ok & \ok \\
+          5 & attributes        &     & \ok &     & \ok & \ok &     & \ok & \ok \\
+          6 & contextual relations       &     &     &     & \ok &     &     &     & \ok \\
+          7 & causality / entailment     & \ok &     &     & \ok &     & \ok &     & \ok \\
+          \bottomrule
+      \end{tabular}
+      \caption{Comparison between the \textit{eHealth-KD v2} corpus and other corpora with respect to
+      the characteristics that define our proposal.}
+      \label{tab:corpora}
+  \end{table}
+
+  \paragraph{General-purpose annotation}
+  General-purpose annotation models are often used in corpora extracted from encyclopedic sources, such as \textit{YAGO}~\cite{suchanek2007yago} and \textit{ConceptNet}~\cite{speer2017conceptnet}, both of which contain facts automatically extracted from Wikipedia~(among other sources). In contrast, domain-specific annotation models are usually employed when the source is more restricted to a specific domain. Examples include \textit{Ixa MedGS}~\cite{ORONOZ2015318}, which contains health related concepts for diseases, causes and medications; \textit{DrugSemantics}~\cite{moreno2017drugsemantics}, which annotates health entities, drugs and procedures; and, \textit{DDI}~\cite{herrero2013ddi}, which annotates drug-drug interactions. A middle ground is the \textit{Bio AMR}~\cite{bioamr} corpus, which applies a general purpose annotation model~(AMR)~\cite{banarescu2013abstract} to health documents. The \textit{eHealth-KD v2} corpus is similar to the latter in this respect, since the annotation model defined is general, but it is applied specifically to health sentences in this research.
+  The \textit{eHealth-KD v2} corpus constitutes the result of the evolution of the \textit{eHealth-KD v1}~\cite{ehealth} corpus.
+
+  Most of the aforementioned resources are focused on capturing the semantics of sentences, in the sense that very different sentences with the same facts are likely to be similarly annotated. We consider \textit{BioAMR} less independent of syntax because even though AMR is a semantic annotation model---far more abstract than dependency parsing, for example---, it still relies heavily on sentence grammatical structure. Hence, a significant change in the sentence structure is likely to change the annotation, even if the underlying semantic message remains unchanged. For example, since AMR uses PropBank~\cite{propbank} roles, changing a word for a semantically similar word, including a synonym, will probably change the corresponding annotation and thereby the available roles.
+  This also makes AMR and similar resources language-dependent, not only in practice given their dependence on the existence
+  of word banks, but also in nature. While attempting to apply AMR in Spanish, \citet{migueles2018annotating} show that even though AMR is theoretically language-agnostic,
+  the existing annotation guidelines are biased towards English and must be adapted to capture linguistic phenomena
+  that don't exist in English.
+  The annotation model designed in this research for the \textit{eHealth-KD v2} corpus, attempts to achieve a higher level of syntactic independence, in part by using a smaller set of entities, relations and roles than AMR. More specifically, our annotation model does not distinguish semantic roles for each possible \texttt{Action}, instead relying on general purpose roles~(i.e., \texttt{subject} and \texttt{target}, see Section~\ref{subsec:model}).
+
+  \paragraph{Ontological knowledge}
+  General-purpose annotation models often allow ontological knowledge to be represented in the form of inheritance and composition between concepts. In this context, we consider the ability to recognize and annotate  these ontological relations in the source text. Health-related annotation models do not usually deal with this problem, mainly because the entities and relations to annotate form a predefined ontology where composition and hierarchy, if any exist, are already conceived in the annotation model itself. However, general purpose annotations often include relations like \textit{ConceptNet}'s \texttt{is-a} or \texttt{part-of} that directly represent these ontological concepts, and are thus able to extract ontological representations from natural text.
+
+  \paragraph{Composite concepts}
+  The model designed for the \textit{eHealth-KD v2} corpus also includes relations specifically for this purpose, mostly inspired by \textit{ConceptNet} and \textit{YAGO}.
+  Composite concepts, in contrast, refer to the ability to annotate concepts that are formed by a fine-grained combination of other entities, in the same sentence. For example, take the sentence: ``\textit{the doctors that work the night shift get paid extra hours}''. \textit{AMR} allows for the representation of the concept that not all doctors, but only those that work the night shift, are the ones who get paid extra hours. Our proposal also includes several annotation patterns to deal with this type of scenario.
+
+  \paragraph{Attributes}
+  Attributes are often used to further refine the meaning of annotated entities. Examples include quantifiers in \textit{AMR}, or modifiers that specify a degree of uncertainty, or a negation of a concept. Our proposal includes four general-purpose attributes that model uncertainty, negation and qualifiers for expressing emphasis.
+
+  \paragraph{Contextual relations}
+  Contextual relations, as defined in the \textit{eHealth-KD v2} corpus, allow  facts that only occur
+  under certain conditions to be represented, for example, in a specific time frame or location or under certain assumptions. This allows for a finer-grained semantic annotation. \textit{BioAMR} inherits this ability from \textit{AMR}, which allows modifiers for expressing \textit{how}, \textit{when}, \textit{where} or \textit{why} some event occurs. In our proposal, we provide contextual relations that specify time and location, and an additional general-purpose relation for other conditions.
+
+  \paragraph{Causality and entailment}
+  Causality and entailment are general-purpose relations that allow some level of inference or reasoning. The \textit{Ixa MedGS} corpus defines a \texttt{causes} relation, since it is relevant in the domain the corpus is modeling. Likewise, \textit{AMR} and \textit{ConceptNet} include similar relations. Our proposal includes both causality and entailment as two different relations with well-defined semantic meanings.
+
+% PAPER EHEALTHKD 2019
+
+  The accelerated growth of the Internet has resulted in a massive collection of scientific texts that are available online.
+Several bibliographical databases exist, grouping academic texts from different domains, such \texttt{Arxiv.org}\footnote{https://arxiv.org} and
+\texttt{Medline}\footnote{https://medline.gov},
+which are two of the largest repositories, containing a vast amount of information that can be used by the scientific community.
+However, its large size makes it impossible for human researchers to efficiently find useful results, definitions, or facts.
+Even with the use of specialized search engines (such as Google Scholar), it is complicated to find relevant information in domain-specific documents.
+This is due in part to the lack of a unified semantic structure in these documents, which are written in natural language.
+
+To provide more fine-grained search results, documents can be processed to extract the relevant semantic entities and facts mentioned.
+The task of automatically discovering semantic knowledge from text is covered by research areas
+such as ontology learning~\cite{cimiano2009ontology} and {learning by reading}~\cite{barker2007learning},
+whose purpose is to build semantic networks that {capture} the knowledge present in large collections of text.
+These semantic networks enable the use of search engines that provide an analysis beyond the textual content's relevance, by exploiting the semantic structure of the network.
+In this context, processing health textual contents has attracted {great interest}~\cite{gonzalez2017capturing}, motivated by the large number of medical documents published yearly.
+
+Several approaches exist for building semantic representations of knowledge.
+In many cases, these representations use a domain-specific conceptualization.
+Although this provides a more specialized representation, it makes these approaches harder to apply to a broad range of domains.
+Alternatively, a general purpose conceptualization could be used, which is able to represent entities and facts from multiple knowledge domains.
+Such conceptualization should be general enough so as to accommodate many different domains, but still to provide a degree of expressiveness necessary for knowledge mining tasks.
+One possible conceptualization is using
+{Subject-Action-Target triplets}~\cite{suilan2018}.
+This structure has proven to be useful for representing knowledge in both specific
+domains such as movie reviews~\cite{suilan2018} or sentiment
+mining~\cite{emotinet} and in {general domain ontology learning}~\cite{mitchell2018never}. %%%%CHANGE fix cite info
+Furthermore, Subject-Action-Target triplets automatically extracted from text can be
+later linked to domain-specific relations through the use of semantic networks.
+As an example, the \textit{SemRep} system~\cite{semrep} extracts Subject-Predicate-Object
+triplets from natural eHealth texts. The predicates are linked to specific relations
+in the UMLS~\cite{umls} semantic network.
+
+Recent work in the development of Teleologies~\cite{teleologies} suggests that Action-Subject-Target triplets can be the base for general purpose conceptualizations across many different domains, since this triplet allows the capture of interactions between objects through the actions they perform on each other.
+A small set of semantic relations, such as \textit{hyponomy} and
+\textit{holonomy} can provide additional semantic structure to theAMR
+representation. These ``general'' relations are common in most knowledge bases,
+regardless of domain, such as WordNet~\cite{miller1998wordnet},
+DBPedia~\cite{lehmann2015dbpedia}, and ConceptNet~\cite{conceptnet}.
+Other possible conceptualizations allow the capture of semantics of natural language,
+such as Abstract Meaning Representation~(AMR)~\cite{amr}. Despite the superior representational
+power of AMR over simple structures such as Action-Subject-Target triplets {and basic semantic
+relations}, the annotation process for AMR is considerably more complex both for humans and automated techniques.
+
+Building corpora annotated with the Action-Subject-Target structure is the first step towards the design of systems that can automatically extract these annotations. Several corpora exist in the literature, annotated with a variety of different schemes, such as CLEF~\cite{kelly2016overview}, Yago~\cite{fabian2007yago} and Emotinet~\cite{emotinet}.
+However, most of these resources are annotated with domain-specific conceptualizations that are difficult to extend to different knowledge domains.
+This paper presents a general purpose conceptualization and an example corpus\footnote{https://github.com/knowledge-learning/ehealth-kd}
+annotated with such conceptualization, which demonstrates its ability to represent a wide variety of topics in a semantically rich structure.
+Furthermore, a set of baseline implementations of machine learning techniques for automatically annotating similar sentences are presented\footnote{https://github.com/knowledge-learning/ehealth-kd/tree/master/baseline}.
+Based on these resources, an ongoing online evaluation is available for researchers\footnote{https://competitions.codalab.org/competitions/18188}.
+
   \section{Sistemas de Aprendizaje Automático para el Descubrimiento de Conocimiento}
 
   \section{Entornos de Evaluación Competitivos}
+
+  A strategy often used to encourage research on a specific task is the organization of a shared
+  evaluation campaign. In contrast with regular research, evaluation campaigns often have a fixed
+  time frame, and evaluation resources are not fully disclosed~(e.g., gold annotations for
+  test sets are hidden) to allow a fair comparison in a friendly competitive environment.
+  In this section, we analyze relevant efforts for organizing evaluation campaigns for both the biomedical domain or for dealing with entity and relation extraction.
+
+  Several online services allow researchers to organize machine learning challenges and competitions, providing automatic grading, user management, and other useful features.
+  Kaggle\footnote{\url{https://kaggle.com}} is arguably the most popular choice, its main limitation for our purposes being that to host a challenge, organizers must contact the service providers. Possible alternatives are AIcrowd\footnote{\url{https://www.aicrowd.com}} and
+  Codalab\footnote{\url{https://codalab.org}} which provide free options for challenge organizers.
+
+  The CLEF eHealth Evaluation Lab has proposed several challenges in the biomedical domain, including
+  named entity recognition~\cite{clef2013} and information extraction~\cite{clef2014} in English,
+  and later editions in French documents~\cite{clef2015, clef2016}.
+  In these challenges, medical reports from MEDLINE, EMEA and similar sources are annotated with disorders, medical terms, acronyms and abbreviations, which provide evaluation scenarios
+  for several NLP tasks, including entity recognition, normalization and disambiguation.
+  Another relevant task is proposed by~\citet{semeval2017-task9} in Semeval 2017, focused on AMR parsing and generation from biomedical
+  sentences in English. Applying a general-purpose conceptualization, such as AMR, to specific domains encouraged participants to bridge the gap between developing generalizable techniques and applying domain-specific heuristics.
+  However, AMR parsing is already a complex problem in itself, which can negatively impact on researcher participation in these challenges if they are not specialized in AMR.
+  Simpler, general-purpose models can encourage a greater degree of participation given the easier entry curve.
+  An example of the latter is the Semeval 2017 Task 10~\cite{semeval2017-task10},
+  a challenge regarding keyphrase and relation extraction from scientific documents,
+  with a simple model based on three entity classes and two general-purpose relations.
+  This task received a much larger number of submissions than the former, even though both challenges where hosted on the same venue and aimed at similar audiences.
+
+  As can be expected, English is the most prominently used language in NER-related challenges, given the larger
+  number of available corpora and resources. However, important efforts have been devoted to fostering research
+  in less prominent languages. Relevant to our discussion are the IberLEF campaigns that focus on Iberian languages,
+  such as Spanish, Portuguese, Catalan, and other regional variations.
+  Two examples of recent NER-related tasks are the Portuguese Named Entity~\cite{glauber2019iberlef} challenge and the MEDDOCAN~\cite{marimon2019automatic} document anonymization challenge.
+  The first proposes entity recognition and relation extraction in the general domain, in Portuguese.
+  The second proposes the identification of privacy-sensitive entity mentions in medical documents, e.g., names, addresses,
+  dates, ages, etc.
+
+  Outside the frame of a competition, open, long-running evaluation systems allow
+  researchers to evaluate their approaches with official evaluation metrics.
+  This can also provide a centralized repository of the state-of-the-art, where existing approaches are
+  summarized and linked to existing papers.
+  In this regard, this research proposes an online evaluation system that allows a comparison of
+  new approaches with officially published results at any time. Based on this infrastructure, official evaluation campaigns with a more competitive design are organized in scheduled time-frames.
 
   \section{Representación del Conocimiento}
 
