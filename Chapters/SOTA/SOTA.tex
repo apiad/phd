@@ -133,6 +133,43 @@ Even better is a publicly available evaluation system where researchers can subm
   In this section we present a review of relevant annotation models from which we draw inspiration.
   We focus general-purpose annotation models~\ref{sec:general} as well as on annotation models that have been applied to the health domain~\ref{sec:health}.
 
+  To provide more fine-grained search results, documents can be processed to extract the relevant semantic entities and facts mentioned.
+The task of automatically discovering semantic knowledge from text is covered by research areas
+such as ontology learning~\cite{cimiano2009ontology} and {learning by reading}~\cite{barker2007learning},
+whose purpose is to build semantic networks that {capture} the knowledge present in large collections of text.
+These semantic networks enable the use of search engines that provide an analysis beyond the textual content's relevance, by exploiting the semantic structure of the network.
+In this context, processing health textual contents has attracted {great interest}~\cite{gonzalez2017capturing}, motivated by the large number of medical documents published yearly.
+
+Several approaches exist for building semantic representations of knowledge.
+In many cases, these representations use a domain-specific conceptualization.
+Although this provides a more specialized representation, it makes these approaches harder to apply to a broad range of domains.
+Alternatively, a general purpose conceptualization could be used, which is able to represent entities and facts from multiple knowledge domains.
+Such conceptualization should be general enough so as to accommodate many different domains, but still to provide a degree of expressiveness necessary for knowledge mining tasks.
+One possible conceptualization is using
+{Subject-Action-Target triplets}~\cite{suilan2018}.
+This structure has proven to be useful for representing knowledge in both specific
+domains such as movie reviews~\cite{suilan2018} or sentiment
+mining~\cite{emotinet} and in {general domain ontology learning}~\cite{mitchell2018never}. %%%%CHANGE fix cite info
+Furthermore, Subject-Action-Target triplets automatically extracted from text can be
+later linked to domain-specific relations through the use of semantic networks.
+As an example, the \textit{SemRep} system~\cite{semrep} extracts Subject-Predicate-Object
+triplets from natural eHealth texts. The predicates are linked to specific relations
+in the UMLS~\cite{umls} semantic network.
+
+Recent work in the development of Teleologies~\cite{teleologies} suggests that Action-Subject-Target triplets can be the base for general purpose conceptualizations across many different domains, since this triplet allows the capture of interactions between objects through the actions they perform on each other.
+A small set of semantic relations, such as \textit{hyponomy} and
+\textit{holonomy} can provide additional semantic structure to theAMR
+representation. These ``general'' relations are common in most knowledge bases,
+regardless of domain, such as WordNet~\cite{miller1998wordnet},
+DBPedia~\cite{lehmann2015dbpedia}, and ConceptNet~\cite{conceptnet}.
+Other possible conceptualizations allow the capture of semantics of natural language,
+such as Abstract Meaning Representation~(AMR)~\cite{amr}. Despite the superior representational
+power of AMR over simple structures such as Action-Subject-Target triplets {and basic semantic
+relations}, the annotation process for AMR is considerably more complex both for humans and automated techniques.
+
+Building corpora annotated with the Action-Subject-Target structure is the first step towards the design of systems that can automatically extract these annotations. Several corpora exist in the literature, annotated with a variety of different schemes, such as CLEF~\cite{kelly2016overview}, Yago~\cite{fabian2007yago} and Emotinet~\cite{emotinet}.
+However, most of these resources are annotated with domain-specific conceptualizations that are difficult to extend to different knowledge domains.
+
   \subsection{General-purpose annotation models}\label{sec:general}
 
   Several general-purpose semantic annotation models have been developed, that attempt to represent the semantics of a sentence beyond the syntactic structure.
@@ -537,53 +574,6 @@ However, despite the growing body of research, it is still a challenge to apply 
 
   \paragraph{Causality and entailment}
   Causality and entailment are general-purpose relations that allow some level of inference or reasoning. The \textit{Ixa MedGS} corpus defines a \texttt{causes} relation, since it is relevant in the domain the corpus is modeling. Likewise, \textit{AMR} and \textit{ConceptNet} include similar relations. Our proposal includes both causality and entailment as two different relations with well-defined semantic meanings.
-
-% PAPER EHEALTHKD 2019
-
-  The accelerated growth of the Internet has resulted in a massive collection of scientific texts that are available online.
-Several bibliographical databases exist, grouping academic texts from different domains, such \texttt{Arxiv.org}\footnote{https://arxiv.org} and
-\texttt{Medline}\footnote{https://medline.gov},
-which are two of the largest repositories, containing a vast amount of information that can be used by the scientific community.
-However, its large size makes it impossible for human researchers to efficiently find useful results, definitions, or facts.
-Even with the use of specialized search engines (such as Google Scholar), it is complicated to find relevant information in domain-specific documents.
-This is due in part to the lack of a unified semantic structure in these documents, which are written in natural language.
-
-To provide more fine-grained search results, documents can be processed to extract the relevant semantic entities and facts mentioned.
-The task of automatically discovering semantic knowledge from text is covered by research areas
-such as ontology learning~\cite{cimiano2009ontology} and {learning by reading}~\cite{barker2007learning},
-whose purpose is to build semantic networks that {capture} the knowledge present in large collections of text.
-These semantic networks enable the use of search engines that provide an analysis beyond the textual content's relevance, by exploiting the semantic structure of the network.
-In this context, processing health textual contents has attracted {great interest}~\cite{gonzalez2017capturing}, motivated by the large number of medical documents published yearly.
-
-Several approaches exist for building semantic representations of knowledge.
-In many cases, these representations use a domain-specific conceptualization.
-Although this provides a more specialized representation, it makes these approaches harder to apply to a broad range of domains.
-Alternatively, a general purpose conceptualization could be used, which is able to represent entities and facts from multiple knowledge domains.
-Such conceptualization should be general enough so as to accommodate many different domains, but still to provide a degree of expressiveness necessary for knowledge mining tasks.
-One possible conceptualization is using
-{Subject-Action-Target triplets}~\cite{suilan2018}.
-This structure has proven to be useful for representing knowledge in both specific
-domains such as movie reviews~\cite{suilan2018} or sentiment
-mining~\cite{emotinet} and in {general domain ontology learning}~\cite{mitchell2018never}. %%%%CHANGE fix cite info
-Furthermore, Subject-Action-Target triplets automatically extracted from text can be
-later linked to domain-specific relations through the use of semantic networks.
-As an example, the \textit{SemRep} system~\cite{semrep} extracts Subject-Predicate-Object
-triplets from natural eHealth texts. The predicates are linked to specific relations
-in the UMLS~\cite{umls} semantic network.
-
-Recent work in the development of Teleologies~\cite{teleologies} suggests that Action-Subject-Target triplets can be the base for general purpose conceptualizations across many different domains, since this triplet allows the capture of interactions between objects through the actions they perform on each other.
-A small set of semantic relations, such as \textit{hyponomy} and
-\textit{holonomy} can provide additional semantic structure to theAMR
-representation. These ``general'' relations are common in most knowledge bases,
-regardless of domain, such as WordNet~\cite{miller1998wordnet},
-DBPedia~\cite{lehmann2015dbpedia}, and ConceptNet~\cite{conceptnet}.
-Other possible conceptualizations allow the capture of semantics of natural language,
-such as Abstract Meaning Representation~(AMR)~\cite{amr}. Despite the superior representational
-power of AMR over simple structures such as Action-Subject-Target triplets {and basic semantic
-relations}, the annotation process for AMR is considerably more complex both for humans and automated techniques.
-
-Building corpora annotated with the Action-Subject-Target structure is the first step towards the design of systems that can automatically extract these annotations. Several corpora exist in the literature, annotated with a variety of different schemes, such as CLEF~\cite{kelly2016overview}, Yago~\cite{fabian2007yago} and Emotinet~\cite{emotinet}.
-However, most of these resources are annotated with domain-specific conceptualizations that are difficult to extend to different knowledge domains.
 
   \section{Sistemas de Aprendizaje Automático para el Descubrimiento de Conocimiento}
 
