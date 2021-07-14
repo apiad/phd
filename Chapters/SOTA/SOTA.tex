@@ -1,5 +1,5 @@
 \chapter{Estado de la Cuestión}\label{Chap:SOTA}
-\markboth{\MakeUppercase{Estado de la Cuestión}}{}
+\markboth{\MakeUppercase{Estado de la Cuesti\'on}}{}
 
 Intro del estado del arte
 
@@ -305,11 +305,189 @@ AMR is heavily biased towards English. It is not an Interlingua.
 
   \begin{description}
     \item[GATE Teamware]
+    an open-source text annotation framework and a methodology for the implementation and support of complex annotation projects. It has a web-based architecture, where a number of web services (e.g. document storage, automatic annotation) are made available via HTTPS and the users interact with the text annotation interfaces through a standard web browser.
+
+    GATE Teamware is based on GATE (Cunningham et al. 2011b), a widely used, scalable and robust open-source NLP platform. GATE comes with numerous reusable text processing components for many natural languages, coupled with a graphical NLP development environment and user interfaces for visualisation and editing of linguistic annotations, parse trees, co-reference chains, and ontologies. GATE Teamware however was created specifically to be used by non-expert annotators, as well as to enable methodologically sound, efficient, and cost-effective corpus annotation projects over the web.
+
+    In addition to its research uses, GATE Teamware has also been tested as a framework for cost-effective commercial annotation services, supplied either as in-house units or as outsourced specialist activities. Several test annotation projects have been conducted in the domains of bio-informatics and business intelligence, with minimal training and producing high quality corpora. For example, Meurs et al. (2011) apply GATE Teamware to the task of building a database of fungal enzymes for biofuel research. Their results show that using GATE Teamware for automatic pre-annotation and manual correction increases the speed with which papers can be processed for inclusion in the database by a factor of around 50 %.
+
+    Similar to other server-side software, GATE Teamware installation is a specialised, non-trivial task with associated costs, in terms of significant time and staff expertise required. In order to lower this barrier and provide zero startup costs, we have made available cloud-based GATE Teamware virtual machines ,Footnote3 that can be turned on and off as required. In addition, the GATECloud.net (Tablan et al. 2013) integration makes it easy to choose a set of automatically annotated documents and send these into a GATE Teamware instance. There is also a virtual machine distribution that can be downloaded and run locally instead.
+
     \item[Knowtator]
+    In Knowtator, an annotation
+    schema is defined with Protégé class, instance,
+    slot, and facet definitions using the Protégé knowledge-base editing functionality. The defined annotation schema can then be applied to a text
+    annotation task without having to write any task
+    specific software or edit specialized configuration
+    files. Annotation schemas in Knowtator can model
+    both syntactic (e.g. shallow parses) and semantic
+    phenomena (e.g. protein-protein interactions).
+
+    Knowtator approaches the definition of an annotation schema as a knowledge engineering task by
+    leveraging Protégé’s strengths as a knowledgebase editor. Protégé has user interface components
+    for defining class, instance, slot, and facet frames.
+    A Knowtator annotation schema is created by defining frames using these user interface components as a knowledge engineer would when
+    creating a conceptual model of some domain. For
+    Knowtator the frame definitions model the phenomena that the annotation task seeks to capture.
+
+    As a simple example, the co-reference annotation task that comes with Callisto can be modeled
+    in Protégé with two class definitions called markable and chain. The chain class has two slots references and primary_reference which are
+    constrained by facets to have values of type markable. This simple annotation schema can now be
+    used to annotate co-reference phenomena occur274
+    ring in text using Knowtator. Annotations in
+    Knowtator created using this simple annotation
+    schema.
+
+    A key strength of Knowtator is its ability to relate annotations to each other via the slot definitions of the corresponding annotated classes. In
+    the co-reference example, the slot references of the
+    class chain relates the markable annotations for the
+    text extents ‘the cat’ and ‘It’ to the chain annotation. The constraints on the slots ensure that the
+    relationships between annotations are consistent.
+
+    Protégé is capable of representing much more
+    sophisticated and complex conceptual models
+    which can be used, in turn, by Knowtator for text
+    annotation. Also, because Protégé is often used to
+    create conceptual models of domains relating to
+    biomedical disciplines, Knowtator is especially
+    well suited for capturing named entities and relations between named entities for those domains.
+
     \item[WebAnno]
+    WebAnno is the third major release of the web-based annotation tool WebAnno (Yimam et al., 2013;
+    Yimam et al., 2014) introducing new functionalities enabling the annotation of semantic structures:
+
+    1. Slot-features allow the appropriate modelling of predicate-argument structures for SRL. We also
+    support the following additional semantic annotation types: participants and circumstances for event
+    annotation, n-ary relations for relation extraction, and slot-filling tasks for information extraction.
+
+    2. Constraints help annotators by performing a context-sensitive filtering of the rich semantic tagsets.
+    For example, the sense of a semantic predicate determines available argument roles. Such a filtering is
+    necessary to avoid loosing valuable time by having annotators search through a large number of tags
+    or to manually type in tags. Constraint rules can be defined manually or they can be automatically
+    generated, e.g. from machine-readable lexical resources. To our knowledge, there is no other
+    web-based annotation tool offering a comparable functionality.
+
+    3. An improved annotation interface for a streamlined annotation process using a permanently visible
+    sidebar instead of a pop-up dialog for editing annotations and their features.
+
+    These new functionalities integrate well with the existing functionalities in WebAnno 2, in particular its
+    support for the annotation of syntactic structures, thus enabling semantic annotation in coordination with
+    syntactic annotation. To our knowledge, WebAnno 3 is presently the only web-based and team-oriented
+    annotation tool to support both, the annotation of semantic as well as syntactic structures.
+
+    WebAnno 3 was developed and implemented in close coordination with users in the context of an
+    annotation project (cf. Mujdricza-Maydt et al. (2016)) for word sense disambiguation (WSD) and SRL on ´
+    German texts and driven by its practical requirements. SRL is the task of identifying semantic predicates,
+    their arguments, and assigning roles to these arguments. It is a difficult task usually performed by experts.
+    Examples of well-known SRL schemes motivated by different linguistic theories are FrameNet (Baker
+    et al., 1998), PropBank (Palmer et al., 2005), and VerbNet (Kipper Schuler, 2005). SRL annotation
+    is typically based on syntactic structures obtained from treebanks, such as the constituent-based Penn
+    Treebank (for PropBank annotation), or the German TIGER treebank for FrameNet-style annotation
+    (Burchardt et al., 2009). An argument is typically identified by the span of its syntactic head or syntactic
+    constituent. For some annotation schemes (e.g. FrameNet), the task also includes WSD. In this case, the
+    sense label typically determines the available argument slots. The example below shows an annotation
+    using FrameNet; the predicate ask receives the frame label Questioning (corresponding to its word sense)
+    and its arguments are annotated as Addressee, Speaker, Message, and Iterations
+
     \item[Brat]
+    BRAT is based on our previously released opensource STAV text annotation visualiser (Stenetorp et al., 2011b), which was designed to help
+    users gain an understanding of complex annotations involving a large number of different semantic types, dense, partially overlapping text annotations, and non-projective sets of connections
+    between annotations. Both tools share a vector
+    graphics-based visualisation component, which
+    provide scalable detail and rendering. BRAT integrates PDF and EPS image format export functionality to support use in e.g. figures in publications (Figure 1).
+
+    2.2 Intuitive Annotation Interface
+
+    We extended the capabilities of STAV by implementing support for annotation editing. This was
+    done by adding functionality for recognising standard user interface gestures familiar from text editors, presentation software, and many other tools.
+    In BRAT, a span of text is marked for annotation
+    simply by selecting it with the mouse by “dragging” or by double-clicking on a word. Similarly,
+    annotations are linked by clicking with the mouse
+    on one annotation and dragging a connection to
+    the other.
+
+    BRAT is browser-based and built entirely using
+    standard web technologies. It thus offers a familiar environment to annotators, and it is possible to start using BRAT simply by pointing a
+    standards-compliant modern browser to an installation. There is thus no need to install or distribute any additional annotation software or to
+    use browser plug-ins. The use of web standards
+    also makes it possible for BRAT to uniquely identify any annotation using Uniform Resource Identifiers (URIs), which enables linking to individual
+    annotations for discussions in e-mail, documents
+    and on web pages, facilitating easy communication regarding annotations.
+
+    2.3 Versatile Annotation Support
+
+    BRAT is fully configurable and can be set up to
+    support most text annotation tasks. The most basic annotation primitive identifies a text span and
+    assigns it a type (or tag or label), marking for e.g.
+    POS-tagged tokens, chunks or entity mentions
+    (Figure 1 top). These base annotations can be
+    connected by binary relations – either directed or
+    undirected – which can be configured for e.g. simple relation extraction, or verb frame annotation
+    (Figure 1 middle and bottom). n-ary associations
+    of annotations are also supported, allowing the annotation of event structures such as those targeted
+    in the MUC (Sundheim, 1996), ACE (Doddington
+    et al., 2004), and BioNLP (Kim et al., 2011) Information Extraction (IE) tasks (Figure 2). Additional aspects of annotations can be marked using
+    attributes, binary or multi-valued flags that can
+    be added to other annotations. Finally, annotators
+    can attach free-form text notes to any annotation.
+    In addition to information extraction tasks,
+    these annotation primitives allow BRAT to be
+    configured for use in various other tasks, such
+    as chunking (Abney, 1991), Semantic Role Labeling (Gildea and Jurafsky, 2002; Carreras
+    and Marquez, 2005), and dependency annotation `
+    (Nivre, 2003) (See Figure 1 for examples). Further, both the BRAT client and server implement
+    full support for the Unicode standard, which allow the tool to support the annotation of text using e.g. Chinese or Devanagar ¯ ¯ı characters. BRAT
+    is distributed with examples from over 20 corpora for a variety of tasks, involving texts in seven
+    different languages and including examples from
+    corpora such as those introduced for the CoNLL
+    shared tasks on language-independent named entity recognition (Tjong Kim Sang and De Meulder, 2003) and multilingual dependency parsing
+    (Buchholz and Marsi, 2006).
+    BRAT also implements a fully configurable system for checking detailed constraints on annotation semantics, for example specifying that a
+    TRANSFER event must take exactly one of each
+    of GIVER, RECIPIENT and BENEFICIARY arguments, each of which must have one of the types
+    PERSON, ORGANIZATION or GEO-POLITICAL
+    ENTITY, as well as a MONEY argument of type
+    103
+    Figure 3: Incomplete TRANSFER event indicated
+    to the annotator
+    MONEY, and may optionally take a PLACE argument of type LOCATION (LDC, 2005). Constraint
+    checking is fully integrated into the annotation interface and feedback is immediate, with clear visual effects marking incomplete or erroneous annotations (Figure 3).
+    2.4 NLP Technology Integration
+    BRAT supports two standard approaches for integrating the results of fully automatic annotation
+    tools into an annotation workflow: bulk annotation imports can be performed by format conversion tools distributed with BRAT for many
+    standard formats (such as in-line and columnformatted BIO), and tools that provide standard
+    web service interfaces can be configured to be invoked from the user interface.
+    However, human judgements cannot be replaced or based on a completely automatic analysis without some risk of introducing bias and reducing annotation quality. To address this issue,
+    we have been studying ways to augment the annotation process with input from statistical and
+    machine learning methods to support the annotation process while still involving human annotator
+    judgement for each annotation.
+    As a specific realisation based on this approach,
+    we have integrated a recently introduced machine learning-based semantic class disambiguation system capable of offering multiple outputs
+    with probability estimates that was shown to be
+    able to reduce ambiguity on average by over 75%
+    while retaining the correct class in on average
+    99\% of cases over six corpora (Stenetorp et al.,
+    2011a). Section 4 presents an evaluation of the
+    contribution of this component to annotator productivity.
+    2.5 Corpus Search Functionality
+    BRAT implements a comprehensive set of search
+    functions, allowing users to search document colFigure 4: The BRAT search dialog
+    lections for text span annotations, relations, event
+    structures, or simply text, with a rich set of search
+    options definable using a simple point-and-click
+    interface (Figure 4). Additionally, search results
+    can optionally be displayed using keyword-incontext concordancing and sorted for browsing
+    using any aspect of the matched annotation (e.g.
+    type, text, or context).
+
     \item[BioQRator]
+    BioQRator ( 17 ) is a general-purpose user interface for annotating bio-entities and relationships. Simple and minimal network messages are used to communicate between BioQRator and text-mining resources. This enables one to easily create a customized interface for any bio-curation project if the task involved is to annotate entities and/or relationships. An important issue for curation systems is the multiple different formats that are used. To address this problem, we adopt BioC ( 18 , 19 ) as a standard input and output format. For input, BioC formatted documents or PubMed abstracts can be used. For output, annotated documents can be saved in the BioC or CSV (comma-separated values) format as well. More importantly, BioQRator provides an easy-to-use interactive web interface. It also supports multiple browsers including Chrome, Firefox and Safari (partially compatible with Internet Explorer).
+
+    The BioCreative Interactive task (IAT) is a track designed for exploring user–system interactions, promoting development of useful text-mining tools and providing a communication channel for biocuration and text-mining communities ( 20 , 21 ). For BioCreative IV, a participating team defined a topic and tasks for curators’ evaluation. Biocurator volunteers were assigned to participating teams based on their interests in defined topics. The BioCreative IAT task is especially meaningful for text-mining communities because there has been little effort to formally evaluate curation tools. To demonstrate the usability of BioQRator in BioCreative IV, a PPI task was defined and PIE the search ( 22 , 23 ) was used for an external text-mining resource. Necessary databases such as PubMed, Entrez Gene and UniProt were used to provide web links for BioQRator.
+
     \item[CATMA]
+
+
     \item[prodigy]
 
     Prodigy is a modern annotation tool for creating training and evaluation data for machine learning models. You can also use Prodigy to help you inspect and clean your data, do error analysis and develop rule-based systems to use in combination with your statistical models.
@@ -358,8 +536,153 @@ Control Your Data Quality
 LightTag's Review Mode and Reporting make it easy to ensure your data is perfect and your annotators are performing at their very best.
 
     \item[Djangology]
-    \item[MyMiner]-
+
+    The Djangology
+    annotation web application was originally created to meet the needs of a collaborative annotation
+    project involving more than 250 international participants.
+    The goal of the project was to create a gold standard corpus
+    which is annotated with named entities of the domain
+    of interest: medical studies of trauma, shock, and sepsis
+    conditions. Abstracts from an annual conference dedicated
+    to the subject and hosted by the the North American
+    Shock Society 6 were used to identify the domain-specific
+    named entities via an automated process. The named entity
+    annotations had to then be validated by domain experts -
+    the contributors to the conference. The Djangology system
+    has been in use for two consecutive years (2008 and 2009),
+    and has achieved an average contributor response rate of
+    70%.
+
+    The needs of the project led to a set of requirements common to similar highly-distributed collaborative annotation
+    projects. An administration interface was needed to manage documents and users, as well as for the definition of
+    annotation schemas. Annotations created via an automated
+    process needed to be loaded into the system. Participants
+    were notified via email and presented with a link to the
+    web-based interface. After logging in, annotators were able
+    to view a list of assigned documents. An intuitive webbased user interface was needed to allow participants to annotate documents with minimal instructional text. Easy and
+    quick annotation access was crucial to the success of the
+    project. As the time of domain experts is quite valuable,
+    complicated installation or annotation instructions would
+    be prohibitive. The system also needed to display interannotator agreement statistics, as well as the evaluation
+
+    Djangology can be deployed on any web-accessible server
+    and requires a Python installation, Django installation, and
+    connectivity to a database server 9
+    . Source code and installation instructions can be found at the project website http://djangology.sourceforge.net/. We estimate that
+    end-to-end installation and configuration time for a Python
+    and Django-savvy developer is less than an hour. Once
+    deployed, the application can be accessed from any web
+    browser - no browser plug-ins, JVM installation, or custom
+    security settings are necessary, as the client-server communication is based on standard HTTP and Ajax requests.
+    The application database schema (Figure 1(a)) and user interface can be rapidly extended and customized. For example, creating a new field to annotator accounts could be
+    effortlessly achieved by just adding a new attribute to the
+    corresponding Python model class. The corresponding web
+    form and underlying database schema are transparently updated by the Django framework
+
+    The Djangology 10 application presents administrators with
+    an interface to create/modify annotation projects and manage users (Figure 2). Administrators can import documents
+    (single document or batch mode) into a project, define the
+    project annotation schema, create annotator accounts, and
+    assign annotators to specific projects and to a list of documents. Existing annotations and documents could also be
+    easily loaded into the system through custom Python scripts
+    (stand-alone Django scripts) or through direct connection
+    to the Djangology database. Djangology has been used to
+    import manually created annotations in the Knowtator format and from the BioScope Corpus (Szarvas et al., 2008)
+    as well as annotations created automatically by the Gate
+    and UIMA (Ferrucci and Lally, 2004) frameworks and the
+    Metamap c system from the National Library of Medicine.
+    In the workflow of the system, contributors are typically
+    emailed their system authentication information and presented with a link to the application (Figure 3). Once
+    logged in, annotators can select one of their assigned documents and proceed with the web-based annotation interface.
+    An Ajax-based web page allows contributors to highlight a
+    fragment of text and assign it to one of the pre-defined annotation types (based on the project annotation schema).
+    The procedure for entering new annotations and modifying
+    existing annotations is intuitive and based on user interface
+    conventions - text selection/right-click menu selection. The
+    system is specifically designed to require minimum timeinvestment on the part of the involved annotators. No installation, configuration, or reading user manuals is necessary on the part of the contributors. Annotations are saved
+    to the backend database as they are entered, ensuring that
+    no work is lost. In order to save annotators’ effort, once a
+    phrase is annotated, all occurrences of the phrase in the document are automatically annotated in the same type. Users
+    are also given a facility to override the automatically created annotations or change the system’s default behavior. If
+    desired, contributors could also mark documents as completed to alert the project administrator of the annotation
+    progress.
+
+    Once annotations are gathered from various contributors, project administrators have the ability to view interannotator agreement statistics - a variety of pair-wise
+    project-based and document-based metrics are computed
+    and presented in the user interface. As analysis of inter-annotator disagreement is a common task, an
+    interface for a side-by-side comparison of document annotations is also provided.
+
+    \item[MyMiner]
+    MyMiner is an interactive web application based on a modular design with the purpose to assist users in biocuration and text annotation tasks. The MyMiner interface is intended to be user-friendly, not requiring installation of any local software. Each module has an export option for saving results. The time spent for processing a document is recorded in the exported file. To improve the user-friendliness, a common display layout has been adopted and conserved between application modules. The input document analysis area is located on the top of the page; options and tools are placed below the main curation zone. MyMiner combines PHP, JavaScript and AJAX to enhance user interactivity. The core of the MyMiner system covers four application modules that can be independently used or combined together following the steps of a biocuration pipeline (Supplementary Fig. S1).
+
+    MyMiner handles any plain text, including article abstracts, document sentences, ontology terms or disease descriptions.
+
+    The ‘File-labelling’ module is a simple to use manual text classification interface that allows classifying documents, abstracts, sentences or terms, offering the possibility to enter user-specified class labels. This module could be used for instance to classify documents as either relevant or not to a specific topic from a PubMed query. Its purpose is to cover the triage task (article selection) carried out by database annotators but it can also be used for any manual classification recording. The labelled data that result from this classification can serve as training and test sets for text categorization systems. To reduce the manual classification time, it provides the option of dynamically setting positive and negative text highlights. These are expressions that users can set at any time during the tagging process to highlight text relevant (marked in yellow) or non-relevant (marked in red) to the topic of interest. The system offers the possibility to upload the classification guidelines so that the annotator can refer to them when necessary. Users can pause and resume the curation process at any time by saving the classified document. To resume classification, the saved file is uploaded as input file. The time spent by a user to select the corresponding label is recorded. This may be useful to estimate the efficiency of annotators and the difficulty of the task.
+
+    The ‘Compare File’ module facilitates the direct comparison of collections of labelled items generated by several approaches or persons. In addition, it is possible to create subsets from these collections based on the agreement or disagreement of annotation labels. This module could be used to compare and evaluate document classification methods between various persons or softwares. It displays a global summary with information covering: (i) the number of documents within each class; (ii) the average time needed to classify the text; (iii) the correlation between classification time and text length or (iv) the number of items tagged differently between annotators. This module allows extracting a collection of texts (known as a Gold Standard corpus) that have been labelled consistently by all annotators. Alternatively, the module can also be used to extract the borderline cases tagged differently. Hasty/inaccurate annotations can be detected from inter-annotator disagreements and/or a poor correlation between document size versus classification time. These cases can then be used to refine and improve the classification guidelines. The Compare File module has been used to estimate consistency of manual annotations between various individuals and methods (Supplementary Data Section 2).
+
+    The purpose of the ‘Entity Tagging’ (entity mention recognition) module is to manually detect important conceptual objects within a document, a first step for further identification of annotation events and relations to populate knowledge databases. This module could be used to create a corpus of gene and protein mentions to test and train a Named Entity Recognition tool. This module offers an interactive interface allowing users to semi-automatically identify various kinds of entities within documents. It has been designed as a WYSIWYG (What You See Is What You Get) online editor that allows the addition of user-specified labels for new entity types. For the detection of important bio-entities, this module provides the automatic recognition of proteins, DNA, RNA, cell lines and cell types by integrating the ABNER tagger (Settles, 2005). The LINNAEUS system is incorporated into MyMiner to identify species and organisms (Gerner et al., 2010). Additionally, user-defined entities can be detected if terms-tags dictionaries are provided. To improve the accuracy of the annotations, tags can be edited and wrongly generated labels can be removed. To define simple relationships between entities and terms, a matrix check box display was added to this module (Supplementary Fig. S14).
+
+    The ‘Entity Linking’ module facilitates the manual annotation of bioentities mentioned in a document with standardized identifiers. This module could be used to manually link articles to disease and protein identifiers to create a catalogue of proteins involved in pathologies. Gene/protein names are automatically recognized and displayed as a list that can be manually edited, and new entities can be added and incorrectly identified ones can be removed. For each gene/protein name, MyMiner suggests a ranked list of UniProt identifiers that utilize the UniProt search scoring mechanism (Arighi et al., 2011). Species mentions are normalized to NCBI taxon identifiers; OMIM identifiers are associated to diseases and ontology terms are linked to identifiers from submitted ontology files. For this purpose, MyMiner launches asynchronous queries to respective databases (UniProt, NCBI taxonomy, OMIM and user provided ontology file) using AJAX requests. For organisms, proteins, diseases and ontology terms, a short description is displayed to help validate potential candidate hits and to assist during the manual disambiguation of potential databases identifiers. Check boxes allow the selection of the most appropriate identifiers from the candidate list. If species are specified prior to a protein identifier search, species-specific constraints are applied to reduce the number of potential candidates from UniProt.
+
     \item[WAT-SL]
+    WAT-SL (Web Annotation
+    Tool for Segment Labeling), an open-source webbased annotation tool dedicated to segment labeling.1 WAT-SL provides all functionalities to efficiently run and manage segment labeling projects.
+    Its self-descriptive annotation interface requires
+    only a web browser, making it particularly convenient for remote annotation processes. The interface can be easily tailored to the requirements of
+    the project using standard web technologies in order to focus on the specific segment labels at hand
+    and to match the layout expectations of the annotators. At the same time, it ensures that the texts
+    to be labeled remain readable during the whole
+    annotation process. This process is server-based
+    and preemptable at any point. The annotator’s
+    progress can be constantly monitored, as all relevant interactions of the annotators are logged in a
+    simple key-value based plain text format.
+
+    WAT-SL is a ready-to-use and easily customizable
+    web-based annotation tool that is dedicated to segment labeling and that puts the focus on easy usage for all involved parties: annotators, annotation
+    curators, and annotation project organizers.
+    In WAT-SL, the annotation process is split into
+tasks, usually corresponding to single texts. Together, these tasks form a project.
+
+    Once a segment is labeled, its background color
+    changes, and the button displays an abbreviation
+    of the respective label. To assist the annotators in
+    forming a mental model of the annotation interface, the background colors of labeled segments
+    match the label colors in the menu. All labels are
+    saved automatically, avoiding any data loss in case
+    of power outages, connection issues, or similar.
+    In some cases, texts might be over-segmented,
+    for example due to an automatic segmentation. If
+    this is the case, WAT-SL allows annotators to mark
+    a segment as being continued in the next segment.
+    The interface will then visually connect these segments (cf. the buttons showing “->” in Figure 2).
+    Finally, the annotation interface includes a text
+    box for leaving comments to the project organizers. To simplify the formulation of comments,
+    each segment is numbered, with the number being
+    shown when the mouse cursor is moved over it.
+
+    After an annotation process is completed, a curation phase usually follows where the annotations
+    of different annotators are consolidated into one.
+    The WAT-SL curation interface enables an efficient curation by mimicking the annotation interface with three adjustments (Figure 3): First, segments for which the majority of annotators agreed
+    on a label are pre-labeled accordingly. Second, the
+    menu shows for each label how many annotators
+    chose it. And third, the label description shows
+    (anonymized) which annotator chose the label, so
+    that curators can interpret each label in its context.
+    The curation may be accessed under the same
+    URL as the annotation in order to allow annotators
+    of some tasks being curators of other tasks.
+
+    WAT-SL is a platform-independent and easily deployable standalone Java application, with few
+    configurations stored in a simple “key = value”
+    file. Among others, annotators are managed in this
+    file by assigning a login, a password, and a set of
+    tasks to each of them. For each task, the organizer
+    of an annotation project creates a directory (see
+    below). WAT-SL uses the directory name as the
+    task name in all occasions. Once the Java archive
+    file we provide is then executed, it reads all configurations and starts a server. The server is immediately ready to accept requests from the annotators.
+
   \end{description}
 
   The public distribution of annotated corpora and related resources, e.g., baselines, evaluation scripts,
