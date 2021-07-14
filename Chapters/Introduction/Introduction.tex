@@ -1,0 +1,146 @@
+\chapter{Introducción}\label{Chapter1:Introduction}
+\markboth{\MakeUppercase{Introducción}}{}
+
+El crecimiento exponencial de Internet en las últimas décadas ha producido un excedente masivo de información textual en todas las áreas del desarrollo humano. Este escenario presenta tanto una oportunidad como un desafío para los investigadores. Por un lado, conectar resultados publicados en diferentes fuentes permitiría potencialmente descubrir nuevo conocimiento que está actualmente disperso. Por otro lado, la totalidad de la información disponible no puede ser procesada manualmente en un plazo razonable. Por lo tanto, los esfuerzos se han dirigido recientemente hacia el diseño de técnicas automáticas que pueden descubrir información relevante en grandes corpus, hacer conexiones lógicas y sintetizar conocimientos útiles.
+Este proceso se denomina descubrimiento automático de conocimiento y es una rama de investigación con un creciente interés~\cite{maimon2005data}.
+El primer paso en muchas de estas técnicas implica la recopilación, el procesamiento y la anotación de datos que se pueden utilizar para entrenar algoritmos de aprendizaje automático o construir sistemas expertos mediante el uso de técnicas de procesamiento de lenguaje natural.
+
+El dominio de la salud digital es de gran interés para la comunidad investigadora dados los beneficios sociales potenciales derivados de la aplicación de tecnologías automáticas de descubrimiento de conocimiento. La comunidad científica ha producido abundantes corpus anotados en diferentes sub-dominios de este sector, desde conocimiento específico (p.e., interacciones entre medicamentos y enfermedades~\cite{goldberg1996drug} o genes y proteínas~\cite{tanabe2005genetag}) hasta modelos más generales independientes (p.e., informes de ensayos clínicos~\cite{nye2018corpus}).
+Los corpus y las tecnologías específicas del dominio son de importancia crítica en la medicina de alta precisión.
+Sin embargo, los sistemas creados para dominios muy específicos son más difíciles de generalizar y ampliar que los sistemas basados en conceptualizaciones de propósito más amplio.
+Por tanto, existe un interés creciente en el diseño de modelos de anotación y corpus con una semántica de propósito general que puedan usarse en una variedad de dominios o como una componente en sistemas especializados.
+
+Además del dominio, el idioma es otra dimensión que ha sido foco de investigaciones recientes.
+La mayoría de los recursos lingüísticos más utilizados se basan en fuentes en idiomas inglés, motivados en parte por la abundancia de contenido disponible (p.e., enciclopedias en línea o artículos científicos), lo cual no es sorprendente dado que el inglés es el idioma predominante en la ciencia, la tecnología y las comunicaciones a nivel internacional.
+Sin embargo, los recursos basados en inglés a menudo no son directamente aplicables a otros idiomas.
+Aunque la traducción automática ha alcanzado una precisión impresionante en los dominios abiertos, sigue siendo un desafío crear recursos en varios idiomas, como el español, que son menos utilizados en dominios técnicos~\cite{villegas2018mespen}.
+En lugar de centrarse en idiomas específicos, una línea de investigación alternativa es diseñar recursos que sean agnósticos al idioma basándose en características comunes. Esto permitiría su generalización a múltiples idiomas con poco esfuerzo.
+
+\section{Motivación}
+\label{chap1:motivation}
+
+El diseño de modelos de anotaciones que pueden generalizarse a múltiples dominios e idiomas requiere una representación básica del lenguaje que cubra una amplia gama semántica.
+Además, estas representaciones deben ser tan independientes de la sintaxis y las reglas gramaticales como sea posible.
+El trabajo reciente de~\citet{estevez2018gathering} sugiere que las tripletas Sujeto-Acción-Objeto pueden usarse para detectar una amplia cantidad de interacciones semánticas en lenguaje natural, independientes del dominio y relativamente independientes del idioma, ya que más del 75\% de los idiomas humanos emplean alguna variación de la estructura gramatical Sujeto-Verbo-Objeto~\cite{crystal2004cambridge}.
+Del mismo modo, varias representaciones ontológicas a menudo coinciden en una serie de relaciones de propósito general, (por ejemplo, hipónimos---\textit{is-a}---,  holónimos---\textit{part-of}---) que son útiles en cualquier dominio.
+Otras conceptualizaciones permiten capturar la semántica, centrada en la sintaxis, más cerca del lenguaje natural, como  AMR~(\textit{Abstract Meaning Representation})~\cite{banarescu2013abstract}.
+La construcción de corpus anotados con estructuras semánticas de propósito general como Sujeto-Acción-Objeto y relaciones ontológicas de alto nivel es el primer paso en el diseño de sistemas que pueden descubrir conocimiento automáticamente en una variedad de dominios y escenarios.
+
+El descubrimiento automático de conocimiento requiere no solo recursos lingüísticos~(por ejemplo, corpus anotados) sino también recursos e infraestructuras computacionales que permiten a los investigadores evaluar sistemáticamente sus resultados y compararlos objetivamente con enfoques alternativos.
+Esto requiere la definición formal de tareas y el diseño de métricas de evaluación objetivas que garanticen una comparación justa.
+Aún mejor es un entorno de evaluación disponible para la comunidad donde los investigadores puedan enviar sus resultados, garantizando que se apliquen los mismos criterios de evaluación y liberando a los investigadores de reproducir el entorno de evaluación. Dicho sistema también garantizaría un proceso de investigación más transparente y reproducible, y proporcionaría un repositorio centralizado de los enfoques existentes, ayudando a los nuevos investigadores a actualizarse sobre el estado del arte.
+
+\section{Trabajos Relacionados}
+\label{chap1:related}
+
+En investigaciones recientes se han establecido diferentes relaciones semánticas para capturar el conocimiento en lenguaje natural, muchas de las cuales dan lugar a la construcción de corpus. Esta investigación se centra tanto en corpus o modelos de anotación para representar el conocimiento en múltiples dominios, como aquellos específicamente diseñado para el dominio de la salud.
+La tabla~\ref{tab:corpora} presenta las siete características más relevantes para la propuesta planteada en esta investigación e indica cuáles de ellas están presentes en una muestra de corpus del estado del arte.
+Se incluyen en la comparación tres ediciones de un corpus desarrollado en el marco de esta investigación~(\textit{eHealth-KD}).
+Las características consideradas son:
+\begin{enumerate}
+\item \textit{independiente del dominio:} aplicabilidad del esquema de anotación subyacente a cualquier dominio; 
+\item \textit{independiente de la sintaxis:} capturar aspectos semánticos en lugar de relaciones sintácticas en oraciones; 
+\item \textit{conocimiento ontológico:} soportar la herencia y la composición de conceptos;
+\item \textit{conceptos compuestos:} permitir la anotación de conceptos que involucran otros subconceptos; 
+\item \textit{atributos:} utilizar atributos como cuantificadores~(por ejemplo, número de ocurrencias) o calificadores~(por ejemplo, grado de certeza);
+\item \textit{relaciones contextuales:} permitir relaciones que solo ocurren cuando están condicionadas por un contexto específico; y,
+\item \textit{causalidad/implicación:} incluir relaciones para representar causalidad y/o vinculación.
+\end{enumerate}
+
+\newcommand{\ok}{\checkmark}
+\newcommand{\ap}{\ensuremath{\approx}}
+
+\begin{table}[h!tb]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{ll||c|c|c|c|c|c||c|c|c}
+        & \textbf{Características} & \rotatebox{90}{\textbf{Ixa MedGS}~\cite{ORONOZ2015318}} & \rotatebox{90}{\textbf{DrugSemantics}~\cite{moreno2017drugsemantics}} & \rotatebox{90}{\textbf{DDI}~\cite{herrero2013ddi}} &
+        \rotatebox{90}{\textbf{Bio AMR}~\cite{bioamr}} &
+        \rotatebox{90}{\textbf{YAGO}~\cite{suchanek2007yago}} & \rotatebox{90}{\textbf{ConceptNet}~\cite{speer2017conceptnet}} & \rotatebox{90}{\textbf{eHealth-KD 2018}~\cite{ehealth}} &
+        \rotatebox{90}{\textbf{eHealth-KD 2019}~\cite{ehealth2}} & 
+        \rotatebox{90}{\textbf{eHealth-KD 2020}}\\ \midrule
+        1 & independiente del dominio    &     &     &     & \ok & \ok & \ok & \ok & \ok & \ok \\
+        2 & independiente de la sintaxis & \ok & \ok & \ok &     & \ok & \ok & \ok & \ok & \ok \\
+        3 & conocimiento ontológico      &     &     &     & \ok & \ok & \ok & \ok & \ok & \ok \\
+        4 & conceptos compuestos         &     &     &     & \ok &     &     & \ok & \ok & \ok \\
+        5 & atributos                    &     & \ok &     & \ok & \ok &     & \ok & \ok & \ok \\ 
+        6 & relaciones contextuales      &     &     &     & \ok &     &     &     & \ok & \ok \\
+        7 & causalidad/implicación       & \ok &     &     & \ok &     & \ok &     & \ok & \ok \\
+        \bottomrule
+    \end{tabular}}
+    \caption[Comparativa de recursos lingüísticos]{Comparación entre los corpus de \textit{eHealth-KD} 2018, 2019 y 2020, con otros recursos similares con respecto a las características que definen la propuesta presentada.}
+    \label{tab:corpora}
+\end{table}
+
+Los modelos de anotación de propósito general a menudo se usan en corpus extraídos de fuentes enciclopédicas, como \textit{YAGO}~\cite{suchanek2007yago} y \textit{ConceptNet}~\cite{speer2017conceptnet}, los cuales contienen hechos seleccionados automáticamente de Wikipedia~(entre otras fuentes). Por el contrario, los modelos de anotación de dominio específico generalmente se emplean cuando la fuente está más restringida. Los ejemplos incluyen \textit{Ixa MedGS}~\cite{ORONOZ2015318}, que contiene conceptos relacionados con la salud para enfermedades, causas y medicamentos; \textit{DrugSemantics}~\cite{moreno2017drugsemantics}, que anota entidades sanitarias, medicamentos y procedimientos; y \textit{DDI}~\cite{herrero2013ddi}, que anota las interacciones farmacológicas. Un término medio es el corpus \textit{Bio AMR}~\cite{bioamr}, que aplica un modelo de anotación de propósito general~(\textit{Abstract Meaning Representation}, AMR)~\cite{banarescu2013abstract} a los documentos de salud. El corpus \textit{eHealth-KD} es similar a este último en este sentido, ya que el modelo de anotación definido es general, pero se aplica específicamente a las oraciones de salud en esta investigación.
+
+La mayoría de los recursos antes mencionados se centran en capturar la semántica de las oraciones, en el sentido de que es probable que oraciones diferentes con los mismos hechos se anoten de manera similar. Se puede considerar que \textit{BioAMR} es más dependiente de la sintaxis porque, aunque AMR es un modelo de anotación semántica ---más abstracto, por ejemplo, que el análisis de dependencia--- todavía depende en gran medida de la estructura gramatical de las oraciones. Por lo tanto, es probable que un cambio significativo en la estructura de la oración cambie la anotación, incluso si el mensaje semántico subyacente es el mismo. Por ejemplo, dado que AMR usa los roles de PropBank~\cite{propbank}, cambiar una palabra por otra semánticamente similar, incluido un sinónimo, probablemente cambiará la anotación correspondiente y, por lo tanto, los roles disponibles.
+Esto también hace que AMR y recursos similares dependan del idioma, no solo en la práctica dada su dependencia de la existencia de bancos de palabras, pero también desde su definición. Al intentar aplicar AMR en español, \citet{migueles2018annotating} muestra que aunque es teóricamente independiente del idioma, las guías de anotación existentes están sesgadas hacia el inglés y deben adaptarse para capturar otros fenómenos lingüísticos que no existen en este idioma.
+En esta investigación se intenta lograr un mayor nivel de independencia sintáctica, en parte mediante el uso de un conjunto más pequeño de entidades, relaciones y roles que AMR.
+
+Una estrategia a menudo utilizada para alentar la investigación sobre una tarea específica es la organización de campañas de evaluación competitivas. En contraste con la investigación regular, estas campañas a menudo tienen una duración predefinida y los recursos de evaluación no se divulgan completamente~(por ejemplo, las anotaciones para los conjuntos de prueba) para permitir una comparación justa en un entorno competitivo amigable. Uno de los más importantes ejemplos en el dominio de la salud es el \textit{CLEF eHealth Evaluation Lab}, que ha propuesto numerosos eventos competitivos en el dominio médico, incluyendo tareas de reconocimiento de entidades nombradas~\cite{clef2013} y extracción de información~\cite{clef2014} en inglés, y en ediciones posteriores también en documentos en francés~\cite{clef2015, clef2016}. 
+En otras ediciones los informes médicos de MEDLINE, EMEA y fuentes similares se han anotado con trastornos, términos médicos, siglas y abreviaturas, que proporcionan escenarios de evaluación para varias tareas de procesamiento de lenguaje natural, incluyendo reconocimiento de entidades, normalización y desambiguación.
+
+Otra tarea relevante es propuesta por~\citet{semeval2017-task9} en Semeval 2017, centrada en el reconocimiento y la generación de AMR a partir de oraciones médicas en inglés.
+La aplicación de una conceptualización de propósito general, como AMR, a dominios específicos alentó a los participantes a cerrar la brecha entre el desarrollo de técnicas generalizables y la aplicación de heurísticas específicas de dominio.
+Sin embargo, el reconocimiento del modelo AMR ya es un problema complejo en sí mismo, que puede tener un impacto negativo en la participación de los investigadores en estos eventos si no están especializados en este modelo.
+Los modelos más simples y de propósito general pueden alentar un mayor grado de participación dada una curva de entrada más fácil.
+Un ejemplo de esto último es el evento Semeval 2017 Task 10~\cite{semeval2017-task10}, que propone la extracción de palabras claves y relaciones en documentos científicos, con un modelo simple basado en tres clases de entidades y dos relaciones de propósito general.
+Esta tarea recibió un número mucho mayor de presentaciones que la anterior, a pesar de que ambos eventos se desarrollaron en el mismo contexto y se dirigieron a audiencias similares.
+
+Fuera del marco de una competencia, los sistemas de evaluación abiertos y de larga duración permiten
+a los investigadores evaluar sus enfoques con métricas oficiales. Esto también puede proporcionar un repositorio centralizado del estado del arte, donde los enfoques existentes sean resumidos y enlazados a los artículos y recursos respectivos.
+En este sentido, esta investigación propone un sistema de evaluación en línea que permite una comparación de
+nuevos enfoques con resultados publicados oficialmente en cualquier momento. Sobre la base de esta infraestructura, se organizan en plazos programados campañas de evaluación oficiales con un diseño más competitivo.
+
+\section{Problema Científico}
+\label{chap1:problem}
+
+Los enfoques existentes para el descubrimiento automático de conocimiento en lenguaje natural tienen una aplicación limitada, debido a diversos factores.
+Por un lado, no existen suficientes recursos anotados, especialmente en idiomas diferentes del Inglés, necesarios para entrenar sistemas de aprendizaje automático.
+Además, los modelos de representación semántica existentes son específicos a un dominio o tarea concreta, mientras que los modelos generalizables son computacionalmente complejos de automatizar.
+Por otro lado, hay una fragmentación en la comunidad científica, con poca interacción entre comunidades que se concentran en enfoques específicos, tales como el aprendizaje profundo y la representación del conocimiento.
+Esta situación dificulta el desarrollo de técnicas capaces de descubrir conocimiento de propósito general en documentos de diferentes dominios e idiomas.
+
+\section{Objetivos}
+\label{chap1:objectives}
+
+El objetivo general de esta Tesis es el diseño y construcción de un ecosistema para apoyar el desarrollo de tecnologías
+en el campo del descubrimiento de conocimiento. Este ecosistema consta de recursos lingüísticos, como la definición de un modelo semántico de anotación y corpus; herramientas e infraestructura para desplegar y evaluar sistemas; y, métricas de evaluación para permitir comparaciones justas. Concretamente, las contribuciones de esta investigación son:
+\begin{itemize}
+    \item La definición de un modelo semántico y un esquema de anotación para capturar la semántica del lenguaje natural que es generalizable a cualquier dominio.
+    \item La construcción de varios recursos lingüísticos (corpus) manualmente anotados en idioma español, específicamente orientados al dominio de la salud, y un análisis de sus métricas de calidad y características fundamentales.
+    \item La definición formal de una tarea de descubrimiento de conocimiento basada en estos recursos lingüísticos, incluyendo métricas objetivas de evaluación en diferentes subtareas.
+    \item El desarrollo de una infraestructura para apoyar la creación de sistemas para la tarea mencionada, incluyendo herramientas y sistemas de base; y un servicio en línea para la evaluación automática y continua de nuevas técnicas.
+    \item La organización y evaluación de eventos competitivos para incentivar en la comunidad científica el desarrollo de tecnologías de descubrimiento de conocimiento en idioma español, así como un análisis de los resultados obtenidos y una discusión de las líneas de desarrollo más prometedoras.
+    \item El desarrollo de una estrategia computacional para acelerar la construcción de recursos lingüísticos mediante la inclusión de un sistema de aprendizaje en el ciclo de anotación que provea sugerencias al anotador humano.
+\end{itemize}
+
+\section{Estructura de la Tesis}
+\label{chap1:thesis-structure}
+
+La presente tesis está organizada por el sistema de compendio de artículos científicos. Se presentan un total de tres artículos publicados, y un artículo no publicado aún, que resumen todo el trabajo realizado en la consecución de los objetivos definidos en la Sección~\ref{chap1:objectives}. A modo de resumen se presenta un Capítulo que recoge los principales resultados obtenidos, y luego los artículos se organizan en las Partes II y III. Finalmente se presentan unas conclusiones generales y recomendaciones de trabajo futuro. A continuación se describe en mayor detalle el contenido de cada capítulo.
+
+\begin{description}
+\item[Parte I] resume los resultados de la Tesis.
+
+\item [Capítulo~\ref{Chap:Results}] presenta los principales resultados obtenidos en el curso de la investigación, agrupados en 6 secciones fundamentales dedicadas a cada uno de los objetivos de investigación presentados en la Sección~\ref{chap1:objectives}.
+
+\item[Parte II] presenta tres artículos publicados en el marco de esta investigación.
+
+\item [Capítulo~\ref{Chap:Schema}] presenta el artículo \textit{A General Purpose Annotation Model for Knowledge Discovery: A Case Study in Spanish Clinical Text}, que define el diseño conceptual de un esquema de anotación independiente de dominio e idioma para la extracción de conocimiento en lenguaje natural. Este esquema fue utilizado para la anotación de tres versiones del corpus \textit{eHealth-KD} que será presentado en los capítulos siguientes.
+
+\item [Capítulo~\ref{Chap:CorpusV1}] presenta el artículo \textit{A Corpus to support eHealth Knowledge Discovery technologies}, con la primera versión del corpus \textit{eHealth-KD}, anotado en el contexto de la competencia \textit{eHealth Knowledge Discovery} organizada en el Taller de Análisis Semántico (TASS 2018). Esta primera versión fue anotada con una versión simplificada del esquema presentado en el Capítulo~\ref{Chap:Schema}.
+
+\item [Capítulo~\ref{Chap:CorpusV2}] presenta el artículo \textit{A Computational Ecosystem to Support eHealth Knowledge Discovery Technologies in Spanish}, con las contribuciones principales de la investigación, que consisten en una segunda versión del corpus, anotado con el esquema completo, así como el diseño de una infraestructura y recursos para el desarrollo de tecnologías de descubrimiento de conocimiento.
+
+\item[Parte III] presenta un artículo aún no publicado que complementa la investigación.
+
+\item [Capítulo~\ref{Chap:Annotation}] presenta el artículo \textit{Active Learning for Assisted Corpus Construction: A Case Study in Knowledge Discovery from Biomedical Text}, que presenta una estrategia para acelerar considerablemente el proceso de anotación manual a partir de introducir un sistema de aprendizaje en el ciclo de anotación. Esta estrategia fue desarrollada a partir de las experiencias ganadas durante el proceso de anotación, normalización y publicación del corpus \textit{eHealth-KD} y los eventos competetitivos relacionados.
+
+\item[Parte IV] presenta las conclusiones y recomendaciones.
+
+\item [Capítulo~\ref{Chap:Conclusions}] presenta las conclusiones generales de la investigación, las experiencias adquiridas, y un resumen de las publicaciones que tributan a esta Tesis.
+
+\item [Capítulo~\ref{Chap:FutureWork}] presenta las principales recomendaciones para el trabajo futuro.
+\end{description}

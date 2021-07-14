@@ -1,0 +1,328 @@
+\ProvidesPackage{ThesisStyle}
+
+%	-	<Package(s)>	-	%
+\usepackage{epigraph}	% - For the quotations
+\usepackage{graphicx}	% - For the graphics & Veelo style with report document class
+%\usepackage{titlesec}	% - For the Veelo style with report document class
+\usepackage[pagestyles, outermarks]{titlesec}	% - For the Veelo style with report document class
+\usepackage[usenames,dvipsnames]{color}	% - Color package
+\usepackage{todonotes}
+\usepackage{booktabs}
+\usepackage{xcolor}	% - Color package
+\usepackage{amsmath}	% - For the underset command
+\usepackage{amssymb}	% - For the symbols of the number sets
+\usepackage{wasysym}	% - For the \Circle symbol
+%\usepackage[colon]{natbib}	% - For the bibliography
+\usepackage{caption}	% - For changing the caption properties
+\usepackage[inline]{enumitem}	% - For in-line enumerations
+\usepackage[printonlyused]{acronym}	% - For managing the acronyms in the text
+\usepackage{type1cm, lettrine}	% - For drop-cap letters
+\usepackage{bibentry} % - For displaying a bibtex entry directly in the text
+\usepackage{subfig}	% - For plotting subfigures
+\usepackage{xfrac}	% - For nice brackets/fractions (\sfrac{}{})
+\usepackage{multirow}	% - For the multirow (tables) environment
+\usepackage{adjustbox}	% - Compressing tables
+\usepackage{pdflscape} % - For landscape tables
+\usepackage{afterpage}	% - Avoiding page break when using landscape pagescomment
+\usepackage{microtype}	% - Improving a little bit the style
+\usepackage{ctable}
+\usepackage{fancyhdr}	% - For fancy headers
+\usepackage{placeins}	% - For the issue with the float elements after a lanscape environment
+\usepackage{pifont}	% - For the drawings of the statistical tests
+\usepackage{arydshln}	% - For the dashed line in the tables
+%	-	<\Package(s)>	-	%
+\setcounter{secnumdepth}{3} % para enumerar el subsubsection
+\setlength{\parskip}{1.7mm} % espacio entre parrafos
+\renewcommand{\baselinestretch}{1.2}
+%\usepackage{longtable}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+%\setlength{\parskip}{\baselineskip}
+
+%%%%%%%%%%%%%%%%%%%%%
+% White pages for opening in odd pages %
+%%%%%%%%%%%%%%%%%%%%%
+% - No white pages (good for online version)
+%\let\cleardoublepage\clearpage
+
+% - Real white pages (good for printed version)
+\let\origdoublepage\cleardoublepage
+\newcommand{\clearemptydoublepage}{%
+	\clearpage
+	{\pagestyle{empty}\origdoublepage}%
+}
+\let\cleardoublepage\clearemptydoublepage
+
+%%%%%%%%%%%%%%%%%%%%%
+% White pages for opening in odd pages %
+%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%       -       <For the algorithms>  -       %
+\usepackage[ruled,linesnumbered,algochapter]{algorithm2e}
+\SetKwRepeat{DoWhile}{do}{while}
+%       -       <\For the algorithms>  -       %
+
+
+%	-	<Defining headers for the different cases>	-	%
+%%%	-	Starting of the chapter
+\fancypagestyle{fancyInitChapterStyle}{%
+	\fancyhf{}
+	%\fancyhead[LE]{\itshape{Chapter \thechapter:~\nouppercase{\leftmark}}}
+	%\fancyhead[RO]{\itshape{\nouppercase{\leftmark}}}
+	\fancyfoot[LE,RO]{--~Pág \thepage~--}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+
+%%%	-	General style of the chapter
+\fancypagestyle{fancyNormalChapterStyle}{%
+	\fancyhf{}
+	\fancyhead[LE]{\itshape{Capítulo \thechapter:~\nouppercase{\leftmark}}}
+	\fancyhead[RO]{\itshape{\nouppercase{\@title}}}
+	\fancyfoot[LE,RO]{--~Pág \thepage~--}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+
+
+
+%%%	-	General style of the chapter
+\fancypagestyle{fancyAppendixStyle}{%
+	\fancyhf{}
+	\fancyhead[LE]{\itshape{Apéndice \thechapter:~\nouppercase{\leftmark}}}
+	\fancyhead[RO]{\itshape{\nouppercase{\@title}}}
+	\fancyfoot[LE,RO]{--~Pág \thepage~--}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+
+%%%	-	Style for the references
+\fancypagestyle{fancyUnnumberedSectionsStyle}{%
+	\fancyhf{}
+	\fancyhead[LE]{\itshape{\nouppercase{\leftmark}}}
+	\fancyhead[RO]{\itshape{\nouppercase{\leftmark}}}
+	\fancyfoot[LE,RO]{--~Pág \thepage~--}
+	\renewcommand{\headrulewidth}{1pt}  % las lineas que arriba y abjo de cada pagina
+	\renewcommand{\footrulewidth}{1pt}
+}
+
+
+
+%%%	-	Style for the references
+\fancypagestyle{fancySpecialSectionsStyle}{%
+	\fancyhf{}
+	\fancyhead[LE]{}
+	\fancyhead[RO]{}
+	\fancyfoot[LE,RO]{--~Pág \thepage~--}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+
+
+
+
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancyInitChapterStyle}}{}{}
+%	-	<Defining headers for the different cases>	-	%
+
+
+%	-	<Configuring captions>	-	%
+\captionsetup{labelfont=bf}
+%	-	<\Configuring captions>	-	%
+
+
+
+%	-	<Color definitions>	-	%
+\definecolor{BlueForLinks}{rgb}{0,0,1}
+\definecolor{GreenForLinks}{rgb}{0,.3,0}
+%	-	<\Color definitions>	-	%
+
+
+%	-	<Additional definitions>	-	%
+\newcommand{\cmark}{\textcolor{OliveGreen}{\ding{51}}}%
+\newcommand{\xmark}{\textcolor{RedViolet}{\ding{55}}}%
+%	-	<\Additional definitions>	-	%
+
+%	-	<For the list of symbols>	-	%
+%\usepackage[intoc]{nomencl}  % If you want to use the references add options refpage, refeq
+%\renewcommand{\nomname}{List of symbols}
+%\makenomenclature
+%	-	<\For the list of symbols>	-	%
+
+
+
+
+%	-	<For the quotation>	-	%
+%\epigraphfontsize{\small\itshape}
+\setlength\epigraphwidth{5.5cm}
+\setlength\epigraphrule{1pt}
+\renewcommand{\epigraphflush}{flushleft}
+\renewcommand{\sourceflush}{flushright}
+%\usepackage{quotchap}
+%	-	<\For the quotation>	-	% 
+
+
+%	-	<For changing arabic numbers to roman in chapters>	-	%
+%\renewcommand\thechapter{\Roman{chapter}}
+\renewcommand\thechapter{\arabic{chapter}}
+%	-	<\For changing arabic numbers to roman in chapters>	-	%
+
+
+%	-	<For changing roman numbers to letter in part>	-	%
+%\renewcommand\thepart{\MakeUppercase{\fnsymbol{part}}}
+%	-	<\For changing roman numbers to letter in part>	-	%
+
+
+%	-	<Veelo style in report document class>	-	%
+\newcommand*\HUGE{\Huge}
+\newcommand*\chapnamefont{\normalfont\LARGE\textsc}
+\newcommand*\chapnumfont{\normalfont\HUGE}
+\newcommand*\chaptitlefont{\normalfont\HUGE\bfseries}
+
+\newlength\beforechapskip
+\newlength\midchapskip
+\setlength\midchapskip{\paperwidth}
+\addtolength\midchapskip{-\textwidth}
+\addtolength\midchapskip{-\oddsidemargin}
+\addtolength\midchapskip{-1in}
+\setlength\beforechapskip{18mm}
+
+\titleformat{\chapter}[display]
+	{\normalfont\filleft}
+	{{\chapnamefont\chaptertitlename}%
+		\makebox[0pt][l]{\hspace{.8em}%
+		\resizebox{!}{\beforechapskip}{\chapnumfont\thechapter}%
+		\hspace{.8em}%
+		\rule{\midchapskip}{\beforechapskip}%
+		}%
+	}%
+	{25pt}
+	{\chaptitlefont}
+
+\titlespacing*{\chapter}
+	{0pt}{40pt}{40pt}
+%	-	<\Veelo style in report document class>	-	%
+
+%	-	<Configuring the Veelo style>	-	%
+\newpagestyle{mystyle}{
+%\sethead
+%    [\chaptertitle\ifthesection{~--~\sectiontitle}{}][][]
+%    {}{}{\ifthesection{\sectiontitle~--~}{}\chaptertitle}
+%\sethead[][][]{}{}{Chapter~\thechapter:~\chaptertitle}
+\setfoot[\thepage][][]{}{--~\thepage~--}{}
+}
+%\pagestyle{mystyle}
+%\assignpagestyle{\chapter}{mystyle}
+
+%\chapterstyle{veelo}
+%\chapterstyle{companion}
+%	-	<Configuring the Veelo style>	-	%
+
+
+%	-	<Allowing the openright option in a oneside document>	-	%
+%%%% -> COMMENTED FOR THE MOMENT SO THAT THERE ARE NO WHITE PAGES IN-BETWEEN
+%\makeatletter
+%\def\cleardoublepage{\clearpage\ifodd\c@page\else
+%    \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
+%\makeatother
+%	-	<\Allowing the openright option in a oneside document>	-	%
+
+
+
+
+
+%	-	<acronym package>	-	%
+\renewcommand\acsfont{\normalfont}
+
+\makeatletter
+\def\uplabel#1{{\normalfont{\textsf{#1}}\hfill}}
+\renewenvironment{acronym}[1][1]{%
+   \providecommand*{\acro}{\AC@acro}%
+   \providecommand*{\acroplural}{\AC@acroplural}%
+   \long\def\acroextra##1{##1}%
+   \def\@tempa{1}\def\@tempb{#1}%
+   \ifx\@tempa\@tempb%
+      \global\expandafter\let\csname ac@des@mark\endcsname\AC@used%
+      \ifAC@nolist%
+      \else%
+         \begin{list}{}%
+                {\settowidth{\labelwidth}{\normalfont{\textsf{#1}}\hspace*{6em}}% change according to your needs
+                \setlength{\leftmargin}{\labelwidth}%
+                \addtolength{\leftmargin}{\labelsep}%
+                \renewcommand{\makelabel}{\uplabel}}
+      \fi%
+   \else%
+      \begin{AC@deflist}{#1}%
+   \fi%
+  }%
+  {%
+   \ifx\AC@populated\AC@used\else%
+      \ifAC@nolist%
+      \else%
+          \item[]\relax%
+      \fi%
+   \fi%
+   \expandafter\ifx\csname ac@des@mark\endcsname\AC@used%
+      \ifAC@nolist%
+      \else%
+        \end{list}%
+      \fi%
+   \else%
+      \end{AC@deflist}%
+   \fi}%
+\renewenvironment{AC@deflist}[1]%
+        {\ifAC@nolist%
+         \else%
+            \raggedright\begin{list}{}%
+                {\settowidth{\labelwidth}{\normalfont{\textsf{#1}}\hspace*{8em}}% change according to your needs
+                \setlength{\leftmargin}{\labelwidth}%
+                \addtolength{\leftmargin}{\labelsep}%
+                \renewcommand{\makelabel}{\uplabel}}%
+          \fi}%
+        {\ifAC@nolist%
+         \else%
+            \end{list}%
+         \fi}%
+ \makeatother
+%	-	<\acronym package>	-	%
+
+
+
+%	-	<Adding a blank page>	-	%
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+%	-	<\Adding a blank page>	-	%
+
+
+
+%	-	<hyperref package>	-	%
+\usepackage{hyperref}
+\hypersetup{
+	bookmarks=true,		% show bookmarks bar?
+	unicode=false,		% non-Latin characters in Acrobat’s bookmarks
+	pdftoolbar=true,	% show Acrobat’s toolbar?
+	pdfmenubar=true,	% show Acrobat’s menu?
+	pdffitwindow=false,	% window fit to page when opened
+	pdfstartview={FitH},	% fits the width of the page to the window
+	pdftitle={Ecosistema para el Descubrimiento de Conocimiento en Lenguaje Natural},	% title
+	pdfauthor={Alejandro Piad Morffis},	% author
+	pdfsubject={PhD Thesis},	% subject of the document
+	pdfcreator={Alejandro Piad Morffis},	% creator of the document
+	pdfproducer={Alejandro Piad Morffis},	% producer of the document
+	%pdfkeywords={Music Information Retrieval,} {Music Transcription},	% list of keywords
+	pdfnewwindow=true,	% links in new window
+	linktoc=page,		% links in ToC are depicted in the page number
+	colorlinks=true,	% false: boxed links; true: colored links
+	linkcolor=BlueForLinks,		% color of internal links (change box color with linkbordercolor)
+	citecolor=BlueForLinks,		% color of links to bibliography
+	filecolor=magenta,	% color of file links
+	urlcolor=GreenForLinks	% color of external links
+}
+%	-	<\hyperref package>	-	%
+\usepackage[all]{hypcap}

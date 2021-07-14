@@ -1,0 +1,39 @@
+PhD Thesis
+Title : Towards Interactive Multimodal Music Transcription
+Author : José Javier Valero Mas
+University of Alicante
+
+############
+# CONTENTS #
+############
+# -> Bibliography:
+- Bibliography resources for the thesis
+- Separated in types of publication:
+i) Books
+ii) Conference papers
+iii) Journal papers
+iv) Others
+v) Own (publicactions by the author)
+vi) Theses (master's/PhD)
+
+# -> Chapters:
+- Chapters of the Thesis. Each one in a folder
+
+# -> Images:
+- Images for the Thesis
+- Two folders:
+i) Chapters : Images for each chapter separated by folders
+ii) Source : Source code for generating the images (e.g., Tikz and so on)
+
+# -> Thesis.tex:
+- Main LaTeX file for the thesis
+
+# -> ThesisStyle.sty:
+- Style file for the thesis
+
+# -> CleanTempFiles.sh:
+- Shell script for cleaning temporary file generated when compiling the LaTeX files
+
+##############
+# \CONTENTS/ #
+##############

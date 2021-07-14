@@ -1,0 +1,56 @@
+\chapter{Conclusiones}\label{Chap:Conclusions}
+\markboth{\MakeUppercase{Conclusiones}}{}
+
+El volumen de información que se publica cada día es una fuente de conocimiento relevante de gran utilidad para la comunidad científica. A partir del análisis de múltiples fuentes es posible encontrar conexiones que permitan potencialmente descubrir nuevo conocimiento que se encuentra disperso en las redes.
+A pesar de esto, el alto número de fuentes a revisar es imposible de procesar por humanos, lo que dificulta este proceso de descubrimiento de conocimiento.
+En este contexto cobra especial relevancia el desarrollo de técnicas automáticas para la extracción y descubrimiento de este conocimiento.
+
+El dominio de la salud es uno de los que más puede beneficiarse del descubrimiento automático de conocimiento, debido a la velocidad y el volumen con el que se publican nuevos resultados. La reciente pandemia de COVID-19 es solo un ejemplo más de la necesidad de conectar de forma automática los hechos y resultados publicados a diario. Para construir sistemas computacionales capaces de realizar esta tarea, es necesario no solo la creación de recursos lingüísticos que sirvan para los modelos de aprendizaje automático, sino también la creación de una infraestructura que permita a los investigadores evaluar sus sistemas de forma efectiva y compararlos con el estado del arte.
+
+Esta investigación presenta el diseño y la construcción de un ecosistema para el desarrollo de tecnologías de descubrimiento de conocimiento, enfocado en el dominio de la salud y el idioma español. 
+Este ecosistema incluye recursos lingüísticos, herramientas computacionales y una metodología para la evaluación de nuevos enfoques.
+
+Con el objetivo de representar de forma computacionalmente manejable el lenguaje natural, se definió un modelo de anotación para capturar el contenido semántico más relevante de una oración, basado en una estructura Sujeto-Acción-Objetivo y relaciones semánticas adicionales.
+El modelo no incluye entidades o relaciones de dominio específico para ser lo más general posible. Este modelo está diseñado para ser suficientemente expresivo pero que aún así sea factible tanto su anotación por expertos humanos con un alto grado de acuerdo entre diferentes anotadores como la aplicación de técnicas de aprendizaje automático.
+
+Basado en este esquema de anotación, se anotaron manualmente a lo largo de la investigación, tres corpus con un total de $34,897$ elementos semánticos repartidos en $2,718$ oraciones, tomando como base información en el dominio de salud en idioma español. A pesar del enfoque en el dominio de la salud, a modo de caso de estudio se incluyen $200$ oraciones en un dominio alternativo (reportajes periodísticos) que demuestra la capacidad de generalización del esquema de anotación. Los tres corpus fueron anotados por equipos compuestos por anotadores expertos y no expertos, siguiendo un protocolo que garantizó un alto grado de acuerdo en los elementos anotados.   
+El propósito de estos recursos lingüísticos es permitir la creación de sistemas de descubrimiento de conocimiento a partir del uso de técnicas de aprendizaje automático. 
+Con este propósito, se ha organizado una campaña de evaluación, \textit{eHealth-KD challenge}, de la que se han producido tres ediciones consecutivas. En total han participado un total de $24$ equipos de investigadores de diferentes nacionalidades con múltiples estrategias, principalmente enfocadas en arquitecturas de aprendizaje profundo. Para permitir una comparación entre diferentes sistemas, se diseñó un escenario que consiste de dos subtareas fundamentales, y se definieron un conjunto de métricas para su evaluación.
+Los resultados obtenidos en las tres ediciones de esta campaña demuestran que el reto de descubrir conocimiento automáticamente en lenguaje natural es un problema aún abierto pero se ha producido una mejora considerable en la efectividad de los sistemas presentados de una edición a la siguiente, fomentado por el reciente desarrollo de nuevas arquitecturas de aprendizaje profundo para el procesamiento de lenguaje natural.
+
+Más allá de las ediciones de la campaña \textit{eHealth-KD}, esta investigación se propuso construir un ecosistema de evaluación continua que pueda ser utilizado de forma independiente por cualquier investigador para evaluar nuevos enfoques y compararse con el estado del arte.
+Este ecosistema se pone a disposición de la comunidad científica, que consiste una infraestructura y un conjunto de herramientas (incluyendo implementaciones básicas con las que compararse), un entorno de evaluación continua en la nube, y estadísticas actualizadas sobre el estado del arte de la tarea \textit{eHealth-KD}.
+Todos estos recursos, incluyendo los corpus anotados y las herramientas computacionales están publicados bajo licencias de código abiertas y disponibles para su uso en línea\footnote{\url{https://ehealthkd.github.io}}.
+
+Finalmente, a partir de las experiencias acumuladas durante el proceso de anotación, se implementó un sistema de anotación asistida que permite reducir considerablemente el costo manual de producir nuevos recursos lingüísticos en esta área.
+Este sistema utiliza técnicas de aprendizaje automático para seleccionar las oraciones más útiles a anotar, y garantizar un balance de los datos en un corpus con el menor esfuerzo posible por parte de los anotadores humanos. 
+Esta herramienta está basada en componentes de código abierto y se encuentra disponible para el uso de la comunidad científica\footnote{\url{https://github.com/knowledge-learning/assisted-annotation}}.
+
+Todos los resultados presentados en esta Tesis son parte de una línea de investigación activa para aprovechar la semántica de propósito general y las tecnologías basadas en el conocimiento junto con las nuevas arquitecturas de aprendizaje profundo en la construcción de tecnologías automáticas de descubrimiento de conocimiento.
+Como parte de esta línea, se continúa trabajando en la expansión de los recursos lingüísticos creados y en la organización de campañas de evaluación para fomentar la investigación en esta temática en la comunidad, así como en el desarrollo de nuevas herramientas computacionales basadas en técnicas de aprendizaje automático para el descubrimiento de conocimiento a partir de lenguaje natural.
+
+\section{Publicaciones}
+\label{Chap:Conclusions-Publications}
+
+Los resultados de investigación parciales que conforman esta tesis se han publicado anteriormente en diversos artículos. A continuación se listan aquellas publicaciones relacionadas con esta investigación en las que ha participado el autor:
+
+\begin{itemize}
+    \item Overview of TASS 2018: Opinions, health and emotions~\cite{tamartinez2018overview}
+    \item Overview of the eHealth Knowledge Discovery Challenge at IberLEF 2019~\cite{tapiad2019overview}
+    \item Overview of the eHealth Knowledge Discovery Challenge at IberLEF 2020~\cite{piad2020overview}
+    \item A general-purpose annotation model for knowledge discovery: Case study in Spanish clinical text~\cite{tapiad2019general}
+    \item A corpus to support eHealth Knowledge Discovery technologies~\cite{piad2019corpus}
+    \item A Computational Ecosystem to Support eHealth Knowledge Discovery Technologies in Spanish~\cite{piad2020computational}
+    \item Gathering object interactions as semantic knowledge~\cite{taestevez2018gathering}
+    \item TASS 2018: The strength of deep learning in language understanding tasks~\cite{tass}
+    \item A Neural Network Component for Knowledge-Based Semantic Representations of Text~\cite{tapiad2019neural}
+    \item Analysis of eHealth knowledge discovery systems in the TASS 2018 workshop~\cite{taalejandro2019analysis}
+\end{itemize}
+
+Adicionalmente, se listan a continuación las ediciones del evento \textit{eHealth Knowledge Discovery} organizadas como parte del marco de evaluación de esta investigación:
+
+\begin{itemize}
+    \item eHealth KD 2018 como Workshop en el evento TASS 2018\\ \url{http://www.sepln.org/workshops/tass/2018/task-3}
+    \item eHealth KD 2019 como Workshop en el evento IBERLEF 2019\\ \url{https://knowledge-learning.github.io/ehealthkd-2019}
+    \item eHealth KD 2020 como Workshop en el evento IBERLEF 2020\\ \url{https://knowledge-learning.github.io/ehealthkd-2020}
+\end{itemize}

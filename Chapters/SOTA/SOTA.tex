@@ -1,0 +1,93 @@
+\chapter{Estado de la Cuestión}\label{Chap:SOTA}
+\markboth{\MakeUppercase{Estado de la Cuestión}}{}
+
+Intro del estado del arte
+
+- el descubrimiento de conocimiento en lenguaje natural
+
+- importancia de la semántica
+
+- explicar el proceso y las tareas
+  - definir un esquema de anotacion, modelo semántico, que sea bueno
+  - herramientas con las que hacer la anotacion
+  - anotación asistida y utilidades para anotar mejor
+  - anotar un corpus con metricas de calidad y merging, hablar de la metodologia de anotacion
+  - entrenar sistemas de machine learning para la extraccion automática
+  - diseñar entornos de evaluación (challenges) para comparar sistemas
+  - construir ontologías
+
+  \section{Modelos Semánticos de Anotación de Lenguaje Natural}
+
+  \section{Herramientas de Anotación}
+
+  \section{Complementos para la Anotación Semi-Automática}
+
+Machine learning, and specifically supervised learning, is one of the most effective tools for automating
+complex cognitive tasks, such as recognizing objects in images or understanding natural language text.
+One of the main bottlenecks of supervised learning is the need for high-quality datasets of labeled samples
+on which statistical models can be trained.
+These datasets are usually built by human experts in a lengthy and costly manual process.
+Active learning~\cite{Cohn2010ActiveL} is an alternative paradigm to conventional supervised learning that has been proposed to reduce the costs involved in manual annotation .
+
+The key idea underlying active learning is that a learning algorithm can perform
+better with less training examples if it is allowed to actively select which examples to learn from~\cite{survey}.
+In the supervised learning context, this paradigm changes the role of the human expert.  In conventional
+supervised learning contexts, the human expert guides the learning process by providing a large dataset
+of labeled examples. However, in active learning the active role is shifted to the algorithm and
+the human expert becomes an oracle, participating in a labeling-training-query loop.
+In the active paradigm,  a model is incrementally built by training on a partial collection of samples and then selecting
+one or more unlabeled samples to query the human oracle for labels and increase the training set.
+This approach introduces the new problem of how to best select the query samples so as to maximize the model's performance while minimizing the effort of the human participant.
+
+The simplest active learning scenario consists of  the classification of independent elements $x_i$ drawn from
+a pool of unlabeled samples. Examples range from image classification~\cite{Gal2017DeepBA} to sentiment mining~\cite{Kranjc2015ActiveLF},  in which the minimal level of sampling (e.g., an image or text document) corresponds to the minimal level
+of decision. i.e, a single label is assigned to each $x_i$. More complex scenarios arise when the decision level is more fine-grained than the sampling level. In the domain of text mining, an interesting scenario is the task of
+entity and relation extraction from natural language text~\cite{zhang2012unified}. In this scenario the
+sampling level is a sentence, but the minimal level of decision involves each token or pair of tokens in the sentence, and furthermore, these decisions are in general not independent within the same sentence.
+In this case, it is not trivial to estimate how informative an unlabeled sample will be, since each sample has several sources of uncertainty.
+
+This section reviews some of the most relevant research related with active learning in general,
+and specifically focused on entity detection and relation extraction.
+One of the most important design decisions in active learning is how to intelligently select the novel
+unlabeled samples in the most efficient way. The underlying assumption is that we want to train a
+model to the highest possible performance~(measured in precision, $F_1$, etc.) while minimizing the human cost
+(measured in time, number of samples manually labeled, or any other suitable metric).
+This requirement is often framed as the selection of the \textit{most informative} unlabeled samples, and
+formalized in terms of a query strategy~\cite{survey}.
+The most common query strategies for general-purpose active learning can be grouped into the following categories:
+
+\begin{description}
+\item[(i) Uncertainty sampling:] The most informative samples are considered those with the highest degree of uncertainty, given some measure of uncertainty for each sample~\cite{Lewis1994148}.
+
+\item[(ii) Query by committee:] The most informative samples are considered those with the highest disagreement among a committee of either different models or different hypotheses from the same underlying model~\cite{seungquery}.
+
+\item[(iii) Expected model change:] The most informative samples are considered those that produce the highest change in the model's hypothesis if they were included in the training set~\cite{NIPS2007_3252}.
+
+\item[(iv) Variance and error reduction:] The most informative samples are those which produce the highest reduction in the model's generalization error or, as a proxy, its variance~\cite{roy2001toward}.
+\end{description}
+
+Expected model change (iii) and variance/error reduction (iv) strategies are heavily dependent on the specific learning model used.
+In contrast, uncertainty sampling (i) and query by committee (ii) are  applicable in general with a high degree of model agnosticism.
+Furthermore, relevant subsets of both strategies can be formalized under a single framework if we define the uncertainty as a measure of the entropy of the model's predicted output.
+In this framework, query-by-committee can be implemented via weighted voting, thereby assigning empirical probabilities to the possible outputs.
+
+Weighted density is a complimentary strategy in which the most informative samples are weighted by how representative they are of the input space, for example, by measuring their similarity to the remaining samples~\cite{settles2008analysis}.
+This approach attempts to counter-balance a noticeable tendency to select outliers as the most informative samples ---a problem associated with other query strategies--- since outliers are often the samples that create the highest amount of uncertainty, disagreement or hypothesis change.
+
+Recent advseplnances in natural language processing have produced an increased interest in active learning to alleviate the requirement for large annotated corpora~\cite{Olsson2009ALS, Tchoua2019ActiveLY}.
+\citet{settles2008analysis} compare several strategies for active learning in sequence labeling scenarios, concluding that query strategies based on measures of sequence entropy combined with weighted sampling outperform other variants.
+\citet{Meduri2020ACB} propose a comprehensive benchmark to evaluate different active learning strategies for entity matching.
+In the task of named entity recognition, CRF models have been used to select query samples
+\citep{Claveau2017StrategiesTS, Lin2019AlpacaTagAA}.
+The task of relation extraction also benefits from active learning approaches, both in general-purpose settings~\cite{fu2013efficient} and in domain-specific settings~\cite{zhang2012unified}.
+However, despite the growing body of research, it is still a challenge to apply active learning in joint entity recognition and relation extraction, especially in scenarios with low resources~\cite{Gao2019ActiveER}.
+
+  \section{Recursos Lingüísticos}
+
+  \section{Sistemas de Aprendizaje Automático para el Descubrimiento de Conocimiento}
+
+  \section{Entornos de Evaluación Competitivos}
+
+  \section{Representación del Conocimiento}
+
+  \section{Discusión}

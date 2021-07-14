@@ -1,0 +1,28 @@
+\chapter{Trabajo Futuro}\label{Chap:FutureWork}
+\markboth{\MakeUppercase{Trabajo Futuro}}{}
+
+La investigación desarrollada en esta tesis puede ser continuada desde múltiples perspectivas.
+En primer lugar, los modelos teóricos de representación del conocimiento diseñados así como los algoritmos presentados, pueden ser mejorados y adaptados a nuevos escenarios.
+Por otro lado, el ecosistema diseñado permite continuar con la organización de eventos competitivos en diferentes tareas y dominios para incentivar el desarrollo de nuevas técnicas de descubrimiento de conocimiento.
+En este capítulo se presentan las ideas que consideramos más relevantes y que pueden proveer un mayor aporte a los resultados y aplicaciones futuras de esta investigación.
+
+Desde la arista de desarrollo y creación de corpus, una de las líneas de investigación más claras es la anotación de nuevos recursos lingüísticos en otros dominios e idiomas. 
+Entre los dominios más interesantes a analizar se encuentran los artículos científicos, las noticias y los artículos enciclopédicos. Estas son fuentes de información factual que presentan diferentes características sintácticas pero que potencialmente pueden ser capturadas con las mismas estructuras semánticas definidas en esta investigación.
+Anotar nuevos dominios permitiría también ampliar el \textit{eHealth-KD} a una audiencia mayor, por ejemplo, los investigadores interesados en el fenómeno de las noticias falsas.
+Además, esto abre las puertas a la definición de tareas multi-dominio, donde los mismos sistemas sean evaluados en corpus de dominios diferentes a los que fueron entrenados, requiriendo el desarrollo de técnicas de transferencia de aprendizaje automático.
+
+En la dirección de modernizar la tarea \textit{eHealth-KD} hay dos escenarios nuevos interesantes de explorar.
+En primer lugar, adicionar el problema de reconocimiento de los atributos, que actualmente son anotados en el corpus pero no evaluados en la tarea. Este escenario ya introduce algunos problemas computacionales interesantes, por ejemplo, la identificación de la negación y su ámbito.
+Con vistas a avanzar hacia una representación semántica de más alto nivel, el otro escenario de interés consiste en la normalización de las entidades extraídas en función de bases de datos estructuradas, por ejemplo, Wikidata.
+Estas adiciones complejizan la tarea \textit{eHealth-KD}, pero como mismo se separan la extracción de entidades y relaciones en diferentes subtareas, se pueden definir subtareas específicas para estos problemas permitiendo que investigadores especializados en un área participen en aquellos problemas de su interés.
+
+El esquema de anotación propuesto en esta investigación ha demostrado ser capaz de capturar una porción significativa de la semántica del lenguaje natural. Sin embargo, aún mantiene algunas inconsistencias y ambigüedades que pueden ser mejoradas con pocas modificaciones. 
+Una de las principales fuentes de ambigüedad identificada es la similitud entre los roles de \texttt{Predicate} y la relación \texttt{in-context}. Es posible que una de estas variantes sea redundante, o que deba definirse de manera más clara la diferencia entre ambos patrones de anotación.
+La adición más importante al esquema de anotación consistiría en un nuevo tipo de relación semántica que permita denotar el propósito de una acción o evento.
+
+Finalmente, la estrategia de aprendizaje activo desarrollada en la investigación brinda una solución prometedora al problema del costo de la anotación manual, pero solo ha sido evaluada en escenarios simulados.
+La propuesta más relevante en este sentido consiste en aplicar esta estrategia para la anotación de los recursos lingüísticos de la próxima edición del \textit{eHealth-KD}.
+Para esto es necesario adaptar la propuesta a un escenario con múltiples anotadores por cada oración.
+En este escenario, el propio desacuerdo entre los anotadores introduce una nueva fuente de incertidumbre que puede ser utilizada para optimizar el proceso de anotación.
+
+Las ideas sugeridas en este capítulo son solo algunas de las posibilidades más claras para continuar el desarrollo de las técnicas y recursos propuestos en esta tesis. El trabajo desarrollado forma parte de una línea de investigación activa. Estas y otras ideas serán tenidas en cuenta para estimular aún más el desarrollo de tecnologías de descubrimiento de conocimiento, siempre desde la perspectiva de aprovechar el esfuerzo humano y los recursos computacionales en estrecha colaboración. Visualizamos un futuro donde los seres humanos y las computadoras trabajen juntos en la solución de los problemas más apremiantes, cada uno poniendo sus mejores habilidades al servicio de las futuras generaciones.

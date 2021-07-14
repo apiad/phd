@@ -1,0 +1,136 @@
+\documentclass[oneside,a4paper,11pt,openrany]{book}
+
+%openright
+
+\usepackage{ThesisStyle}
+% \usepackage{apacite}	% - For the bibliography
+\usepackage[square,numbers]{natbib}
+\usepackage{comment}
+\usepackage[usenames]{color}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{soul}
+\usepackage{soulutf8}
+
+\setboolean{@twoside}{true}	% - Setting twoside boolean to true (does not change margin)
+
+
+\title{Ecosistema para el Descubrimiento de Conocimiento en Lenguaje Natural} % - Thesis name
+
+\begin{document}
+
+%%TC:ignore
+
+	%	<Cover>	%
+	%\include{./Chapters/Cover/Cover}
+	\include{./Chapters/Cover-Official/Cover-Official}
+	\blankpage
+	\include{./Chapters/Cover-Official/Disclaimer}
+	\blankpage
+
+	%	<Dedication>	%
+	\include{./Chapters/Dedication/Dedication}	%	- Dedication
+
+	%\frontmatter
+	\pagestyle{fancyUnnumberedSectionsStyle}	% - Fixing style for the regular chapters
+	\include{./Chapters/Acknowledgements/Acknowledgements}	%	- Acknowledgements
+
+	\pagestyle{fancySpecialSectionsStyle}
+	\include{./Chapters/Financial-Support/Financial-Support}	%	- Financial support
+
+	%\pagestyle{fancyUnnumberedSectionsStyle}	% - Fixing style for the regular chapters
+	%\include{./Chapters/Preface/Preface}	%	- Preface
+
+	\include{./Chapters/Abstract/Resumen}
+	\include{./Chapters/Abstract/Abstract}
+
+	%	<Indexes>	%
+	\include{./Chapters/TableOfContents/TableOfContents}	%	- Contents
+	\include{./Chapters/TableOfFigures/TableOfFigures}	%	- Figures
+	\include{./Chapters/TableOfTables/TableOfTables}	%	- Tables
+
+	%	<Acronyms>	%
+% 	\include{./Chapters/Acronyms/Acronyms}
+
+	\mainmatter
+	\pagestyle{fancyNormalChapterStyle}	% - Fixing style for the regular chapters
+
+	\part{Síntesis de la Tesis}
+
+%%TC:endignore
+
+	%	<Introduction>	%
+	\include{./Chapters/Introduction/Introduction}
+
+	\include{./Chapters/SOTA/SOTA}
+
+	\include{./Chapters/Results/Results}
+
+%%TC:ignore
+
+	\part{Artículos Publicados}
+
+	\fancyhf{}
+    \renewcommand{\headrulewidth}{1pt}
+    \renewcommand{\footrulewidth}{0pt}
+    % \pagestyle{empty}
+    \fancyhead[RO]{-- Capítulo~\thechapter -- \hfill -- Pág~\thepage --}
+    \fancyhead[LE]{-- Pág~\thepage -- \hfill -- Capítulo~\thechapter --}
+
+    % \include{Chapters/Papers/Summary}
+
+	\include{Chapters/Papers/Schema}
+    \includepdf[pages=1-, scale=0.9, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/NAACL-Schema.pdf}
+
+	\include{Chapters/Papers/CorpusV1}
+    \includepdf[pages=1-, scale=1.05, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/JBI-19.pdf}
+
+    \include{Chapters/Papers/CorpusV2}
+    \includepdf[pages=1-, scale=1.05, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/JBI-20.pdf}
+
+    \part{Artículos No Publicados}
+
+    \include{Chapters/Papers/Annotation}
+    \includepdf[pages=1-, scale=0.9, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/EMNLP.pdf}
+
+%%TC:endignore
+
+    \part{Conclusiones y Recomendaciones}
+
+    \pagestyle{fancyNormalChapterStyle}	% - Fixing style for the regular chapters
+
+    %   <Conclusions>   %
+    \include{./Chapters/Conclusions/Conclusions}
+
+    \include{./Chapters/Future-Work/Future-Work}
+
+	%	<Conclusions-FutureWork>	%
+	%\include{./Chapters/Conclusions-FutureWork/Conclusions-FutureWork}
+
+	%	<Part : Appendix>	%
+% 	\appendix
+
+% 	\pagestyle{fancyAppendixStyle}	% - Fixing style for the appendices
+
+% 	%   <Annotation Guidelines> %
+% 	\include{./Chapters/Annotation-Guidelines/Annotation-Guidelines}
+
+% 	%	<Summary-Spanish>	%
+% 	\include{./Chapters/Summary-Spanish/Summary-Spanish}
+
+	\backmatter
+
+	%	<Bibliography>	%
+	\pagestyle{fancyUnnumberedSectionsStyle}	% - Fixing style for the regular chapters
+
+    \bibliographystyle{unsrtnat}
+	\bibliography{./Bibliography/Bibliography}
+
+
+	%	<Nomenclature>	% (omitted for the moment)
+	%I want $\beta$\nomenclature{$\beta$}{The second letter of the greek alphabet} to be listed after $\alpha$\nomenclature{$\alpha$}{The first letter of the greek alphabet} % Only to try...
+
+	%\printnomenclature
+
+\end{document}
