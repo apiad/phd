@@ -144,7 +144,6 @@ Even better is a publicly available evaluation system where researchers can subm
   FrameNet~\cite{framenet} is a lexical database and an annotated corpus that models the semantic roles and relations in a natural language sentence through conceptual structures named \textit{frames}. Frames represent general-purpose concepts, or events, that define the possible semantic relations in which those concepts can be realized in natural language.
 
   VerbNet~\cite{verbnet} is a verb lexicon that also defines specific semantic roles for each verb. In VerbNet, verbs are organized in a hierarchy, and linked through different thematic roles, such as agents, cause, source, or topic. These elements allow to capture the semantic representation of sentences.
-
   PropBank semantic roles are similar to the thematic roles defined in VerbNet and frame elements in FrameNet. As such, there are resources that link these semantic structures~\cite{semlink}.
 
   A more recent proposal is Abstract Meaning Representation~\cite[ARM]{amr}. AMR constitutes a semantic representation schema for English sentences that also attempts to cover a wide range of semantic relations with a general-purpose model.
@@ -367,6 +366,150 @@ However, despite the growing body of research, it is still a challenge to apply 
       \label{tab:corpora}
   \end{table}
 
+  \begin{table}[h!]\centering
+    \footnotesize{
+    \begin{tabularx}{\hsize}{X|XXXXX}
+        \hline
+        \hline
+      \textbf{Corpus} & \textbf{Drug Semantic} & \textbf{Ixa MedGS} & \textbf{CLEF} & \textbf{DDI} & {\textbf{BARR2}} \\
+        \hline \\
+      \textbf{Doc. Type} & Product summaries & Discharge summaries & Clinical documents & Abstracts & Clinical case studies \\
+        \textbf{Annotation Type} & Manual & Auto/Manual check & Manual &  Auto/Manual check & Manual \\
+        \textbf{Annotators} & Experts & Experts & Experts \& Non-experts & Expert & Experts \\
+        \textbf{Schema} & Medical entities & Medical entities & Medical entities & Medical entities & Medical abbreviations \\
+        \textbf{Language} & Spanish & Spanish & English & English & Spanish \\
+        \textbf{Documents} & 5~(16\%) & 75~(0.01\%) & 150~(0.27\%) & 1025~(100\%) & 648(20\%) \\
+        \textbf{Origin} & AEMPS & Galdacao-Usansolo Hospital & Royal Madersen Hospital & Medline, Drug Bank & PubMed, IBCECS \& SciELO \\
+        \hline
+        \hline
+    \end{tabularx}
+    } %%% CHANGE add BARR2 corpus
+    \caption{Summary of related corpora annotated with domain-specific entities for the health domain.
+            {Percentage values for \textbf{Documents} indicate how many of the original documents were actually annotated, as reported by the original authors.} %%%%CHANGE explain percentages
+            \label{tab:stateofart}}
+    \end{table}
+
+
+    \begin{table}[h!]\centering
+    \footnotesize{
+    \begin{tabularx}{\hsize}{X|XXXX}
+        \hline
+        \hline
+      \textbf{Corpus} & \textbf{Bio AMR} & \textbf{Yago} & \textbf{Emotinet} & \textbf{eHealth-KD} \\
+        \hline \\
+      \textbf{Doc. Type} & Sentences & Sentences & Posts & Sentences\\
+        \textbf{Annotation Type} & Manual & Automatic & Manual & Manual \\
+        \textbf{Annotators} & Non-experts & Non-experts & Non-experts & Non-experts \\
+        \textbf{Schema} & AMR & {SPO} & {SAOE} & {SAT+R} \\ %%%% CHANGE add basic semantic relations
+        \textbf{Language} & English & English & Spanish \& English \& Italian & Spanish \\
+        \textbf{Documents}  & 6542 &  ----- &  & 1173(11.8\%) \\
+        \textbf{Origin} & PubMed & Wikipedia, WordNet & Blog & Medline Spanish XML\\
+        \hline
+        \hline
+    \end{tabularx}
+    }
+    \caption{Summary of related corpora annotated with a general-purpose schema, or not specific to the health domain.
+    {Percentage values for \textbf{Documents} indicate how many of the original documents were actually annotated, as reported by the original authors. SPO: Subject, Predicate, Object triplets; SAT+R: Subject, Action, Target triplets and additional Relations (see section~\ref{sec:problem}); SAOE:  Subject, Action, Object, Emotion tuples.}%%%%CHANGE explain percentages and abbreviations
+    \label{tab:stateofart2}}
+    \end{table}
+
+    \subsection{Descripción de los recursos}
+
+    \begin{description}
+      \item[Ixa MedGS]
+      \item[DrugSemantics]
+      \item[DDI]
+      \item[Bio AMR]
+      \item[YAGO]
+      \item[ConceptNet]
+      \item[CLEF]
+      \item[BARR2]
+      \item[Emotinet]
+    \end{description}
+
+    Most health-related corpora are annotated using self-defined health
+    related entities relevant to the task at hand.
+    Of these, arguably one of the most used is the CLEF
+    corpus~\cite{kelly2016overview}.
+    This corpus contains 150 English clinical documents, manually annotated by a
+    team of experts (clinical and biologists) and non-experts.
+    In contrast, the DDI corpus~\cite{herrero2013ddi}, which contains 1025 English
+    documents from Medline was pre-annotated automatically, and then manually
+    checked by domain experts (Pharmacists).
+    Similar corpora in Spanish language exist.
+    The Drug Semantic corpus~\cite{moreno2017drugsemantics} is an example, where
+    domain experts (Registered Nurses and students) manually annotated Spanish
+    summaries of product characteristics.
+    {Likewise, the BARR2}~\cite{barr2} {corpus contains manually annotated abbreviation-definition
+    pairs in Spanish clinical papers extracted from bibliographic databases.}
+    %%% CHANGE add BARR2 corpus
+    On the other hand, the Ixa MedGS corpus~\cite{oronoz2015creation} was
+    pre-annotated automatically and then manually checked by domain experts in
+    Pharmacology.
+    An interesting alternative is the Bio AMR corpus~\cite{bioamr}, which contains
+    AMR annotations of several medical documents, hence combining a general purpose
+    annotation schema in a specific domain.
+
+    In the context of general domain knowledge, one of the most relevant resources
+    for our research is YAGO~\cite{fabian2007yago}.
+    It consists of a large knowledge base automatically extracted from Wikipedia,
+    WordNet, and other sources.
+    Since YAGO is intended to represent general domain knowledge, its semantic
+    structure is defined in terms of fact triples, in the spirit of RDF and other
+    ontological representations.
+    In contrast, the Emotinet knowledge base~\cite{emotinet} is oriented towards a
+    specific domain (emotions), and is built from the manual annotation of blog
+    entries, using a general semantic structure that links entities, actions, and
+    emotions.
+    Although Emotinet is designed for a particular domain, its structure is rather
+    general, in the sense that it can readily represent any type of event or action
+    performed by entities.
+
+    As Table \ref{tab:stateofart} shows, the type of documents used is highly
+    variable, which provokes large differences in terms of the length of documents,
+    structure of discourse and vocabulary.
+    An interesting characteristic is the type of annotation, either manual,
+    pre-automated with expert review, or fully automated.
+    Although recent research shows an increasing tendency towards pre-automated
+    or fully automated annotation, manual annotation is still regarded as
+    more reliable.
+
+    Health related corpora are usually annotated by experts with a domain-specific
+    semantic structure, such as entities related to diseases, drugs, genes, or
+    treatments.
+    Given the complexity of the concepts in the medical domain, annotators usually include
+    medical doctors or other specialists of the medical domain.
+    In these resources, very few general-purpose natural language features are used.
+    This provides a greater detail of semantic information, since the entities and
+    relations are relevant for the domain at hand.
+    However, in the same sense, it might discard important information in the text
+    which cannot be represented with the structure defined.
+    This may or may not be an issue for a specific line of research.
+    In our case, we consider it important to extract as much knowledge as
+    possible from each source.
+    In contrast, general purpose corpora or knowledge bases are usually annotated
+    by non-experts with a semantic structure designed to represent as much
+    knowledge as possible.
+    This strategy tends to increase recall (a larger amount of facts is extracted)
+    but it might extract irrelevant or incorrect facts.
+    In these cases, the annotation schema relies largely on natural language semantics, such as Subject-Predicate-Object triples.
+
+    The trend of representing knowledge with a general structure has been aided by recent
+    advances in Teleologies~\cite{teleologies} that provide a theoretical framework for
+    representing general purpose facts using a small set of concepts (objects,
+    actions and functions).
+    In contrast with Abstract Meaning Representation (AMR), the Teleologies framework is not
+    specifically aimed at natural language understanding, but at representing
+    the semantics of a general knowledge domain. This type of framework is less dependent
+    on the linguistic characteristics of a specific language.
+    The Subject-Action-Target structure defined in this paper is based on a simplification
+    of the Teleologies conceptualization, applied to the domain of medical texts.
+    However, inspired by general purpose knowledge bases, we also include a few specific
+    semantic relations that are broadly used in general purpose ontologies and semantic networks.
+    This combination (i.e. SAT+R, see Section~\ref{sec:problem}) makes the annotation schema used in eHealth-KD novel.
+
+    \subsection{Características generales}
+
   \paragraph{General-purpose annotation}
   General-purpose annotation models are often used in corpora extracted from encyclopedic sources, such as \textit{YAGO}~\cite{suchanek2007yago} and \textit{ConceptNet}~\cite{speer2017conceptnet}, both of which contain facts automatically extracted from Wikipedia~(among other sources). In contrast, domain-specific annotation models are usually employed when the source is more restricted to a specific domain. Examples include \textit{Ixa MedGS}~\cite{ORONOZ2015318}, which contains health related concepts for diseases, causes and medications; \textit{DrugSemantics}~\cite{moreno2017drugsemantics}, which annotates health entities, drugs and procedures; and, \textit{DDI}~\cite{herrero2013ddi}, which annotates drug-drug interactions. A middle ground is the \textit{Bio AMR}~\cite{bioamr} corpus, which applies a general purpose annotation model~(AMR)~\cite{banarescu2013abstract} to health documents. The \textit{eHealth-KD v2} corpus is similar to the latter in this respect, since the annotation model defined is general, but it is applied specifically to health sentences in this research.
   The \textit{eHealth-KD v2} corpus constitutes the result of the evolution of the \textit{eHealth-KD v1}~\cite{ehealth} corpus.
@@ -441,10 +584,6 @@ relations}, the annotation process for AMR is considerably more complex both for
 
 Building corpora annotated with the Action-Subject-Target structure is the first step towards the design of systems that can automatically extract these annotations. Several corpora exist in the literature, annotated with a variety of different schemes, such as CLEF~\cite{kelly2016overview}, Yago~\cite{fabian2007yago} and Emotinet~\cite{emotinet}.
 However, most of these resources are annotated with domain-specific conceptualizations that are difficult to extend to different knowledge domains.
-This paper presents a general purpose conceptualization and an example corpus\footnote{https://github.com/knowledge-learning/ehealth-kd}
-annotated with such conceptualization, which demonstrates its ability to represent a wide variety of topics in a semantically rich structure.
-Furthermore, a set of baseline implementations of machine learning techniques for automatically annotating similar sentences are presented\footnote{https://github.com/knowledge-learning/ehealth-kd/tree/master/baseline}.
-Based on these resources, an ongoing online evaluation is available for researchers\footnote{https://competitions.codalab.org/competitions/18188}.
 
   \section{Sistemas de Aprendizaje Automático para el Descubrimiento de Conocimiento}
 
