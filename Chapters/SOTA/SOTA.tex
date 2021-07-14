@@ -12,26 +12,13 @@ This information consists of the most important concepts and relations,
 that can be useful in future situations.
 Thus, we learn basically by separating what could be
 considered noise from the information that we think will be useful in the future.
-In general we said two types of memories: one for recent knowledge and 
+In general we said two types of memories: one for recent knowledge and
 other where we stored the knowledge for the long time.
 
-The design of complex machine learning algorithms and techniques necessarily
-to mimic human behaviors have been there since the beginning of the artificial intelligent.
-This work presents and initial approach to the problem translate the 
-humans experience in the reading process whit the objective to
-execute the learning, to the machine. 
-For this we are facing the challenge to process text for detect elements
-and interactions between ours. Moreover, it is  necessary research the most better 
-proposal of artificial intelligent to transform the information in knowledge
-and them represent this knowledge whit semantics.    
-In particular we analyze the process of
-creating a representation of knowledge (in the form of an ontology)
-obtained. 
-
 Nowadays, one of the biggest information sources in Internet
-is text in natural language, which appears in news, opinions, messages, encyclopedias, 
+is text in natural language, which appears in news, opinions, messages, encyclopedias,
 and many other forms of digital communication.
-This is not accidental, since words~(computationally represented as text) 
+This is not accidental, since words~(computationally represented as text)
 are one of the most important communication channels throughout the human history.
 One of the most basic concepts recognizable in natural language that provide
 useful information are actions. These are generally associated with two
@@ -47,55 +34,10 @@ The accelerated growth of Internet has produced a surplus of information (news, 
 social media, blogs) that greatly exceeds our capacity for processing and consuming data.
 Thus, building automatic systems that can extract knowledge from this flow of information has
 become of the most active research fields in Computer Science. This phenomena has been
-dubbed Big Data~\cite{bigdata}, and its study has attracted the attention of different 
-research communities 
-as business intelligence~\cite{chen2012business}, engineering including physical and 
+dubbed Big Data~\cite{bigdata}, and its study has attracted the attention of different
+research communities
+as business intelligence~\cite{chen2012business}, engineering including physical and
 biological~\cite{wu2014data} and social media~\cite{shah2015big}.
-
-In recent years, researchers in fields such as machine learning, knowledge discovery, data mining and
-natural language processing, among others, have produced many approaches and techniques to
-leverage the large amount of information in the Internet for a variety of tasks, from
-building search~\cite{google} and recommender systems~\cite{youtube} 
-to improving medical diagnostics~\cite{watson}.
-
-Among the different approaches relevant to knowledge discovery, we can recognize a
-continuous spectrum of techniques, based on how much expert knowledge is used. 
-Heavily knowledge-based techniques are based 
-on rules defined in knowledge bases handcrafted by domain experts~\cite{chandrasekaran1986generic}. 
-These approaches have a great degree
-of reliability and precision, and generally allow for more complexity in the extracted knowledge,
-but are difficult to scale to large amounts of data.
-In contrast, the statistical approaches consist of techniques based on pattern recognition with statistical
-and probabilistic models~\cite{kevin2012machine}. These techniques scale better with large amounts of data~\cite{le2013building}, 
-providing better recall, but often are limited to extracting simple models of knowledge,
-and can be more sensitive to noisy, fake or biased information~\cite{bolukbasi2016man}.
-
-Given these mutually complementary characteristics, several hybrid approaches have been proposed.
-Recently, research areas such as ontology learning~\cite{cimiano2009ontology},
-learning by reading~\cite{barker2007learning} or entity embedding~\cite{hu2015entity} have arisen.
-In these areas, researchers combine techniques from machine learning, natural language
-processing and knowledge representation to solve more complex problems that cannot
-be dealt with using only the classical tools.
-
-Many machine learning systems are designed to solve a domain-specific task, such as
-assigning a class to an element from a predefined set of labels. These systems,
-when trained with data for a particular domain, are often not applicable to other domains
-or to scenarios where several different domains must be used together. Moreover,
-often systems are designed to be trained once from a corpus, and don't allow for
-a continuous improvement of the knowledge learned.
-Recently there are attempts to build general-purpose learning systems that are always
-improving while obtaining new knowledge, re-evaluating the old knowledge and refining their
-own confidence~\cite{mitchell2015never}.
-
-Additionally, it is interesting to design non-monolithic learning systems, but instead
-built as a set of modular components that can be combined in different ways.
-This composability would allow a continuous learning system not only to improve the
-quality of the extracted knowledge, but also to learn how to tune its own internal
-parameters to perform a better knowledge extraction in the future. It is conceivable
-that such a system could gradually learn which types of basic processes (i.e., entity recognition, POS-tagging, etc.)
-are most useful for a given domain or for a particular corpus. Likewise, such a system could
-learn which types of probabilistic models provide the best results in a particular dataset.
-
 
 - importancia de la semántica
 
@@ -310,7 +252,49 @@ The most common query strategies for general-purpose active learning can be grou
 \item[(ii) Query by committee:] The most informative samples are considered those with the highest disagreement among a committee of either different models or different hypotheses from the same underlying model~\cite{seungquery}.
 
 \item[(iii) Expected model change:] The most informative samples are considered those that produce the highest change in the model's hypothesis if they were included in the training set~\cite{NIPS2007_3252}.
+In recent years, researchers in fields such as machine learning, knowledge discovery, data mining and
+natural language processing, among others, have produced many approaches and techniques to
+leverage the large amount of information in the Internet for a variety of tasks, from
+building search~\cite{google} and recommender systems~\cite{youtube}
+to improving medical diagnostics~\cite{watson}.
 
+Among the different approaches relevant to knowledge discovery, we can recognize a
+continuous spectrum of techniques, based on how much expert knowledge is used.
+Heavily knowledge-based techniques are based
+on rules defined in knowledge bases handcrafted by domain experts~\cite{chandrasekaran1986generic}.
+These approaches have a great degree
+of reliability and precision, and generally allow for more complexity in the extracted knowledge,
+but are difficult to scale to large amounts of data.
+In contrast, the statistical approaches consist of techniques based on pattern recognition with statistical
+and probabilistic models~\cite{kevin2012machine}. These techniques scale better with large amounts of data~\cite{le2013building},
+providing better recall, but often are limited to extracting simple models of knowledge,
+and can be more sensitive to noisy, fake or biased information~\cite{bolukbasi2016man}.
+
+Given these mutually complementary characteristics, several hybrid approaches have been proposed.
+Recently, research areas such as ontology learning~\cite{cimiano2009ontology},
+learning by reading~\cite{barker2007learning} or entity embedding~\cite{hu2015entity} have arisen.
+In these areas, researchers combine techniques from machine learning, natural language
+processing and knowledge representation to solve more complex problems that cannot
+be dealt with using only the classical tools.
+
+Many machine learning systems are designed to solve a domain-specific task, such as
+assigning a class to an element from a predefined set of labels. These systems,
+when trained with data for a particular domain, are often not applicable to other domains
+or to scenarios where several different domains must be used together. Moreover,
+often systems are designed to be trained once from a corpus, and don't allow for
+a continuous improvement of the knowledge learned.
+Recently there are attempts to build general-purpose learning systems that are always
+improving while obtaining new knowledge, re-evaluating the old knowledge and refining their
+own confidence~\cite{mitchell2015never}.
+
+Additionally, it is interesting to design non-monolithic learning systems, but instead
+built as a set of modular components that can be combined in different ways.
+This composability would allow a continuous learning system not only to improve the
+quality of the extracted knowledge, but also to learn how to tune its own internal
+parameters to perform a better knowledge extraction in the future. It is conceivable
+that such a system could gradually learn which types of basic processes (i.e., entity recognition, POS-tagging, etc.)
+are most useful for a given domain or for a particular corpus. Likewise, such a system could
+learn which types of probabilistic models provide the best results in a particular dataset.
 \item[(iv) Variance and error reduction:] The most informative samples are those which produce the highest reduction in the model's generalization error or, as a proxy, its variance~\cite{roy2001toward}.
 \end{description}
 
@@ -447,6 +431,90 @@ Based on these resources, an ongoing online evaluation is available for research
 
   \section{Sistemas de Aprendizaje Automático para el Descubrimiento de Conocimiento}
 
+  In recent years, researchers in fields such as machine learning, knowledge discovery, data mining and
+natural language processing, among others, have produced many approaches and techniques to
+leverage the large amount of information in the Internet for a variety of tasks, from
+building search~\cite{google} and recommender systems~\cite{youtube}
+to improving medical diagnostics~\cite{watson}.
+
+Among the different approaches relevant to knowledge discovery, we can recognize a
+continuous spectrum of techniques, based on how much expert knowledge is used.
+Heavily knowledge-based techniques are based
+on rules defined in knowledge bases handcrafted by domain experts~\cite{chandrasekaran1986generic}.
+These approaches have a great degree
+of reliability and precision, and generally allow for more complexity in the extracted knowledge,
+but are difficult to scale to large amounts of data.
+In contrast, the statistical approaches consist of techniques based on pattern recognition with statistical
+and probabilistic models~\cite{kevin2012machine}. These techniques scale better with large amounts of data~\cite{le2013building},
+providing better recall, but often are limited to extracting simple models of knowledge,
+and can be more sensitive to noisy, fake or biased information~\cite{bolukbasi2016man}.
+
+Given these mutually complementary characteristics, several hybrid approaches have been proposed.
+Recently, research areas such as ontology learning~\cite{cimiano2009ontology},
+learning by reading~\cite{barker2007learning} or entity embedding~\cite{hu2015entity} have arisen.
+In these areas, researchers combine techniques from machine learning, natural language
+processing and knowledge representation to solve more complex problems that cannot
+be dealt with using only the classical tools.
+
+Many machine learning systems are designed to solve a domain-specific task, such as
+assigning a class to an element from a predefined set of labels. These systems,
+when trained with data for a particular domain, are often not applicable to other domains
+or to scenarios where several different domains must be used together. Moreover,
+often systems are designed to be trained once from a corpus, and don't allow for
+a continuous improvement of the knowledge learned.
+Recently there are attempts to build general-purpose learning systems that are always
+improving while obtaining new knowledge, re-evaluating the old knowledge and refining their
+own confidence~\cite{mitchell2015never}.
+
+Additionally, it is interesting to design non-monolithic learning systems, but instead
+built as a set of modular components that can be combined in different ways.
+This composability would allow a continuous learning system not only to improve the
+quality of the extracted knowledge, but also to learn how to tune its own internal
+parameters to perform a better knowledge extraction in the future. It is conceivable
+that such a system could gradually learn which types of basic processes (i.e., entity recognition, POS-tagging, etc.)
+are most useful for a given domain or for a particular corpus. Likewise, such a system could
+learn which types of probabilistic models provide the best results in a particular dataset.
+
+  The speed and volume at which information is produced has increased exponentially in the last decade,
+   mainly due to the rise of the social networks and the mobile technology. In order to cope with this volume of information,
+   it is necessary to be able to process massive amounts of data continuously.
+    The field of machine learning provides tools for the automatic extraction of information and knowledge from different
+    sources of data.
+    Machine learning not only allows to automate processes and tasks of knowledge discovery or text mining, but also provides a large
+    improvement in the scalability of these processes~\cite{wu2014data}. By using mass computing resources, it is possible to process millions
+    of raw documents in a reasonable time, far exceeding what can be done by domain experts.
+    Recent improvements in computing capabilities and access to larger datasets have given rise
+    to the field of deep learning, which has improved the state of the art in
+    several of the classic machine learning tasks~\cite{lecun2015deep}.
+
+	Arguably, the two most common approaches in machine learning are supervised and unsupervised learning~\cite{kevin2012machine}.
+    Supervised learning can be used for recognizing specific elements of knowledge in a source of data. For example, tagging
+    pieces of text to indicate that they define an entity~\cite{nadeau2007survey} (e.g., a person, organization, or place), recognizing relations between
+    said entities, or assigning a sentiment or opinion score~\cite{liu2012sentiment} to a fragment of text. On the other hand, unsupervised learning
+    can help with finding relevant structure in a large set of elements. Clustering algorithms can be used to detect similar
+    concepts or to extract abstract concepts from groups of more concrete elements. Other techniques can be used for reducing
+    the amount of information, for example, to remove noisy, uncertain or irrelevant pieces of
+    information~\cite{bingham2001random}.
+
+    In general, most machine learning algorithms are not designed to represent the learned knowledge in complex structures,
+    such as those defined by human domain experts (i.e., ontologies). In turn, the representations often have a simple structure, such
+ 	as a probability distribution or a correlation matrix~\cite{bengio2013representation}.
+    When applying these algorithms to a real problem, an domain-specific
+    interpretation of those representations has to be made.
+    % Esta es una debilidad imporante, la no explicación
+    Furthermore, many of the most powerful machine learning models are difficult to explain, in the sense
+    that when the system produces an answer, a human expert cannot easily understand and reproduce the inference steps
+    that the system performs~\cite{olden2002illuminating}.
+    % creo mejor decir que si la representacion es tan importante las ontologias son una forma de representar conocimiento
+    % y entonces meter el gancho de embeddings y entity embeddings
+    Choosing an appropriate representation is decisive for the success of most machine learning techniques~\cite{bengio2012deep}.
+    In recent years, there has been an increased interest in the problem of automatically learning relevant representations.
+    Word embeddings~\cite{mikolov} and more general entity embeddings~\cite{hu2015entity} represent the first steps towards powering
+    deep learning approaches with more explainable internal representations.
+    Since ontologies are, by definition, representations of a given conceptualization, it is conceivable that using ontologies
+    as seeds for the representation of a given domain, the performance of data mining processes based on machine learning can
+    be improved.
+
   \section{Entornos de Evaluación Competitivos}
 
   A strategy often used to encourage research on a specific task is the organization of a shared
@@ -506,16 +574,16 @@ ontology from several resources. Examples include mining analysis, mostly
 the study of text in natural language~/cite{}. In this
 particular task, several approaches have been presented, from syntactic and
 semantic analysis of corpora~\cite{} to statistical and machine learning based
-approaches~\cite{}. 
+approaches~\cite{}.
 
-Several tools and systems have been proposed for this task. 
+Several tools and systems have been proposed for this task.
 Text2Onto~\cite{cimiano2005text2onto} is a framework for
-data-driven change discovery which employs a probabilistic 
+data-driven change discovery which employs a probabilistic
 ontology model (POM).
 OntoLT~\cite{buitelaar2004ontolt} extracts concepts and
 relations automatically from linguistically annotated text collections,
 by means of rule set, which maps linguistic classes to ontology classes.
-A newer approach is OntoGain~\cite{drymonas2010unsupervised}, 
+A newer approach is OntoGain~\cite{drymonas2010unsupervised},
 which uses an unsupervised approach,
 and exploits the inherent multi-word term's lexical information
 in order to extract higher level concepts.
@@ -530,22 +598,22 @@ this problem, OntoGain proposes a hierarchical clustering scheme
 that attempts to identify general concepts and relations.
 
 In general these resources are focused in the extraction of knowledge and
-pay much less attention to the task of find relevant knowledge. 
-An ontology is interesting not just because of its size, but 
+pay much less attention to the task of find relevant knowledge.
+An ontology is interesting not just because of its size, but
 because of how is such information selected, processed and stored.
-In this problem we focus our work, attempting not only 
+In this problem we focus our work, attempting not only
 to recognize information, but also to reduce this information and obtain
 information with more relevance.
 
 -----------
 
 The problem of discovering, storing and using knowledge in a computationally effective
-form has been widely studied~\cite{mitchell2015never, ROSPOCHER2016132, cimiano2009ontology}. 
+form has been widely studied~\cite{mitchell2015never, ROSPOCHER2016132, cimiano2009ontology}.
 This problem has been treated from two different but complementary research areas:
 the fields of knowledge representation and machine learning.
 The knowledge representation community provides means for
 computationally representing and operating with stored knowledge in forms that
-can ensure some degree of logical consistency. 
+can ensure some degree of logical consistency.
 Conversely, the machine learning community provides
 tools for obtaining useful knowledge from large collections of structured and unstructured data.
 Recenlty, a new discipline named ontology learning has arisen, which draws ideas
@@ -567,31 +635,31 @@ in each of these three domains, as well as some approaches similar to our propos
     %Definición
 	Ontologies can been defined as a formal specification of a conceptualization~\cite{asuncion2003}.
     This represents concepts, relations between these concepts, instances of these concepts and inference rules
-    for deriving new relations. 
+    for deriving new relations.
 
-    As such, ontologies can be considered as a combination of two predominant approaches 
+    As such, ontologies can be considered as a combination of two predominant approaches
     for knowledge representation: those based on formal logic~\cite{brachman1992knowledge}
     and those based on graphs of semantic relations~\cite{chein2008graph}.
-    In logic-based approaches the facts are represented as logic predicates or functions 
+    In logic-based approaches the facts are represented as logic predicates or functions
     and reasoning is enabled through the application of formal inference rules.
     In contrast, graph-based representations express facts as nodes~(objects)
     and edges~(relations) and reasoning is built on top of graph traversing methods.
-    However, in ontologies objects and their attributes and relations are represented in a graph of concepts, 
-    which can also be interpreted as a set of predicates and functions on these objects. 
+    However, in ontologies objects and their attributes and relations are represented in a graph of concepts,
+    which can also be interpreted as a set of predicates and functions on these objects.
     On top of this layer, inference rules can be added,
-    which enable logical reasoning methods to be used for deriving new attributes and 
+    which enable logical reasoning methods to be used for deriving new attributes and
     relations between existing concepts.
-    
-	Relations in an ontology can be of a specific domain, but often some general domain 
+
+	Relations in an ontology can be of a specific domain, but often some general domain
     relations are represented, such
     as \textit{is-a} and \textit{part-of}. These types of relations allow representing more abstract
     or complex concepts out of the composition of more concrete or simple concepts.
-    Hence many ontologies contain some kind of taxonomy of increasingly abstract concepts, 
+    Hence many ontologies contain some kind of taxonomy of increasingly abstract concepts,
     that are also interconnected
     with each other using other semantical relations which can be domain specific.
     % Ventajas
     These resources allow representing complex frameworks of knowledge, down to a degree of specificity which
-    enables the design of fully automated reasoning tools which use this knowledge for 
+    enables the design of fully automated reasoning tools which use this knowledge for
     a variety of computational tasks.
     % Dificultades o desventajas
   	Due to the high complexity of the concepts and relations that are represented,
@@ -605,23 +673,23 @@ in each of these three domains, as well as some approaches similar to our propos
     vague data~\cite{bobillo2011fuzzy}, manually assigning a degree of belief to a specific fact is a complex task.
 
 %     % Ejemplos
-%     It is possible to distinguish between two types of ontologies: general domain (or upper ontologies) and domain-specific (or simply domain ontologies).
-%     Domain-specific ontologies are those which deal with the concepts and relations of the particular knowledge domain.
-%     As examples, we can cite ontologies in the medical sciences~\cite{rector2003opengalen,gene2004gene},
-%     or the software engineering field~\cite{4641930}.
-%     Other ontologies are more general since they can be used in different domains, or they are used for general
-%     purpose tasks which are employed in many areas.
-%     WordNet~\cite{miller1995wordnet} is a general purpose ontology that contains most of the words of the English language,
-%     and syntactic and semantic relations between them.
-%     It is used in many tasks in natural language processing and text mining.
-%     DBPedia~\cite{mendes2012dbpedia} is an encyclopedic ontology that contains part of the knowledge present in the
-%     Wikipedia\footnote{http://www.wikipedia.org}.
-%     It relates people, historical events, facts, locations, and other concepts, in a structured and queryable format.
-%     Since ontologies have a unified form of representing a single fact, concept or relation using Uniform Resource Locator~(URL), it is
-%     possible and very common for different ontologies to link each other. For example, many domain specific ontologies
-%     have entities which are linked to the corresponding entry in DBPedia. The approach of linking and referencing to other
-%   	widely known ontologies, known as \textit{linked data}~\cite{bizer2009linked},
-%     enables the standarization of the representation of shared knowledge and eases the tasks of querying and analyzing it.
+    It is possible to distinguish between two types of ontologies: general domain (or upper ontologies) and domain-specific (or simply domain ontologies).
+    Domain-specific ontologies are those which deal with the concepts and relations of the particular knowledge domain.
+    As examples, we can cite ontologies in the medical sciences~\cite{rector2003opengalen,gene2004gene},
+    or the software engineering field~\cite{4641930}.
+    Other ontologies are more general since they can be used in different domains, or they are used for general
+    purpose tasks which are employed in many areas.
+    WordNet~\cite{miller1995wordnet} is a general purpose ontology that contains most of the words of the English language,
+    and syntactic and semantic relations between them.
+    It is used in many tasks in natural language processing and text mining.
+    DBPedia~\cite{mendes2012dbpedia} is an encyclopedic ontology that contains part of the knowledge present in the
+    Wikipedia\footnote{http://www.wikipedia.org}.
+    It relates people, historical events, facts, locations, and other concepts, in a structured and queryable format.
+    Since ontologies have a unified form of representing a single fact, concept or relation using Uniform Resource Locator~(URL), it is
+    possible and very common for different ontologies to link each other. For example, many domain specific ontologies
+    have entities which are linked to the corresponding entry in DBPedia. The approach of linking and referencing to other
+  	widely known ontologies, known as \textit{linked data}~\cite{bizer2009linked},
+    enables the standarization of the representation of shared knowledge and eases the tasks of querying and analyzing it.
 
     Ontologies are an effective tool for representing knowledge in a wide
     variety of domains and scenarios~\cite{staab2010handbook}.
@@ -630,91 +698,50 @@ in each of these three domains, as well as some approaches similar to our propos
     an ontology up-to-date with respect to the massive amount of unstructured data that is generated and published every day.
 	Therefore, the need arises for computational tools to build ontologies with automated or semi-automated processes.
 
-	\subsection{Machine Learning}
-
-%	The speed and volume at which information is produced has increased exponentially in the last decade,
-%    mainly due to the rise of the social networks and the mobile technology. In order to cope with this volume of information,
-%    it is necessary to be able to process massive amounts of data continuously.
-    The field of machine learning provides tools for the automatic extraction of information and knowledge from different
-    sources of data. 
-    Machine learning not only allows to automate processes and tasks of knowledge discovery or text mining, but also provides a large
-    improvement in the scalability of these processes~\cite{wu2014data}. By using mass computing resources, it is possible to process millions
-    of raw documents in a reasonable time, far exceeding what can be done by domain experts.
-    Recent improvements in computing capabilities and access to larger datasets have given rise
-    to the field of deep learning, which has improved the state of the art in
-    several of the classic machine learning tasks~\cite{lecun2015deep}.
-
-	Arguably, the two most common approaches in machine learning are supervised and unsupervised learning~\cite{kevin2012machine}.
-    Supervised learning can be used for recognizing specific elements of knowledge in a source of data. For example, tagging
-    pieces of text to indicate that they define an entity~\cite{nadeau2007survey} (e.g., a person, organization, or place), recognizing relations between
-    said entities, or assigning a sentiment or opinion score~\cite{liu2012sentiment} to a fragment of text. On the other hand, unsupervised learning
-    can help with finding relevant structure in a large set of elements. Clustering algorithms can be used to detect similar
-    concepts or to extract abstract concepts from groups of more concrete elements. Other techniques can be used for reducing
-    the amount of information, for example, to remove noisy, uncertain or irrelevant pieces of
-    information~\cite{bingham2001random}.
-
-    In general, most machine learning algorithms are not designed to represent the learned knowledge in complex structures,
-    such as those defined by human domain experts (i.e., ontologies). In turn, the representations often have a simple structure, such
- 	as a probability distribution or a correlation matrix~\cite{bengio2013representation}.
-    When applying these algorithms to a real problem, an domain-specific
-    interpretation of those representations has to be made. 
-    % Esta es una debilidad imporante, la no explicación
-    Furthermore, many of the most powerful machine learning models are difficult to explain, in the sense
-    that when the system produces an answer, a human expert cannot easily understand and reproduce the inference steps
-    that the system performs~\cite{olden2002illuminating}.
-    % creo mejor decir que si la representacion es tan importante las ontologias son una forma de representar conocimiento
-    % y entonces meter el gancho de embeddings y entity embeddings
-    Choosing an appropriate representation is decisive for the success of most machine learning techniques~\cite{bengio2012deep}.
-    In recent years, there has been an increased interest in the problem of automatically learning relevant representations.
-    Word embeddings~\cite{mikolov} and more general entity embeddings~\cite{hu2015entity} represent the first steps towards powering
-    deep learning approaches with more explainable internal representations.
-    Since ontologies are, by definition, representations of a given conceptualization, it is conceivable that using ontologies
-    as seeds for the representation of a given domain, the performance of data mining processes based on machine learning can
-    be improved.
     \subsection{Ontology Learning}
 
     In the intersection of machine learning and knowledge representation,
-      the field of ontology learning has arisen to deal with the 
+      the field of ontology learning has arisen to deal with the
       complexity of manually maintaining and updating ontologies.
-      This field draws techniques and tools from both communities, 
+      This field draws techniques and tools from both communities,
       to automate part of the process of creating and maintaining ontologies.
     Ontology learning has the potential of reducing the cost of creating
     and, most importantly, maintaining large and complex ontologies~\cite{cimiano2009ontology}.
-      This problem is also addressed in 
+      This problem is also addressed in
       learning by reading~\cite{barker2007learning}, a field which draws techniques
     the natural language processing and knowledge representation and reasoning communities.
     The purpose is to build a formal representation of some particular field given unrestricted
     textual data related to the field. This representation must also allow fully automatic
-    reasoning.    
+    reasoning.
       Learning by reading can be considered as a particular case of ontology learning,
       even though it is only concerned with textual input, and the
       output is not necessarily formated as an ontology.
-      
+
       In the field of ontology learning, two general high level tasks can be distinguished:
       ontology population and ontology enrichment~\cite{petasis2011ontology}.
       Ontology population deals with the
       sub-problem of finding new instances for an already defined ontology, while
       ontology enrichment deals with adding new concepts and relations to an existing
       ontology. There is an overlap between these tasks, and most of the existing
-      approaches cannot be classified purely in these terms.  
+      approaches cannot be classified purely in these terms.
       In this field, several tools have been proposed, which
       combine different approaches and solve different subsets of the ontology
-      learning tasks. A brief review of these systems can help defining the 
+      learning tasks. A brief review of these systems can help defining the
       main characteristics that our framework should have.
-      % No sé si decir algo como a continuación se presentan varias de ellas 
-      % atendiendo a sus características mas relevantes. Esto nos permite conocer 
+      % No sé si decir algo como a continuación se presentan varias de ellas
+      % atendiendo a sus características mas relevantes. Esto nos permite conocer
       %la diversidad de enfoques y las potensialidades que debemos tener en cuenta
       %para crear nuestro sistema
-  
+
       % general (early approach)
-      Early approaches, such as SYNDIKATE~\cite{syndikate}, deal only with populating a 
+      Early approaches, such as SYNDIKATE~\cite{syndikate}, deal only with populating a
       knowledge base, with a predefined ontological structure~(classes and relations).
       % web approaches
       Since the Web is a rich source of information, several approaches have focused on extracting knowledge
       from it, exploiting the semi-structured format of web resources.
       Some systems like ARTEQUAKT~\cite{artequakt} and SOBA~\cite{soba} are domain-specific,
       respectively focusing on the art and the sports domains.
-      Other systems, like WEB-$>$KB~\cite{webkb} attempt to build general domain knowledge bases from the 
+      Other systems, like WEB-$>$KB~\cite{webkb} attempt to build general domain knowledge bases from the
       web, exploiting also the structure of links between pages to identify relations.
       % from structured data
       Another example is the VIKEF~\cite{vikef} system, which uses product catalogs as sources of data, hence exploiting the
@@ -722,7 +749,7 @@ in each of these three domains, as well as some approaches similar to our propos
       % bootstraping with human knowledge
       Even though most systems attempt fully-automatic extraction, some examples like ADAPTATIVA~\cite{adaptativa} include
       a bootstrapping strategy, where human experts provide feedback about the extracted knowledge.
-  
+
       In order to extract relevant knowledge from unrestricted text, NLP techniques have
       been introduced in systems such as OPTIMA~\cite{optima} and ISODLE~\cite{isolde}.
       % rule-based
@@ -731,19 +758,19 @@ in each of these three domains, as well as some approaches similar to our propos
     relations via a mapping of linguistic classes to ontology classes.
       % based on statistical models
       An alternative approach is to use statistical or probabilistic models,
-      exemplified by systems such LEILA~\cite{leila} or Text2Onto~\cite{cimiano2005text2onto}.    
+      exemplified by systems such LEILA~\cite{leila} or Text2Onto~\cite{cimiano2005text2onto}.
     % relevance
       Another example is KnowItAll~\cite{knowitall}, which introduces a point-wise mutual information
       metric to select relevant instances.
-    
+
     Once instances of entities are relations are extracted from text, a natural question is
       wether more abstract knowledge can be inferred from these examples.
       The systems who address this issue often use unsupervised techniques to attempt
       to discover inherent structures. Two relevant examples of this approach
-      are OntoGain~\cite{drymonas2010unsupervised} and ASIUM~\cite{asium}, 
+      are OntoGain~\cite{drymonas2010unsupervised} and ASIUM~\cite{asium},
       which attempt to automatically build a hierarchy of concepts using clustering techniques.
       % multimedia
-      The BOEMIE~\cite{boemie} system is another interesting example, since it 
+      The BOEMIE~\cite{boemie} system is another interesting example, since it
       attempts to automatically infer abstract concepts from the concrete instances found,
       but focuses not only on text, but also on multimedia sources such as images, and videos.
     % never-ending learning
@@ -751,7 +778,7 @@ in each of these three domains, as well as some approaches similar to our propos
       However, more recent approaches, like NELL~\cite{mitchell2015never}, attempt
       to learn continuosly from a stream of web data, and increase over time
       both the amount and the quality of the knowledge discovered.
-      
+
     One of the issues with many of these approaches is the amount of spurious
     information they generate~\cite{Maimon:2015:OLT:2870689.2870690}.
     In general, there will be many unimportant
@@ -760,7 +787,7 @@ in each of these three domains, as well as some approaches similar to our propos
     immense ontologies with very little useful information. To tackle
     this problem, OntoGain proposes a hierarchical clustering scheme
     that attempts to identify general concepts and relations.
-  
+
     In general, these tools are focused on the extraction of knowledge and
     on the task of finding relevant knowledge.
       When the extracting knowledge from a trustworthy source, even if a natural
@@ -770,7 +797,7 @@ in each of these three domains, as well as some approaches similar to our propos
       web page of an institution, there is a high chance that most of the information
       present in those documents is correct. Hence, an ontology extraction procedure
       that maximizes recall will obtain good results.
-      
+
       However, when the input source is of a lesser quality, such as blogs or
       social media posts, there is a greater chance that some, or even most,
       of the information is fake or incorrect.
@@ -783,15 +810,15 @@ in each of these three domains, as well as some approaches similar to our propos
       corpora of Internet sources becomes less a problem of recognizing the pieces
       of information lying in the corpus, and more a problem of filtering and selecting
       the relevant information, once extracted.
-  
-      Despite the existence of some general purpose systems, 
+
+      Despite the existence of some general purpose systems,
       there is no proposal of an architecture for a computational framework
       that can simultaneously and continuosly learn from the most varied sources of information online.
       Another challenge in this aspect is to obtain a computationally convenient representation
       of this knowledge, independent of the domain, source and format of the input data.
       Furthermore, such system has to explicitly deal with the large amount of spurious,
       irrelevant, or deliberately fake information spread through web sources.
-  
+
     \subsection{Quality Metrics}\label{sec:evaluation}
 
 % 	Once a computational system is implemented following the guidelines of the framework
@@ -805,19 +832,19 @@ in each of these three domains, as well as some approaches similar to our propos
     In a computational system or software framework, there are interesting
     software engineering metrics to evaluate. Such a system should be highly modular and
     extensible, so that it can be easily adapted to new input formats, or new algorithms
-    can be easily plugged in and integrated into the whole pipeline. 
+    can be easily plugged in and integrated into the whole pipeline.
     The modular design of the framework can help in achieving a high
-    degree of extensibility. 
+    degree of extensibility.
 
 	Besides these high level metrics, each of the tasks performed by the framework can be
     evaluated separately. Most of these tasks have a definite performance metric that can
     be used to rate the degree of correctness of such task. For many of the tasks described in the previous
     sections we can find standard performance metrics in the literature that can used to
     evaluate each particular process.
-    
+
 %     For example, a sensor for
 %     extracting entities can be evaluated individually by running it on a tagged corpus
-%     and computing precision and recall. 
+%     and computing precision and recall.
 
     An aggregate metric of these individual performances could provide a high level
     overview of the performance of the whole framework.
@@ -830,16 +857,8 @@ in each of these three domains, as well as some approaches similar to our propos
     vary not only across tasks, but in the same task, according to which test suite (or corpus)
     is used.
 
-    \begin{figure}[htb]
-    	\begin{center}
-        	\includegraphics[width=0.6\columnwidth]{Graphics/evaluation.pdf}
-            \caption{Schematic representation of the process for evaluate knowledge.}
-            \label{fig:evaluation}
-        \end{center}
-    \end{figure}
-    
 	Going up one level of abstraction, for the general problem of ontology learning there are also
-    several evaluation metrics and methodologies available, such as OntoRand~\cite{ontorand} 
+    several evaluation metrics and methodologies available, such as OntoRand~\cite{ontorand}
     and OntoMetric~\cite{ontometric}. However, most of these
     methodologies are designed for evaluating a single ontology that is either created or
     modified using techniques from ontology learning. Once more, extending these methodologies
@@ -849,7 +868,7 @@ in each of these three domains, as well as some approaches similar to our propos
     considered when evaluating a single ontology. As a final consideration, the framework
     by design, is expected to maintain a degree of internal inconsistency in order
     to better cover multiple and possibly overlapping domains.
-    We present some of the most commonly described approaches in the literature for 
+    We present some of the most commonly described approaches in the literature for
     evaluating ontologies~\cite{petasis2011ontology}
     and describe how they can be used in our context.
 
@@ -1012,14 +1031,6 @@ of these pipelines could allow the framework to automatically discover the best 
 This opens the door to the possibility of, in time, the framework
 itself learning which algorithms and approaches work better in each task, or in each domain.
 % ---
-
-\begin{figure}[htb]
-    \begin{center}
-        \includegraphics[width=0.8\columnwidth]{Graphics/optimization.pdf}
-        \caption{Schematic representation of the possible different evaluated pipelines inside the framework.}
-        \label{fig:pipeline}
-    \end{center}
-\end{figure}
 
 \subsection{Human input}
 
