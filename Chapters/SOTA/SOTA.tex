@@ -20,40 +20,28 @@ Intro del estado del arte
 
   \section{Herramientas de Anotación}
 
-  \section{Complementos para la Anotación Semi-Automática}
+  \section{Anotación Semi-Automática}
 
-Machine learning, and specifically supervised learning, is one of the most effective tools for automating
-complex cognitive tasks, such as recognizing objects in images or understanding natural language text.
-One of the main bottlenecks of supervised learning is the need for high-quality datasets of labeled samples
-on which statistical models can be trained.
+Machine learning, and specifically supervised learning, is one of the most effective tools for automating complex cognitive tasks, such as recognizing objects in images or understanding natural language text.
+One of the main bottlenecks of supervised learning is the need for high-quality datasets of labeled samples on which statistical models can be trained.
 These datasets are usually built by human experts in a lengthy and costly manual process.
 Active learning~\cite{Cohn2010ActiveL} is an alternative paradigm to conventional supervised learning that has been proposed to reduce the costs involved in manual annotation .
 
-The key idea underlying active learning is that a learning algorithm can perform
-better with less training examples if it is allowed to actively select which examples to learn from~\cite{survey}.
-In the supervised learning context, this paradigm changes the role of the human expert.  In conventional
-supervised learning contexts, the human expert guides the learning process by providing a large dataset
-of labeled examples. However, in active learning the active role is shifted to the algorithm and
-the human expert becomes an oracle, participating in a labeling-training-query loop.
-In the active paradigm,  a model is incrementally built by training on a partial collection of samples and then selecting
-one or more unlabeled samples to query the human oracle for labels and increase the training set.
+The key idea underlying active learning is that a learning algorithm can perform better with less training examples if it is allowed to actively select which examples to learn from~\cite{survey}.
+In the supervised learning context, this paradigm changes the role of the human expert.
+In conventional supervised learning contexts, the human expert guides the learning process by providing a large dataset of labeled examples. However, in active learning the active role is shifted to the algorithm and the human expert becomes an oracle, participating in a labeling-training-query loop.
+In the active paradigm,  a model is incrementally built by training on a partial collection of samples and then selecting one or more unlabeled samples to query the human oracle for labels and increase the training set.
 This approach introduces the new problem of how to best select the query samples so as to maximize the model's performance while minimizing the effort of the human participant.
 
-The simplest active learning scenario consists of  the classification of independent elements $x_i$ drawn from
-a pool of unlabeled samples. Examples range from image classification~\cite{Gal2017DeepBA} to sentiment mining~\cite{Kranjc2015ActiveLF},  in which the minimal level of sampling (e.g., an image or text document) corresponds to the minimal level
-of decision. i.e, a single label is assigned to each $x_i$. More complex scenarios arise when the decision level is more fine-grained than the sampling level. In the domain of text mining, an interesting scenario is the task of
-entity and relation extraction from natural language text~\cite{zhang2012unified}. In this scenario the
-sampling level is a sentence, but the minimal level of decision involves each token or pair of tokens in the sentence, and furthermore, these decisions are in general not independent within the same sentence.
+The simplest active learning scenario consists of  the classification of independent elements $x_i$ drawn from a pool of unlabeled samples.
+Examples range from image classification~\cite{Gal2017DeepBA} to sentiment mining~\cite{Kranjc2015ActiveLF},  in which the minimal level of sampling (e.g., an image or text document) corresponds to the minimal level of decision. i.e, a single label is assigned to each $x_i$. More complex scenarios arise when the decision level is more fine-grained than the sampling level. In the domain of text mining, an interesting scenario is the task of entity and relation extraction from natural language text~\cite{zhang2012unified}.
+In this scenario the sampling level is a sentence, but the minimal level of decision involves each token or pair of tokens in the sentence, and furthermore, these decisions are in general not independent within the same sentence.
 In this case, it is not trivial to estimate how informative an unlabeled sample will be, since each sample has several sources of uncertainty.
 
-This section reviews some of the most relevant research related with active learning in general,
-and specifically focused on entity detection and relation extraction.
-One of the most important design decisions in active learning is how to intelligently select the novel
-unlabeled samples in the most efficient way. The underlying assumption is that we want to train a
-model to the highest possible performance~(measured in precision, $F_1$, etc.) while minimizing the human cost
-(measured in time, number of samples manually labeled, or any other suitable metric).
-This requirement is often framed as the selection of the \textit{most informative} unlabeled samples, and
-formalized in terms of a query strategy~\cite{survey}.
+This section reviews some of the most relevant research related with active learning in general, and specifically focused on entity detection and relation extraction.
+One of the most important design decisions in active learning is how to intelligently select the novel unlabeled samples in the most efficient way. The underlying assumption is that we want to train a
+model to the highest possible performance~(measured in precision, $F_1$, etc.) while minimizing the human cost (measured in time, number of samples manually labeled, or any other suitable metric).
+This requirement is often framed as the selection of the \textit{most informative} unlabeled samples, and formalized in terms of a query strategy~\cite{survey}.
 The most common query strategies for general-purpose active learning can be grouped into the following categories:
 
 \begin{description}
