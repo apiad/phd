@@ -747,7 +747,7 @@ Sin embargo, cuando la fuente de entrada es de menor calidad, como blogs o publi
 
 A pesar de la existencia de algunos sistemas de propósito general, no existe una propuesta de arquitectura para un marco computacional que pueda aprender de manera simultánea y continua de las más variadas fuentes de información en línea. Otro desafío en este aspecto es obtener una representación computacionalmente conveniente de este conocimiento, independientemente del dominio, fuente y formato de los datos de entrada. Además, dicho sistema tiene que lidiar explícitamente con la gran cantidad de información falsa, irrelevante o deliberadamente falsa que se difunde a través de fuentes web.
 
-\ subsection {Quality Metrics} \ label {sec: evaluación}
+\subsection{Quality Metrics}\label{sec: evaluación}
 
 % Una vez que se implementa un sistema computacional siguiendo las pautas del marco
 % presentado en este trabajo, es necesario realizar alguna evaluación sobre su salida.
@@ -770,11 +770,11 @@ A pesar de la existencia de algunos sistemas de propósito general, no existe un
     Una métrica agregada de estos desempeños individuales podría proporcionar una descripción general de alto nivel del desempeño de todo el marco.
     Sin embargo, diseñar una métrica agregada que proporcione una medida práctica e interpretable de la calidad del desempeño del marco puede ser muy complejo.
     Cada una de las diferentes tareas realizadas por el marco puede tener un rendimiento de referencia muy diferente.
-    Una precisión del 90 \% puede ser un muy buen resultado en algunas tareas complejas, como el análisis de dependencias ~ \ cite {AlbertiABCGKKMO17}, pero mediocre en otras tareas, como la clasificación de imágenes ~ \ cite {Russakovsky2015}.
+    Una precisión del 90\% puede ser un muy buen resultado en algunas tareas complejas, como el análisis de dependencias~\cite{AlbertiABCGKKMO17}, pero mediocre en otras tareas, como la clasificación de imágenes~\cite{Russakovsky2015}.
     Además, este número de referencia puede variar no solo entre las tareas, sino también en la misma tarea, según el conjunto de pruebas (o corpus)
     se utiliza.
 
-    Subiendo un nivel de abstracción, para el problema general del aprendizaje de la ontología, también hay varias métricas y metodologías de evaluación disponibles, como OntoRand ~ \ cite {ontorand} y OntoMetric ~ \ cite {ontometric}.
+    Subiendo un nivel de abstracción, para el problema general del aprendizaje de la ontología, también hay varias métricas y metodologías de evaluación disponibles, como OntoRand~\cite{ontorand} y OntoMetric~\cite{ontometric}.
     Sin embargo, la mayoría de estas metodologías están diseñadas para evaluar una sola ontología que se crea o modifica utilizando técnicas de aprendizaje de ontologías.
     Una vez más, extender estas metodologías a una colección de ontologías no es tan sencillo como agregar o promediar los resultados individuales.
     Por otro lado, cuando se trata de una colección de ontologías, pueden surgir otras inquietudes, como la consistencia intra-ontológica, que no suelen considerarse al evaluar una única ontología.
