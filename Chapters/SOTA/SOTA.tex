@@ -418,88 +418,42 @@ En nuestro caso, todos los recursos están disponibles públicamente en una cole
 
 \section{Anotación Semi-Automática}
 
-Machine learning, and specifically supervised learning, is one of the most effective tools for automating complex cognitive tasks, such as recognizing objects in images or understanding natural language text.
-One of the main bottlenecks of supervised learning is the need for high-quality datasets of labeled samples on which statistical models can be trained.
-These datasets are usually built by human experts in a lengthy and costly manual process.
-Active learning~\cite{Cohn2010ActiveL} is an alternative paradigm to conventional supervised learning that has been proposed to reduce the costs involved in manual annotation .
+El aprendizaje automático, y específicamente el aprendizaje supervisado, es una de las herramientas más efectivas para automatizar tareas cognitivas complejas, como reconocer objetos en imágenes o comprender texto en lenguaje natural. Uno de los principales obstáculos del aprendizaje supervisado es la necesidad de conjuntos de datos de alta calidad de muestras etiquetadas en las que se puedan entrenar modelos estadísticos. Estos conjuntos de datos generalmente son construidos por expertos humanos en un proceso manual largo y costoso. El aprendizaje activo~\cite{Cohn2010ActiveL} es un paradigma alternativo al aprendizaje supervisado convencional que se ha propuesto para reducir los costos involucrados en la anotación manual.
 
-The key idea underlying active learning is that a learning algorithm can perform better with less training examples if it is allowed to actively select which examples to learn from~\cite{survey}.
-In the supervised learning context, this paradigm changes the role of the human expert.
-In conventional supervised learning contexts, the human expert guides the learning process by providing a large dataset of labeled examples. However, in active learning the active role is shifted to the algorithm and the human expert becomes an oracle, participating in a labeling-training-query loop.
-In the active paradigm,  a model is incrementally built by training on a partial collection of samples and then selecting one or more unlabeled samples to query the human oracle for labels and increase the training set.
-This approach introduces the new problem of how to best select the query samples so as to maximize the model's performance while minimizing the effort of the human participant.
+La idea clave que subyace al aprendizaje activo es que un algoritmo de aprendizaje puede funcionar mejor con menos ejemplos de entrenamiento si se le permite seleccionar activamente qué ejemplos aprender de~\cite{seungquery}.
+En el contexto del aprendizaje supervisado, este paradigma cambia el papel del experto humano.
+En contextos de aprendizaje supervisado convencionales, el experto humano guía el proceso de aprendizaje proporcionando un gran conjunto de datos de ejemplos etiquetados. Sin embargo, en el aprendizaje activo, el rol activo se traslada al algoritmo y el experto humano se convierte en un oráculo, participando en un ciclo de etiquetado-entrenamiento-consulta.
+En el paradigma activo, un modelo se construye de forma incremental entrenando en una colección parcial de muestras y luego seleccionando una o más muestras sin etiquetar para consultar el oráculo humano en busca de etiquetas y aumentar el conjunto de entrenamiento.
+Este enfoque introduce el nuevo problema de cómo seleccionar mejor las muestras de consulta para maximizar el rendimiento del modelo y minimizar el esfuerzo del participante humano.
 
-The simplest active learning scenario consists of  the classification of independent elements $x_i$ drawn from a pool of unlabeled samples.
-Examples range from image classification~\cite{Gal2017DeepBA} to sentiment mining~\cite{Kranjc2015ActiveLF},  in which the minimal level of sampling (e.g., an image or text document) corresponds to the minimal level of decision. i.e, a single label is assigned to each $x_i$. More complex scenarios arise when the decision level is more fine-grained than the sampling level. In the domain of text mining, an interesting scenario is the task of entity and relation extraction from natural language text~\cite{zhang2012unified}.
-In this scenario the sampling level is a sentence, but the minimal level of decision involves each token or pair of tokens in the sentence, and furthermore, these decisions are in general not independent within the same sentence.
-In this case, it is not trivial to estimate how informative an unlabeled sample will be, since each sample has several sources of uncertainty.
+El escenario de aprendizaje activo más simple consiste en la clasificación de elementos independientes $ x_i $ extraídos de un grupo de muestras sin etiquetar.
+Los ejemplos van desde la clasificación de imágenes~\cite{Gal2017DeepBA} hasta la minería de sentimientos~\cite{Kranjc2015ActiveLF}, en la que el nivel mínimo de muestreo (por ejemplo, una imagen o un documento de texto) corresponde al nivel mínimo de decisión. es decir, se asigna una sola etiqueta a cada $ x_i $. Los escenarios más complejos surgen cuando el nivel de decisión es más detallado que el nivel de muestreo. En el dominio de la minería de texto, un escenario interesante es la tarea de extracción de entidades y relaciones del texto en lenguaje natural~\cite{zhang2012unified}.
+En este escenario, el nivel de muestreo es una oración, pero el nivel mínimo de decisión involucra cada ficha o par de fichas en la oración y, además, estas decisiones en general no son independientes dentro de la misma oración.
+En este caso, no es trivial estimar qué tan informativa será una muestra sin etiquetar, ya que cada muestra tiene varias fuentes de incertidumbre.
 
-This section reviews some of the most relevant research related with active learning in general, and specifically focused on entity detection and relation extraction.
-One of the most important design decisions in active learning is how to intelligently select the novel unlabeled samples in the most efficient way. The underlying assumption is that we want to train a
-model to the highest possible performance~(measured in precision, $F_1$, etc.) while minimizing the human cost (measured in time, number of samples manually labeled, or any other suitable metric).
-This requirement is often framed as the selection of the \textit{most informative} unlabeled samples, and formalized in terms of a query strategy~\cite{survey}.
-The most common query strategies for general-purpose active learning can be grouped into the following categories:
+En esta sección se revisan algunas de las investigaciones más relevantes relacionadas con el aprendizaje activo en general, y específicamente enfocadas en la detección de entidades y extracción de relaciones.
+Una de las decisiones de diseño más importantes en el aprendizaje activo es cómo seleccionar inteligentemente las nuevas muestras sin etiquetar de la manera más eficiente. El supuesto subyacente es que queremos entrenar a un
+modele con el rendimiento más alto posible ~ (medido en precisión, $ F_1 $, etc.) mientras se minimiza el costo humano (medido en tiempo, número de muestras etiquetadas manualmente o cualquier otra métrica adecuada).
+Este requisito a menudo se enmarca como la selección de las muestras sin etiqueta \textit{más informativas} y se formaliza en términos de una estrategia de consulta~\cite{seungquery}.
+Las estrategias de consulta más comunes para el aprendizaje activo de propósito general se pueden agrupar en las siguientes categorías:
 
 \begin{description}
-\item[(i) Uncertainty sampling:] The most informative samples are considered those with the highest degree of uncertainty, given some measure of uncertainty for each sample~\cite{Lewis1994148}.
+\item [(i) Muestreo de incertidumbre:] Las muestras más informativas se consideran aquellas con el mayor grado de incertidumbre, dada alguna medida de incertidumbre para cada muestra~\cite{Lewis1994148}.
 
-\item[(ii) Query by committee:] The most informative samples are considered those with the highest disagreement among a committee of either different models or different hypotheses from the same underlying model~\cite{seungquery}.
+\item [(ii) Consulta por comité:] Las muestras más informativas se consideran aquellas con el mayor desacuerdo entre un comité de diferentes modelos o diferentes hipótesis del mismo modelo subyacente~\cite{seungquery}.
 
-\item[(iii) Expected model change:] The most informative samples are considered those that produce the highest change in the model's hypothesis if they were included in the training set~\cite{NIPS2007_3252}.
-In recent years, researchers in fields such as machine learning, knowledge discovery, data mining and
-natural language processing, among others, have produced many approaches and techniques to
-leverage the large amount of information in the Internet for a variety of tasks, from
-building search~\cite{google} and recommender systems~\cite{youtube}
-to improving medical diagnostics~\cite{watson}.
+\item [(iii) Cambio de modelo esperado:] Las muestras más informativas se consideran aquellas que producen el mayor cambio en la hipótesis del modelo si se incluyeron en el conjunto de entrenamiento~\cite{NIPS2007_3252}.
 
-Among the different approaches relevant to knowledge discovery, we can recognize a
-continuous spectrum of techniques, based on how much expert knowledge is used.
-Heavily knowledge-based techniques are based
-on rules defined in knowledge bases handcrafted by domain experts~\cite{chandrasekaran1986generic}.
-These approaches have a great degree
-of reliability and precision, and generally allow for more complexity in the extracted knowledge,
-but are difficult to scale to large amounts of data.
-In contrast, the statistical approaches consist of techniques based on pattern recognition with statistical
-and probabilistic models~\cite{kevin2012machine}. These techniques scale better with large amounts of data~\cite{le2013building},
-providing better recall, but often are limited to extracting simple models of knowledge,
-and can be more sensitive to noisy, fake or biased information~\cite{bolukbasi2016man}.
-
-Given these mutually complementary characteristics, several hybrid approaches have been proposed.
-Recently, research areas such as ontology learning~\cite{cimiano2009ontology},
-learning by reading~\cite{barker2007learning} or entity embedding~\cite{hu2015entity} have arisen.
-In these areas, researchers combine techniques from machine learning, natural language
-processing and knowledge representation to solve more complex problems that cannot
-be dealt with using only the classical tools.
-
-Many machine learning systems are designed to solve a domain-specific task, such as
-assigning a class to an element from a predefined set of labels. These systems,
-when trained with data for a particular domain, are often not applicable to other domains
-or to scenarios where several different domains must be used together. Moreover,
-often systems are designed to be trained once from a corpus, and don't allow for
-a continuous improvement of the knowledge learned.
-Recently there are attempts to build general-purpose learning systems that are always
-improving while obtaining new knowledge, re-evaluating the old knowledge and refining their
-own confidence~\cite{mitchell2015never}.
-
-Additionally, it is interesting to design non-monolithic learning systems, but instead
-built as a set of modular components that can be combined in different ways.
-This composability would allow a continuous learning system not only to improve the
-quality of the extracted knowledge, but also to learn how to tune its own internal
-parameters to perform a better knowledge extraction in the future. It is conceivable
-that such a system could gradually learn which types of basic processes (i.e., entity recognition, POS-tagging, etc.)
-are most useful for a given domain or for a particular corpus. Likewise, such a system could
-learn which types of probabilistic models provide the best results in a particular dataset.
-\item[(iv) Variance and error reduction:] The most informative samples are those which produce the highest reduction in the model's generalization error or, as a proxy, its variance~\cite{roy2001toward}.
+\item [(iv) Reducción de varianza y error:] Las muestras más informativas son aquellas que producen la mayor reducción en el error de generalización del modelo o, como proxy, su varianza~\cite{roy2001toward}.
 \end{description}
 
-Expected model change (iii) and variance/error reduction (iv) strategies are heavily dependent on the specific learning model used.
-In contrast, uncertainty sampling (i) and query by committee (ii) are  applicable in general with a high degree of model agnosticism.
-Furthermore, relevant subsets of both strategies can be formalized under a single framework if we define the uncertainty as a measure of the entropy of the model's predicted output.
-In this framework, query-by-committee can be implemented via weighted voting, thereby assigning empirical probabilities to the possible outputs.
+Las estrategias de cambio de modelo (iii) y reducción de varianza / error (iv) esperadas dependen en gran medida del modelo de aprendizaje específico utilizado.
+Por el contrario, el muestreo de incertidumbre (i) y la consulta por comité (ii) son aplicables en general con un alto grado de agnosticismo del modelo.
+Además, los subconjuntos relevantes de ambas estrategias se pueden formalizar bajo un solo marco si definimos la incertidumbre como una medida de la entropía de la salida prevista del modelo.
+En este marco, la consulta por comité se puede implementar mediante votación ponderada, asignando así probabilidades empíricas a los posibles resultados.
 
-Weighted density is a complimentary strategy in which the most informative samples are weighted by how representative they are of the input space, for example, by measuring their similarity to the remaining samples~\cite{settles2008analysis}.
-This approach attempts to counter-balance a noticeable tendency to select outliers as the most informative samples ---a problem associated with other query strategies--- since outliers are often the samples that create the highest amount of uncertainty, disagreement or hypothesis change.
-
+La densidad ponderada es una estrategia complementaria en la que las muestras más informativas se ponderan por lo representativas que son del espacio de entrada, por ejemplo, midiendo su similitud con las muestras restantes~\cite{settles2008analysis}.
+Este enfoque intenta contrarrestar una tendencia notable a seleccionar valores atípicos como las muestras más informativas, un problema asociado con otras estrategias de consulta, ya que los valores atípicos son a menudo las muestras que crean la mayor cantidad de incertidumbre, desacuerdo o cambio de hipótesis.
 Recent advseplnances in natural language processing have produced an increased interest in active learning to alleviate the requirement for large annotated corpora~\cite{Olsson2009ALS, Tchoua2019ActiveLY}.
 \citet{settles2008analysis} compare several strategies for active learning in sequence labeling scenarios, concluding that query strategies based on measures of sequence entropy combined with weighted sampling outperform other variants.
 \citet{Meduri2020ACB} propose a comprehensive benchmark to evaluate different active learning strategies for entity matching.
@@ -508,20 +462,21 @@ In the task of named entity recognition, CRF models have been used to select que
 The task of relation extraction also benefits from active learning approaches, both in general-purpose settings~\cite{fu2013efficient} and in domain-specific settings~\cite{zhang2012unified}.
 However, despite the growing body of research, it is still a challenge to apply active learning in joint entity recognition and relation extraction, especially in scenarios with low resources~\cite{Gao2019ActiveER}.
 
-  \section{Recursos Lingüísticos}
+\section{Recursos Lingüísticos}
 
-  Different semantic relations have been established  in the state of the art, many of these giving rise to the construction of corpora. We focus on two approaches: corpora or annotation models to represent knowledge in many domains as well as those specifically about health.
-  The table~\ref{tab:corpora}  presents the seven characteristics relevant to our corpus and indicates which of them are present in a sample of corpora from the state-of-the-art.
-  These characteristics can be understood in the following terms:
-  \begin{enumerate}
-  \item \textit{general-purpose annotation:} applicability of the underlying annotation model to any domain;
-  \item \textit{independence of syntax:} capturing semantic aspects rather than syntactic relations in sentences;
-  \item \textit{ontological knowledge:} supporting inheritance and composition between concepts;
-  \item \textit{composite concepts:} allowing the annotation of concepts that involve other sub-concepts;
-  \item \textit{attributes:} modeling attributes for each annotated entity such as quantifiers~(e.g., number of occurrences) or qualifiers~(e.g., degree of certainty);
-  \item \textit{contextual relations:} modeling relations that only occur when conditioned by a specific context; and,
-  \item \textit{causality / entailment:} including relations for representing causality and/or entailment.
-  \end{enumerate}
+En el estado del arte se han establecido diferentes relaciones semánticas, muchas de las cuales dan lugar a la construcción de corpus. Nos enfocamos en dos enfoques: corpus o modelos de anotación para representar el conocimiento en muchos dominios, así como aquellos específicamente relacionados con la salud.
+La tabla~\ref{tab: corpora} presenta las siete características relevantes para nuestro corpus e indica cuáles de ellas están presentes en una muestra de corpus del estado de la técnica.
+Estas características se pueden entender en los siguientes términos:
+
+\begin{enumerate}
+\item \textit{anotación de propósito general:} aplicabilidad del modelo de anotación subyacente a cualquier dominio;
+\item \textit{independencia de la sintaxis:} capturando aspectos semánticos en lugar de relaciones sintácticas en oraciones;
+\item \textit{conocimiento ontológico:} que apoya la herencia y la composición entre conceptos;
+\item \textit{conceptos compuestos:} permitiendo la anotación de conceptos que involucran otros subconceptos;
+\item \textit{atributos:} atributos de modelado para cada entidad anotada, como cuantificadores ~ (por ejemplo, número de ocurrencias) o calificadores ~ (por ejemplo, grado de certeza);
+\item \textit{relaciones contextuales:} relaciones de modelado que solo ocurren cuando están condicionadas por un contexto específico; y,
+\item \textit{causalidad / implicación:} incluyendo relaciones para representar causalidad y / o implicación.
+\end{enumerate}
 
   \begin{table}[htb]
       \centering
@@ -591,399 +546,186 @@ However, despite the growing body of research, it is still a challenge to apply 
     \label{tab:stateofart2}}
     \end{table}
 
-    \subsection{Descripción de los recursos}
+\subsection{Descripción de los recursos}
 
-    \begin{description}
-      \item[Ixa MedGS]
-      \item[DrugSemantics]
-      \item[DDI]
-      \item[Bio AMR]
-      \item[YAGO]
-      \item[ConceptNet]
-      \item[CLEF]
-      \item[BARR2]
-      \item[Emotinet]
-    \end{description}
+  \begin{description}
+  \item[Ixa MedGS]
+  \item[DrugSemantics]
+  \item[DDI]
+  \item[Bio AMR]
+  \item[YAGO]
+  \item[ConceptNet]
+  \item[CLEF]
+  \item[BARR2]
+\item[Emotinet]
+\end{description}
 
-    Most health-related corpora are annotated using self-defined health
-    related entities relevant to the task at hand.
-    Of these, arguably one of the most used is the CLEF
-    corpus~\cite{kelly2016overview}.
-    This corpus contains 150 English clinical documents, manually annotated by a
-    team of experts (clinical and biologists) and non-experts.
-    In contrast, the DDI corpus~\cite{herrero2013ddi}, which contains 1025 English
-    documents from Medline was pre-annotated automatically, and then manually
-    checked by domain experts (Pharmacists).
-    Similar corpora in Spanish language exist.
-    The Drug Semantic corpus~\cite{moreno2017drugsemantics} is an example, where
-    domain experts (Registered Nurses and students) manually annotated Spanish
-    summaries of product characteristics.
-    {Likewise, the BARR2}~\cite{barr2} {corpus contains manually annotated abbreviation-definition
-    pairs in Spanish clinical papers extracted from bibliographic databases.}
-    %%% CHANGE add BARR2 corpus
-    On the other hand, the Ixa MedGS corpus~\cite{oronoz2015creation} was
-    pre-annotated automatically and then manually checked by domain experts in
-    Pharmacology.
-    An interesting alternative is the Bio AMR corpus~\cite{bioamr}, which contains
-    AMR annotations of several medical documents, hence combining a general purpose
-    annotation schema in a specific domain.
+La mayoría de los corpus relacionados con la salud se anotan utilizando entidades relacionadas con la salud autodefinidas relevantes para la tarea en cuestión. De estos, posiblemente uno de los más utilizados es el corpus CLEF~\cite{kelly2016overview}. Este corpus contiene 150 documentos clínicos en inglés, anotados manualmente por un equipo de expertos (clínicos y biólogos) y no expertos. Por el contrario, el corpus DDI~\cite{herrero2013ddi}, que contiene 1025 documentos en inglés de Medline, fue previamente anotado automáticamente y luego revisado manualmente por expertos del dominio (farmacéuticos). Existen corpus similares en idioma español. El corpus de Semántica de Drogas~\cite{moreno2017drugsemantics} es un ejemplo, donde los expertos del dominio (enfermeras registradas y estudiantes) anotaron manualmente resúmenes en español de las características del producto. {Asimismo, el BARR2}~\cite{barr2} {corpus contiene pares de abreviaturas y definiciones anotados manualmente en artículos clínicos españoles extraídos de bases de datos bibliográficas.}
 
-    In the context of general domain knowledge, one of the most relevant resources
-    for our research is YAGO~\cite{fabian2007yago}.
-    It consists of a large knowledge base automatically extracted from Wikipedia,
-    WordNet, and other sources.
-    Since YAGO is intended to represent general domain knowledge, its semantic
-    structure is defined in terms of fact triples, in the spirit of RDF and other
-    ontological representations.
-    In contrast, the Emotinet knowledge base~\cite{emotinet} is oriented towards a
-    specific domain (emotions), and is built from the manual annotation of blog
-    entries, using a general semantic structure that links entities, actions, and
-    emotions.
-    Although Emotinet is designed for a particular domain, its structure is rather
-    general, in the sense that it can readily represent any type of event or action
-    performed by entities.
+Por otro lado, el corpus de Ixa MedGS~\cite{oronoz2015creation} fue previamente anotado automáticamente y luego revisado manualmente por expertos del dominio en Farmacología. Una alternativa interesante es el corpus de Bio AMR~\cite{bioamr}, que contiene anotaciones de AMR de varios documentos médicos, por lo que combina un esquema de anotación de propósito general en un dominio específico.
 
-    As Table \ref{tab:stateofart} shows, the type of documents used is highly
-    variable, which provokes large differences in terms of the length of documents,
-    structure of discourse and vocabulary.
-    An interesting characteristic is the type of annotation, either manual,
-    pre-automated with expert review, or fully automated.
-    Although recent research shows an increasing tendency towards pre-automated
-    or fully automated annotation, manual annotation is still regarded as
-    more reliable.
+En el contexto del conocimiento del dominio general, uno de los recursos más relevantes para nuestra investigación es YAGO~\cite{fabian2007yago}.
+Consiste en una gran base de conocimientos extraída automáticamente de Wikipedia, WordNet y otras fuentes. Dado que YAGO está destinado a representar el conocimiento de dominio general, su estructura semántica se define en términos de triples de hechos, en el espíritu de RDF y otras representaciones ontológicas.
+En contraste, la base de conocimiento de Emotinet~\cite{emotinet} está orientada hacia un dominio específico (emociones), y se construye a partir de la anotación manual de entradas de blog, utilizando una estructura semántica general que vincula entidades, acciones y emociones.
+Aunque Emotinet está diseñado para un dominio en particular, su estructura es bastante general, en el sentido de que puede representar fácilmente cualquier tipo de evento o acción realizada por entidades. Como muestra la Tabla \ ref {tab: stateofart}, el tipo de documentos utilizados es muy variable, lo que provoca grandes diferencias en cuanto a la extensión de los documentos, la estructura del discurso y el vocabulario. Una característica interesante es el tipo de anotación, ya sea manual, pre-automatizada con revisión de expertos o totalmente automatizada. Aunque investigaciones recientes muestran una tendencia creciente hacia la anotación pre-automatizada o totalmente automatizada, la anotación manual todavía se considera más confiable. La anotación manual todavía se considera más confiable.
 
-    Health related corpora are usually annotated by experts with a domain-specific
-    semantic structure, such as entities related to diseases, drugs, genes, or
-    treatments.
-    Given the complexity of the concepts in the medical domain, annotators usually include
-    medical doctors or other specialists of the medical domain.
-    In these resources, very few general-purpose natural language features are used.
-    This provides a greater detail of semantic information, since the entities and
-    relations are relevant for the domain at hand.
-    However, in the same sense, it might discard important information in the text
-    which cannot be represented with the structure defined.
-    This may or may not be an issue for a specific line of research.
-    In our case, we consider it important to extract as much knowledge as
-    possible from each source.
-    In contrast, general purpose corpora or knowledge bases are usually annotated
-    by non-experts with a semantic structure designed to represent as much
-    knowledge as possible.
-    This strategy tends to increase recall (a larger amount of facts is extracted)
-    but it might extract irrelevant or incorrect facts.
-    In these cases, the annotation schema relies largely on natural language semantics, such as Subject-Predicate-Object triples.
+Los corpus relacionados con la salud suelen ser anotados por expertos con una estructura semántica de dominio específico, como entidades relacionadas con enfermedades, fármacos, genes o tratamientos. Dada la complejidad de los conceptos en el dominio médico, los anotadores suelen incluir médicos u otros especialistas del dominio médico. En estos recursos, se utilizan muy pocas características del lenguaje natural de propósito general. Esto proporciona un mayor detalle de la información semántica, ya que las entidades y relaciones son relevantes para el dominio en cuestión. Sin embargo, en el mismo sentido, podría descartar información importante en el texto que no se puede representar con la estructura definida. Esto puede o no ser un problema para una línea de investigación específica. En nuestro caso, consideramos importante extraer el mayor conocimiento posible de cada fuente. Por el contrario, los corpus o bases de conocimiento de propósito general suelen ser anotados por no expertos con una estructura semántica diseñada para representar tanto conocimiento como sea posible. Esta estrategia tiende a aumentar la memoria (se extrae una mayor cantidad de hechos) pero puede extraer hechos irrelevantes o incorrectos. En estos casos, el esquema de anotación se basa en gran medida en la semántica del lenguaje natural, como las triples Sujeto-Predicado-Objeto.
 
-    The trend of representing knowledge with a general structure has been aided by recent
-    advances in Teleologies~\cite{teleologies} that provide a theoretical framework for
-    representing general purpose facts using a small set of concepts (objects,
-    actions and functions).
-    In contrast with Abstract Meaning Representation (AMR), the Teleologies framework is not
-    specifically aimed at natural language understanding, but at representing
-    the semantics of a general knowledge domain. This type of framework is less dependent
-    on the linguistic characteristics of a specific language.
-    The Subject-Action-Target structure defined in this paper is based on a simplification
-    of the Teleologies conceptualization, applied to the domain of medical texts.
-    However, inspired by general purpose knowledge bases, we also include a few specific
-    semantic relations that are broadly used in general purpose ontologies and semantic networks.
-    This combination (i.e. SAT+R, see Section~\ref{sec:problem}) makes the annotation schema used in eHealth-KD novel.
+La tendencia de representar el conocimiento con una estructura general se ha visto favorecida por los avances recientes en Teleologías~\cite{teleologies} que proporcionan un marco teórico para representar hechos de propósito general utilizando un pequeño conjunto de conceptos (objetos, acciones y funciones). A diferencia de la Representación de significado abstracto (AMR), el marco de Teleologías no está dirigido específicamente a la comprensión del lenguaje natural, sino a representar la semántica de un dominio de conocimiento general. Este tipo de marco depende menos de las características lingüísticas de un idioma específico. La estructura Sujeto-Acción-Destino definida en este artículo se basa en una simplificación de la conceptualización de Teleologías, aplicada al dominio de los textos médicos. Sin embargo, inspirados en bases de conocimiento de propósito general, también incluimos algunas relaciones semánticas específicas que se utilizan ampliamente en ontologías de propósito general y redes semánticas. Esta combinación (es decir, SAT + R, consulte la Sección~\ref{sec:problem}) hace que el esquema de anotación utilizado en eHealth-KD sea novedoso.
 
-    \subsection{Características generales}
+\subsection{Características generales}
 
-  \paragraph{General-purpose annotation}
-  General-purpose annotation models are often used in corpora extracted from encyclopedic sources, such as \textit{YAGO}~\cite{suchanek2007yago} and \textit{ConceptNet}~\cite{speer2017conceptnet}, both of which contain facts automatically extracted from Wikipedia~(among other sources). In contrast, domain-specific annotation models are usually employed when the source is more restricted to a specific domain. Examples include \textit{Ixa MedGS}~\cite{ORONOZ2015318}, which contains health related concepts for diseases, causes and medications; \textit{DrugSemantics}~\cite{moreno2017drugsemantics}, which annotates health entities, drugs and procedures; and, \textit{DDI}~\cite{herrero2013ddi}, which annotates drug-drug interactions. A middle ground is the \textit{Bio AMR}~\cite{bioamr} corpus, which applies a general purpose annotation model~(AMR)~\cite{banarescu2013abstract} to health documents. The \textit{eHealth-KD v2} corpus is similar to the latter in this respect, since the annotation model defined is general, but it is applied specifically to health sentences in this research.
-  The \textit{eHealth-KD v2} corpus constitutes the result of the evolution of the \textit{eHealth-KD v1}~\cite{ehealth} corpus.
+\paragraph{Anotación de propósito general}
 
-  Most of the aforementioned resources are focused on capturing the semantics of sentences, in the sense that very different sentences with the same facts are likely to be similarly annotated. We consider \textit{BioAMR} less independent of syntax because even though AMR is a semantic annotation model---far more abstract than dependency parsing, for example---, it still relies heavily on sentence grammatical structure. Hence, a significant change in the sentence structure is likely to change the annotation, even if the underlying semantic message remains unchanged. For example, since AMR uses PropBank~\cite{propbank} roles, changing a word for a semantically similar word, including a synonym, will probably change the corresponding annotation and thereby the available roles.
-  This also makes AMR and similar resources language-dependent, not only in practice given their dependence on the existence
-  of word banks, but also in nature. While attempting to apply AMR in Spanish, \citet{migueles2018annotating} show that even though AMR is theoretically language-agnostic,
-  the existing annotation guidelines are biased towards English and must be adapted to capture linguistic phenomena
-  that don't exist in English.
-  The annotation model designed in this research for the \textit{eHealth-KD v2} corpus, attempts to achieve a higher level of syntactic independence, in part by using a smaller set of entities, relations and roles than AMR. More specifically, our annotation model does not distinguish semantic roles for each possible \texttt{Action}, instead relying on general purpose roles~(i.e., \texttt{subject} and \texttt{target}, see Section~\ref{subsec:model}).
+Los modelos de anotación de propósito general se utilizan a menudo en corpus extraídos de fuentes enciclopédicas, como \textit{YAGO}~\cite{suchanek2007yago} y \textit{ConceptNet}~\cite{speer2017conceptnet}, los cuales contienen datos extraídos automáticamente de Wikipedia. ~ (entre otras fuentes). Por el contrario, los modelos de anotaciones de dominios específicos se suelen emplear cuando la fuente está más restringida a un dominio específico. Los ejemplos incluyen \textit{Ixa MedGS}~\cite{ORONOZ2015318}, que contiene conceptos relacionados con la salud para enfermedades, causas y medicamentos; \textit{DrugSemantics}~\cite{moreno2017drugsemantics}, que anota entidades de salud, medicamentos y procedimientos; y \textit{DDI}~\cite{herrero2013ddi}, que anota las interacciones fármaco-fármaco. Un término medio es el corpus \textit{Bio AMR}~\cite{bioamr}, que aplica un modelo de anotación de propósito general ~ (AMR)~\cite{banarescu2013abstract} a los documentos de salud. El corpus \textit{eHealth-KD v2} es similar a este último en este aspecto, ya que el modelo de anotación definido es general, pero se aplica específicamente a las oraciones de salud en esta investigación.
+El corpus \textit{eHealth-KD v2} constituye el resultado de la evolución del corpus \textit{eHealth-KD v1}~\cite{ehealth}.
 
-  \paragraph{Ontological knowledge}
-  General-purpose annotation models often allow ontological knowledge to be represented in the form of inheritance and composition between concepts. In this context, we consider the ability to recognize and annotate  these ontological relations in the source text. Health-related annotation models do not usually deal with this problem, mainly because the entities and relations to annotate form a predefined ontology where composition and hierarchy, if any exist, are already conceived in the annotation model itself. However, general purpose annotations often include relations like \textit{ConceptNet}'s \texttt{is-a} or \texttt{part-of} that directly represent these ontological concepts, and are thus able to extract ontological representations from natural text.
+La mayoría de los recursos mencionados se centran en capturar la semántica de las oraciones, en el sentido de que es probable que se anoten de manera similar oraciones muy diferentes con los mismos hechos. Consideramos que \textit{BioAMR} es menos independiente de la sintaxis porque aunque AMR es un modelo de anotación semántica --- mucho más abstracto que el análisis de dependencia, por ejemplo ---, todavía se basa en gran medida en la estructura gramatical de las oraciones. Por lo tanto, es probable que un cambio significativo en la estructura de la oración cambie la anotación, incluso si el mensaje semántico subyacente permanece sin cambios. Por ejemplo, dado que AMR usa roles PropBank~\cite{propbank}, cambiar una palabra por una palabra semánticamente similar, incluido un sinónimo, probablemente cambiará la anotación correspondiente y, por lo tanto, los roles disponibles.
+Esto también hace que AMR y recursos similares dependan del idioma, no solo en la práctica dada su dependencia de la existencia de bancos de palabras, sino también en la naturaleza. Al intentar aplicar AMR en español, \ citet {migueles2018annotating} muestra que aunque AMR es teóricamente independiente del idioma, las pautas de anotaciones existentes están sesgadas hacia el inglés y deben adaptarse para capturar fenómenos lingüísticos que no existen en inglés.
+El modelo de anotación diseñado en esta investigación para el corpus \textit{eHealth-KD v2}, intenta lograr un mayor nivel de independencia sintáctica, en parte mediante el uso de un conjunto más pequeño de entidades, relaciones y roles que AMR. Más específicamente, nuestro modelo de anotación no distingue roles semánticos para cada posible \texttt{Acción}, sino que se basa en roles de propósito general~(es decir, \texttt{asunto} y \texttt{objetivo}, consulte la Sección~\ref{subsección: modelo}).
 
-  \paragraph{Composite concepts}
-  The model designed for the \textit{eHealth-KD v2} corpus also includes relations specifically for this purpose, mostly inspired by \textit{ConceptNet} and \textit{YAGO}.
-  Composite concepts, in contrast, refer to the ability to annotate concepts that are formed by a fine-grained combination of other entities, in the same sentence. For example, take the sentence: ``\textit{the doctors that work the night shift get paid extra hours}''. \textit{AMR} allows for the representation of the concept that not all doctors, but only those that work the night shift, are the ones who get paid extra hours. Our proposal also includes several annotation patterns to deal with this type of scenario.
+\ paragraph {Conocimiento ontológico}
+Los modelos de anotación de propósito general a menudo permiten representar el conocimiento ontológico en forma de herencia y composición entre conceptos. En este contexto, consideramos la capacidad de reconocer y anotar estas relaciones ontológicas en el texto fuente. Los modelos de anotación relacionados con la salud no suelen abordar este problema, principalmente porque las entidades y relaciones a anotar forman una ontología predefinida donde la composición y jerarquía, si existe, ya están concebidas en el propio modelo de anotación. Sin embargo, las anotaciones de propósito general a menudo incluyen relaciones como \textit{ConceptNet} \texttt{is-a} o \texttt{part-of} que representan directamente estos conceptos ontológicos y, por lo tanto, pueden extraer representaciones ontológicas del texto natural.
 
-  \paragraph{Attributes}
-  Attributes are often used to further refine the meaning of annotated entities. Examples include quantifiers in \textit{AMR}, or modifiers that specify a degree of uncertainty, or a negation of a concept. Our proposal includes four general-purpose attributes that model uncertainty, negation and qualifiers for expressing emphasis.
+\paragraph{Conceptos compuestos}
 
-  \paragraph{Contextual relations}
-  Contextual relations, as defined in the \textit{eHealth-KD v2} corpus, allow  facts that only occur
-  under certain conditions to be represented, for example, in a specific time frame or location or under certain assumptions. This allows for a finer-grained semantic annotation. \textit{BioAMR} inherits this ability from \textit{AMR}, which allows modifiers for expressing \textit{how}, \textit{when}, \textit{where} or \textit{why} some event occurs. In our proposal, we provide contextual relations that specify time and location, and an additional general-purpose relation for other conditions.
+El modelo diseñado para el corpus \textit{eHealth-KD v2} también incluye relaciones específicamente para este propósito, principalmente inspiradas en \textit{ConceptNet} y \textit{YAGO}.
+Los conceptos compuestos, por el contrario, se refieren a la capacidad de anotar conceptos que están formados por una combinación fina de otras entidades, en la misma oración. Por ejemplo, tome la oración: `` \textit{a los médicos que trabajan en el turno de noche se les pagan horas extra} ''. \textit{AMR} permite la representación del concepto de que no todos los médicos, sino solo aquellos que trabajan en el turno de noche, son los que cobran horas extra. Nuestra propuesta también incluye varios patrones de anotación para hacer frente a este tipo de escenarios.
 
-  \paragraph{Causality and entailment}
-  Causality and entailment are general-purpose relations that allow some level of inference or reasoning. The \textit{Ixa MedGS} corpus defines a \texttt{causes} relation, since it is relevant in the domain the corpus is modeling. Likewise, \textit{AMR} and \textit{ConceptNet} include similar relations. Our proposal includes both causality and entailment as two different relations with well-defined semantic meanings.
+\paragraph{Atributos}
 
-  \section{Sistemas de Aprendizaje Automático para el Descubrimiento de Conocimiento}
+Los atributos se utilizan a menudo para refinar aún más el significado de las entidades anotadas. Los ejemplos incluyen cuantificadores en \textit{AMR} o modificadores que especifican un grado de incertidumbre o una negación de un concepto. Nuestra propuesta incluye cuatro atributos de propósito general que modelan la incertidumbre, la negación y los calificadores para expresar el énfasis.
 
-  In recent years, researchers in fields such as machine learning, knowledge discovery, data mining and
-natural language processing, among others, have produced many approaches and techniques to
-leverage the large amount of information in the Internet for a variety of tasks, from
-building search~\cite{google} and recommender systems~\cite{youtube}
-to improving medical diagnostics~\cite{watson}.
+\paragraph{Relaciones contextuales}
 
-Among the different approaches relevant to knowledge discovery, we can recognize a
-continuous spectrum of techniques, based on how much expert knowledge is used.
-Heavily knowledge-based techniques are based
-on rules defined in knowledge bases handcrafted by domain experts~\cite{chandrasekaran1986generic}.
-These approaches have a great degree
-of reliability and precision, and generally allow for more complexity in the extracted knowledge,
-but are difficult to scale to large amounts of data.
-In contrast, the statistical approaches consist of techniques based on pattern recognition with statistical
-and probabilistic models~\cite{kevin2012machine}. These techniques scale better with large amounts of data~\cite{le2013building},
-providing better recall, but often are limited to extracting simple models of knowledge,
-and can be more sensitive to noisy, fake or biased information~\cite{bolukbasi2016man}.
+Las relaciones contextuales, como se definen en el corpus \textit{eHealth-KD v2}, permiten hechos que solo ocurren
+bajo ciertas condiciones para ser representado, por ejemplo, en un marco de tiempo o lugar específico o bajo ciertos supuestos. Esto permite una anotación semántica más detallada. \textit{BioAMR} hereda esta habilidad de \textit{AMR}, que permite modificadores para expresar \textit{cómo}, \textit{cuándo}, \textit{dónde} o \textit{por qué} ocurre algún evento. En nuestra propuesta, proporcionamos relaciones contextuales que especifican el tiempo y la ubicación, y una relación adicional de propósito general para otras condiciones.
 
-Given these mutually complementary characteristics, several hybrid approaches have been proposed.
-Recently, research areas such as ontology learning~\cite{cimiano2009ontology},
-learning by reading~\cite{barker2007learning} or entity embedding~\cite{hu2015entity} have arisen.
-In these areas, researchers combine techniques from machine learning, natural language
-processing and knowledge representation to solve more complex problems that cannot
-be dealt with using only the classical tools.
+\paragraph{Causalidad y vinculación}
 
-Many machine learning systems are designed to solve a domain-specific task, such as
-assigning a class to an element from a predefined set of labels. These systems,
-when trained with data for a particular domain, are often not applicable to other domains
-or to scenarios where several different domains must be used together. Moreover,
-often systems are designed to be trained once from a corpus, and don't allow for
-a continuous improvement of the knowledge learned.
-Recently there are attempts to build general-purpose learning systems that are always
-improving while obtaining new knowledge, re-evaluating the old knowledge and refining their
-own confidence~\cite{mitchell2015never}.
+La causalidad y la implicación son relaciones de propósito general que permiten cierto nivel de inferencia o razonamiento. El corpus \textit{Ixa MedGS} define una relación \texttt{causas}, ya que es relevante en el dominio que el corpus está modelando. Asimismo, \textit{AMR} y \textit{ConceptNet} incluyen relaciones similares. Nuestra propuesta incluye tanto la causalidad como la implicación como dos relaciones diferentes con significados semánticos bien definidos.
 
-Additionally, it is interesting to design non-monolithic learning systems, but instead
-built as a set of modular components that can be combined in different ways.
-This composability would allow a continuous learning system not only to improve the
-quality of the extracted knowledge, but also to learn how to tune its own internal
-parameters to perform a better knowledge extraction in the future. It is conceivable
-that such a system could gradually learn which types of basic processes (i.e., entity recognition, POS-tagging, etc.)
-are most useful for a given domain or for a particular corpus. Likewise, such a system could
-learn which types of probabilistic models provide the best results in a particular dataset.
+\section{Sistemas de Aprendizaje Automático para el Descubrimiento de Conocimiento}
 
-  The speed and volume at which information is produced has increased exponentially in the last decade,
-   mainly due to the rise of the social networks and the mobile technology. In order to cope with this volume of information,
-   it is necessary to be able to process massive amounts of data continuously.
-    The field of machine learning provides tools for the automatic extraction of information and knowledge from different
-    sources of data.
-    Machine learning not only allows to automate processes and tasks of knowledge discovery or text mining, but also provides a large
-    improvement in the scalability of these processes~\cite{wu2014data}. By using mass computing resources, it is possible to process millions
-    of raw documents in a reasonable time, far exceeding what can be done by domain experts.
-    Recent improvements in computing capabilities and access to larger datasets have given rise
-    to the field of deep learning, which has improved the state of the art in
-    several of the classic machine learning tasks~\cite{lecun2015deep}.
+En los últimos años, investigadores en campos como el aprendizaje automático, el descubrimiento de conocimientos, la minería de datos y el procesamiento del lenguaje natural, entre otros, han producido muchos enfoques y técnicas para aprovechar la gran cantidad de información en Internet para una variedad de tareas, desde la creación de búsquedas.~\cite{google} y sistemas de recomendación~\cite{youtube} para mejorar los diagnósticos médicos~\cite{watson}.
 
-	Arguably, the two most common approaches in machine learning are supervised and unsupervised learning~\cite{kevin2012machine}.
-    Supervised learning can be used for recognizing specific elements of knowledge in a source of data. For example, tagging
-    pieces of text to indicate that they define an entity~\cite{nadeau2007survey} (e.g., a person, organization, or place), recognizing relations between
-    said entities, or assigning a sentiment or opinion score~\cite{liu2012sentiment} to a fragment of text. On the other hand, unsupervised learning
-    can help with finding relevant structure in a large set of elements. Clustering algorithms can be used to detect similar
-    concepts or to extract abstract concepts from groups of more concrete elements. Other techniques can be used for reducing
-    the amount of information, for example, to remove noisy, uncertain or irrelevant pieces of
-    information~\cite{bingham2001random}.
+Entre los diferentes enfoques relevantes para el descubrimiento del conocimiento, podemos reconocer un espectro continuo de técnicas, basado en cuánto conocimiento experto se utiliza. Las técnicas fuertemente basadas en el conocimiento se basan en reglas definidas en bases de conocimiento elaboradas a mano por expertos en el dominio~\cite{chandrasekaran1986generic}. Estos enfoques tienen un alto grado de confiabilidad y precisión, y generalmente permiten una mayor complejidad en el conocimiento extraído, pero son difíciles de escalar a grandes cantidades de datos. Por el contrario, los enfoques estadísticos consisten en técnicas basadas en el reconocimiento de patrones con modelos estadísticos y probabilísticos~\cite{kevin2012machine}. Estas técnicas escalan mejor con grandes cantidades de datos~\cite{le2013building}, proporcionando una mejor recuperación, pero a menudo se limitan a extraer modelos simples de conocimiento y pueden ser más sensibles a información ruidosa, falsa o sesgada~\cite{bolukbasi2016man}.
 
-    In general, most machine learning algorithms are not designed to represent the learned knowledge in complex structures,
-    such as those defined by human domain experts (i.e., ontologies). In turn, the representations often have a simple structure, such
- 	as a probability distribution or a correlation matrix~\cite{bengio2013representation}.
-    When applying these algorithms to a real problem, an domain-specific
-    interpretation of those representations has to be made.
-    % Esta es una debilidad imporante, la no explicación
-    Furthermore, many of the most powerful machine learning models are difficult to explain, in the sense
-    that when the system produces an answer, a human expert cannot easily understand and reproduce the inference steps
-    that the system performs~\cite{olden2002illuminating}.
-    % creo mejor decir que si la representacion es tan importante las ontologias son una forma de representar conocimiento
-    % y entonces meter el gancho de embeddings y entity embeddings
-    Choosing an appropriate representation is decisive for the success of most machine learning techniques~\cite{bengio2012deep}.
-    In recent years, there has been an increased interest in the problem of automatically learning relevant representations.
-    Word embeddings~\cite{mikolov} and more general entity embeddings~\cite{hu2015entity} represent the first steps towards powering
-    deep learning approaches with more explainable internal representations.
-    Since ontologies are, by definition, representations of a given conceptualization, it is conceivable that using ontologies
-    as seeds for the representation of a given domain, the performance of data mining processes based on machine learning can
-    be improved.
+Dadas estas características mutuamente complementarias, se han propuesto varios enfoques híbridos. Recientemente, han surgido áreas de investigación como el aprendizaje de ontología~\cite{cimiano2009ontology}, el aprendizaje mediante la lectura~\cite{barker2007learning} o la incorporación de entidades~\cite{hu2015entity}.
+En estas áreas, los investigadores combinan técnicas del aprendizaje automático, el procesamiento del lenguaje natural y la representación del conocimiento para resolver problemas más complejos que no se pueden abordar utilizando solo las herramientas clásicas.
 
-  \section{Entornos de Evaluación Competitivos}
+Muchos sistemas de aprendizaje automático están diseñados para resolver una tarea específica de un dominio, como asignar una clase a un elemento de un conjunto predefinido de etiquetas. Estos sistemas, cuando se entrenan con datos para un dominio en particular, a menudo no son aplicables a otros dominios o a escenarios donde varios dominios diferentes deben usarse juntos. Además, a menudo los sistemas están diseñados para ser entrenados una vez a partir de un corpus y no permiten una mejora continua del conocimiento aprendido. Recientemente, hay intentos de construir sistemas de aprendizaje de propósito general que siempre mejoran mientras obtienen nuevos conocimientos, reevalúan los conocimientos antiguos y refinan su propia confianza~\cite{mitchell2015never}.
 
-  A strategy often used to encourage research on a specific task is the organization of a shared
-  evaluation campaign. In contrast with regular research, evaluation campaigns often have a fixed
-  time frame, and evaluation resources are not fully disclosed~(e.g., gold annotations for
-  test sets are hidden) to allow a fair comparison in a friendly competitive environment.
-  In this section, we analyze relevant efforts for organizing evaluation campaigns for both the biomedical domain or for dealing with entity and relation extraction.
+Además, es interesante diseñar sistemas de aprendizaje no monolíticos, sino que se construyen como un conjunto de componentes modulares que se pueden combinar de diferentes formas. Esta componibilidad permitiría un sistema de aprendizaje continuo no solo para mejorar la calidad del conocimiento extraído, sino también para aprender a sintonizar sus propios parámetros internos para realizar una mejor extracción de conocimiento en el futuro. Es concebible que dicho sistema pueda aprender gradualmente qué tipos de procesos básicos (es decir, reconocimiento de entidades, etiquetado POS, etc.) son más útiles para un dominio dado o para un corpus en particular. Asimismo, dicho sistema podría aprender qué tipos de modelos probabilísticos proporcionan los mejores resultados en un conjunto de datos en particular.
 
-  Several online services allow researchers to organize machine learning challenges and competitions, providing automatic grading, user management, and other useful features.
-  Kaggle\footnote{\url{https://kaggle.com}} is arguably the most popular choice, its main limitation for our purposes being that to host a challenge, organizers must contact the service providers. Possible alternatives are AIcrowd\footnote{\url{https://www.aicrowd.com}} and
-  Codalab\footnote{\url{https://codalab.org}} which provide free options for challenge organizers.
+La velocidad y el volumen de producción de la información se ha incrementado exponencialmente en la última década, principalmente por el auge de las redes sociales y la tecnología móvil. Para hacer frente a este volumen de información, es necesario poder procesar cantidades masivas de datos de forma continua. El campo del aprendizaje automático proporciona herramientas para la extracción automática de información y conocimiento de diferentes fuentes de datos. El aprendizaje automático no solo permite automatizar procesos y tareas de descubrimiento de conocimiento o minería de textos, sino que también proporciona una gran mejora en la escalabilidad de estos procesos~\cite{wu2014data}. Mediante el uso de recursos informáticos masivos, es posible procesar millones de documentos sin procesar en un tiempo razonable, superando con creces lo que pueden hacer los expertos en el dominio. Las mejoras recientes en las capacidades informáticas y el acceso a conjuntos de datos más grandes han dado lugar al campo del aprendizaje profundo, que ha mejorado el estado del arte en varias de las tareas clásicas de aprendizaje automático~\cite{lecun2015deep}.
 
-  The CLEF eHealth Evaluation Lab has proposed several challenges in the biomedical domain, including
-  named entity recognition~\cite{clef2013} and information extraction~\cite{clef2014} in English,
-  and later editions in French documents~\cite{clef2015, clef2016}.
-  In these challenges, medical reports from MEDLINE, EMEA and similar sources are annotated with disorders, medical terms, acronyms and abbreviations, which provide evaluation scenarios
-  for several NLP tasks, including entity recognition, normalization and disambiguation.
-  Another relevant task is proposed by~\citet{semeval2017-task9} in Semeval 2017, focused on AMR parsing and generation from biomedical
-  sentences in English. Applying a general-purpose conceptualization, such as AMR, to specific domains encouraged participants to bridge the gap between developing generalizable techniques and applying domain-specific heuristics.
-  However, AMR parsing is already a complex problem in itself, which can negatively impact on researcher participation in these challenges if they are not specialized in AMR.
-  Simpler, general-purpose models can encourage a greater degree of participation given the easier entry curve.
-  An example of the latter is the Semeval 2017 Task 10~\cite{semeval2017-task10},
-  a challenge regarding keyphrase and relation extraction from scientific documents,
-  with a simple model based on three entity classes and two general-purpose relations.
-  This task received a much larger number of submissions than the former, even though both challenges where hosted on the same venue and aimed at similar audiences.
+Podría decirse que los dos enfoques más comunes en el aprendizaje automático son el aprendizaje supervisado y no supervisado~\cite{kevin2012machine}. El aprendizaje supervisado se puede utilizar para reconocer elementos específicos de conocimiento en una fuente de datos. Por ejemplo, etiquetar fragmentos de texto para indicar que definen una entidad~\cite{nadeau2007survey} (p. Ej., Una persona, organización o lugar), reconocer relaciones entre dichas entidades o asignar un sentimiento o puntuación de opinión~\cite{liu2012sentiment } a un fragmento de texto. Por otro lado, el aprendizaje no supervisado puede ayudar a encontrar la estructura relevante en un gran conjunto de elementos. Los algoritmos de agrupación en clústeres se pueden utilizar para detectar conceptos similares o para extraer conceptos abstractos de grupos de elementos más concretos. Se pueden utilizar otras técnicas para reducir la cantidad de información, por ejemplo, para eliminar piezas de información ruidosas, inciertas o irrelevantes~\cite{bingham2001random}.
 
-  As can be expected, English is the most prominently used language in NER-related challenges, given the larger
-  number of available corpora and resources. However, important efforts have been devoted to fostering research
-  in less prominent languages. Relevant to our discussion are the IberLEF campaigns that focus on Iberian languages,
-  such as Spanish, Portuguese, Catalan, and other regional variations.
-  Two examples of recent NER-related tasks are the Portuguese Named Entity~\cite{glauber2019iberlef} challenge and the MEDDOCAN~\cite{marimon2019automatic} document anonymization challenge.
-  The first proposes entity recognition and relation extraction in the general domain, in Portuguese.
-  The second proposes the identification of privacy-sensitive entity mentions in medical documents, e.g., names, addresses,
-  dates, ages, etc.
+En general, la mayoría de los algoritmos de aprendizaje automático no están diseñados para representar el conocimiento aprendido en estructuras complejas, como las definidas por expertos en el dominio humano (es decir, ontologías). A su vez, las representaciones suelen tener una estructura simple, como una distribución de probabilidad o una matriz de correlación~\cite{bengio2013representation}. Al aplicar estos algoritmos a un problema real, se debe realizar una interpretación específica de dominio de esas representaciones.
 
-  Outside the frame of a competition, open, long-running evaluation systems allow
-  researchers to evaluate their approaches with official evaluation metrics.
-  This can also provide a centralized repository of the state-of-the-art, where existing approaches are
-  summarized and linked to existing papers.
-  In this regard, this research proposes an online evaluation system that allows a comparison of
-  new approaches with officially published results at any time. Based on this infrastructure, official evaluation campaigns with a more competitive design are organized in scheduled time-frames.
+Además, muchos de los modelos de aprendizaje automático más poderosos son difíciles de explicar, en el sentido de que cuando el sistema produce una respuesta, un experto humano no puede comprender y reproducir fácilmente los pasos de inferencia que realiza el sistema~\cite{olden2002illuminating}. La elección de una representación adecuada es decisiva para el éxito de la mayoría de las técnicas de aprendizaje automático~\cite{bengio2012deep}. En los últimos años, ha aumentado el interés en el problema del aprendizaje automático de representaciones relevantes. Las incrustaciones de palabras~\cite{mikolov} y las incrustaciones de entidades más generales~\cite{hu2015entity} representan los primeros pasos para impulsar los enfoques de aprendizaje profundo con representaciones internas más explicables. Dado que las ontologías son, por definición, representaciones de una conceptualización determinada, es concebible que utilizando ontologías como semillas para la representación de un dominio determinado, se pueda mejorar el rendimiento de los procesos de minería de datos basados ​​en el aprendizaje automático.
 
-  \section{Representación del Conocimiento}
+\section{Entornos de Evaluación Competitivos}
 
-  There are many resources used in the task of
-natural language processing. Among the most common ones, ontologies, as representations
-of concepts, data types and their relations in an explicit computational structure.
-Some of the most popular ontologies used in NLP are WordNet~\cite{} and DBpedia~\cite{}.
-For their ubiquity and usefulness, research in ontologies has increased in the last years,
-particularly regarding the automatic creation of these structures,
-giving birth to the field of Ontology Learning.
-Ontology Learning has the potential of reducing the cost of creating
-and, most importantly, maintaining large and complex ontologies~\cite{cimiano2009ontology}.
+Una estrategia que se utiliza a menudo para fomentar la investigación sobre una tarea específica es la organización de una campaña de evaluación compartida. En contraste con la investigación regular, las campañas de evaluación a menudo tienen un marco de tiempo fijo y los recursos de evaluación no se revelan completamente ~ (por ejemplo, las anotaciones de oro para los conjuntos de prueba están ocultas) para permitir una comparación justa en un entorno competitivo amigable. En esta sección, analizamos los esfuerzos relevantes para la organización de campañas de evaluación tanto del dominio biomédico como para el manejo de la extracción de entidades y relaciones.
 
-Ontology Learning deals with the problem of automatically creating an
-ontology from several resources. Examples include mining analysis, mostly
-the study of text in natural language~/cite{}. In this
-particular task, several approaches have been presented, from syntactic and
-semantic analysis of corpora~\cite{} to statistical and machine learning based
-approaches~\cite{}.
+Varios servicios en línea permiten a los investigadores organizar desafíos y concursos de aprendizaje automático, proporcionando calificación automática, administración de usuarios y otras funciones útiles. Kaggle \ footnote {\ url {https://kaggle.com}} es posiblemente la opción más popular, su principal limitación para nuestros propósitos es que para albergar un desafío, los organizadores deben comunicarse con los proveedores de servicios. Las posibles alternativas son AIcrowd \ footnote {\ url {https://www.aicrowd.com}} y Codalab \ footnote {\ url {https://codalab.org}}, que ofrecen opciones gratuitas para los organizadores del desafío.
 
-Several tools and systems have been proposed for this task.
-Text2Onto~\cite{cimiano2005text2onto} is a framework for
-data-driven change discovery which employs a probabilistic
-ontology model (POM).
-OntoLT~\cite{buitelaar2004ontolt} extracts concepts and
-relations automatically from linguistically annotated text collections,
-by means of rule set, which maps linguistic classes to ontology classes.
-A newer approach is OntoGain~\cite{drymonas2010unsupervised},
-which uses an unsupervised approach,
-and exploits the inherent multi-word term's lexical information
-in order to extract higher level concepts.
+El CLEF eHealth Evaluation Lab ha propuesto varios desafíos en el dominio biomédico, incluido el reconocimiento de entidades nombradas~\cite{clef2013} y la extracción de información~\cite{clef2014} en inglés, y ediciones posteriores en documentos franceses~\cite{clef2015, clef2016} . En estos desafíos, los informes médicos de MEDLINE, EMEA y fuentes similares se anotan con trastornos, términos médicos, acrónimos y abreviaturas, que proporcionan escenarios de evaluación para varias tareas de PNL, incluido el reconocimiento de entidades, la normalización y la desambiguación. Otra tarea relevante la propone ~ \ citet {semeval2017-task9} en Semeval 2017, centrada en el análisis sintáctico y la generación de AMR a partir de oraciones biomédicas en inglés. La aplicación de una conceptualización de propósito general, como AMR, a dominios específicos alentó a los participantes a cerrar la brecha entre el desarrollo de técnicas generalizables y la aplicación de heurísticas específicas de dominio. Sin embargo, el análisis sintáctico de la RAM ya es un problema complejo en sí mismo, que puede tener un impacto negativo en la participación de los investigadores en estos desafíos si no están especializados en la RAM. Los modelos más simples y de propósito general pueden fomentar un mayor grado de participación dada la curva de entrada más fácil. Un ejemplo de esto último es el Semeval 2017 Task 10~\cite{semeval2017-task10}, un desafío en cuanto a la extracción de frases clave y relaciones de documentos científicos, con un modelo simple basado en tres clases de entidades y dos relaciones de propósito general. Esta tarea recibió una cantidad mucho mayor de presentaciones que la anterior, aunque ambos desafíos se realizaron en el mismo lugar y estaban dirigidos a audiencias similares.
 
-One of the issues with these approaches is the amount of spurious
-information they generate~\cite{Maimon:2015:OLT:2870689.2870690}.
-In general, there will be many unimportant
-or redundant pieces of information in the analyzed corpora. A naive
-approach that doesn't take this issue into consideration will create
-immense ontologies with very little useful information. To tackle
-this problem, OntoGain proposes a hierarchical clustering scheme
-that attempts to identify general concepts and relations.
+Como se puede esperar, el inglés es el idioma más utilizado en los desafíos relacionados con NER, dado el mayor número de corpus y recursos disponibles. Sin embargo, se han realizado importantes esfuerzos para fomentar la investigación en idiomas menos destacados. Son relevantes para nuestro debate las campañas de IberLEF que se centran en los idiomas ibéricos, como el español, el portugués, el catalán y otras variaciones regionales. Dos ejemplos de tareas recientes relacionadas con NER son el desafío portugués Entidad nombrada~\cite{glauber2019iberlef} y el desafío de anonimización de documentos MEDDOCAN~\cite{marimon2019automatic}. El primero propone el reconocimiento de entidades y la extracción de relaciones en el dominio general, en portugués. El segundo propone la identificación de menciones de entidades sensibles a la privacidad en documentos médicos, por ejemplo, nombres, direcciones, fechas, edades, etc.
 
-In general these resources are focused in the extraction of knowledge and
-pay much less attention to the task of find relevant knowledge.
-An ontology is interesting not just because of its size, but
-because of how is such information selected, processed and stored.
-In this problem we focus our work, attempting not only
-to recognize information, but also to reduce this information and obtain
-information with more relevance.
+Fuera del marco de una competencia, los sistemas de evaluación abiertos y de larga duración permiten a los investigadores evaluar sus enfoques con métricas de evaluación oficiales. Esto también puede proporcionar un repositorio centralizado del estado de la técnica, donde los enfoques existentes se resumen y se vinculan a los documentos existentes. En este sentido, esta investigación propone un sistema de evaluación en línea que permite comparar los nuevos enfoques con los resultados publicados oficialmente en cualquier momento. A partir de esta infraestructura, se organizan campañas de evaluación oficiales con un diseño más competitivo en plazos programados.
 
------------
+\section{Representación del Conocimiento}
 
-The problem of discovering, storing and using knowledge in a computationally effective
-form has been widely studied~\cite{mitchell2015never, ROSPOCHER2016132, cimiano2009ontology}.
-This problem has been treated from two different but complementary research areas:
-the fields of knowledge representation and machine learning.
-The knowledge representation community provides means for
-computationally representing and operating with stored knowledge in forms that
-can ensure some degree of logical consistency.
-Conversely, the machine learning community provides
-tools for obtaining useful knowledge from large collections of structured and unstructured data.
-Recenlty, a new discipline named ontology learning has arisen, which draws ideas
-and techniques from both the knowledge representation and the machine learning fields.
-This field deals with the problem of automatically building ontological representations
-of knowledge from a variety of data sources. As such, the theory of ontology learning
-is relevant in the design of the framework presented in this paper.
-In this section we present a brief review of the relevant concepts and technologies
-in each of these three domains, as well as some approaches similar to our proposal.
+Hay muchos recursos que se utilizan en la tarea del procesamiento del lenguaje natural. Entre las más comunes, las ontologías, como representaciones de conceptos, tipos de datos y sus relaciones en una estructura computacional explícita. Algunas de las ontologías más populares utilizadas en PNL son WordNet~\cite{} y DBpedia~\cite{}. Por su ubicuidad y utilidad, la investigación en ontologías se ha incrementado en los últimos años, particularmente en lo que respecta a la creación automática de estas estructuras, dando origen al campo del Aprendizaje Ontológico. El aprendizaje de ontologías tiene el potencial de reducir el costo de crear y, lo que es más importante, mantener ontologías grandes y complejas~\cite{cimiano2009ontology}.
 
-	\subsection{Knowledge Representation and Reasoning}
+El aprendizaje de ontologías se ocupa del problema de crear automáticamente una ontología a partir de varios recursos. Los ejemplos incluyen análisis de minería, principalmente
+el estudio de texto en lenguaje natural~\cite{}. En esta tarea en particular, se han presentado varios enfoques, desde el análisis sintáctico y semántico de corpora~\cite{} hasta enfoques estadísticos y basados ​​en el aprendizaje automático~\cite{}.
 
-    Since the dawn of computer science, one of the problems that has attracted wide attention
-    is that of representing knowledge in a computational format, such that automatic reasoning
-    can be performed to discover new, previously unknown truths~\cite{sowa2000knowledge}.
-    Arguably, the most popular knowledge representation technology in use are
-    ontologies~\cite{guarino1995formal}, which have
-    become the \emph{de facto} standard.
-    %Definición
-	Ontologies can been defined as a formal specification of a conceptualization~\cite{asuncion2003}.
-    This represents concepts, relations between these concepts, instances of these concepts and inference rules
-    for deriving new relations.
+Se han propuesto varias herramientas y sistemas para esta tarea. Text2Onto~\cite{cimiano2005text2onto} es un marco para el descubrimiento de cambios impulsado por datos que emplea un modelo de ontología probabilística (POM). OntoLT~\cite{buitelaar2004ontolt} extrae conceptos y relaciones automáticamente de colecciones de texto anotadas lingüísticamente, por medio de un conjunto de reglas, que asigna clases lingüísticas a clases de ontología. Un enfoque más nuevo es OntoGain~\cite{drymonas2010unsupervised}, que utiliza un enfoque no supervisado y explota la información léxica inherente del término de varias palabras para extraer conceptos de nivel superior.
 
-    As such, ontologies can be considered as a combination of two predominant approaches
-    for knowledge representation: those based on formal logic~\cite{brachman1992knowledge}
-    and those based on graphs of semantic relations~\cite{chein2008graph}.
-    In logic-based approaches the facts are represented as logic predicates or functions
-    and reasoning is enabled through the application of formal inference rules.
-    In contrast, graph-based representations express facts as nodes~(objects)
-    and edges~(relations) and reasoning is built on top of graph traversing methods.
-    However, in ontologies objects and their attributes and relations are represented in a graph of concepts,
-    which can also be interpreted as a set of predicates and functions on these objects.
-    On top of this layer, inference rules can be added,
-    which enable logical reasoning methods to be used for deriving new attributes and
-    relations between existing concepts.
+Uno de los problemas con estos enfoques es la cantidad de información falsa que generan~\cite{Maimon:2015:OLT:2870689.2870690}. En general, habrá muchas piezas de información redundantes o sin importancia en los corpus analizados. Un enfoque ingenuo que no tenga en cuenta este tema creará ontologías inmensas con muy poca información útil. Para abordar este problema, OntoGain propone un esquema de agrupamiento jerárquico que intenta identificar conceptos y relaciones generales.
 
-	Relations in an ontology can be of a specific domain, but often some general domain
-    relations are represented, such
-    as \textit{is-a} and \textit{part-of}. These types of relations allow representing more abstract
-    or complex concepts out of the composition of more concrete or simple concepts.
-    Hence many ontologies contain some kind of taxonomy of increasingly abstract concepts,
-    that are also interconnected
-    with each other using other semantical relations which can be domain specific.
-    % Ventajas
-    These resources allow representing complex frameworks of knowledge, down to a degree of specificity which
-    enables the design of fully automated reasoning tools which use this knowledge for
-    a variety of computational tasks.
-    % Dificultades o desventajas
-  	Due to the high complexity of the concepts and relations that are represented,
-    and the experience needed to recognize the most relevant concepts of a domain,
-    ontologies are usually manually constructed by domain experts~\cite{wong2012ontology}.
-    Thus, building an ontology is a process that requires a long time and a large number of experts to
-    define and populate it with relevant instances that refer to objects and relations.
-    This makes really difficult build hand crafted ontologies and ensure their maintainability, due to day a day huge quantity of new and valuable information, desirable to convert into knowledge, appear in the World Wide Web.
-    Another important outcome of this process is that experts usually represent only facts that are absolutely
-    true in the domain. Although existing ontology formats can be extended to deal with fuzzy~\cite{fuzzyontology} or
-    vague data~\cite{bobillo2011fuzzy}, manually assigning a degree of belief to a specific fact is a complex task.
+En general estos recursos están enfocados en la extracción de conocimiento y prestan mucha menos atención a la tarea de encontrar conocimiento relevante. Una ontología es interesante no solo por su tamaño, sino también por cómo se selecciona, procesa y almacena dicha información. En esta problemática enfocamos nuestro trabajo, intentando no solo reconocer información, sino también reducir esta información y obtener información con más relevancia.
+
+El problema de descubrir, almacenar y utilizar el conocimiento en una forma computacionalmente eficaz ha sido ampliamente estudiado~\cite{mitchell2015never, ROSPOCHER2016132, cimiano2009ontology}. Este problema ha sido tratado desde dos áreas de investigación distintas pero complementarias: los campos de representación del conocimiento y aprendizaje automático. La comunidad de representación del conocimiento proporciona medios para representar y operar computacionalmente con el conocimiento almacenado en formas que pueden asegurar cierto grado de consistencia lógica. Por el contrario, la comunidad de aprendizaje automático proporciona herramientas para obtener conocimientos útiles a partir de grandes colecciones de datos estructurados y no estructurados. Recientemente, ha surgido una nueva disciplina llamada aprendizaje de ontologías, que extrae ideas y técnicas tanto de la representación del conocimiento como de los campos del aprendizaje automático. Este campo se ocupa del problema de construir automáticamente representaciones ontológicas del conocimiento a partir de una variedad de fuentes de datos. Como tal, la teoría del aprendizaje de la ontología es relevante en el diseño del marco presentado en este artículo. En esta sección presentamos una breve revisión de los conceptos y tecnologías relevantes en cada uno de estos tres dominios, así como algunos enfoques similares a nuestra propuesta.
+
+\subsection{Knowledge Representation and Reasoning}
+
+Since the dawn of computer science, one of the problems that has attracted wide attention
+is that of representing knowledge in a computational format, such that automatic reasoning
+can be performed to discover new, previously unknown truths~\cite{sowa2000knowledge}.
+Arguably, the most popular knowledge representation technology in use are
+ontologies~\cite{guarino1995formal}, which have
+become the \emph{de facto} standard.
+%Definición
+Ontologies can been defined as a formal specification of a conceptualization~\cite{asuncion2003}.
+This represents concepts, relations between these concepts, instances of these concepts and inference rules
+for deriving new relations.
+
+As such, ontologies can be considered as a combination of two predominant approaches
+for knowledge representation: those based on formal logic~\cite{brachman1992knowledge}
+and those based on graphs of semantic relations~\cite{chein2008graph}.
+In logic-based approaches the facts are represented as logic predicates or functions
+and reasoning is enabled through the application of formal inference rules.
+In contrast, graph-based representations express facts as nodes~(objects)
+and edges~(relations) and reasoning is built on top of graph traversing methods.
+However, in ontologies objects and their attributes and relations are represented in a graph of concepts,
+which can also be interpreted as a set of predicates and functions on these objects.
+On top of this layer, inference rules can be added,
+which enable logical reasoning methods to be used for deriving new attributes and
+relations between existing concepts.
+
+Relations in an ontology can be of a specific domain, but often some general domain
+relations are represented, such
+as \textit{is-a} and \textit{part-of}. These types of relations allow representing more abstract
+or complex concepts out of the composition of more concrete or simple concepts.
+Hence many ontologies contain some kind of taxonomy of increasingly abstract concepts,
+that are also interconnected
+with each other using other semantical relations which can be domain specific.
+% Ventajas
+These resources allow representing complex frameworks of knowledge, down to a degree of specificity which
+enables the design of fully automated reasoning tools which use this knowledge for
+a variety of computational tasks.
+% Dificultades o desventajas
+Due to the high complexity of the concepts and relations that are represented,
+and the experience needed to recognize the most relevant concepts of a domain,
+ontologies are usually manually constructed by domain experts~\cite{wong2012ontology}.
+Thus, building an ontology is a process that requires a long time and a large number of experts to
+define and populate it with relevant instances that refer to objects and relations.
+This makes really difficult build hand crafted ontologies and ensure their maintainability, due to day a day huge quantity of new and valuable information, desirable to convert into knowledge, appear in the World Wide Web.
+Another important outcome of this process is that experts usually represent only facts that are absolutely
+true in the domain. Although existing ontology formats can be extended to deal with fuzzy~\cite{fuzzyontology} or
+vague data~\cite{bobillo2011fuzzy}, manually assigning a degree of belief to a specific fact is a complex task.
 
 %     % Ejemplos
-    It is possible to distinguish between two types of ontologies: general domain (or upper ontologies) and domain-specific (or simply domain ontologies).
-    Domain-specific ontologies are those which deal with the concepts and relations of the particular knowledge domain.
-    As examples, we can cite ontologies in the medical sciences~\cite{rector2003opengalen,gene2004gene},
-    or the software engineering field~\cite{4641930}.
-    Other ontologies are more general since they can be used in different domains, or they are used for general
-    purpose tasks which are employed in many areas.
-    WordNet~\cite{miller1995wordnet} is a general purpose ontology that contains most of the words of the English language,
-    and syntactic and semantic relations between them.
-    It is used in many tasks in natural language processing and text mining.
-    DBPedia~\cite{mendes2012dbpedia} is an encyclopedic ontology that contains part of the knowledge present in the
-    Wikipedia\footnote{http://www.wikipedia.org}.
-    It relates people, historical events, facts, locations, and other concepts, in a structured and queryable format.
-    Since ontologies have a unified form of representing a single fact, concept or relation using Uniform Resource Locator~(URL), it is
-    possible and very common for different ontologies to link each other. For example, many domain specific ontologies
-    have entities which are linked to the corresponding entry in DBPedia. The approach of linking and referencing to other
-  	widely known ontologies, known as \textit{linked data}~\cite{bizer2009linked},
-    enables the standarization of the representation of shared knowledge and eases the tasks of querying and analyzing it.
+It is possible to distinguish between two types of ontologies: general domain (or upper ontologies) and domain-specific (or simply domain ontologies).
+Domain-specific ontologies are those which deal with the concepts and relations of the particular knowledge domain.
+As examples, we can cite ontologies in the medical sciences~\cite{rector2003opengalen,gene2004gene},
+or the software engineering field~\cite{4641930}.
+Other ontologies are more general since they can be used in different domains, or they are used for general
+purpose tasks which are employed in many areas.
+WordNet~\cite{miller1995wordnet} is a general purpose ontology that contains most of the words of the English language,
+and syntactic and semantic relations between them.
+It is used in many tasks in natural language processing and text mining.
+DBPedia~\cite{mendes2012dbpedia} is an encyclopedic ontology that contains part of the knowledge present in the
+Wikipedia\footnote{http://www.wikipedia.org}.
+It relates people, historical events, facts, locations, and other concepts, in a structured and queryable format.
+Since ontologies have a unified form of representing a single fact, concept or relation using Uniform Resource Locator~(URL), it is
+possible and very common for different ontologies to link each other. For example, many domain specific ontologies
+have entities which are linked to the corresponding entry in DBPedia. The approach of linking and referencing to other
+widely known ontologies, known as \textit{linked data}~\cite{bizer2009linked},
+enables the standarization of the representation of shared knowledge and eases the tasks of querying and analyzing it.
 
-    Ontologies are an effective tool for representing knowledge in a wide
-    variety of domains and scenarios~\cite{staab2010handbook}.
-    They are flexibly enough to adapt to a particular domain and powerful enough to represent complex concepts.
-    However, one of the most complex task in this sense is maintaining
-    an ontology up-to-date with respect to the massive amount of unstructured data that is generated and published every day.
-	Therefore, the need arises for computational tools to build ontologies with automated or semi-automated processes.
+Ontologies are an effective tool for representing knowledge in a wide
+variety of domains and scenarios~\cite{staab2010handbook}.
+They are flexibly enough to adapt to a particular domain and powerful enough to represent complex concepts.
+However, one of the most complex task in this sense is maintaining
+an ontology up-to-date with respect to the massive amount of unstructured data that is generated and published every day.
+Therefore, the need arises for computational tools to build ontologies with automated or semi-automated processes.
 
     \subsection{Ontology Learning}
 
