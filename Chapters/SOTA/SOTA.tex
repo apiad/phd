@@ -5,103 +5,81 @@ Intro del estado del arte
 
 - el descubrimiento de conocimiento en lenguaje natural
 
-Humans consume the ambient information and transform
-it into independent concepts, that can be related to each other. In general,
-we only store a small part of all the information we process every day.
-This information consists of the most important concepts and relations,
-that can be useful in future situations.
-Thus, we learn basically by separating what could be
-considered noise from the information that we think will be useful in the future.
-In general we said two types of memories: one for recent knowledge and
-other where we stored the knowledge for the long time.
+Los humanos consumen la información ambiental y la transforman en conceptos independientes, que pueden relacionarse entre sí.
+En general, solo almacenamos una pequeña parte de toda la información que procesamos todos los días.
+Esta información consta de los conceptos y relaciones más importantes, que pueden ser útiles en situaciones futuras.
+Así, aprendemos básicamente separando lo que podría considerarse ruido de la información que pensamos que será útil en el futuro.
+En general, dijimos dos tipos de recuerdos: uno para el conocimiento reciente y otro donde almacenamos el conocimiento durante mucho tiempo.
 
-Nowadays, one of the biggest information sources in Internet
-is text in natural language, which appears in news, opinions, messages, encyclopedias,
-and many other forms of digital communication.
-This is not accidental, since words~(computationally represented as text)
-are one of the most important communication channels throughout the human history.
-One of the most basic concepts recognizable in natural language that provide
-useful information are actions. These are generally associated with two
-distinctive concepts, the subject and the target. The first is who performs
-the action, and the later is who receives the consequences of said action.
-Correctly identifying actions, and their corresponding subjects and targets
-is one of the most basic and fundamental challenges in order to understand
-the information.
+Hoy en día, una de las mayores fuentes de información de Internet
+es texto en lenguaje natural, que aparece en noticias, opiniones, mensajes, enciclopedias y muchas otras formas de comunicación digital.
+Esto no es accidental, ya que las palabras ~ (representadas computacionalmente como texto) son uno de los canales de comunicación más importantes a lo largo de la historia de la humanidad.
+Uno de los conceptos más básicos reconocibles en el lenguaje natural que brindan información útil son las acciones. Por lo general, se asocian con dos conceptos distintivos, el sujeto y el objetivo. El primero es quién realiza la acción, y el segundo es quién recibe las consecuencias de dicha acción.
+Identificar correctamente las acciones, sus correspondientes sujetos y destinatarios es uno de los retos más básicos y fundamentales para comprender la información.
 
---------------------------
-
-The accelerated growth of Internet has produced a surplus of information (news, email,
-social media, blogs) that greatly exceeds our capacity for processing and consuming data.
-Thus, building automatic systems that can extract knowledge from this flow of information has
-become of the most active research fields in Computer Science. This phenomena has been
-dubbed Big Data~\cite{bigdata}, and its study has attracted the attention of different
-research communities
-as business intelligence~\cite{chen2012business}, engineering including physical and
-biological~\cite{wu2014data} and social media~\cite{shah2015big}.
+El crecimiento acelerado de Internet ha producido un excedente de información (noticias, correo electrónico, redes sociales, blogs) que supera con creces nuestra capacidad de procesamiento y consumo de datos.
+Así, la construcción de sistemas automáticos que puedan extraer conocimiento de este flujo de información se ha convertido en uno de los campos de investigación más activos en la informática. Este fenómeno ha sido
+denominado Big Data ~\cite{bigdata}, y su estudio ha atraído la atención de diferentes comunidades de investigación como inteligencia empresarial ~\cite{chen2012business}, ingeniería que incluye física y biológica ~\cite{wu2014data} y redes sociales ~\cite{shah2015big}.
 
 - importancia de la semántica
 
 % PAPER ICAII
 
-Humans try to represent the world we live in and facts and events that happen using language. Language enables ideas to be structured so that they can be shared them with other people.
-Generally, one of the most common ways of representing arbitrary pieces of knowledge is through the notion of concepts and actions~\cite{teleologies}.
-By understanding the world as composed of concepts interacting with each other through actions, humans can communicate a large variety and
-complexity of information and knowledge.
-The simplest way of combining concepts and actions is through binary relations, where one concept acts as the subject and another as the target.
-This simple structure is very common in human languages.
-More than 75\% of languages have a syntactic structure that follows either the SVO (subject-verb-object) or SOV (subject-object-verb) order~\cite{cambridge}.
-Also, Subject-Verb-Object is the most common order in Creole languages, which has been suggested as an indication that is the most natural order
-for human psychology.~\cite{diamond2013rise}.
-As an example, from the sentence ``Arnold drives a car'' and we obtain an Subject-Verb-Object triplet \verb|(Arnold, drives, car)|.
+Los seres humanos intentan representar el mundo en el que vivimos y los hechos y eventos que suceden usando el lenguaje. El lenguaje permite estructurar las ideas para que puedan compartirse con otras personas.
+Generalmente, una de las formas más comunes de representar piezas arbitrarias de conocimiento es a través de la noción de conceptos y acciones ~\cite{teleology}.
+Al comprender el mundo como compuesto de conceptos que interactúan entre sí a través de acciones, los humanos pueden comunicar una gran variedad y complejidad de información y conocimiento.
+La forma más sencilla de combinar conceptos y acciones es a través de relaciones binarias, donde un concepto actúa como sujeto y otro como objetivo.
+Esta estructura simple es muy común en los lenguajes humanos.
+Más del 75 \% de los idiomas tienen una estructura sintáctica que sigue el orden SVO (sujeto-verbo-objeto) o SOV (sujeto-objeto-verbo) ~\cite{cambridge}.
+Además, Sujeto-Verbo-Objeto es el orden más común en las lenguas criollas, lo que se ha sugerido como una indicación de que es el orden más natural.
+para la psicología humana. ~\cite{diamond2013rise}.
+Como ejemplo, de la oración `` Arnold conduce un automóvil '' y obtenemos un triplete Sujeto-Verbo-Objeto \verb|(Arnold, conduce, automóvil)|.
 
-This structure is ubiquitous in many different problems in the field of Natural Language Processing.
-Different authors have employed a Subject-Verb-Object for similar structure or representing knowledge extracted from natural text, in a variety of domains~\cite{never-ending-learner,emotinet}.
-Thus, a representation based on Subject-Verb-Object triplet is suitable for the generic representation of knowledge, independently of the domain.
+Esta estructura es omnipresente en muchos problemas diferentes en el campo del procesamiento del lenguaje natural.
+Diferentes autores han empleado un Sujeto-Verbo-Objeto para una estructura similar o para representar conocimiento extraído de un texto natural, en una variedad de dominios ~\cite{mitchell2015never, emotinet}.
+Así, una representación basada en el triplete Sujeto-Verbo-Objeto es adecuada para la representación genérica del conocimiento, independientemente del dominio.
 
-Ontologies are one of the most common representations of knowledge in a digital format.
-Ontologies, knowledge bases, semantic nets, and similar computational representations, are often built on the concept of the Subject-Verb-Object triplet, even if the individual components are referred to by using different terms (i.e., relations in RDF triplets or predicates in logic knowledge bases).
+Las ontologías son una de las representaciones más comunes del conocimiento en formato digital.
+Las ontologías, las bases de conocimiento, las redes semánticas y las representaciones computacionales similares a menudo se basan en el concepto del triplete Sujeto-Verbo-Objeto, incluso si se hace referencia a los componentes individuales usando términos diferentes (es decir, relaciones en tripletes RDF o predicados en lógica bases de conocimiento).
 
-The rise of the semantic web has encouraged the creation of large scale ontologies and knowledge bases in several domains.
-Some ontologies represent general domains, such as DBPedia, and collect a large proportion of common human knowledge.
-Others, such as Ivanovic and Budimac~(\cite{IVANOVIC20145158}) operate in a more specific domain but incorporate more detailed facts about the domain.
-One of the biggest obstacles to the development of the semantic web is the amount of effort and time it takes for human experts to build ontologies by hand~\cite{gomez2006ontological, petasis2011ontology}.
-In this sense, the field of ontology learning~\cite{buitelaar2005ontology} studies the techniques and methodologies that enable the automatic or semi-automatic extraction of ontologies from unstructured sources of information, such as natural text~\cite{mitchell2015never,emotinet}.
+El auge de la web semántica ha fomentado la creación de ontologías y bases de conocimiento a gran escala en varios dominios.
+Algunas ontologías representan dominios generales, como DBPedia, y recopilan una gran proporción del conocimiento humano común.
+Otros, como Ivanovic y Budimac ~ (\ cite {IVANOVIC20145158}) operan en un dominio más específico pero incorporan datos más detallados sobre el dominio.
+Uno de los mayores obstáculos para el desarrollo de la web semántica es la cantidad de esfuerzo y tiempo que necesitan los expertos humanos para construir ontologías a mano ~\cite{gomez2006ontological, petasis2011ontology}.
+En este sentido, el campo del aprendizaje de la ontología ~\cite{buitelaar2005ontology} estudia las técnicas y metodologías que permiten la extracción automática o semiautomática de ontologías de fuentes de información no estructuradas, como el texto natural ~\cite{mitchell2015never, emotinet}.
 
-One of the most important issues in ontology learning from natural text is how to recognize which knowledge is relevant in a domain. Usually, in a corpus of natural text, a large portion of the information will be spurious or unimportant~\cite{Kanya2009InformationE}.
-Humans have an innate ability to forget the spurious or unimportant facts that are presented to us daily, and only store for long term that piece of knowledge that is relevant for a particular purpose.
-Several relevance metrics have been proposed~\cite{manning2008introduction, brank2005survey}.
-In general, the most relevant knowledge can be related to the actions and concepts that appear most often in a domain.
+Una de las cuestiones más importantes en el aprendizaje de ontología a partir del texto natural es cómo reconocer qué conocimiento es relevante en un dominio. Por lo general, en un corpus de texto natural, una gran parte de la información será falsa o sin importancia ~\cite{Kanya2009InformationE}.
+Los seres humanos tienen una capacidad innata para olvidar los hechos espurios o sin importancia que se nos presentan a diario, y solo almacenan a largo plazo ese conocimiento que es relevante para un propósito particular.
+Se han propuesto varias métricas relevantes ~\cite{manning2008introduction, brank2005survey}.
+En general, el conocimiento más relevante puede estar relacionado con las acciones y conceptos que aparecen con mayor frecuencia en un dominio.
 
 % PAPER JBI
 
-The exponential growth of the Internet in the last decades has produced a massive surplus of textual information in all areas of human endeavor. This scenario presents both an opportunity and a challenge for researchers. On the one hand, a growing body of scientific literature is readily available, where potential solutions for critical problems could be found by linking partial results published in distinct documents. On the other hand, the extent of the information available cannot be processed by humans alone in a reasonable time frame. Hence,  efforts have recently been directed towards designing automatic techniques that can discover relevant pieces of information in large corpora, make logical connections, and synthesize useful knowledge.
-The first step in many of these techniques involves the collection, processing and annotation of data that can be used to train machine learning algorithms or build expert systems through the use of natural language processing techniques.
+El crecimiento exponencial de Internet en las últimas décadas ha producido un excedente masivo de información textual en todas las áreas del quehacer humano. Este escenario presenta tanto una oportunidad como un desafío para los investigadores. Por un lado, se dispone de una cantidad cada vez mayor de literatura científica, donde se podrían encontrar posibles soluciones para problemas críticos vinculando resultados parciales publicados en distintos documentos. Por otro lado, la extensión de la información disponible no puede ser procesada por humanos solos en un período de tiempo razonable. Por lo tanto, los esfuerzos se han dirigido recientemente hacia el diseño de técnicas automáticas que pueden descubrir piezas de información relevantes en grandes corpora, establecer conexiones lógicas y sintetizar conocimientos útiles.
+El primer paso en muchas de estas técnicas implica la recopilación, el procesamiento y la anotación de datos que se pueden usar para entrenar algoritmos de aprendizaje automático o construir sistemas expertos mediante el uso de técnicas de procesamiento del lenguaje natural.
 
-The digital health sector is of great interest to the research community given the potential social benefits derived from applying automatic knowledge discovery technologies. The research community has produced a large number of annotated corpora in different sub-domains of this sector, from specific (e.g., drug-disease~\cite{goldberg1996drug} or gene-protein interactions~\cite{tanabe2005genetag}) to broad in scope and domain (e.g., clinical trial reports~\cite{nye2018corpus}).
-Domain-specific corpora and technologies are of critical importance in high-precision medicine.
-However, systems built for very specific domains are arguably harder to generalize and extend than systems built on general-purpose conceptualizations.
-As such, there is a growing interest in designing annotation models and corpora with general-purpose semantics that can be used in a variety of domains or as a component in more specialized systems.
+El sector de la salud digital es de gran interés para la comunidad investigadora dados los posibles beneficios sociales derivados de la aplicación de tecnologías de descubrimiento automático del conocimiento. La comunidad de investigación ha producido una gran cantidad de corpus anotados en diferentes subdominios de este sector, desde interacciones específicas (p. Ej., Fármaco-enfermedad ~\cite{goldberg1996drug} o interacciones gen-proteína ~\cite{tanabe2005genetag}) hasta amplio alcance y dominio (por ejemplo, informes de ensayos clínicos ~\cite{nye2018corpus}).
+Los corpus y las tecnologías de dominios específicos son de vital importancia en la medicina de alta precisión.
+Sin embargo, los sistemas construidos para dominios muy específicos son posiblemente más difíciles de generalizar y extender que los sistemas construidos sobre conceptualizaciones de propósito general.
+Como tal, existe un interés creciente en diseñar modelos de anotación y corpus con semántica de propósito general que se puedan usar en una variedad de dominios o como un componente en sistemas más especializados.
 
-Besides domain, language is another dimension that has been the focus of recent research.
-Most of the largest linguistic resources are based on English sources, motivated in part by the abundance of available raw material~(e.g., online encyclopedias, research papers), which is not surprising given that English is the most predominant language in science, technology and communications.
-However, English-based resources are not always directly applicable to other languages.
-Even though automatic translation has reached impressive accuracy in open domains, it is still a challenge to create cross-language resources, such as with Spanish, which is less predominant in technical domains~\cite{villegas2018mespen}.
-Instead of focusing on specific niche languages, one possible line of research is designing resources that are
-language-agnostic, in the sense that they can be generalized to multiple languages with little effort, by virtue
-of being based on underlying common characteristics shared by many languages.
+Además del dominio, el lenguaje es otra dimensión que ha sido el foco de investigaciones recientes.
+La mayoría de los recursos lingüísticos más importantes se basan en fuentes del inglés, motivados en parte por la abundancia de materia prima disponible ~ (por ejemplo, enciclopedias en línea, trabajos de investigación), lo cual no es sorprendente dado que el inglés es el idioma más predominante en ciencia, tecnología y comunicaciones.
+Sin embargo, los recursos en inglés no siempre son directamente aplicables a otros idiomas.
+Aunque la traducción automática ha alcanzado una precisión impresionante en dominios abiertos, sigue siendo un desafío crear recursos en varios idiomas, como el español, que es menos predominante en los dominios técnicos ~\cite{villegas2018mespen}.
+En lugar de centrarse en lenguajes de nicho específicos, una posible línea de investigación es diseñar recursos que sean agnósticos del lenguaje, en el sentido de que se puedan generalizar a varios lenguajes con poco esfuerzo, en virtud de que se basan en características comunes subyacentes compartidas por muchos lenguajes. .
 
-Designing annotation models that can generalize to multiple domains requires deciding on a basic representation of language that covers a broad range of semantics.
-Moreover, these representations should be as independent of syntax and grammatical rules as possible, if they are
-expected to generalize to multiple languages.
-Recent work~\cite{estevez2018gathering} suggests that Subject-Action-Target triplets can be used to detect a large number of semantic interactions in natural language, independent of domain and relatively independent of language, since
-more than 75\% of human languages employ some variation of the Subject-Verb-Object grammatical structure~\cite{crystal2004cambridge}.
-Likewise, several ontological representations often agree in a number of general-purpose relations, (e.g., \textit{is-a} hyponyms, \textit{part-of} holonyms) that are useful in any domain.
-Other conceptualizations allow the capture of semantics closer to natural language, such as Abstract Meaning Representation, AMR~\cite{banarescu2013abstract}.
-The construction of corpora annotated with general-purpose semantic structures like Subject-Action-Target and high-level ontological relations is the first step in the design of systems that can discover knowledge automatically in a variety of domains and scenarios.
+El diseño de modelos de anotaciones que puedan generalizarse a varios dominios requiere decidir una representación básica del lenguaje que cubra una amplia gama de semánticas.
+Además, estas representaciones deben ser lo más independientes posible de la sintaxis y las reglas gramaticales, si se espera que se generalicen a varios idiomas.
+Un trabajo reciente ~\cite{estevez2018gathering} sugiere que los tripletes Sujeto-Acción-Objetivo pueden usarse para detectar una gran cantidad de interacciones semánticas en lenguaje natural, independientemente del dominio y relativamente independientes del lenguaje, ya que
+más del 75 \% de los lenguajes humanos emplean alguna variación de la estructura gramatical Sujeto-Verbo-Objeto ~\cite{crystal2004cambridge}.
+Asimismo, varias representaciones ontológicas a menudo concuerdan en una serie de relaciones de propósito general, (por ejemplo, \textit{es-a} hipónimos, \textit{parte-de} holónimos) que son útiles en cualquier dominio.
+Otras conceptualizaciones permiten capturar la semántica más cercana al lenguaje natural, como la Representación de significado abstracto, AMR ~\cite{banarescu2013abstract}.
+La construcción de corpus anotados con estructuras semánticas de propósito general como sujeto-acción-objetivo y relaciones ontológicas de alto nivel es el primer paso en el diseño de sistemas que pueden descubrir conocimiento automáticamente en una variedad de dominios y escenarios.
 
-Research in knowledge discovery requires not only linguistic resources~(e.g., annotated corpora) but also computational resources and infrastructures that enable researchers to systematically evaluate their results and compare them objectively with alternative approaches.
-This involves the formal definition of tasks and the design of objective evaluation metrics that ensure fair comparison is possible.
-Even better is a publicly available evaluation system where researchers can submit their results, guaranteeing the same evaluation criteria is applied and freeing researchers from reproducing the evaluation environment. Such a system would also guarantee a more transparent and reproducible research process, and would provide a centralized repository of existing approaches, helping new researchers to update on the state-of-the-art.
+La investigación en el descubrimiento del conocimiento requiere no solo recursos lingüísticos ~ (por ejemplo, corpus anotados) sino también recursos e infraestructuras computacionales que permitan a los investigadores evaluar sistemáticamente sus resultados y compararlos objetivamente con enfoques alternativos.
+Esto implica la definición formal de tareas y el diseño de métricas de evaluación objetivas que aseguren que es posible una comparación justa.
+Aún mejor es un sistema de evaluación disponible públicamente donde los investigadores pueden presentar sus resultados, garantizando que se apliquen los mismos criterios de evaluación y liberando a los investigadores de reproducir el entorno de evaluación. Dicho sistema también garantizaría un proceso de investigación más transparente y reproducible, y proporcionaría un depósito centralizado de los enfoques existentes, lo que ayudaría a los nuevos investigadores a actualizarse sobre el estado de la técnica.
 
 % RESUMEN DEL PROCESO
 
@@ -114,447 +92,280 @@ Even better is a publicly available evaluation system where researchers can subm
   - diseñar entornos de evaluación (challenges) para comparar sistemas
   - construir ontologías
 
-  \section{Modelos Semánticos de Anotación}
+\section{Modelos Semánticos de Anotación}
 
-  Knowledge discovery is a field of computer science that shows an accelerated growth in the past three decades.
-  Advances in this area have been applied in many domains, from databases~\cite{fayyad1996data, knowledgeDatabase} to
-  images~\cite{lu2016visual} and natural language text~\cite{carlson2010toward}.
-  Specifically in natural language text, this field is highly relevant in the biomedical and health domains,
-  where it is used for performing tasks such as
-  Named Entity Recognition~(NER), Relationship Extraction and Hypothesis Generation, among others.~\cite{simpson2012biomedical}.
-  These tasks generally use annotated corpora for learning the characteristics that appear in the text and mapping them to knowledge structures.
-  For each task, specific annotation models have been designed that focus on specific elements of the text.
-  For example, in NER tasks is more important to focus on nominal phrases than other grammatical constructions.
+El descubrimiento del conocimiento es un campo de la informática que muestra un crecimiento acelerado en las últimas tres décadas.
+Los avances en esta área se han aplicado en muchos dominios, desde bases de datos ~\cite{fayyad1996data, knowledgeDatabase} hasta imágenes ~\cite{lu2016visual} y texto en lenguaje natural ~\cite{carlson2010toward}.
+Específicamente en el texto en lenguaje natural, este campo es de gran relevancia en los dominios biomédico y de salud, donde se utiliza para realizar tareas como
+Reconocimiento de entidades nombradas ~ (NER), extracción de relaciones y generación de hipótesis, entre otros. ~\Cite{simpson2012biomedical}.
+Estas tareas generalmente utilizan corpus anotados para aprender las características que aparecen en el texto y mapearlas con las estructuras de conocimiento.
+Para cada tarea, se han diseñado modelos de anotaciones específicos que se enfocan en elementos específicos del texto.
+Por ejemplo, en las tareas NER es más importante centrarse en frases nominales que en otras construcciones gramaticales.
 
-  Despite that these domain-specific tasks are different, most of them share common characteristics. For example, most tasks deal with the detection of relevant entities and their relations. Hence, promoting general-purpose annotation models would allow the design of reusable and cross-domain knowledge discovery techniques.
-  In this line, several domain-independent semantic representations have been developed~(e.g., AMR~\cite{amr}, PropBank~\cite{propbank}, FrameNet~\cite{framenet}).
-  However, these representations rely heavily on fine-grained lexicons that define specific semantic roles for each word meaning. Therefore, developing knowledge discovery systems with this level of detail supposes great challenges. Using more coarse-grained semantic representation, even with the loss of some representational capacity, would simplify the creation of automatic techniques based on machine learning.
-  This representation could also be used as the first stage in a pipeline for a domain-specific task, thus reusing resources and techniques in domains with few available resources.
-  In this section we present a review of relevant annotation models from which we draw inspiration.
-  We focus general-purpose annotation models~\ref{sec:general} as well as on annotation models that have been applied to the health domain~\ref{sec:health}.
+A pesar de que estas tareas específicas de dominio son diferentes, la mayoría de ellas comparten características comunes. Por ejemplo, la mayoría de las tareas se ocupan de la detección de entidades relevantes y sus relaciones. Por lo tanto, la promoción de modelos de anotación de propósito general permitiría el diseño de técnicas de descubrimiento de conocimiento reutilizables y entre dominios.
+En esta línea, se han desarrollado varias representaciones semánticas independientes del dominio ~ (por ejemplo, AMR ~\cite{amr}, PropBank ~\cite{propbank}, FrameNet ~\cite{framenet}).
+Sin embargo, estas representaciones se basan en gran medida en léxicos detallados que definen roles semánticos específicos para el significado de cada palabra. Por tanto, desarrollar sistemas de descubrimiento de conocimiento con este nivel de detalle supone grandes retos. El uso de una representación semántica más burda, incluso con la pérdida de cierta capacidad de representación, simplificaría la creación de técnicas automáticas basadas en el aprendizaje automático.
+Esta representación también podría usarse como la primera etapa en una canalización para una tarea específica de dominio, reutilizando así recursos y técnicas en dominios con pocos recursos disponibles.
+En esta sección presentamos una revisión de los modelos de anotaciones relevantes en los que nos inspiramos.
+Nos centramos en los modelos de anotación de propósito general~\ref{sec: general} así como en los modelos de anotación que se han aplicado al dominio de salud~\ref{sec: health}.
 
-  To provide more fine-grained search results, documents can be processed to extract the relevant semantic entities and facts mentioned.
-The task of automatically discovering semantic knowledge from text is covered by research areas
-such as ontology learning~\cite{cimiano2009ontology} and {learning by reading}~\cite{barker2007learning},
-whose purpose is to build semantic networks that {capture} the knowledge present in large collections of text.
-These semantic networks enable the use of search engines that provide an analysis beyond the textual content's relevance, by exploiting the semantic structure of the network.
-In this context, processing health textual contents has attracted {great interest}~\cite{gonzalez2017capturing}, motivated by the large number of medical documents published yearly.
+Para proporcionar resultados de búsqueda más detallados, los documentos se pueden procesar para extraer las entidades semánticas relevantes y los hechos mencionados.
+La tarea de descubrir automáticamente el conocimiento semántico a partir del texto está cubierta por áreas de investigación como el aprendizaje de ontología~\cite{cimiano2009ontology} y {aprender leyendo}~\cite{barker2007learning},
+cuyo propósito es construir redes semánticas que {capturen} el conocimiento presente en grandes colecciones de texto.
+Estas redes semánticas permiten el uso de motores de búsqueda que brindan un análisis más allá de la relevancia del contenido textual, explotando la estructura semántica de la red.
+En este contexto, el procesamiento de contenidos textuales de salud ha despertado un {gran interés}~\cite{gonzalez2017capturing}, motivado por la gran cantidad de documentos médicos publicados anualmente.
 
-Several approaches exist for building semantic representations of knowledge.
-In many cases, these representations use a domain-specific conceptualization.
-Although this provides a more specialized representation, it makes these approaches harder to apply to a broad range of domains.
-Alternatively, a general purpose conceptualization could be used, which is able to represent entities and facts from multiple knowledge domains.
-Such conceptualization should be general enough so as to accommodate many different domains, but still to provide a degree of expressiveness necessary for knowledge mining tasks.
-One possible conceptualization is using
-{Subject-Action-Target triplets}~\cite{suilan2018}.
-This structure has proven to be useful for representing knowledge in both specific
-domains such as movie reviews~\cite{suilan2018} or sentiment
-mining~\cite{emotinet} and in {general domain ontology learning}~\cite{mitchell2018never}. %%%%CHANGE fix cite info
-Furthermore, Subject-Action-Target triplets automatically extracted from text can be
-later linked to domain-specific relations through the use of semantic networks.
-As an example, the \textit{SemRep} system~\cite{semrep} extracts Subject-Predicate-Object
-triplets from natural eHealth texts. The predicates are linked to specific relations
-in the UMLS~\cite{umls} semantic network.
+Existen varios enfoques para construir representaciones semánticas del conocimiento.
+En muchos casos, estas representaciones utilizan una conceptualización específica de dominio.
+Aunque esto proporciona una representación más especializada, hace que estos enfoques sean más difíciles de aplicar a una amplia gama de dominios.
+Alternativamente, se podría utilizar una conceptualización de propósito general, que sea capaz de representar entidades y hechos de múltiples dominios de conocimiento.
+Tal conceptualización debería ser lo suficientemente general como para dar cabida a muchos dominios diferentes, pero aún para proporcionar un grado de expresividad necesario para las tareas de extracción de conocimiento.
+Una posible conceptualización es utilizar
+{Trillizos de sujeto-acción-objetivo}~\cite{suilan2018}.
+Esta estructura ha demostrado ser útil para representar el conocimiento en dominios específicos, como críticas de películas~\cite{suilan2018} o sentimiento.
+minería~\cite{emotinet} y en {aprendizaje de ontología de dominio general}~\cite{mitchell2018never}.la cita
+Además, los tripletes Sujeto-Acción-Destino extraídos automáticamente del texto se pueden vincular posteriormente a relaciones específicas de dominio mediante el uso de redes semánticas.
+Como ejemplo, el sistema \textit{SemRep}~\cite{semrep} extrae tripletes Sujeto-Predicado-Objeto de textos naturales de eSalud. Los predicados están vinculados a relaciones específicas en la red semántica UMLS~\cite{umls}.
 
-Recent work in the development of Teleologies~\cite{teleologies} suggests that Action-Subject-Target triplets can be the base for general purpose conceptualizations across many different domains, since this triplet allows the capture of interactions between objects through the actions they perform on each other.
-A small set of semantic relations, such as \textit{hyponomy} and
-\textit{holonomy} can provide additional semantic structure to theAMR
-representation. These ``general'' relations are common in most knowledge bases,
-regardless of domain, such as WordNet~\cite{miller1998wordnet},
-DBPedia~\cite{lehmann2015dbpedia}, and ConceptNet~\cite{conceptnet}.
-Other possible conceptualizations allow the capture of semantics of natural language,
-such as Abstract Meaning Representation~(AMR)~\cite{amr}. Despite the superior representational
-power of AMR over simple structures such as Action-Subject-Target triplets {and basic semantic
-relations}, the annotation process for AMR is considerably more complex both for humans and automated techniques.
+Un trabajo reciente en el desarrollo de teleologías~\cite{teleologies} sugiere que los tripletes Acción-Sujeto-Objetivo pueden ser la base para conceptualizaciones de propósito general en muchos dominios diferentes, ya que este triplete permite la captura de interacciones entre objetos a través de las acciones que realizan en El uno al otro.
+Un pequeño conjunto de relaciones semánticas, como \textit{hiponomía} y \textit{holonomía} pueden proporcionar una estructura semántica adicional a la RAM.
+representación. Estas relaciones ``generales'' son comunes en la mayoría de las bases de conocimiento, independientemente del dominio, como WordNet~\cite{miller1998wordnet},
+DBPedia~\cite{lehmann2015dbpedia} y ConceptNet~\cite{conceptnet}.
+Otras posibles conceptualizaciones permiten capturar la semántica del lenguaje natural, como la Representación de significado abstracto ~ (AMR)~\cite{amr}. A pesar del poder de representación superior de AMR sobre estructuras simples como los tripletes Acción-Sujeto-Objetivo {y semántica básica
+relaciones}, el proceso de anotación para la resistencia a los antimicrobianos es considerablemente más complejo tanto para humanos como para técnicas automatizadas.
 
-Building corpora annotated with the Action-Subject-Target structure is the first step towards the design of systems that can automatically extract these annotations. Several corpora exist in the literature, annotated with a variety of different schemes, such as CLEF~\cite{kelly2016overview}, Yago~\cite{fabian2007yago} and Emotinet~\cite{emotinet}.
-However, most of these resources are annotated with domain-specific conceptualizations that are difficult to extend to different knowledge domains.
+La construcción de corpus anotados con la estructura Acción-Sujeto-Objetivo es el primer paso hacia el diseño de sistemas que puedan extraer automáticamente estas anotaciones. Existen varios corpus en la literatura, anotados con una variedad de esquemas diferentes, como CLEF~\cite{kelly2016overview}, Yago~\cite{fabian2007yago} y Emotinet~\cite{emotinet}.
+Sin embargo, la mayoría de estos recursos están anotados con conceptualizaciones específicas de dominio que son difíciles de extender a diferentes dominios de conocimiento.
 
-  \subsection{General-purpose annotation models}\label{sec:general}
+\subsection{General-purpose annotation models}\label{sec:general}
 
-  Several general-purpose semantic annotation models have been developed, that attempt to represent the semantics of a sentence beyond the syntactic structure.
-  These models are loosely based on the Subject-Verb-Object grammatical structure that is pervasive in human language.
+Se han desarrollado varios modelos de anotación semántica de propósito general, que intentan representar la semántica de una oración más allá de la estructura sintáctica.
+Estos modelos se basan libremente en la estructura gramatical Sujeto-Verbo-Objeto que es omnipresente en el lenguaje humano.
 
-  \paragraph{PropBank}
+\paragraph{PropBank}
 
-  PropBank~\cite{propbank} proposes a general purpose annotation schema, based on annotating predicates (verbs) as the main semantic constituents of a sentence. ProbBank's annotation schema is able to represent several semantic relations, including the agent that causes an action, the receiver of the effects of an action, time and location modifiers, and causal relationships.
-  One key characteristic of PropBank is that every predicate defines custom semantic roles, i.e., the predicate ``\textit{accept}'' defines roles for the agent who accepts~(\texttt{ARG0}), the object that is accepted~(\texttt{ARG1}), and the agent from whom that object is accepted.
+PropBank~\cite{propbank} propone un esquema de anotación de propósito general, basado en predicados de anotación (verbos) como los principales constituyentes semánticos de una oración. El esquema de anotación de ProbBank es capaz de representar varias relaciones semánticas, incluido el agente que causa una acción, el receptor de los efectos de una acción, modificadores de tiempo y ubicación y relaciones causales.
+Una característica clave de PropBank es que cada predicado define roles semánticos personalizados, es decir, el predicado `` \textit{accept} '' define roles para el agente que acepta ~ (\texttt{ARG0}), el objeto que se acepta ~ ( \texttt{ARG1}) y el agente de quien se acepta ese objeto.
 
-  Our annotation scheme was developed from a consensus among research
-  groups at BBN, MITRE, New York University, and Penn. It was agreed that
-  the first phase of annotation would focus on verbal predicates, leaving
-  adjectives, deverbal nouns, and predicate nominatives aside for a later stage.
-  Argument labels were chosen which could be easily mapped onto the labels
-  used in most modern theories of argument structure while not being
-  especially beholden to any particular theory.1
-   Arguments are thus numbered
-  Arg0, Arg1, Arg2, and so on depending on the valency of the verb in
-  question. The meaning of each argument label is defined relative to each verb
-  in a lexicon of ’Frames Files.’ Each set of argument labels and their
-  definitions is called a frameset and provides a unique identifier for the verb
-  sense, a meaning for that verb sense, and the set of expected argument giving
-  both the Arg-numbers and a mnemonic tag or description for that Arg.
-  Following the definitions is any number of example sentences demonstrating
-  various syntactic realizations for that frameset.
+Nuestro esquema de anotaciones se desarrolló a partir de un consenso entre los grupos de investigación de BBN, MITRE, la Universidad de Nueva York y Penn. Se acordó que la primera fase de la anotación se centraría en los predicados verbales, dejando a un lado los adjetivos, los sustantivos deverbales y los predicados nominativos para una etapa posterior.
+Se eligieron etiquetas de argumentos que pudieran mapearse fácilmente en las etiquetas utilizadas en la mayoría de las teorías modernas de estructura de argumentos sin estar especialmente en deuda con ninguna teoría en particular.
+Por tanto, los argumentos se numeran como Arg0, Arg1, Arg2, etc., según la valencia del verbo en cuestión. El significado de cada etiqueta de argumento se define en relación con cada verbo en un léxico de 'Archivos de marcos'. Cada conjunto de etiquetas de argumento y sus definiciones se denomina conjunto de marcos y proporciona un identificador único para el sentido del verbo, un significado para ese sentido del verbo y el conjunto de argumentos esperados que dan tanto los números Arg como una etiqueta o descripción mnemotécnica para ese Arg.
+A continuación de las definiciones hay una serie de oraciones de ejemplo que demuestran varias realizaciones sintácticas para ese conjunto de marcos.
 
-  The training material for proposition recognition, PropBank, is being annotated in English, based on a consensus developed in 2000 among research groups at BBN, MITRE, New York University, and Penn. Taking as a starting point the Penn Treebank II Wall Street Journal Corpus of a million words (Marcus 1994), we are adding predicate argument structure annotation. Approximately one−quarter of the TreeBank, comprising largely texts of financial reporting, has been extracted and is serving as our initial focus for training and to provide an earlier delivery of fully−annotated text. This subcorpus should be completed in June of 2002, while the remainder of the corpus will be completed by the summer of 2003. The current project annotates only verbal predicates, setting aside nominalizations, adjectives, and prepositions for a later phase. In a separate paper (Kingsbury, Marcus \& Palmer, forthcoming) we discuss the differences between PropBank and similar resources such as Verbnet, Wordnet and Framenet. In creating annotations for argument structure, a combination of syntactic and semantic factors are used, although syntactic cues are foremost. The general method is the following: for any given predicate, a survey is made of the usages of the predicate and the usages divided into major senses if required. These senses are divided more on syntactic grounds than semantic, thus avoiding the fine−grained and often−arbitrary divisions of, e.g., WordNet. The expected arguments of each sense are then numbered sequentially from Arg0 to Arg5. According to the guidelines established by the ACE community described above, no attempt is made to make argument labels have the same "meaning" from one sense of a verb to another, so for example the "role" played by Arg2 in one sense of a given predicate may be played by Arg3 in another sense. On the other hand, we intend for  predicates belonging to the same VerbNet class to share similarly−labeled 2 BBN has already completed pronoun co−reference annotation on the same data arguments, in keeping with the near−synonymy of the predicates.
+El material de capacitación para el reconocimiento de propuestas, PropBank, está siendo anotado en inglés, basado en un consenso desarrollado en 2000 entre grupos de investigación de BBN, MITRE, New York University y Penn. Tomando como punto de partida el Corpus del Penn Treebank II Wall Street Journal de un millón de palabras (Marcus 1994), estamos agregando una anotación de estructura de argumento predicado. Aproximadamente una cuarta parte del TreeBank, que comprende en gran parte textos de informes financieros, ha sido extraído y sirve como nuestro enfoque inicial para la capacitación y para proporcionar una entrega más temprana de texto con anotaciones completas. Este subcorpus debe completarse en junio de 2002, mientras que el resto del corpus se completará en el verano de 2003. El proyecto actual solo anota predicados verbales, dejando de lado nominalizaciones, adjetivos y preposiciones para una fase posterior. En un artículo separado (Kingsbury, Marcus \ & Palmer, de próxima publicación) discutimos las diferencias entre PropBank y recursos similares como Verbnet, Wordnet y Framenet. Al crear anotaciones para la estructura del argumento, se usa una combinación de factores sintácticos y semánticos, aunque las claves sintácticas son las más importantes. El método general es el siguiente: para cualquier predicado dado, se hace un estudio de los usos del predicado y los usos se dividen en sentidos principales si es necesario. Estos sentidos están divididos más por motivos sintácticos que semánticos, evitando así las divisiones detalladas y a menudo arbitrarias de, por ejemplo, WordNet. Los argumentos esperados de cada sentido se numeran secuencialmente desde Arg0 a Arg5. De acuerdo con las pautas establecidas por la comunidad ACE descritas anteriormente, no se intenta hacer que las etiquetas de los argumentos tengan el mismo "significado" de un sentido de un verbo a otro, por ejemplo, el "papel" que juega Arg2 en un sentido de un Arg3 puede jugar un predicado dado en otro sentido. Por otro lado, pretendemos que los predicados que pertenecen a la misma clase VerbNet compartan 2 BBN etiquetados de manera similar ya ha completado la anotación de co-referencia de pronombre en los mismos argumentos de datos, de acuerdo con la casi sinonimia de los predicados.
 
 \paragraph{FrameNet}
 
-  FrameNet~\cite{framenet} is a lexical database and an annotated corpus that models the semantic roles and relations in a natural language sentence through conceptual structures named \textit{frames}. Frames represent general-purpose concepts, or events, that define the possible semantic relations in which those concepts can be realized in natural language.
+FrameNet~\cite{framenet} es una base de datos léxica y un corpus anotado que modela los roles semánticos y las relaciones en una oración en lenguaje natural a través de estructuras conceptuales llamadas \textit{frames}. Los marcos representan conceptos de propósito general, o eventos, que definen las posibles relaciones semánticas en las que esos conceptos pueden realizarse en lenguaje natural.
 
-  FrameNet is based on a theory of meaning called Frame Semantics, deriving from the work of Charles J. Fillmore and colleagues (Fillmore 1976, 1977, 1982, 1985, Fillmore and Baker 2001, 2010). The basic idea is straightforward: that the meanings of most words can best be understood on the basis of a semantic frame, a description of a type of event, relation, or entity and the participants in it. For example, the concept of cooking typically involves a person doing the cooking (Cook), the food that is to be cooked (Food), something to hold the food while cooking (Container) and a source of heat (Heating\_instrument). In the FrameNet project, this is represented as a frame called Apply\_heat, and the Cook, Food, Heating\_instrument and Container are called frame elements (FEs) . Words that evoke this frame, such as fry, bake, boil, and broil, are called lexical units (LUs) of the Apply\_heat frame. Other frames are more complex, such as Revenge, which involves more FEs (Offender, Injury, Injured\_Party, Avenger, and Punishment) and others are simpler, such as Placing, with only an Agent (or Cause), a thing that is placed (called a Theme) and the location in which it is placed (Goal).
+FrameNet se basa en una teoría del significado llamada Frame Semantics, derivada del trabajo de Charles J. Fillmore y sus colegas (Fillmore 1976, 1977, 1982, 1985, Fillmore y Baker 2001, 2010). La idea básica es sencilla: que los significados de la mayoría de las palabras pueden entenderse mejor sobre la base de un marco semántico, una descripción de un tipo de evento, relación o entidad y los participantes en él. Por ejemplo, el concepto de cocinar generalmente involucra a una persona que cocina (Cocinar), la comida que se va a cocinar (Comida), algo para sostener la comida mientras se cocina (Recipiente) y una fuente de calor (Instrumento de calentamiento). En el proyecto FrameNet, esto se representa como un marco llamado Apply \ _heat, y Cook, Food, Heating \ _instrument y Container se denominan elementos de marco (FE). Las palabras que evocan este marco, como freír, hornear, hervir y asar, se denominan unidades léxicas (LU) del marco Apply \ _heat. Otros marcos son más complejos, como Revenge, que involucra más FE (Delincuente, Lesión, Lesionado \ _Party, Avenger y Castigo) y otros son más simples, como Colocar, con solo un Agente (o Causa), una cosa que es colocado (llamado Tema) y la ubicación en la que se coloca (Objetivo).
 
-The lexical entry for each LU is derived from such annotations, and specifies the ways in which FEs are realized in syntactic structures headed by the word.
+La entrada léxica para cada LU se deriva de tales anotaciones y especifica las formas en que los FE se realizan en estructuras sintácticas encabezadas por la palabra.
 
-Many common nouns, such as tree, hat or tower, usually serve as dependents which head FEs, rather than clearly evoking their own frames, so we have devoted less effort to annotating them, since information about them is available from other lexicons, such as WordNet (Miller et al. 1990). We do, however, recognize that such nouns also have a minimal frame structure of their own, and in fact, the FrameNet database contains slightly more nouns than verbs.
+Muchos sustantivos comunes, como árbol, sombrero o torre, suelen servir como dependientes que encabezan FE, en lugar de evocar claramente sus propios marcos, por lo que hemos dedicado menos esfuerzo a anotarlos, ya que la información sobre ellos está disponible en otros léxicos, como WordNet (Miller et al. 1990). Sin embargo, reconocemos que dichos sustantivos también tienen una estructura de marco mínima propia y, de hecho, la base de datos FrameNet contiene un poco más de sustantivos que de verbos.
 
-Formally, FrameNet annotations are sets of triples that represent the FE realizations for each annotated sentence, each consisting of a frame element name (for example, Food), a grammatical function (say, Object) and a phrase type (say, noun phrase (NP)). We can think of these three types of annotation on each FE as "layers", but the grammatical function and phrase-type layers are not displayed in the web-based report system, to avoid visual clutter. The downloadable XML version of the data includes these three layers (and several more not discussed here) for all of the annotated sentences, along with complete frame and FE descriptions, frame-frame relations, and lexical entries for each annotated LU. Most of the annotations are of separate sentences annotated for only one LU, but there are also a collection of texts in which all the frame-evoking words have been annotated; the overlapping frames provide a rich representation of much of the meaning of the entire text. The FrameNet team have defined more than 1,000 semantic frames and have linked them together by a system of frame relations, which relate more general frames to more specific ones and provide a basis for reasoning about events and intentional actions.
+Formalmente, las anotaciones de FrameNet son conjuntos de triples que representan las realizaciones de EF para cada oración anotada, cada una de las cuales consta de un nombre de elemento de marco (por ejemplo, Comida), una función gramatical (por ejemplo, Objeto) y un tipo de frase (por ejemplo, frase nominal ( NOTARIO PÚBLICO)). Podemos pensar en estos tres tipos de anotaciones en cada FE como "capas", pero la función gramatical y las capas de tipo de frase no se muestran en el sistema de informes basado en la web, para evitar el desorden visual. La versión XML descargable de los datos incluye estas tres capas (y varias más que no se comentan aquí) para todas las oraciones anotadas, junto con descripciones completas de marco y FE, relaciones marco-marco y entradas léxicas para cada LU anotado. La mayoría de las anotaciones son de oraciones separadas anotadas para una sola LU, pero también hay una colección de textos en los que se han anotado todas las palabras que evocan marcos; los marcos superpuestos proporcionan una rica representación de gran parte del significado de todo el texto. El equipo de FrameNet ha definido más de 1.000 marcos semánticos y los ha vinculado mediante un sistema de relaciones de marcos, que relacionan marcos más generales con marcos más específicos y proporcionan una base para razonar sobre eventos y acciones intencionales.
 
-Because the frames are basically semantic, they are often similar across languages; for example, frames about buying and selling involve the FEs Buyer, Seller, Goods, and Money, regardless of the language in which they are expressed. Several projects are underway to build FrameNets parallel to the English FrameNet project for languages around the the world, including Spanish, German, Chinese, and Japanese, and frame semantic analysis and annotation has been carried out in specialized areas from legal terminology to soccer to tourism.
+Debido a que los marcos son básicamente semánticos, a menudo son similares en todos los idiomas; por ejemplo, los marcos sobre compra y venta involucran al comprador, vendedor, bienes y dinero de FE, independientemente del idioma en el que se expresen. Se están llevando a cabo varios proyectos para construir FrameNets paralelos al proyecto FrameNet en inglés para idiomas de todo el mundo, incluidos el español, alemán, chino y japonés, y se han llevado a cabo análisis y anotaciones semánticas de marcos en áreas especializadas, desde la terminología legal hasta el fútbol y el turismo.
 
 \paragraph{VerbNet}
 
-  VerbNet~\cite{verbnet} is a verb lexicon that also defines specific semantic roles for each verb. In VerbNet, verbs are organized in a hierarchy, and linked through different thematic roles, such as agents, cause, source, or topic. These elements allow to capture the semantic representation of sentences.
-  PropBank semantic roles are similar to the thematic roles defined in VerbNet and frame elements in FrameNet. As such, there are resources that link these semantic structures~\cite{semlink}.
+VerbNet~\cite{verbnet} es un léxico verbal que también define roles semánticos específicos para cada verbo. En VerbNet, los verbos se organizan en una jerarquía y se vinculan a través de diferentes roles temáticos, como agentes, causa, fuente o tema. Estos elementos permiten captar la representación semántica de oraciones.
+Los roles semánticos de PropBank son similares a los roles temáticos definidos en VerbNet y los elementos de marco en FrameNet. Como tal, existen recursos que vinculan estas estructuras semánticas~\cite{semlink}.
 
-  VerbNet (VN) (Kipper-Schuler 2006) is the largest on-line network of English verbs that links their syntactic and semantic patterns. It is a hierarchical, domain-independent, broad-coverage verb lexicon with mappings to other lexical resources, such as WordNet (Miller, 1990; Fellbaum, 1998), PropBank (Kingsbury and Palmer, 2002), and FrameNet (Baker et al., 1998). VerbNet is organized into verb classes extending Levin (1993) classes through refinement and addition of subclasses to achieve syntactic and semantic coherence among members of a class. Each verb class in VN is completely described by thematic roles, selectional preferences of the arguments, and frames consisting of a syntactic description and a semantic representation with subevent structure patterned on the Dynamic Event Model of Pustejovsky and Moszkowicz (2011) and Pustejovsky (2013).
+VerbNet (VN) (Kipper-Schuler 2006) es la red en línea más grande de verbos en inglés que vincula sus patrones sintácticos y semánticos. Es un léxico jerárquico, independiente del dominio y de amplia cobertura del verbo con asignaciones a otros recursos léxicos, como WordNet (Miller, 1990; Fellbaum, 1998), PropBank (Kingsbury y Palmer, 2002) y FrameNet (Baker et al. , 1998). VerbNet está organizado en clases de verbos que amplían las clases de Levin (1993) mediante el refinamiento y la adición de subclases para lograr coherencia sintáctica y semántica entre los miembros de una clase. Cada clase de verbo en VN está completamente descrita por roles temáticos, preferencias de selección de los argumentos y marcos que consisten en una descripción sintáctica y una representación semántica con estructura de subeventos modelada en el Modelo de Evento Dinámico de Pustejovsky y Moszkowicz (2011) y Pustejovsky (2013) .
 
-  Each VN class contains a set of syntactic descriptions, or syntactic frames, depicting the possible surface realizations of the argument structure for constructions such as transitive, intransitive, prepositional phrases, resultatives, and a large set of diathesis alternations. Semantic restrictions (such as animate, human, organization) are used to constrain the types of thematic roles allowed by the arguments, and further restrictions may be imposed to indicate the syntactic nature of the constituent likely to be associated with the thematic role. Syntactic frames may also be constrained in terms of which prepositions are allowed. Each frame is associated with explicit semantic information, expressed as a conjunction of boolean semantic predicates such as `motion,' `contact,' or `cause.' Each semantic predicate is associated with an event variable E that allows predicates to specify when in the event the predicate is true (start(E) for preparatory stage, during(E) for the culmination stage, and end(E) for the consequent stage). Figure 1. shows a complete entry for a frame in VerbNet class Hit-18.1.
+Cada clase VN contiene un conjunto de descripciones sintácticas, o marcos sintácticos, que describen las posibles realizaciones superficiales de la estructura del argumento para construcciones como transitivo, intransitivo, frases preposicionales, resultantes y un gran conjunto de alternancias de diátesis. Las restricciones semánticas (como animada, humana, organización) se utilizan para restringir los tipos de roles temáticos permitidos por los argumentos, y se pueden imponer restricciones adicionales para indicar la naturaleza sintáctica del constituyente que probablemente esté asociado con el rol temático. Los marcos sintácticos también pueden estar restringidos en términos de qué preposiciones están permitidas. Cada cuadro está asociado con información semántica explícita, expresada como una conjunción de predicados semánticos booleanos como "movimiento", "contacto" o "causa". Cada predicado semántico está asociado con una variable de evento E que permite a los predicados especificar cuándo en el evento el predicado es verdadero (inicio (E) para la etapa preparatoria, durante (E) para la etapa de culminación y final (E) para la etapa consecuente ). La Figura 1. muestra una entrada completa para un marco en la clase VerbNet Hit-18.1.
 
-  VerbNet has recently been integrated with 57 new classes from Korhonen and Briscoe's (2004) (K\&B) proposed extension to Levin's original classification (Kipper et al., 2006). This work has involved associating detailed syntactic-semantic descriptions to the K\&B classes, as well as organizing them appropriately into the existing VN taxonomy. An additional set of 53 new classes from Korhonen and Ryant (2005) (K\&R) have also been incorporated into VN. The outcome is a freely available resource which constitutes the most comprehensive and versatile Levin-style verb classification for English. After the two extensions VN has now also increased our coverage of PropBank tokens (Palmer et. al., 2005) from 78.45\% to 90.86\%, making feasible the creation of a substantial training corpus annotated with VN thematic role labels and class membership assignments, to be released in 2007. This will finally enable large-scale experimentation on the utility of syntax-based classes for improving the performance of syntactic parsers and semantic role labelers on new domains.
+VerbNet se ha integrado recientemente con 57 nuevas clases de la extensión propuesta de Korhonen y Briscoe (2004) (K \ & B) a la clasificación original de Levin (Kipper et al., 2006). Este trabajo ha implicado asociar descripciones sintáctico-semánticas detalladas a las clases K \ & B, así como organizarlas apropiadamente en la taxonomía VN existente. También se ha incorporado a VN un conjunto adicional de 53 clases nuevas de Korhonen y Ryant (2005) (K \ & R). El resultado es un recurso de libre acceso que constituye la clasificación de verbos al estilo Levin más completa y versátil para inglés. Después de las dos extensiones, VN ahora también ha aumentado nuestra cobertura de tokens de PropBank (Palmer et. Al., 2005) del 78,45 \% al 90,86 \%, lo que hace factible la creación de un corpus de capacitación sustancial anotado con etiquetas de roles temáticos de VN y membresía de clase. asignaciones, que se publicará en 2007. Esto permitirá finalmente la experimentación a gran escala sobre la utilidad de las clases basadas en sintaxis para mejorar el rendimiento de analizadores sintácticos y etiquetadoras de roles semánticos en nuevos dominios.
 
-  Each verb argument is assigned one (usually unique) thematic role within the class. A few exceptions to this uniqueness are classes which contain verbs with symmetrical arguments, such as Chitchat-37.6 class, or the ContiguousLocation-47.8 class. These classes have indexed roles such as Actor1 and Actor2, as explained above.
+A cada argumento verbal se le asigna un rol temático (generalmente único) dentro de la clase. Algunas excepciones a esta unicidad son las clases que contienen verbos con argumentos simétricos, como la clase Chitchat-37.6 o la clase ContiguousLocation-47.8. Estas clases tienen roles indexados como Actor1 y Actor2, como se explicó anteriormente.
 
 \paragraph{AMR}
 
-  A more recent proposal is Abstract Meaning Representation~\cite[ARM]{amr}. AMR constitutes a semantic representation schema for English sentences that also attempts to cover a wide range of semantic relations with a general-purpose model.
-  AMR includes PropBank semantic roles, as well as coreference resolution within the same sentence, named entities and types, negation, and other modifiers in a graph structure that represents the meaning of a natural language sentence.
-  However, even though AMR captures the full semantic meaning of a sentence, for the purpose of knowledge discovery it is still considerably abstract, and additional processing is necessary to extract concrete structures of knowledge~\cite{rao2017biomedical}.
+Una propuesta más reciente es Representación de significado abstracto ~ \ cite [ARM] {amr}. AMR constituye un esquema de representación semántica para oraciones en inglés que también intenta cubrir una amplia gama de relaciones semánticas con un modelo de propósito general.
+AMR incluye roles semánticos de PropBank, así como resolución de correferencia dentro de la misma oración, entidades y tipos nombrados, negación y otros modificadores en una estructura gráfica que representa el significado de una oración en lenguaje natural.
+Sin embargo, a pesar de que AMR captura el significado semántico completo de una oración, para el propósito del descubrimiento del conocimiento, sigue siendo considerablemente abstracto, y es necesario un procesamiento adicional para extraer estructuras concretas de conocimiento~\cite{rao2017biomedical}.
 
-  Our basic principles are:
-AMRs are rooted, labeled graphs that are easy for people to read, and easy for programs to traverse.
-AMR aims to abstract away from syntactic idiosyncrasies. We attempt to assign the
-same AMR to sentences that have the same basic meaning. For example, the sentences “he described her as a genius”, “his description of her: genius”, and “she was a genius, according to his description” are all assigned the same AMR.
-AMR makes extensive use of PropBank framesets (Kingsbury and Palmer, 2002; Palmer et al., 2005). For example, we represent a phrase like “bond investor” using the frame “invest-01”, even though no verbs appear in the phrase.
-AMR is agnostic about how we might want to derive meanings from strings, or viceversa. In translating sentences to AMR, we do not dictate a particular sequence of rule applications or provide alignments that reflect such rule sequences. This makes sembanking very fast, and it allows researchers to explore their own ideas about how strings are related to meanings.
-AMR is heavily biased towards English. It is not an Interlingua.
+Nuestros principios básicos son:
+Los AMR son gráficos enraizados y etiquetados que son fáciles de leer para las personas y fáciles de recorrer para los programas.
+AMR tiene como objetivo abstraerse de las idiosincrasias sintácticas. Intentamos asignar el
+mismo AMR a oraciones que tienen el mismo significado básico. Por ejemplo, a las frases “la describió como un genio”, “su descripción de ella: genio” y “ella era un genio, según su descripción” se les asigna el mismo AMR.
+AMR hace un uso extensivo de los conjuntos de marcos PropBank (Kingsbury y Palmer, 2002; Palmer et al., 2005). Por ejemplo, representamos una frase como "inversor en bonos" utilizando el marco "invertir-01", aunque no aparecen verbos en la frase.
+AMR es agnóstico sobre cómo podríamos querer derivar significados de cadenas, o viceversa. Al traducir oraciones a AMR, no dictamos una secuencia particular de aplicaciones de reglas ni proporcionamos alineaciones que reflejen dichas secuencias de reglas. Esto hace que el sembanking sea muy rápido y permite a los investigadores explorar sus propias ideas sobre cómo se relacionan las cadenas con los significados.
+AMR está fuertemente sesgado hacia el inglés. No es un interlingua.
 
-  The annotation model proposed in this research shares similarities from general-purpose semantic annotation models such as AMR and PropBank.
-  In contrast to these resources, our model makes no distinction between different types of actions, which are loosely related to verbs, as explained in Section~\ref{sec:model}. Instead, we define two general-purpose roles, the agent that performs and action, and the receiver of the effects of the action. These roles roughly correspond to \texttt{ARG0} and \texttt{ARG1} respectively in PropBank, although in specific cases their semantic meaning might differ.
-  This simplification is directed towards enabling the automation of the annotation process with the use of machine learning techniques.
-  Another key difference of our model is the inclusion of general-purpose taxonomic relations~(e.g, \textit{hypernomy}/\textit{hyponomy} and \textit{meronym}/\textit{holonym}) that are inferred from the sentence. These relations are directed towards easing the automatic construction of knowledge bases.
+El modelo de anotación propuesto en esta investigación comparte similitudes con los modelos de anotación semántica de propósito general como AMR y PropBank.
+En contraste con estos recursos, nuestro modelo no distingue entre diferentes tipos de acciones, que están vagamente relacionadas con los verbos, como se explica en la Sección~\ref{sec: model}. En cambio, definimos dos roles de propósito general, el agente que realiza una acción y el receptor de los efectos de la acción. Estos roles corresponden aproximadamente a \texttt{ARG0} y \texttt{ARG1} respectivamente en PropBank, aunque en casos específicos su significado semántico puede diferir.
+Esta simplificación está dirigida a permitir la automatización del proceso de anotación con el uso de técnicas de aprendizaje automático.
+Otra diferencia clave de nuestro modelo es la inclusión de relaciones taxonómicas de propósito general ~ (por ejemplo, \textit{hipernomía} / \textit{hiponomía} y \textit{merónimo} / \textit{holónimo}) que se infieren de la oración. Estas relaciones están dirigidas a facilitar la construcción automática de bases de conocimiento.
 
-  \subsection{Annotations models in the health domain}\label{sec:health}
+\subsection{Annotations models in the health domain}\label{sec:health}
 
-  Knowledge discovery tasks in the health domain are often supported by the construction of manually-annotated corpora.
-  Several task-specific annotation models have been developed for this purpose. One example is the  {DrugSemantics} corpus~\cite{moreno2017drugsemantics} where product characteristics are annotated, and  {BARR2}~\cite{barr2} which is concerned with biomedical abbreviations.
-  Many corpora include specific types of named entities relevant to the medical domain, such as {DDI}~\cite{ddi} which annotates drugs and other substances.
-  Other examples include {i2b2}~\cite{i2b2} which annotates medications, dosages and other details of drug administration and  {CLEF}~\cite{clef} which annotate different types of conditions, devices and their results in specific clinical cases.
-  Given the specificity of the annotated concepts, most of these resources are built by biomedical experts.
+Las tareas de descubrimiento de conocimientos en el ámbito de la salud suelen estar respaldadas por la construcción de corpus anotados manualmente.
+Se han desarrollado varios modelos de anotaciones para tareas específicas con este fin. Un ejemplo es el {DrugSemantics} corpus~\cite{moreno2017drugsemantics} donde se anotan las características del producto, y {BARR2}~\cite{barr2} que se ocupa de las abreviaturas biomédicas.
+Muchos corpus incluyen tipos específicos de entidades nombradas relevantes para el dominio médico, como {DDI}~\cite{ddi} que anota medicamentos y otras sustancias.
+Otros ejemplos incluyen {i2b2}~\cite{i2b2} que anota medicamentos, dosis y otros detalles de la administración de medicamentos y {CLEF}~\cite{clef} que anota diferentes tipos de condiciones, dispositivos y sus resultados en casos clínicos específicos.
+Dada la especificidad de los conceptos anotados, la mayoría de estos recursos son construidos por expertos en biomedicina.
 
-  The previous examples are corpora helpful in designing techniques oriented towards narrow tasks,
-  where the annotation model is specifically designed to only consider portions of the text relevant to the concepts of interests (i.e., medical entities, genes, etc.).
-  An alternative approach that attempts to model a wide range of the semantics of a document is {Bio-AMR}~\cite{bioamr}.
-  This corpus contains health-related sentences annotated with their AMR structure, a general-purpose semantic representation of natural text.
-  Another relevant resource is BioFrameNet~\cite{bioframenet}, an extension to FrameNet with specific semantic roles for the biomedical domain.
-  A positive consequence of using general-purpose semantic annotations is that it doesn't necessarily require experts in biomedical areas to participate in the annotation process.
+Los ejemplos anteriores son corpus útiles para diseñar técnicas orientadas a tareas limitadas,
+donde el modelo de anotación está diseñado específicamente para considerar solo partes del texto relevantes para los conceptos de intereses (es decir, entidades médicas, genes, etc.).
+Un enfoque alternativo que intenta modelar una amplia gama de semánticas de un documento es {Bio-AMR}~\cite{bioamr}.
+Este corpus contiene oraciones relacionadas con la salud anotadas con su estructura AMR, una representación semántica de propósito general del texto natural.
+Otro recurso relevante es BioFrameNet~\cite{bioframenet}, una extensión de FrameNet con roles semánticos específicos para el dominio biomédico.
+Una consecuencia positiva del uso de anotaciones semánticas de propósito general es que no necesariamente requiere expertos en áreas biomédicas para participar en el proceso de anotación.
 
-  The {eHealth-KD} corpus~\cite{martinez2018overview} attempts to achieve a middle ground by representing a broad range of knowledge with a simple annotation model based on Subject-Action-Target triplets and 4 additional semantic relations.
-  However, after the annotation process several shortcomings were identified.
-  One example is the necessity for including {causality} and {entailment} as explicit relations, rather than representing them through actions, given the importance of this type of assertions in medical texts.
-  Likewise, the annotation lacks the ability to represent coreferences (``\textit{this}'', ``\textit{that}''), and for this reason many sentences cannot be fully annotated.
-  Also, complex linguistic constructions that represent composite concepts (e.g., ``\textit{the patients that received treatment}'') are difficult to annotate, especially when they participate in other relations.
-  This paper extends the annotation model used by the eHealth-KD corpus with semantic elements used in general-purpose annotation models, such as AMR and PropBank.
-  This extension allows solving the aforementioned issues and increases its representational power without adding an overly complex set of new semantic roles and relations.
+El {eHealth-KD} corpus~\cite{martinez2018overview} intenta alcanzar un término medio al representar una amplia gama de conocimientos con un modelo de anotación simple basado en tripletes Sujeto-Acción-Objetivo y 4 relaciones semánticas adicionales.
+Sin embargo, después del proceso de anotación se identificaron varias deficiencias.
+Un ejemplo es la necesidad de incluir {causalidad} y {vinculación} como relaciones explícitas, en lugar de representarlas a través de acciones, dada la importancia de este tipo de afirmaciones en los textos médicos.
+Asimismo, la anotación carece de la capacidad de representar correferencias (`` \textit{esto} '', `` \textit{eso} '') y, por esta razón, muchas oraciones no se pueden anotar completamente.
+Además, las construcciones lingüísticas complejas que representan conceptos compuestos (por ejemplo, `` \textit{los pacientes que recibieron tratamiento} '') son difíciles de anotar, especialmente cuando participan en otras relaciones.
+Este artículo amplía el modelo de anotación utilizado por el corpus eHealth-KD con elementos semánticos utilizados en modelos de anotación de propósito general, como AMR y PropBank.
+Esta extensión permite resolver los problemas antes mencionados y aumenta su poder de representación sin agregar un conjunto demasiado complejo de nuevos roles y relaciones semánticas.
 
-  \section{Herramientas de Anotación}
+\section{Herramientas de Anotación}
 
-  An important element to consider in Knowledge Discovery research is the existence of computational
-  resources and infrastructure that supports the development of new approaches.
-  The creation of linguistic resources often stems from a process of manual annotation by human
-  experts, which requires computational tools for the actual annotation as well as mechanisms for merging
-  annotations and computing agreement, ideally in a collaborative environment.
-  Once the resources are created, it is necessary to distribute the corresponding corpus, baselines, and tools among the research community, often through online source code sharing platforms.
+Un elemento importante a considerar en la investigación del Descubrimiento del Conocimiento es la existencia de recursos e infraestructura computacionales que apoyan el desarrollo de nuevos enfoques.
+La creación de recursos lingüísticos a menudo surge de un proceso de anotación manual por parte de expertos humanos, que requiere herramientas computacionales para la anotación real, así como mecanismos para fusionar anotaciones y acuerdo de computación, idealmente en un entorno colaborativo.
+Una vez que se crean los recursos, es necesario distribuir el corpus, las líneas de base y las herramientas correspondientes entre la comunidad de investigación, a menudo a través de plataformas de intercambio de código fuente en línea.
 
-  An extensive analysis and comparison of several annotation tools is provided in~\citet{annotation-tools}.
-  Table~\ref{tab:annotation-tools} summarizes the main characteristics we considered relevant for this research and identifies the most appropriate annotation tool among  a subset of  popular alternatives.
-  We consider as requisites web-based, open source annotation tools that allow multi-label span annotations as well as relation annotations. Support for collaborative annotation, at least partially, is also highly desirable.
-  Of the analyzed tools, we identified Brat~\cite{brat} and WebAnno~\cite{webanno}, as they comply with all the aforementioned requisites. In our research, we preferred Brat to WebAnno because, even though WebAnno provides more features, Brat allows an easier setup. It is not only faster to start an annotation project using this tool, but also to train annotators to use its interface.
+En~\citet{annotation-tools} se proporciona un análisis extenso y una comparación de varias herramientas de anotación.
+La tabla~\ref{tab:annotation-tools} resume las principales características que consideramos relevantes para esta investigación e identifica la herramienta de anotación más apropiada entre un subconjunto de alternativas populares.
+Consideramos como requisitos herramientas de anotación de código abierto basadas en la web que permiten anotaciones de tramo de etiquetas múltiples, así como anotaciones de relación. El soporte para la anotación colaborativa, al menos parcialmente, también es muy deseable.
+De las herramientas analizadas, identificamos Brat~\cite{brat} y WebAnno~\cite{webanno}, ya que cumplen con todos los requisitos antes mencionados. En nuestra investigación, preferimos Brat a WebAnno porque, aunque WebAnno ofrece más funciones, Brat permite una configuración más sencilla. No solo es más rápido iniciar un proyecto de anotación con esta herramienta, sino también capacitar a los anotadores para que utilicen su interfaz.
 
-  \begin{table}[htb]
-      \centering
-      \resizebox{\textwidth}{!}{
-      \begin{tabular}{r|cccccccccccc}
-          \textbf{Characteristics} & \rotatebox{90}{\textbf{GATE Teamware}} & \rotatebox{90}{\textbf{Knowtator}} & \rotatebox{90}{\textbf{WebAnno}} & \rotatebox{90}{\textbf{Brat}} & \rotatebox{90}{\textbf{BioQRator}} & \rotatebox{90}{\textbf{CATMA}} & \rotatebox{90}{\textbf{prodigy}} & \rotatebox{90}{\textbf{TextAE}} & \rotatebox{90}{\textbf{LightTag}} & \rotatebox{90}{\textbf{Djangology}} & \rotatebox{90}{\textbf{MyMiner}} & \rotatebox{90}{\textbf{WAT-SL}} \\ \midrule
-          multi-label annotations &     &     & \ok & \ok &     & \ok &     &     & \ok & \ok &     &     \\ % F1
-          relation annotations    &     & \ok & \ok & \ok & \ok &     &     & \ok & \ok &     & \ap &     \\ % F3
-          allows custom model    & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok \\ %
-          collaborative interface & \ok &     & \ap & \ap & \ap & \ap & \ap &     & \ok & \ok &     & \ap \\ % F10
-          web-based interface     & \ok &     & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok \\ %
-          can be self-hosted      & \ok & \ok & \ok & \ok &     & \ok & \ok & \ok &     & \ok &     & \ok \\ %
-          open source license     & \ok & \ok & \ok & \ok &     & \ok &     & \ok &     & \ok & \ok & \ok \\ % T2
-          citation                &\cite{gate}&\cite{knowtator}&\cite{webanno}&\cite{brat}&\cite{bioqrator}&\cite{catma}&\cite{prodigy}&\cite{textae}&\cite{lighttag}&\cite{djangology}&\cite{myminer}&\cite{watsl}\\
-          \bottomrule
-      \end{tabular}}
-      \caption{Qualitative comparison of popular annotation tools. Adapted from Table 3 in~\citet{annotation-tools}, Table~3. A symbol~\ap~indicates that the corresponding feature is only partially supported.}
-      \label{tab:annotation-tools}
-  \end{table}
+\begin{table}[htb]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{r|cccccccccccc}
+        \textbf{Characteristics} & \rotatebox{90}{\textbf{GATE Teamware}} & \rotatebox{90}{\textbf{Knowtator}} & \rotatebox{90}{\textbf{WebAnno}} & \rotatebox{90}{\textbf{Brat}} & \rotatebox{90}{\textbf{BioQRator}} & \rotatebox{90}{\textbf{CATMA}} & \rotatebox{90}{\textbf{prodigy}} & \rotatebox{90}{\textbf{TextAE}} & \rotatebox{90}{\textbf{LightTag}} & \rotatebox{90}{\textbf{Djangology}} & \rotatebox{90}{\textbf{MyMiner}} & \rotatebox{90}{\textbf{WAT-SL}} \\ \midrule
+        multi-label annotations &     &     & \ok & \ok &     & \ok &     &     & \ok & \ok &     &     \\ % F1
+        relation annotations    &     & \ok & \ok & \ok & \ok &     &     & \ok & \ok &     & \ap &     \\ % F3
+        allows custom model    & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok \\ %
+        collaborative interface & \ok &     & \ap & \ap & \ap & \ap & \ap &     & \ok & \ok &     & \ap \\ % F10
+        web-based interface     & \ok &     & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok & \ok \\ %
+        can be self-hosted      & \ok & \ok & \ok & \ok &     & \ok & \ok & \ok &     & \ok &     & \ok \\ %
+        open source license     & \ok & \ok & \ok & \ok &     & \ok &     & \ok &     & \ok & \ok & \ok \\ % T2
+        citation                &\cite{gate}&\cite{knowtator}&\cite{webanno}&\cite{brat}&\cite{bioqrator}&\cite{catma}&\cite{prodigy}&\cite{textae}&\cite{lighttag}&\cite{djangology}&\cite{myminer}&\cite{watsl}\\
+        \bottomrule
+    \end{tabular}}
+    \caption{Qualitative comparison of popular annotation tools. Adapted from Table 3 in~\citet{annotation-tools}, Table~3. A symbol~\ap~indicates that the corresponding feature is only partially supported.}
+    \label{tab:annotation-tools}
+\end{table}
 
-  \subsection{Descripción de las herramientas de anotación}
+\subsection{Descripción de las herramientas de anotación}
 
-  \begin{description}
-    \item[GATE Teamware]
-    an open-source text annotation framework and a methodology for the implementation and support of complex annotation projects. It has a web-based architecture, where a number of web services (e.g. document storage, automatic annotation) are made available via HTTPS and the users interact with the text annotation interfaces through a standard web browser.
+\begin{description}
+\item[GATE Teamware] es una herramienta de anotación de texto de código abierto y una metodología para la implementación y el apoyo de proyectos de anotación complejos. Tiene una arquitectura basada en web, donde una serie de servicios web (por ejemplo, almacenamiento de documentos, anotación automática) están disponibles a través de HTTPS y los usuarios interactúan con las interfaces de anotación de texto a través de un navegador web estándar.
 
-    GATE Teamware is based on GATE (Cunningham et al. 2011b), a widely used, scalable and robust open-source NLP platform. GATE comes with numerous reusable text processing components for many natural languages, coupled with a graphical NLP development environment and user interfaces for visualisation and editing of linguistic annotations, parse trees, co-reference chains, and ontologies. GATE Teamware however was created specifically to be used by non-expert annotators, as well as to enable methodologically sound, efficient, and cost-effective corpus annotation projects over the web.
+GATE Teamware se basa en GATE (Cunningham et al. 2011b), una plataforma de PNL de código abierto ampliable, robusta y ampliamente utilizada. GATE viene con numerosos componentes de procesamiento de texto reutilizables para muchos lenguajes naturales, junto con un entorno de desarrollo gráfico de PNL e interfaces de usuario para la visualización y edición de anotaciones lingüísticas, árboles de análisis, cadenas de co-referencia y ontologías. Sin embargo, GATE Teamware fue creado específicamente para ser utilizado por anotadores no expertos, así como para permitir proyectos de anotación de corpus metodológicamente sólidos, eficientes y rentables en la web.
 
-    In addition to its research uses, GATE Teamware has also been tested as a framework for cost-effective commercial annotation services, supplied either as in-house units or as outsourced specialist activities. Several test annotation projects have been conducted in the domains of bio-informatics and business intelligence, with minimal training and producing high quality corpora. For example, Meurs et al. (2011) apply GATE Teamware to the task of building a database of fungal enzymes for biofuel research. Their results show that using GATE Teamware for automatic pre-annotation and manual correction increases the speed with which papers can be processed for inclusion in the database by a factor of around 50 %.
+Además de sus usos de investigación, GATE Teamware también se ha probado como un marco para servicios de anotación comercial rentables, suministrados como unidades internas o como actividades especializadas subcontratadas. Se han llevado a cabo varios proyectos de anotación de prueba en los dominios de la bioinformática y la inteligencia empresarial, con una formación mínima y produciendo corpus de alta calidad. Por ejemplo, Meurs et al. (2011) aplican GATE Teamware a la tarea de construir una base de datos de enzimas fúngicas para la investigación de biocombustibles. Sus resultados muestran que el uso de GATE Teamware para la preanotación automática y la corrección manual aumenta la velocidad con la que se pueden procesar los documentos para su inclusión en la base de datos en un factor de alrededor del 50 \%.
 
-    Similar to other server-side software, GATE Teamware installation is a specialised, non-trivial task with associated costs, in terms of significant time and staff expertise required. In order to lower this barrier and provide zero startup costs, we have made available cloud-based GATE Teamware virtual machines ,Footnote3 that can be turned on and off as required. In addition, the GATECloud.net (Tablan et al. 2013) integration makes it easy to choose a set of automatically annotated documents and send these into a GATE Teamware instance. There is also a virtual machine distribution that can be downloaded and run locally instead.
+De manera similar a otro software del lado del servidor, la instalación de GATE Teamware es una tarea especializada, no trivial con costos asociados, en términos de tiempo significativo y experiencia del personal requerido. Para reducir esta barrera y proporcionar cero costos de inicio, hemos puesto a disposición máquinas virtuales GATE Teamware basadas en la nube, Footnote3, que se pueden encender y apagar según sea necesario. Además, la integración de GATECloud.net (Tablan et al. 2013) facilita la elección de un conjunto de documentos anotados automáticamente y enviarlos a una instancia de GATE Teamware. También hay una distribución de máquina virtual que se puede descargar y ejecutar localmente.
 
-    \item[Knowtator]
-    In Knowtator, an annotation
-    schema is defined with Protégé class, instance,
-    slot, and facet definitions using the Protégé knowledge-base editing functionality. The defined annotation schema can then be applied to a text
-    annotation task without having to write any task
-    specific software or edit specialized configuration
-    files. Annotation schemas in Knowtator can model
-    both syntactic (e.g. shallow parses) and semantic
-    phenomena (e.g. protein-protein interactions).
+\item[Knowtator]
 
-    Knowtator approaches the definition of an annotation schema as a knowledge engineering task by
-    leveraging Protégé’s strengths as a knowledgebase editor. Protégé has user interface components
-    for defining class, instance, slot, and facet frames.
-    A Knowtator annotation schema is created by defining frames using these user interface components as a knowledge engineer would when
-    creating a conceptual model of some domain. For
-    Knowtator the frame definitions model the phenomena that the annotation task seeks to capture.
+En Knowtator, un esquema de anotación se define con definiciones de clases, instancias, ranuras y facetas de Protégé utilizando la función de edición de la base de conocimientos de Protégé. El esquema de anotación definido se puede aplicar a una tarea de anotación de texto sin tener que escribir ninguna tarea.
+software específico o editar archivos de configuración especializados. Los esquemas de anotación en Knowtator pueden modelar fenómenos sintácticos (por ejemplo, análisis sintácticos superficiales) y semánticos (por ejemplo, interacciones proteína-proteína).
 
-    As a simple example, the co-reference annotation task that comes with Callisto can be modeled
-    in Protégé with two class definitions called markable and chain. The chain class has two slots references and primary_reference which are
-    constrained by facets to have values of type markable. This simple annotation schema can now be
-    used to annotate co-reference phenomena occur274
-    ring in text using Knowtator. Annotations in
-    Knowtator created using this simple annotation
-    schema.
+Knowtator aborda la definición de un esquema de anotación como una tarea de ingeniería del conocimiento aprovechando las fortalezas de Protégé como editor de una base de conocimiento. Protégé tiene componentes de interfaz de usuario para definir marcos de clase, instancia, ranura y faceta.
+Un esquema de anotación de Knowtator se crea definiendo marcos utilizando estos componentes de interfaz de usuario como lo haría un ingeniero de conocimiento al crear un modelo conceptual de algún dominio. Para Knowtator, las definiciones de marcos modelan los fenómenos que la tarea de anotación busca capturar.
 
-    A key strength of Knowtator is its ability to relate annotations to each other via the slot definitions of the corresponding annotated classes. In
-    the co-reference example, the slot references of the
-    class chain relates the markable annotations for the
-    text extents ‘the cat’ and ‘It’ to the chain annotation. The constraints on the slots ensure that the
-    relationships between annotations are consistent.
+Como ejemplo simple, la tarea de anotación de co-referencia que viene con Callisto se puede modelar en Protégé con dos definiciones de clase llamadas marcables y encadenadas. La clase de cadena tiene dos referencias de ranuras y primary\_reference que están restringidas por facetas para tener valores de tipo marcables. Este esquema de anotación simple ahora se puede usar para anotar fenómenos de co-referencia que ocurren en el texto usando Knowtator. Anotaciones en Knowtator creadas con este sencillo esquema de anotaciones.
 
-    Protégé is capable of representing much more
-    sophisticated and complex conceptual models
-    which can be used, in turn, by Knowtator for text
-    annotation. Also, because Protégé is often used to
-    create conceptual models of domains relating to
-    biomedical disciplines, Knowtator is especially
-    well suited for capturing named entities and relations between named entities for those domains.
+Una fortaleza clave de Knowtator es su capacidad para relacionar anotaciones entre sí a través de las definiciones de ranuras de las clases anotadas correspondientes. En el ejemplo de co-referencia, las referencias de espacio de la cadena de clases relacionan las anotaciones marcables para las extensiones de texto "el gato" y "Él" con la anotación de la cadena. Las restricciones de las ranuras garantizan que las relaciones entre las anotaciones sean coherentes.
 
-    \item[WebAnno]
-    WebAnno is the third major release of the web-based annotation tool WebAnno (Yimam et al., 2013;
-    Yimam et al., 2014) introducing new functionalities enabling the annotation of semantic structures:
+Protégé es capaz de representar modelos conceptuales mucho más sofisticados y complejos que pueden ser utilizados, a su vez, por Knowtator para la anotación de texto. Además, debido a que Protégé se usa a menudo para crear modelos conceptuales de dominios relacionados con disciplinas biomédicas, Knowtator es especialmente adecuado para capturar entidades con nombre y relaciones entre entidades con nombre para esos dominios.
 
-    1. Slot-features allow the appropriate modelling of predicate-argument structures for SRL. We also
-    support the following additional semantic annotation types: participants and circumstances for event
-    annotation, n-ary relations for relation extraction, and slot-filling tasks for information extraction.
+\item[WebAnno]
 
-    2. Constraints help annotators by performing a context-sensitive filtering of the rich semantic tagsets.
-    For example, the sense of a semantic predicate determines available argument roles. Such a filtering is
-    necessary to avoid loosing valuable time by having annotators search through a large number of tags
-    or to manually type in tags. Constraint rules can be defined manually or they can be automatically
-    generated, e.g. from machine-readable lexical resources. To our knowledge, there is no other
-    web-based annotation tool offering a comparable functionality.
+WebAnno es la tercera versión importante de la herramienta de anotación basada en web WebAnno (Yimam et al., 2013; Yimam et al., 2014) que presenta nuevas funcionalidades que permiten la anotación de estructuras semánticas:
 
-    3. An improved annotation interface for a streamlined annotation process using a permanently visible
-    sidebar instead of a pop-up dialog for editing annotations and their features.
+1. Las características de ranura permiten el modelado apropiado de estructuras de predicado-argumento para SRL. También admitimos los siguientes tipos de anotaciones semánticas adicionales: participantes y circunstancias para la anotación de eventos, relaciones n-arias para la extracción de relaciones y tareas de relleno de espacios para la extracción de información.
 
-    These new functionalities integrate well with the existing functionalities in WebAnno 2, in particular its
-    support for the annotation of syntactic structures, thus enabling semantic annotation in coordination with
-    syntactic annotation. To our knowledge, WebAnno 3 is presently the only web-based and team-oriented
-    annotation tool to support both, the annotation of semantic as well as syntactic structures.
+2. Las restricciones ayudan a los anotadores al realizar un filtrado sensible al contexto de los ricos conjuntos de etiquetas semánticas. Por ejemplo, el sentido de un predicado semántico determina los roles de argumento disponibles. Este filtrado es necesario para evitar perder un tiempo valioso al hacer que los anotadores busquen en una gran cantidad de etiquetas o que ingresen etiquetas manualmente. Las reglas de restricción se pueden definir manualmente o se pueden generar automáticamente, p. Ej. a partir de recursos léxicos legibles por máquina. Hasta donde sabemos, no existe ninguna otra herramienta de anotación basada en la web que ofrezca una funcionalidad comparable.
 
-    WebAnno 3 was developed and implemented in close coordination with users in the context of an
-    annotation project (cf. Mujdricza-Maydt et al. (2016)) for word sense disambiguation (WSD) and SRL on ´
-    German texts and driven by its practical requirements. SRL is the task of identifying semantic predicates,
-    their arguments, and assigning roles to these arguments. It is a difficult task usually performed by experts.
-    Examples of well-known SRL schemes motivated by different linguistic theories are FrameNet (Baker
-    et al., 1998), PropBank (Palmer et al., 2005), and VerbNet (Kipper Schuler, 2005). SRL annotation
-    is typically based on syntactic structures obtained from treebanks, such as the constituent-based Penn
-    Treebank (for PropBank annotation), or the German TIGER treebank for FrameNet-style annotation
-    (Burchardt et al., 2009). An argument is typically identified by the span of its syntactic head or syntactic
-    constituent. For some annotation schemes (e.g. FrameNet), the task also includes WSD. In this case, the
-    sense label typically determines the available argument slots. The example below shows an annotation
-    using FrameNet; the predicate ask receives the frame label Questioning (corresponding to its word sense)
-    and its arguments are annotated as Addressee, Speaker, Message, and Iterations
+3. Una interfaz de anotación mejorada para un proceso de anotación optimizado utilizando una barra lateral permanentemente visible en lugar de un cuadro de diálogo emergente para editar anotaciones y sus características.
 
-    \item[Brat]
-    BRAT is based on our previously released opensource STAV text annotation visualiser (Stenetorp et al., 2011b), which was designed to help
-    users gain an understanding of complex annotations involving a large number of different semantic types, dense, partially overlapping text annotations, and non-projective sets of connections
-    between annotations. Both tools share a vector
-    graphics-based visualisation component, which
-    provide scalable detail and rendering. BRAT integrates PDF and EPS image format export functionality to support use in e.g. figures in publications (Figure 1).
+Estas nuevas funcionalidades se integran bien con las funcionalidades existentes en WebAnno 2, en particular su soporte para la anotación de estructuras sintácticas, permitiendo así la anotación semántica en coordinación con la anotación sintáctica. Hasta donde sabemos, WebAnno 3 es actualmente la única herramienta de anotación basada en la web y orientada a equipos que admite tanto la anotación de estructuras semánticas como sintácticas.
 
-    2.2 Intuitive Annotation Interface
+WebAnno 3 se desarrolló e implementó en estrecha coordinación con los usuarios en el contexto de un proyecto de anotación (cf. Mujdricza-Maydt et al. (2016)) para la desambiguación del sentido de las palabras (WSD) y SRL en textos alemanes e impulsado por sus requisitos prácticos. SRL es la tarea de identificar predicados semánticos, sus argumentos y asignar roles a estos argumentos. Es una tarea difícil que suelen realizar los expertos.
+Ejemplos de esquemas de SRL bien conocidos motivados por diferentes teorías lingüísticas son FrameNet (Baker et al., 1998), PropBank (Palmer et al., 2005) y VerbNet (Kipper Schuler, 2005). La anotación de SRL se basa típicamente en estructuras sintácticas obtenidas de bancos de árboles, como el Penn Treebank basado en constituyentes (para la anotación de PropBank), o el banco de árboles TIGER alemán para la anotación de estilo FrameNet (Burchardt et al., 2009). Un argumento se identifica típicamente por la extensión de su cabeza sintáctica o constituyente sintáctico. Para algunos esquemas de anotaciones (por ejemplo, FrameNet), la tarea también incluye WSD. En este caso, la etiqueta de sentido suele determinar los espacios de argumentos disponibles. El siguiente ejemplo muestra una anotación usando FrameNet; el predicado ask recibe la etiqueta de marco Cuestionando (correspondiente a su sentido de la palabra) y sus argumentos se anotan como Destinatario, Hablante, Mensaje e Iteraciones
 
-    We extended the capabilities of STAV by implementing support for annotation editing. This was
-    done by adding functionality for recognising standard user interface gestures familiar from text editors, presentation software, and many other tools.
-    In BRAT, a span of text is marked for annotation
-    simply by selecting it with the mouse by “dragging” or by double-clicking on a word. Similarly,
-    annotations are linked by clicking with the mouse
-    on one annotation and dragging a connection to
-    the other.
+\item[Brat]
 
-    BRAT is browser-based and built entirely using
-    standard web technologies. It thus offers a familiar environment to annotators, and it is possible to start using BRAT simply by pointing a
-    standards-compliant modern browser to an installation. There is thus no need to install or distribute any additional annotation software or to
-    use browser plug-ins. The use of web standards
-    also makes it possible for BRAT to uniquely identify any annotation using Uniform Resource Identifiers (URIs), which enables linking to individual
-    annotations for discussions in e-mail, documents
-    and on web pages, facilitating easy communication regarding annotations.
+BRAT se basa en nuestro visualizador de anotaciones de texto STAV de código abierto publicado anteriormente (Stenetorp et al., 2011b), que fue diseñado para ayudar a los usuarios a comprender las anotaciones complejas que involucran una gran cantidad de tipos semánticos diferentes, anotaciones de texto densas, parcialmente superpuestas y conjuntos no proyectivos de conexiones entre anotaciones. Ambas herramientas comparten un componente de visualización basado en gráficos vectoriales, que proporcionan detalles y renderización escalables. BRAT integra la funcionalidad de exportación de formato de imagen PDF y EPS para admitir el uso en, por ejemplo, cifras en publicaciones (Figura 1).
 
-    2.3 Versatile Annotation Support
+Ampliamos las capacidades de STAV implementando soporte para la edición de anotaciones. Esto se hizo agregando funcionalidad para reconocer gestos de interfaz de usuario estándar que son familiares de los editores de texto, software de presentación y muchas otras herramientas.
+En BRAT, un tramo de texto se marca para anotación simplemente seleccionándolo con el mouse, “arrastrando” o haciendo doble clic en una palabra. De manera similar, las anotaciones se vinculan haciendo clic con el mouse en una anotación y arrastrando una conexión a la otra.
 
-    BRAT is fully configurable and can be set up to
-    support most text annotation tasks. The most basic annotation primitive identifies a text span and
-    assigns it a type (or tag or label), marking for e.g.
-    POS-tagged tokens, chunks or entity mentions
-    (Figure 1 top). These base annotations can be
-    connected by binary relations – either directed or
-    undirected – which can be configured for e.g. simple relation extraction, or verb frame annotation
-    (Figure 1 middle and bottom). n-ary associations
-    of annotations are also supported, allowing the annotation of event structures such as those targeted
-    in the MUC (Sundheim, 1996), ACE (Doddington
-    et al., 2004), and BioNLP (Kim et al., 2011) Information Extraction (IE) tasks (Figure 2). Additional aspects of annotations can be marked using
-    attributes, binary or multi-valued flags that can
-    be added to other annotations. Finally, annotators
-    can attach free-form text notes to any annotation.
-    In addition to information extraction tasks,
-    these annotation primitives allow BRAT to be
-    configured for use in various other tasks, such
-    as chunking (Abney, 1991), Semantic Role Labeling (Gildea and Jurafsky, 2002; Carreras
-    and Marquez, 2005), and dependency annotation `
-    (Nivre, 2003) (See Figure 1 for examples). Further, both the BRAT client and server implement
-    full support for the Unicode standard, which allow the tool to support the annotation of text using e.g. Chinese or Devanagar ¯ ¯ı characters. BRAT
-    is distributed with examples from over 20 corpora for a variety of tasks, involving texts in seven
-    different languages and including examples from
-    corpora such as those introduced for the CoNLL
-    shared tasks on language-independent named entity recognition (Tjong Kim Sang and De Meulder, 2003) and multilingual dependency parsing
-    (Buchholz and Marsi, 2006).
-    BRAT also implements a fully configurable system for checking detailed constraints on annotation semantics, for example specifying that a
-    TRANSFER event must take exactly one of each
-    of GIVER, RECIPIENT and BENEFICIARY arguments, each of which must have one of the types
-    PERSON, ORGANIZATION or GEO-POLITICAL
-    ENTITY, as well as a MONEY argument of type
-    103
-    Figure 3: Incomplete TRANSFER event indicated
-    to the annotator
-    MONEY, and may optionally take a PLACE argument of type LOCATION (LDC, 2005). Constraint
-    checking is fully integrated into the annotation interface and feedback is immediate, with clear visual effects marking incomplete or erroneous annotations (Figure 3).
-    2.4 NLP Technology Integration
-    BRAT supports two standard approaches for integrating the results of fully automatic annotation
-    tools into an annotation workflow: bulk annotation imports can be performed by format conversion tools distributed with BRAT for many
-    standard formats (such as in-line and columnformatted BIO), and tools that provide standard
-    web service interfaces can be configured to be invoked from the user interface.
-    However, human judgements cannot be replaced or based on a completely automatic analysis without some risk of introducing bias and reducing annotation quality. To address this issue,
-    we have been studying ways to augment the annotation process with input from statistical and
-    machine learning methods to support the annotation process while still involving human annotator
-    judgement for each annotation.
-    As a specific realisation based on this approach,
-    we have integrated a recently introduced machine learning-based semantic class disambiguation system capable of offering multiple outputs
-    with probability estimates that was shown to be
-    able to reduce ambiguity on average by over 75%
-    while retaining the correct class in on average
-    99\% of cases over six corpora (Stenetorp et al.,
-    2011a). Section 4 presents an evaluation of the
-    contribution of this component to annotator productivity.
-    2.5 Corpus Search Functionality
-    BRAT implements a comprehensive set of search
-    functions, allowing users to search document colFigure 4: The BRAT search dialog
-    lections for text span annotations, relations, event
-    structures, or simply text, with a rich set of search
-    options definable using a simple point-and-click
-    interface (Figure 4). Additionally, search results
-    can optionally be displayed using keyword-incontext concordancing and sorted for browsing
-    using any aspect of the matched annotation (e.g.
-    type, text, or context).
+BRAT se basa en un navegador y se construye en su totalidad utilizando tecnologías web estándar. Por lo tanto, ofrece un entorno familiar para los anotadores y es posible comenzar a usar BRAT simplemente apuntando a una instalación con un navegador moderno que cumpla con los estándares. Por lo tanto, no es necesario instalar o distribuir ningún software de anotación adicional ni utilizar complementos del navegador. El uso de estándares web también hace posible que BRAT identifique de forma única cualquier anotación mediante los identificadores uniformes de recursos (URI), lo que permite vincular anotaciones individuales para discusiones en correo electrónico, documentos y páginas web, lo que facilita la comunicación con respecto a las anotaciones.
 
-    \item[BioQRator]
-    BioQRator ( 17 ) is a general-purpose user interface for annotating bio-entities and relationships. Simple and minimal network messages are used to communicate between BioQRator and text-mining resources. This enables one to easily create a customized interface for any bio-curation project if the task involved is to annotate entities and/or relationships. An important issue for curation systems is the multiple different formats that are used. To address this problem, we adopt BioC ( 18 , 19 ) as a standard input and output format. For input, BioC formatted documents or PubMed abstracts can be used. For output, annotated documents can be saved in the BioC or CSV (comma-separated values) format as well. More importantly, BioQRator provides an easy-to-use interactive web interface. It also supports multiple browsers including Chrome, Firefox and Safari (partially compatible with Internet Explorer).
+BRAT es completamente configurable y se puede configurar para admitir la mayoría de las tareas de anotación de texto. La primitiva de anotación más básica identifica un intervalo de texto y le asigna un tipo (o etiqueta o etiqueta), marcando p. Ej. Tokens, fragmentos o menciones de entidad etiquetados en POS (Figura 1 arriba). Estas anotaciones base se pueden conectar mediante relaciones binarias, dirigidas o no dirigidas, que se pueden configurar para, por ejemplo, extracción de relación simple, o anotación de marco de verbo (Figura 1 en el medio y en la parte inferior). También se admiten asociaciones n-arias de anotaciones, lo que permite la anotación de estructuras de eventos como las dirigidas en el MUC (Sundheim, 1996), ACE (Doddington et al., 2004) y BioNLP (Kim et al., 2011). Tareas de extracción (IE) (Figura 2). Los aspectos adicionales de las anotaciones se pueden marcar utilizando atributos, banderas binarias o de valores múltiples que se pueden agregar a otras anotaciones.
 
-    The BioCreative Interactive task (IAT) is a track designed for exploring user–system interactions, promoting development of useful text-mining tools and providing a communication channel for biocuration and text-mining communities ( 20 , 21 ). For BioCreative IV, a participating team defined a topic and tasks for curators’ evaluation. Biocurator volunteers were assigned to participating teams based on their interests in defined topics. The BioCreative IAT task is especially meaningful for text-mining communities because there has been little effort to formally evaluate curation tools. To demonstrate the usability of BioQRator in BioCreative IV, a PPI task was defined and PIE the search ( 22 , 23 ) was used for an external text-mining resource. Necessary databases such as PubMed, Entrez Gene and UniProt were used to provide web links for BioQRator.
+Finalmente, los anotadores pueden adjuntar notas de texto de forma libre a cualquier anotación. Además de las tareas de extracción de información, estas primitivas de anotación permiten configurar BRAT para su uso en varias otras tareas, como fragmentación (Abney, 1991), etiquetado de roles semánticos (Gildea y Jurafsky, 2002; Carreras y Márquez, 2005) y dependencia anotación (Nivre, 2003) (consulte la Figura 1 para ver ejemplos). Además, tanto el cliente BRAT como el servidor implementan soporte completo para el estándar Unicode, lo que permite que la herramienta admita la anotación de texto usando p. Ej. Caracteres chinos o devanagar ¯ ¯ı. BRAT se distribuye con ejemplos de más de 20 corpus para una variedad de tareas, que involucran textos en siete idiomas diferentes e incluyen ejemplos de corpus como los presentados para las tareas compartidas de CoNLL sobre el reconocimiento de entidades con nombre independientes del idioma (Tjong Kim Sang y De Meulder, 2003) y análisis de dependencia multilingüe (Buchholz y Marsi, 2006). BRAT también implementa un sistema completamente configurable para verificar restricciones detalladas en la semántica de la anotación, por ejemplo, especificando que un evento TRANSFER debe tomar exactamente uno de cada uno de los argumentos DADOR, RECIPIENTE y BENEFICIARIO, cada uno de los cuales debe tener uno de los tipos PERSON, ORGANIZATION o GEO -ENTIDAD POLÍTICA, así como un argumento DINERO de tipo DINERO, y opcionalmente puede tomar un argumento LUGAR de tipo UBICACIÓN (LDC, 2005). La verificación de restricciones está completamente integrada en la interfaz de anotaciones y la retroalimentación es inmediata, con efectos visuales claros que marcan las anotaciones incompletas o erróneas (Figura 3).
 
-    \item[CATMA]
+BRAT admite dos enfoques estándar para integrar los resultados de las herramientas de anotación completamente automáticas en un flujo de trabajo de anotación: las importaciones de anotaciones masivas se pueden realizar mediante herramientas de conversión de formato distribuidas con BRAT para muchos formatos estándar (como BIO en línea y con formato de columna), y herramientas que Proporcionar interfaces de servicios web estándar que se pueden configurar para que se invoquen desde la interfaz de usuario; sin embargo, los juicios humanos no se pueden reemplazar o basar en un análisis completamente automático sin algún riesgo de introducir sesgos y reducir la calidad de las anotaciones. Para abordar este problema, hemos estado estudiando formas de aumentar el proceso de anotación con información de métodos estadísticos y de aprendizaje automático para respaldar el proceso de anotación y, al mismo tiempo, implicar el juicio del anotador humano para cada anotación. Como una realización específica basada en este enfoque, hemos integrado un sistema de desambiguación de clases semánticas basado en el aprendizaje automático introducido recientemente, capaz de ofrecer múltiples salidas con estimaciones de probabilidad que se demostró que puede reducir la ambigüedad en promedio en más del 75 \% mientras conserva el clase correcta en una media del 99 \% de los casos en seis cuerpos (Stenetorp et al., 2011a). La sección 4 presenta una evaluación de la contribución de este componente a la productividad del anotador.
 
-    CATMA	(Computer	Aided	Text	Markup	and	Analysis),
-    a	tool	developed	at	the	University	of	Hamburg	and	currently	used	by	over	60	 research	projects	worldwide.
-    CATMA	offers	a	unique	combination	of	three	main	features	found	in	no	other	text	analysis	tool:
+BRAT implementa un conjunto completo de funciones de búsqueda, lo que permite a los usuarios realizar búsquedas en columnas de documentos Figura 4: Las opciones del cuadro de diálogo de búsqueda de BRAT para anotaciones de texto, relaciones, estructuras de eventos o simplemente texto, con un rico conjunto de opciones de búsqueda definibles mediante un simple punto y -hacer clic
+interfaz (Figura 4). Además, los resultados de la búsqueda pueden mostrarse opcionalmente usando la concordancia de palabras clave en el contexto y ordenados para navegar
+utilizando cualquier aspecto de la anotación coincidente (por ejemplo, tipo, texto o contexto).
 
-    -CATMA supports collaborative annotation and
-    analysis – a text or text corpus can	be investigated individually, but also jointly by a group of students or researchers.
+\item[BioQRator]
 
-    -CATMA supports explorative, non-deterministic
-    practices of text annotation – a	 discursive,	 debateoriented	approach	to	text	annotation	based	on	the	research	practices of hermeneutic disciplines is the underlying conceptual model.
+BioQRator (17) es una interfaz de usuario de propósito general para anotar bioentidades y relaciones. Se utilizan mensajes de red simples y mínimos para comunicarse entre BioQRator y los recursos de minería de texto. Esto le permite a uno crear fácilmente una interfaz personalizada para cualquier proyecto de bio-curación si la tarea involucrada es anotar entidades y / o relaciones. Un tema importante para los sistemas de conservación son los múltiples formatos diferentes que se utilizan. Para abordar este problema, adoptamos BioC (18, 19) como formato estándar de entrada y salida. Para la entrada, se pueden utilizar documentos con formato BioC o resúmenes de PubMed. Para la salida, los documentos anotados también se pueden guardar en formato BioC o CSV (valores separados por comas). Más importante aún, BioQRator proporciona una interfaz web interactiva fácil de usar. También es compatible con varios navegadores, incluidos Chrome, Firefox y Safari (parcialmente compatible con Internet Explorer).
 
-    -CATMA integrates text annotation and text analysis in a web-based working	 environment	 – which
-    makes	it	possible	to	combine	the	identification	of	textual	phenomena with their investigation in a seamless,
-    iterative fashion.
+La tarea interactiva de BioCreative (IAT) es una pista diseñada para explorar las interacciones usuario-sistema, promover el desarrollo de herramientas útiles de minería de texto y proporcionar un canal de comunicación para las comunidades de biocuración y minería de texto (20, 21). Para BioCreative IV, un equipo participante definió un tema y tareas para la evaluación de los curadores. Los voluntarios biocuradores fueron asignados a los equipos participantes en función de sus intereses en temas definidos. La tarea de BioCreative IAT es especialmente significativa para las comunidades de minería de textos porque ha habido poco esfuerzo para evaluar formalmente las herramientas de curación. Para demostrar la usabilidad de BioQRator en BioCreative IV, se definió una tarea PPI y se utilizó la búsqueda PIE (22, 23) para un recurso externo de minería de texto. Se utilizaron las bases de datos necesarias como PubMed, Entrez Gene y UniProt para proporcionar enlaces web para BioQRator.
 
-    What	sets	CATMA	apart	from	other	digital	annotation	methods	is	its	‘undogmatic’	approach:	the	system
-    does	 neither	 prescribe	 defined	 annotation	 schemata
-    or	 rules,	 nor	 does	 it	 force	 the	 user	 to	 apply	 rigid
-    yes/no,	right/wrong	taxonomies	to	texts	(even	though
-    it	allows	for	more	prescriptive	schemata	as	well).	Rather,	CATMA’s	logic	invites	users	 to	explore	the	richness	and	multi-facettedness	of	textual	phenomena	according	to	their	needs:	Users	can	create,	expand,	and
-    continuously	modify	their	own	individual	tagsets	– so
-    if	a	text	passage	invites	more	than	one	interpretation,
-    nothing	in	the	system	prevents	assigning	multiple,	or
-    even	contradictory	annotations.	Despite	all	this	 flexibility,	CATMA	does	not	produce	idiosyncratic	annotations:	All	markup	 data	 can	 be	 exported	in	 TEI/XMLformat	and	reused	in	other	contexts.
+\item[CATMA]
 
-    Since	CATMA	is	a	highly	intuitive	tool,	it	is	also	suitable	for	humanists	with	little	technical	knowledge:	the
-    GUI	 allows	 for	 a	 quick	 kick-off,	 and	 CATMA’s	 query
-    builder	(a	step-by-step	dialogue-based	widget)	helps
-    users	retrieve	complex	information	from	texts	without
-    having	to	learn	a	query	language.	Another	plus	on	the
-    easy-to-use	 side	is	 the	 fact	 that	 CATMA’s	 automated
-    distant-reading	 functions	are	 continuously	enhanced
-    and	 extended	 – the	 current	 version	 5.0	 already	 features	 a	 number	 of	 automated	 annotation	 routines,
-    among	others	the	identification	of	basic	narrative	features	in	texts.
+CATMA (Análisis y marcado de texto asistido por computadora), una herramienta desarrollada en la Universidad de Hamburgo y utilizada actualmente por más de 60 proyectos de investigación en todo el mundo. CATMA ofrece una combinación única de tres características principales que no se encuentran en ninguna otra herramienta de análisis de texto:
 
-    \item[prodigy]
+-CATMA admite la anotación y el análisis colaborativos: un texto o corpus de texto puede ser investigado individualmente, pero también de forma conjunta por un grupo de estudiantes o investigadores.
 
-    Prodigy is a modern annotation tool for creating training and evaluation data for machine learning models. You can also use Prodigy to help you inspect and clean your data, do error analysis and develop rule-based systems to use in combination with your statistical models.
+-CATMA apoya prácticas exploratorias no deterministas de anotación de texto: un enfoque discursivo y orientado al debate para la anotación de texto basado en las prácticas de investigación de las disciplinas hermenéuticas es el modelo conceptual subyacente.
 
-    The Python library includes a range of pre-built workflows and command-line commands for various tasks, and well-documented components for implementing your own workflow scripts. Your scripts can specify how the data is loaded and saved, change which questions are asked in the annotation interface, and can even define custom HTML and JavaScript to change the behavior of the front-end. The web application is optimized for fast, intuitive and efficient annotation.
+-CATMA integra la anotación de texto y el análisis de texto en un entorno de trabajo basado en la web, lo que hace posible combinar la identificación de fenómenos textuales con su investigación de forma iterativa y sin fisuras.
 
-    Prodigy’s mission is to help you do more of all those manual or semi-automatic processes that we all know we don’t do enough of. To most data scientists, the advice to spend more time looking at your data is sort of like the advice to floss or get more sleep: it’s easy to recognize that it’s sound advice, but not always easy to put into practice. Prodigy helps by giving you a practical, flexible tool that fits easily into your workflow. With concrete steps to follow instead of a vague goal, annotation and data inspection will change from something you should do, to something you will do.
+Lo que distingue a CATMA de otros métodos de anotación digital es su enfoque 'no dogmático': el sistema no prescribe esquemas o reglas de anotación definidos, ni obliga al usuario a aplicar taxonomías rígidas de sí / no, correctas / incorrectas a los textos (aunque también permite esquemas más prescriptivos). Más bien, la lógica de CATMA invita a los usuarios a explorar la riqueza y las múltiples facetas de los fenómenos textuales de acuerdo con sus necesidades: los usuarios pueden crear, expandir y modificar continuamente sus propios conjuntos de etiquetas individuales, por lo que si un pasaje de texto invita a más de una interpretación, nada en el El sistema evita la asignación de anotaciones múltiples o incluso contradictorias. A pesar de toda esta flexibilidad, CATMA no produce anotaciones idiosincrásicas: todos los datos de marcado se pueden exportar en formato TEI / XML y reutilizar en otros contextos.
 
-    \item[TextAE]
+Dado que CATMA es una herramienta altamente intuitiva, también es adecuada para humanistas con poco conocimiento técnico: la GUI permite un inicio rápido y el generador de consultas de CATMA (un widget basado en diálogos paso a paso) ayuda a los usuarios a recuperar información compleja de textos sin tener que aprender un idioma de consulta. Otra ventaja en el lado fácil de usar es el hecho de que las funciones automatizadas de lectura a distancia de CATMA se mejoran y amplían continuamente: la versión actual 5.0 ya presenta una serie de rutinas de anotación automatizadas, entre otras, la identificación de características narrativas básicas en los textos.
 
-    Open source
-    TextAE is developed as an open source project.
-    Released under the MIT License.
-     Unicode support
-    It supports any language which is supported by UTF8.
-    (However, we could test the feature only with a limited number of languages. If you find a problem with your language, pleast let us know, so that we can fix it.)
-     Zero installation
-    You can use a ready-for-use TextAE editor immediately without any installation process.
-     Fully-featured GUI editor
-    You can create or edit various types of annotation.
-    named entity annotation
-    relation annotation
-    syntactic annotations
-    …
-     a default viewer/editor of PubAnnotation
-    TextAE is developed as a default viewer/editor of PubAnnotation.
-     REST client
-    TextAE works as a REST client, which means
-    it can get an annotation file from the net, and
-    it can post an annotation file to the net.
+\item[prodigy]
 
-    \item[LightTag]
+Prodigy is a modern annotation tool for creating training and evaluation data for machine learning models. You can also use Prodigy to help you inspect and clean your data, do error analysis and develop rule-based systems to use in combination with your statistical models.
 
-    Work Faster With Our Optimized Interface
+The Python library includes a range of pre-built workflows and command-line commands for various tasks, and well-documented components for implementing your own workflow scripts. Your scripts can specify how the data is loaded and saved, change which questions are asked in the annotation interface, and can even define custom HTML and JavaScript to change the behavior of the front-end. The web application is optimized for fast, intuitive and efficient annotation.
+
+Prodigy’s mission is to help you do more of all those manual or semi-automatic processes that we all know we don’t do enough of. To most data scientists, the advice to spend more time looking at your data is sort of like the advice to floss or get more sleep: it’s easy to recognize that it’s sound advice, but not always easy to put into practice. Prodigy helps by giving you a practical, flexible tool that fits easily into your workflow. With concrete steps to follow instead of a vague goal, annotation and data inspection will change from something you should do, to something you will do.
+
+\item[TextAE]
+
+Open source
+TextAE is developed as an open source project.
+Released under the MIT License.
+  Unicode support
+It supports any language which is supported by UTF8.
+(However, we could test the feature only with a limited number of languages. If you find a problem with your language, pleast let us know, so that we can fix it.)
+  Zero installation
+You can use a ready-for-use TextAE editor immediately without any installation process.
+  Fully-featured GUI editor
+You can create or edit various types of annotation.
+named entity annotation
+relation annotation
+syntactic annotations
+…
+  a default viewer/editor of PubAnnotation
+TextAE is developed as a default viewer/editor of PubAnnotation.
+  REST client
+TextAE works as a REST client, which means
+it can get an annotation file from the net, and
+it can post an annotation file to the net.
+
+\item[LightTag]
+
+Work Faster With Our Optimized Interface
 Keyboard Shortcuts
 No tokenization assumptions
 Full Unicode Support
@@ -568,167 +379,162 @@ LightTag's Review Mode and Reporting make it easy to ensure your data is perfect
 Control Your Data Quality
 LightTag's Review Mode and Reporting make it easy to ensure your data is perfect and your annotators are performing at their very best.
 
-    \item[Djangology]
+\item[Djangology]
 
-    The Djangology
-    annotation web application was originally created to meet the needs of a collaborative annotation
-    project involving more than 250 international participants.
-    The goal of the project was to create a gold standard corpus
-    which is annotated with named entities of the domain
-    of interest: medical studies of trauma, shock, and sepsis
-    conditions. Abstracts from an annual conference dedicated
-    to the subject and hosted by the the North American
-    Shock Society 6 were used to identify the domain-specific
-    named entities via an automated process. The named entity
-    annotations had to then be validated by domain experts -
-    the contributors to the conference. The Djangology system
-    has been in use for two consecutive years (2008 and 2009),
-    and has achieved an average contributor response rate of
-    70%.
+The Djangology
+annotation web application was originally created to meet the needs of a collaborative annotation
+project involving more than 250 international participants.
+The goal of the project was to create a gold standard corpus
+which is annotated with named entities of the domain
+of interest: medical studies of trauma, shock, and sepsis
+conditions. Abstracts from an annual conference dedicated
+to the subject and hosted by the the North American
+Shock Society 6 were used to identify the domain-specific
+named entities via an automated process. The named entity
+annotations had to then be validated by domain experts -
+the contributors to the conference. The Djangology system
+has been in use for two consecutive years (2008 and 2009),
+and has achieved an average contributor response rate of
+70%.
 
-    The needs of the project led to a set of requirements common to similar highly-distributed collaborative annotation
-    projects. An administration interface was needed to manage documents and users, as well as for the definition of
-    annotation schemas. Annotations created via an automated
-    process needed to be loaded into the system. Participants
-    were notified via email and presented with a link to the
-    web-based interface. After logging in, annotators were able
-    to view a list of assigned documents. An intuitive webbased user interface was needed to allow participants to annotate documents with minimal instructional text. Easy and
-    quick annotation access was crucial to the success of the
-    project. As the time of domain experts is quite valuable,
-    complicated installation or annotation instructions would
-    be prohibitive. The system also needed to display interannotator agreement statistics, as well as the evaluation
+The needs of the project led to a set of requirements common to similar highly-distributed collaborative annotation
+projects. An administration interface was needed to manage documents and users, as well as for the definition of
+annotation schemas. Annotations created via an automated
+process needed to be loaded into the system. Participants
+were notified via email and presented with a link to the
+web-based interface. After logging in, annotators were able
+to view a list of assigned documents. An intuitive webbased user interface was needed to allow participants to annotate documents with minimal instructional text. Easy and
+quick annotation access was crucial to the success of the
+project. As the time of domain experts is quite valuable,
+complicated installation or annotation instructions would
+be prohibitive. The system also needed to display interannotator agreement statistics, as well as the evaluation
 
-    Djangology can be deployed on any web-accessible server
-    and requires a Python installation, Django installation, and
-    connectivity to a database server 9
-    . Source code and installation instructions can be found at the project website http://djangology.sourceforge.net/. We estimate that
-    end-to-end installation and configuration time for a Python
-    and Django-savvy developer is less than an hour. Once
-    deployed, the application can be accessed from any web
-    browser - no browser plug-ins, JVM installation, or custom
-    security settings are necessary, as the client-server communication is based on standard HTTP and Ajax requests.
-    The application database schema (Figure 1(a)) and user interface can be rapidly extended and customized. For example, creating a new field to annotator accounts could be
-    effortlessly achieved by just adding a new attribute to the
-    corresponding Python model class. The corresponding web
-    form and underlying database schema are transparently updated by the Django framework
+Djangology can be deployed on any web-accessible server
+and requires a Python installation, Django installation, and
+connectivity to a database server 9
+. Source code and installation instructions can be found at the project website http://djangology.sourceforge.net/. We estimate that
+end-to-end installation and configuration time for a Python
+and Django-savvy developer is less than an hour. Once
+deployed, the application can be accessed from any web
+browser - no browser plug-ins, JVM installation, or custom
+security settings are necessary, as the client-server communication is based on standard HTTP and Ajax requests.
+The application database schema (Figure 1(a)) and user interface can be rapidly extended and customized. For example, creating a new field to annotator accounts could be
+effortlessly achieved by just adding a new attribute to the
+corresponding Python model class. The corresponding web
+form and underlying database schema are transparently updated by the Django framework
 
-    The Djangology 10 application presents administrators with
-    an interface to create/modify annotation projects and manage users (Figure 2). Administrators can import documents
-    (single document or batch mode) into a project, define the
-    project annotation schema, create annotator accounts, and
-    assign annotators to specific projects and to a list of documents. Existing annotations and documents could also be
-    easily loaded into the system through custom Python scripts
-    (stand-alone Django scripts) or through direct connection
-    to the Djangology database. Djangology has been used to
-    import manually created annotations in the Knowtator format and from the BioScope Corpus (Szarvas et al., 2008)
-    as well as annotations created automatically by the Gate
-    and UIMA (Ferrucci and Lally, 2004) frameworks and the
-    Metamap c system from the National Library of Medicine.
-    In the workflow of the system, contributors are typically
-    emailed their system authentication information and presented with a link to the application (Figure 3). Once
-    logged in, annotators can select one of their assigned documents and proceed with the web-based annotation interface.
-    An Ajax-based web page allows contributors to highlight a
-    fragment of text and assign it to one of the pre-defined annotation types (based on the project annotation schema).
-    The procedure for entering new annotations and modifying
-    existing annotations is intuitive and based on user interface
-    conventions - text selection/right-click menu selection. The
-    system is specifically designed to require minimum timeinvestment on the part of the involved annotators. No installation, configuration, or reading user manuals is necessary on the part of the contributors. Annotations are saved
-    to the backend database as they are entered, ensuring that
-    no work is lost. In order to save annotators’ effort, once a
-    phrase is annotated, all occurrences of the phrase in the document are automatically annotated in the same type. Users
-    are also given a facility to override the automatically created annotations or change the system’s default behavior. If
-    desired, contributors could also mark documents as completed to alert the project administrator of the annotation
-    progress.
+The Djangology 10 application presents administrators with
+an interface to create/modify annotation projects and manage users (Figure 2). Administrators can import documents
+(single document or batch mode) into a project, define the
+project annotation schema, create annotator accounts, and
+assign annotators to specific projects and to a list of documents. Existing annotations and documents could also be
+easily loaded into the system through custom Python scripts
+(stand-alone Django scripts) or through direct connection
+to the Djangology database. Djangology has been used to
+import manually created annotations in the Knowtator format and from the BioScope Corpus (Szarvas et al., 2008)
+as well as annotations created automatically by the Gate
+and UIMA (Ferrucci and Lally, 2004) frameworks and the
+Metamap c system from the National Library of Medicine.
+In the workflow of the system, contributors are typically
+emailed their system authentication information and presented with a link to the application (Figure 3). Once
+logged in, annotators can select one of their assigned documents and proceed with the web-based annotation interface.
+An Ajax-based web page allows contributors to highlight a
+fragment of text and assign it to one of the pre-defined annotation types (based on the project annotation schema).
+The procedure for entering new annotations and modifying
+existing annotations is intuitive and based on user interface
+conventions - text selection/right-click menu selection. The
+system is specifically designed to require minimum timeinvestment on the part of the involved annotators. No installation, configuration, or reading user manuals is necessary on the part of the contributors. Annotations are saved
+to the backend database as they are entered, ensuring that
+no work is lost. In order to save annotators’ effort, once a
+phrase is annotated, all occurrences of the phrase in the document are automatically annotated in the same type. Users
+are also given a facility to override the automatically created annotations or change the system’s default behavior. If
+desired, contributors could also mark documents as completed to alert the project administrator of the annotation
+progress.
 
-    Once annotations are gathered from various contributors, project administrators have the ability to view interannotator agreement statistics - a variety of pair-wise
-    project-based and document-based metrics are computed
-    and presented in the user interface. As analysis of inter-annotator disagreement is a common task, an
-    interface for a side-by-side comparison of document annotations is also provided.
+Once annotations are gathered from various contributors, project administrators have the ability to view interannotator agreement statistics - a variety of pair-wise
+project-based and document-based metrics are computed
+and presented in the user interface. As analysis of inter-annotator disagreement is a common task, an
+interface for a side-by-side comparison of document annotations is also provided.
 
-    \item[MyMiner]
-    MyMiner is an interactive web application based on a modular design with the purpose to assist users in biocuration and text annotation tasks. The MyMiner interface is intended to be user-friendly, not requiring installation of any local software. Each module has an export option for saving results. The time spent for processing a document is recorded in the exported file. To improve the user-friendliness, a common display layout has been adopted and conserved between application modules. The input document analysis area is located on the top of the page; options and tools are placed below the main curation zone. MyMiner combines PHP, JavaScript and AJAX to enhance user interactivity. The core of the MyMiner system covers four application modules that can be independently used or combined together following the steps of a biocuration pipeline (Supplementary Fig. S1).
+\item[MyMiner]
+MyMiner is an interactive web application based on a modular design with the purpose to assist users in biocuration and text annotation tasks. The MyMiner interface is intended to be user-friendly, not requiring installation of any local software. Each module has an export option for saving results. The time spent for processing a document is recorded in the exported file. To improve the user-friendliness, a common display layout has been adopted and conserved between application modules. The input document analysis area is located on the top of the page; options and tools are placed below the main curation zone. MyMiner combines PHP, JavaScript and AJAX to enhance user interactivity. The core of the MyMiner system covers four application modules that can be independently used or combined together following the steps of a biocuration pipeline (Supplementary Fig. S1).
 
-    MyMiner handles any plain text, including article abstracts, document sentences, ontology terms or disease descriptions.
+MyMiner handles any plain text, including article abstracts, document sentences, ontology terms or disease descriptions.
 
-    The ‘File-labelling’ module is a simple to use manual text classification interface that allows classifying documents, abstracts, sentences or terms, offering the possibility to enter user-specified class labels. This module could be used for instance to classify documents as either relevant or not to a specific topic from a PubMed query. Its purpose is to cover the triage task (article selection) carried out by database annotators but it can also be used for any manual classification recording. The labelled data that result from this classification can serve as training and test sets for text categorization systems. To reduce the manual classification time, it provides the option of dynamically setting positive and negative text highlights. These are expressions that users can set at any time during the tagging process to highlight text relevant (marked in yellow) or non-relevant (marked in red) to the topic of interest. The system offers the possibility to upload the classification guidelines so that the annotator can refer to them when necessary. Users can pause and resume the curation process at any time by saving the classified document. To resume classification, the saved file is uploaded as input file. The time spent by a user to select the corresponding label is recorded. This may be useful to estimate the efficiency of annotators and the difficulty of the task.
+The ‘File-labelling’ module is a simple to use manual text classification interface that allows classifying documents, abstracts, sentences or terms, offering the possibility to enter user-specified class labels. This module could be used for instance to classify documents as either relevant or not to a specific topic from a PubMed query. Its purpose is to cover the triage task (article selection) carried out by database annotators but it can also be used for any manual classification recording. The labelled data that result from this classification can serve as training and test sets for text categorization systems. To reduce the manual classification time, it provides the option of dynamically setting positive and negative text highlights. These are expressions that users can set at any time during the tagging process to highlight text relevant (marked in yellow) or non-relevant (marked in red) to the topic of interest. The system offers the possibility to upload the classification guidelines so that the annotator can refer to them when necessary. Users can pause and resume the curation process at any time by saving the classified document. To resume classification, the saved file is uploaded as input file. The time spent by a user to select the corresponding label is recorded. This may be useful to estimate the efficiency of annotators and the difficulty of the task.
 
-    The ‘Compare File’ module facilitates the direct comparison of collections of labelled items generated by several approaches or persons. In addition, it is possible to create subsets from these collections based on the agreement or disagreement of annotation labels. This module could be used to compare and evaluate document classification methods between various persons or softwares. It displays a global summary with information covering: (i) the number of documents within each class; (ii) the average time needed to classify the text; (iii) the correlation between classification time and text length or (iv) the number of items tagged differently between annotators. This module allows extracting a collection of texts (known as a Gold Standard corpus) that have been labelled consistently by all annotators. Alternatively, the module can also be used to extract the borderline cases tagged differently. Hasty/inaccurate annotations can be detected from inter-annotator disagreements and/or a poor correlation between document size versus classification time. These cases can then be used to refine and improve the classification guidelines. The Compare File module has been used to estimate consistency of manual annotations between various individuals and methods (Supplementary Data Section 2).
+The ‘Compare File’ module facilitates the direct comparison of collections of labelled items generated by several approaches or persons. In addition, it is possible to create subsets from these collections based on the agreement or disagreement of annotation labels. This module could be used to compare and evaluate document classification methods between various persons or softwares. It displays a global summary with information covering: (i) the number of documents within each class; (ii) the average time needed to classify the text; (iii) the correlation between classification time and text length or (iv) the number of items tagged differently between annotators. This module allows extracting a collection of texts (known as a Gold Standard corpus) that have been labelled consistently by all annotators. Alternatively, the module can also be used to extract the borderline cases tagged differently. Hasty/inaccurate annotations can be detected from inter-annotator disagreements and/or a poor correlation between document size versus classification time. These cases can then be used to refine and improve the classification guidelines. The Compare File module has been used to estimate consistency of manual annotations between various individuals and methods (Supplementary Data Section 2).
 
-    The purpose of the ‘Entity Tagging’ (entity mention recognition) module is to manually detect important conceptual objects within a document, a first step for further identification of annotation events and relations to populate knowledge databases. This module could be used to create a corpus of gene and protein mentions to test and train a Named Entity Recognition tool. This module offers an interactive interface allowing users to semi-automatically identify various kinds of entities within documents. It has been designed as a WYSIWYG (What You See Is What You Get) online editor that allows the addition of user-specified labels for new entity types. For the detection of important bio-entities, this module provides the automatic recognition of proteins, DNA, RNA, cell lines and cell types by integrating the ABNER tagger (Settles, 2005). The LINNAEUS system is incorporated into MyMiner to identify species and organisms (Gerner et al., 2010). Additionally, user-defined entities can be detected if terms-tags dictionaries are provided. To improve the accuracy of the annotations, tags can be edited and wrongly generated labels can be removed. To define simple relationships between entities and terms, a matrix check box display was added to this module (Supplementary Fig. S14).
+The purpose of the ‘Entity Tagging’ (entity mention recognition) module is to manually detect important conceptual objects within a document, a first step for further identification of annotation events and relations to populate knowledge databases. This module could be used to create a corpus of gene and protein mentions to test and train a Named Entity Recognition tool. This module offers an interactive interface allowing users to semi-automatically identify various kinds of entities within documents. It has been designed as a WYSIWYG (What You See Is What You Get) online editor that allows the addition of user-specified labels for new entity types. For the detection of important bio-entities, this module provides the automatic recognition of proteins, DNA, RNA, cell lines and cell types by integrating the ABNER tagger (Settles, 2005). The LINNAEUS system is incorporated into MyMiner to identify species and organisms (Gerner et al., 2010). Additionally, user-defined entities can be detected if terms-tags dictionaries are provided. To improve the accuracy of the annotations, tags can be edited and wrongly generated labels can be removed. To define simple relationships between entities and terms, a matrix check box display was added to this module (Supplementary Fig. S14).
 
-    The ‘Entity Linking’ module facilitates the manual annotation of bioentities mentioned in a document with standardized identifiers. This module could be used to manually link articles to disease and protein identifiers to create a catalogue of proteins involved in pathologies. Gene/protein names are automatically recognized and displayed as a list that can be manually edited, and new entities can be added and incorrectly identified ones can be removed. For each gene/protein name, MyMiner suggests a ranked list of UniProt identifiers that utilize the UniProt search scoring mechanism (Arighi et al., 2011). Species mentions are normalized to NCBI taxon identifiers; OMIM identifiers are associated to diseases and ontology terms are linked to identifiers from submitted ontology files. For this purpose, MyMiner launches asynchronous queries to respective databases (UniProt, NCBI taxonomy, OMIM and user provided ontology file) using AJAX requests. For organisms, proteins, diseases and ontology terms, a short description is displayed to help validate potential candidate hits and to assist during the manual disambiguation of potential databases identifiers. Check boxes allow the selection of the most appropriate identifiers from the candidate list. If species are specified prior to a protein identifier search, species-specific constraints are applied to reduce the number of potential candidates from UniProt.
+The ‘Entity Linking’ module facilitates the manual annotation of bioentities mentioned in a document with standardized identifiers. This module could be used to manually link articles to disease and protein identifiers to create a catalogue of proteins involved in pathologies. Gene/protein names are automatically recognized and displayed as a list that can be manually edited, and new entities can be added and incorrectly identified ones can be removed. For each gene/protein name, MyMiner suggests a ranked list of UniProt identifiers that utilize the UniProt search scoring mechanism (Arighi et al., 2011). Species mentions are normalized to NCBI taxon identifiers; OMIM identifiers are associated to diseases and ontology terms are linked to identifiers from submitted ontology files. For this purpose, MyMiner launches asynchronous queries to respective databases (UniProt, NCBI taxonomy, OMIM and user provided ontology file) using AJAX requests. For organisms, proteins, diseases and ontology terms, a short description is displayed to help validate potential candidate hits and to assist during the manual disambiguation of potential databases identifiers. Check boxes allow the selection of the most appropriate identifiers from the candidate list. If species are specified prior to a protein identifier search, species-specific constraints are applied to reduce the number of potential candidates from UniProt.
 
-    \item[WAT-SL]
-    WAT-SL (Web Annotation
-    Tool for Segment Labeling), an open-source webbased annotation tool dedicated to segment labeling.1 WAT-SL provides all functionalities to efficiently run and manage segment labeling projects.
-    Its self-descriptive annotation interface requires
-    only a web browser, making it particularly convenient for remote annotation processes. The interface can be easily tailored to the requirements of
-    the project using standard web technologies in order to focus on the specific segment labels at hand
-    and to match the layout expectations of the annotators. At the same time, it ensures that the texts
-    to be labeled remain readable during the whole
-    annotation process. This process is server-based
-    and preemptable at any point. The annotator’s
-    progress can be constantly monitored, as all relevant interactions of the annotators are logged in a
-    simple key-value based plain text format.
+\item[WAT-SL]
+WAT-SL (Web Annotation
+Tool for Segment Labeling), an open-source webbased annotation tool dedicated to segment labeling.1 WAT-SL provides all functionalities to efficiently run and manage segment labeling projects.
+Its self-descriptive annotation interface requires
+only a web browser, making it particularly convenient for remote annotation processes. The interface can be easily tailored to the requirements of
+the project using standard web technologies in order to focus on the specific segment labels at hand
+and to match the layout expectations of the annotators. At the same time, it ensures that the texts
+to be labeled remain readable during the whole
+annotation process. This process is server-based
+and preemptable at any point. The annotator’s
+progress can be constantly monitored, as all relevant interactions of the annotators are logged in a
+simple key-value based plain text format.
 
-    WAT-SL is a ready-to-use and easily customizable
-    web-based annotation tool that is dedicated to segment labeling and that puts the focus on easy usage for all involved parties: annotators, annotation
-    curators, and annotation project organizers.
-    In WAT-SL, the annotation process is split into
+WAT-SL is a ready-to-use and easily customizable
+web-based annotation tool that is dedicated to segment labeling and that puts the focus on easy usage for all involved parties: annotators, annotation
+curators, and annotation project organizers.
+In WAT-SL, the annotation process is split into
 tasks, usually corresponding to single texts. Together, these tasks form a project.
 
-    Once a segment is labeled, its background color
-    changes, and the button displays an abbreviation
-    of the respective label. To assist the annotators in
-    forming a mental model of the annotation interface, the background colors of labeled segments
-    match the label colors in the menu. All labels are
-    saved automatically, avoiding any data loss in case
-    of power outages, connection issues, or similar.
-    In some cases, texts might be over-segmented,
-    for example due to an automatic segmentation. If
-    this is the case, WAT-SL allows annotators to mark
-    a segment as being continued in the next segment.
-    The interface will then visually connect these segments (cf. the buttons showing “->” in Figure 2).
-    Finally, the annotation interface includes a text
-    box for leaving comments to the project organizers. To simplify the formulation of comments,
-    each segment is numbered, with the number being
-    shown when the mouse cursor is moved over it.
+Once a segment is labeled, its background color
+changes, and the button displays an abbreviation
+of the respective label. To assist the annotators in
+forming a mental model of the annotation interface, the background colors of labeled segments
+match the label colors in the menu. All labels are
+saved automatically, avoiding any data loss in case
+of power outages, connection issues, or similar.
+In some cases, texts might be over-segmented,
+for example due to an automatic segmentation. If
+this is the case, WAT-SL allows annotators to mark
+a segment as being continued in the next segment.
+The interface will then visually connect these segments (cf. the buttons showing “->” in Figure 2).
+Finally, the annotation interface includes a text
+box for leaving comments to the project organizers. To simplify the formulation of comments,
+each segment is numbered, with the number being
+shown when the mouse cursor is moved over it.
 
-    After an annotation process is completed, a curation phase usually follows where the annotations
-    of different annotators are consolidated into one.
-    The WAT-SL curation interface enables an efficient curation by mimicking the annotation interface with three adjustments (Figure 3): First, segments for which the majority of annotators agreed
-    on a label are pre-labeled accordingly. Second, the
-    menu shows for each label how many annotators
-    chose it. And third, the label description shows
-    (anonymized) which annotator chose the label, so
-    that curators can interpret each label in its context.
-    The curation may be accessed under the same
-    URL as the annotation in order to allow annotators
-    of some tasks being curators of other tasks.
+After an annotation process is completed, a curation phase usually follows where the annotations
+of different annotators are consolidated into one.
+The WAT-SL curation interface enables an efficient curation by mimicking the annotation interface with three adjustments (Figure 3): First, segments for which the majority of annotators agreed
+on a label are pre-labeled accordingly. Second, the
+menu shows for each label how many annotators
+chose it. And third, the label description shows
+(anonymized) which annotator chose the label, so
+that curators can interpret each label in its context.
+The curation may be accessed under the same
+URL as the annotation in order to allow annotators
+of some tasks being curators of other tasks.
 
-    WAT-SL is a platform-independent and easily deployable standalone Java application, with few
-    configurations stored in a simple “key = value”
-    file. Among others, annotators are managed in this
-    file by assigning a login, a password, and a set of
-    tasks to each of them. For each task, the organizer
-    of an annotation project creates a directory (see
-    below). WAT-SL uses the directory name as the
-    task name in all occasions. Once the Java archive
-    file we provide is then executed, it reads all configurations and starts a server. The server is immediately ready to accept requests from the annotators.
+WAT-SL is a platform-independent and easily deployable standalone Java application, with few
+configurations stored in a simple “key = value”
+file. Among others, annotators are managed in this
+file by assigning a login, a password, and a set of
+tasks to each of them. For each task, the organizer
+of an annotation project creates a directory (see
+below). WAT-SL uses the directory name as the
+task name in all occasions. Once the Java archive
+file we provide is then executed, it reads all configurations and starts a server. The server is immediately ready to accept requests from the annotators.
 
-  \end{description}
+\end{description}
 
-  The public distribution of annotated corpora and related resources, e.g., baselines, evaluation scripts,
-  loading and formatting scripts, etc., is often enabled via open source code sharing platforms.
-  Arguably the most popular options are Github\footnote{\url{https://github.com}} and
-  Gitlab\footnote{\url{https://gitlab.com}}, which provide similar features despite minor
-  differences in their core business models.
-  It is also possible to share the corresponding resources via institutional hosting platforms or
-  other ad-hoc solutions. This could be convenient in the case of legal requirements, complex licenses that are incompatible with open source idiosyncrasies or any other consideration
-  that disallows full public sharing.
-  In our case, all resources are publicly available in a collection of Gitlab repositories\footnote{\url{https://ehealthkd.gitlab.io}}.
+La distribución pública de corpus anotados y recursos relacionados, por ejemplo, líneas de base, scripts de evaluación, scripts de carga y formato, etc., a menudo se habilita a través de plataformas de intercambio de código fuente abierto.
+Podría decirse que las opciones más populares son Github \ footnote {\url{https://github.com}} y Gitlab \ footnote {\url{https://gitlab.com}}, que proporcionan características similares a pesar de pequeñas diferencias en su núcleo. modelos de negocio.
+También es posible compartir los recursos correspondientes a través de plataformas de hospedaje institucional u otras soluciones ad-hoc. Esto podría ser conveniente en el caso de requisitos legales, licencias complejas que son incompatibles con idiosincrasias de código abierto o cualquier otra consideración que no permita el intercambio público completo.
+En nuestro caso, todos los recursos están disponibles públicamente en una colección de repositorios de Gitlab \ footnote {\url{https://ehealthkd.github.io}}.
 
-  \section{Anotación Semi-Automática}
+\section{Anotación Semi-Automática}
 
 Machine learning, and specifically supervised learning, is one of the most effective tools for automating complex cognitive tasks, such as recognizing objects in images or understanding natural language text.
 One of the main bottlenecks of supervised learning is the need for high-quality datasets of labeled samples on which statistical models can be trained.
