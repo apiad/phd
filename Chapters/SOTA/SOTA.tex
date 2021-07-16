@@ -123,7 +123,6 @@ Tal conceptualización debería ser lo suficientemente general como para dar cab
 Una posible conceptualización es utilizar
   {Trillizos de sujeto-acción-objetivo}~\cite{suilan2018}.
 Esta estructura ha demostrado ser útil para representar el conocimiento en dominios específicos, como críticas de películas~\cite{suilan2018} o sentimiento.
-minería~\cite{Balahur2011} y en {aprendizaje de ontología de dominio general}~\cite{mitchell2018never}.la cita
 Además, los tripletes Sujeto-Acción-Destino extraídos automáticamente del texto se pueden vincular posteriormente a relaciones específicas de dominio mediante el uso de redes semánticas.
 Como ejemplo, el sistema \textit{SemRep}~\cite{semrep} extrae tripletes Sujeto-Predicado-Objeto de textos naturales de eSalud. Los predicados están vinculados a relaciones específicas en la red semántica UMLS~\cite{umls}.
 
@@ -550,22 +549,124 @@ Estas características se pueden entender en los siguientes términos:
 
 \begin{description}
   \item[Ixa MedGS]
+
+  Consiste en resúmenes de alta anotados sintáctica y semánticamente escritos en español espontáneo por médicos. El objetivo es utilizar este corpus para desarrollar herramientas de anotación automática y, por lo tanto, facilitar a los médicos la recuperación de información de las HCE. Los datos — historias clínicas electrónicas recogidas en el Hospital Galdakao-Usansolo — fueron objeto de un convenio entre el Servicio Vasco de Salud y la Universidad del País Vasco, en el que el Servicio de Salud facilitó un corpus totalmente despojado de datos identificativos de carácter personal y autorizó su uso. exclusivamente con fines de investigación.
+
+  El corpus se centra en los Efectos Adversos (EA), que el informe ENEAS [8] —estudio nacional sobre Efectos Adversos asociados a la hospitalización publicado por el Ministerio de Sanidad y Consumo español— define de la siguiente manera: un accidente o incidente que haya herido o pueda ha lesionado al paciente durante el tratamiento. Entre los diferentes EA que se distinguen en el informe, la gran mayoría está relacionada con una de las siguientes tres causas: (i) prescripción de medicamentos (37,4\% de todos los EA); (ii) infecciones nosocomiales (25,3\% de todos los EA); y (iii) procedimientos (25,0\% del total de EA). Nuestro trabajo se concentra especialmente en las reacciones adversas a los medicamentos (RAM), definidas como trastornos inevitables o difíciles de evitar, con o sin lesión, que se producen cuando los medicamentos se utilizan de forma adecuada [8]. Los resultados y conclusiones del informe ENEAS se presentaron en [9]: se estudiaron veinticuatro hospitales españoles para determinar el impacto y la prevenibilidad de los EA. De los EA asociados con el uso de medicamentos (37,4\% de todos los EA), el 34,8% se clasificaron como prevenibles.
+
   \item[DrugSemantics]
+
+  una colección de resúmenes de las características del producto en español. Se anotó manualmente con entidades con nombre farmacoterapéutico, que se detallan en el esquema de anotaciones de DrugSemantics. Los anotadores fueron una Enfermera Registrada (RN) y dos estudiantes de la Licenciatura en Enfermería. La calidad del corpus de DrugSemantics se evaluó midiendo su fiabilidad de anotación (F general = 79,33\% [IC 95\%: 78,35–80,31]), así como su precisión de anotación (global [IC 95\%: 94,11–95,19]). Además, el proceso de construcción estándar de oro se describe en detalle. En total, nuestro corpus contiene más de 2000 entidades con nombre, 780 oraciones y 226,729 tokens. Por último, se presenta un módulo de Clasificación de Entidades Nombradas capacitado en DrugSemantics con el objetivo de mostrar la calidad de nuestro corpus, así como un ejemplo de cómo usarlo.
+
   \item[DDI]
+
+
+
   \item[Bio AMR]
 
   Este corpus incluye anotaciones de artículos de PubMed relacionados con el cáncer, que cubren 3 artículos completos (PMID: 24651010, PMID: 11777939, PMID: 15630473), así como las secciones de resultados de 46 artículos adicionales de PubMed. El corpus también incluye alrededor de 1000 oraciones, cada una del corpus de entrenamiento BEL BioCreative y del Chicago Corpus.
 
   \item[YAGO]
+
+
+
   \item[ConceptNet]
+
+
+
   \item[CLEF]
+
+  The CLEF eHealth labs are open for everybody. We particularly welcome academic and industrial researchers, scientists, engineers, and graduate students in natural language processing, machine learning, and biomedical/health informatics to participate. We also encourage participation by multi-disciplinary teams that combine technological skills with biomedical expertise.
+
+This, the seventh year of the evaluation lab (and eight year of the workshop), aiming to build upon the resource development and evaluation approaches by the previous six or seven years of CLEF eHealth [8,9,14,16,26,28,29], offered the following two tasks [15]:
+– Task 1. Multilingual Information Extraction: International Classification of Diseases, Version 10 (ICD-10) coding of non-technical summaries (NTSs) of animal experiments in German [22] and – Task 2. Technology Assisted Reviews (TAR) in Empirical Medicine in
+English [13]. In addition, Task 3. Consumer Health Search in Mono- and Multilingual Settings
+was initially advertised, but unfortunately, due to unforeseen circumstances, it
+had to be postponed3.
+The Multilingual Information Extraction task challenged participants to
+index German NTSs of animal experiments with the ICD-10 terminology of
+diseases. A detailed analysis based on the diseases addressed by the NTSs allows
+more transparency of the animal experiments being carried out by researchers
+[2]. It could be treated as a text classification or cascaded named entity recognition and normalization task. Even though we only addressed one language
+(German), we encouraged participants to explore multilingual approaches. The
+results of high performing systems could be used within the workflow of institutes mandated by the European Union (EU) to publish the NTSs approved in
+their states. The 2019 Task 1 built upon the 2016–2018 information extraction
+tasks [19–21], which already addressed the ICD-10 terminology to code causes of
+death from a corpus of death reports in French (2016, 2017, and 2018), English
+(2017), Hungarian (2018), and Italian (2018). Prior to this, the CLEF eHealth
+tasks considered Unified Medical Language System (UMLS) and Systematized
+3 The organizers apologize to the teams that registered their interest in the task for
+any inconvenience caused by this delay.
+Overview of the CLEF eHealth Evaluation Lab 2019 325
+Nomenclature of Medicine—Clinical Terms (SNoMed-CT) codification of clinical reports in English in 2013, and UMLS named entity recognition of clinical
+reports in French in 2015, among others [27].
+The TAR task was a high-recall IR task in English that aimed at evaluating search algorithms that seek to identify all studies relevant for conducting a
+systematic review in empirical medicine. The results of the explored approaches
+in the submitted systems towards generating a clear overview of the current
+scientific consensus could be informing health care and its policy making in the
+future. This automated generator might release scientists and policy advisors’
+time from the currently laborious iterative process of conducting publication
+searches and revising them in order to retrieve all the documents that are relevant for the purposes of writing reliable systematic reviews; this hard challenge
+is known in the IR domain as the total recall problem and with the number
+of published medical papers expanding rapidly, the need for automation in this
+process becomes of utmost importance.
+This year’s Task 2, differed from the past two years [11,12] by diversifying the
+focus across different type of reviews including Diagnostic Test Accuracy (DTA),
+Intervention, Prognosis, and Qualitative reviews. Even though search in the area
+of DTA reviews is generally considered the hardest [18], this year we wanted to
+investigate how the technology that has been developed over the past two years
+would extend to other types of reviews. The typical process of searching for
+scientific publications to conduct a systematic review consists of three stages:
+(a) specifying a number of inclusion criteria that characterize the articles relevant
+to the review and constructing a complex Boolean Query to express them, (b)
+screening the abstracts and titles that result from the Boolean query, and (c)
+reading and screening the full documents that passed the Abstract and Title
+Screening. Building on the 2017 task, which focused on the second stage of the
+process, that is, Abstract and Title Screening, and same as the 2018 task, the
+2019 task focused both on the first stage (subtask 1 ) and second stage (subtask
+2 ) of the process, that is, Boolean Search and Abstract and Title Screening.
+More precisely, these subtasks of Task 2 were defined as follows:
+– Subtask 1. Prior to constructing a Boolean Query researchers have to design
+and write a search protocol that in written and in detail defines what constitutes a relevant study for their review. For the challenge associated with the
+first stage of the process, participants were provided with the relevant pieces
+of a protocol, in an attempt to complete search effectively and efficiently
+bypassing the construction of the Boolean query.
+– Subtask 2. Given the results of the Boolean Search from stage 1 as the starting
+point, participants were required to rank the set of abstracts (A). The task had
+the following two goals: (i) to produce an efficient ordering of the documents,
+such that all of the relevant abstracts are retrieved as early as possible, and
+(ii) to identify a subset of A which contains all or as many of the relevant
+abstracts for the least effort (i.e., total number of abstracts to be assessed).
+The Consumer Health Search task was advertised as a continuation of
+the previous CLEF eHealth IR tasks that ran every year since the onset of
+326 L. Kelly et al.
+CLEF eHealth evaluation labs in 2013 [5–7,10,23,25,30], and embraced the Text
+REtrieval Conference (TREC) -style evaluation process, with a shared collection
+of searchable documents and their search queries, the contribution of runs from
+participants, and the subsequent formation of relevance assessments and evaluation of these participants’ submissions. For the first time, the search queries (and
+their variants) were intended to not only be in written format but also in spoken
+format, with automatic speech-to-text transcripts provided. The new document
+collection introduced in the 2018 Task 3, consisting of over 5 million pages from
+the World Wide Web (WWW) was to be used for this task. This was a compilation of Web pages of selected domains acquired from the CommonCrawl4.
+User stories for search query and query variant generation were those, using the
+discharge summaries and forum posts, we used in previous years of the task.
+The remainder of this overview paper is structured as follows: First, in Sect. 2,
+we detail for each task its text documents; human annotations, queries, and relevance assessments; and evaluation methods. After this, in Sect. 3, we describe the
+task submissions and results of the CLEF eHealth 2019 evaluation lab. Finally,
+
   \item[BARR2]
+
+
+
   \item[Emotinet]
+
+
+
 \end{description}
 
 La mayoría de los corpus relacionados con la salud se anotan utilizando entidades relacionadas con la salud autodefinidas relevantes para la tarea en cuestión. De estos, posiblemente uno de los más utilizados es el corpus CLEF~\cite{kelly2016overview}. Este corpus contiene 150 documentos clínicos en inglés, anotados manualmente por un equipo de expertos (clínicos y biólogos) y no expertos. Por el contrario, el corpus DDI~\cite{herrero2013ddi}, que contiene 1025 documentos en inglés de Medline, fue previamente anotado automáticamente y luego revisado manualmente por expertos del dominio (farmacéuticos). Existen corpus similares en idioma español. El corpus de Semántica de Drogas~\cite{moreno2017drugsemantics} es un ejemplo, donde los expertos del dominio (enfermeras registradas y estudiantes) anotaron manualmente resúmenes en español de las características del producto. {Asimismo, el BARR2}~\cite{barr2} {corpus contiene pares de abreviaturas y definiciones anotados manualmente en artículos clínicos españoles extraídos de bases de datos bibliográficas.}
 
-Por otro lado, el corpus de Ixa MedGS~\cite{oronoz2015creation} fue previamente anotado automáticamente y luego revisado manualmente por expertos del dominio en Farmacología. Una alternativa interesante es el corpus de Bio AMR~\cite{bioamr}, que contiene anotaciones de AMR de varios documentos médicos, por lo que combina un esquema de anotación de propósito general en un dominio específico.
+Por otro lado, el corpus de Ixa MedGS~\cite{oronoz2015creation} fue previamente anotado automáticamente y luego revisado manualmente por expertos del dominio en Farmacología. Una alternativa interesante es el corpus de Bio AMR~\cite{bioamr, bioamrpape}, que contiene anotaciones de AMR de varios documentos médicos, por lo que combina un esquema de anotación de propósito general en un dominio específico.
 
 En el contexto del conocimiento del dominio general, uno de los recursos más relevantes para nuestra investigación es YAGO~\cite{suchanek2007yago}
 Consiste en una gran base de conocimientos extraída automáticamente de Wikipedia, WordNet y otras fuentes. Dado que YAGO está destinado a representar el conocimiento de dominio general, su estructura semántica se define en términos de triples de hechos, en el espíritu de RDF y otras representaciones ontológicas.
@@ -587,7 +688,7 @@ La mayoría de los recursos mencionados se centran en capturar la semántica de 
 Esto también hace que AMR y recursos similares dependan del idioma, no solo en la práctica dada su dependencia de la existencia de bancos de palabras, sino también en la naturaleza. Al intentar aplicar AMR en español, \citet{migueles2018annotating} muestra que aunque AMR es teóricamente independiente del idioma, las pautas de anotaciones existentes están sesgadas hacia el inglés y deben adaptarse para capturar fenómenos lingüísticos que no existen en inglés.
 El modelo de anotación diseñado en esta investigación para el corpus \textit{eHealth-KD v2}, intenta lograr un mayor nivel de independencia sintáctica, en parte mediante el uso de un conjunto más pequeño de entidades, relaciones y roles que AMR. Más específicamente, nuestro modelo de anotación no distingue roles semánticos para cada posible \texttt{Acción}, sino que se basa en roles de propósito general~(es decir, \texttt{asunto} y \texttt{objetivo}).
 
-\ paragraph {Conocimiento ontológico}
+\paragraph{Conocimiento ontológico}
 Los modelos de anotación de propósito general a menudo permiten representar el conocimiento ontológico en forma de herencia y composición entre conceptos. En este contexto, consideramos la capacidad de reconocer y anotar estas relaciones ontológicas en el texto fuente. Los modelos de anotación relacionados con la salud no suelen abordar este problema, principalmente porque las entidades y relaciones a anotar forman una ontología predefinida donde la composición y jerarquía, si existe, ya están concebidas en el propio modelo de anotación. Sin embargo, las anotaciones de propósito general a menudo incluyen relaciones como \textit{ConceptNet} \texttt{is-a} o \texttt{part-of} que representan directamente estos conceptos ontológicos y, por lo tanto, pueden extraer representaciones ontológicas del texto natural.
 
 \paragraph{Conceptos compuestos}
@@ -648,7 +749,9 @@ Hay muchos recursos que se utilizan en la tarea del procesamiento del lenguaje n
 El aprendizaje de ontologías se ocupa del problema de crear automáticamente una ontología a partir de varios recursos. Los ejemplos incluyen análisis de minería, principalmente
 el estudio de texto en lenguaje natural~\cite{}. En esta tarea en particular, se han presentado varios enfoques, desde el análisis sintáctico y semántico de corpora~\cite{} hasta enfoques estadísticos y basados   en el aprendizaje automático~\cite{}.
 
-Se han propuesto varias herramientas y sistemas para esta tarea. Text2Onto~\cite{cimiano2005text2onto} es un marco para el descubrimiento de cambios impulsado por datos que emplea un modelo de ontología probabilística (POM). OntoLT~\cite{buitelaar2004ontolt} extrae conceptos y relaciones automáticamente de colecciones de texto anotadas lingüísticamente, por medio de un conjunto de reglas, que asigna clases lingüísticas a clases de ontología. Un enfoque más nuevo es OntoGain~\cite{drymonas2010unsupervised}, que utiliza un enfoque no supervisado y explota la información léxica inherente del término de varias palabras para extraer conceptos de nivel superior.
+Se han propuesto varias herramientas y sistemas para esta tarea. Text2Onto~\cite{cimiano2005text2onto} es un marco para el descubrimiento de cambios impulsado por datos que emplea un modelo de ontología probabilística (POM).
+OntoLT~\cite{buitelaar2004ontolt} extrae conceptos y relaciones automáticamente de colecciones de texto anotadas lingüísticamente, por medio de un conjunto de reglas, que asigna clases lingüísticas a clases de ontología.
+Un enfoque más nuevo es OntoGain~\cite{drymonas2010unsupervised}, que utiliza un enfoque no supervisado y explota la información léxica inherente del término de varias palabras para extraer conceptos de nivel superior.
 
 Uno de los problemas con estos enfoques es la cantidad de información falsa que generan~\cite{Maimon:2015:OLT:2870689.2870690}. En general, habrá muchas piezas de información redundantes o sin importancia en los corpus analizados. Un enfoque ingenuo que no tenga en cuenta este tema creará ontologías inmensas con muy poca información útil. Para abordar este problema, OntoGain propone un esquema de agrupamiento jerárquico que intenta identificar conceptos y relaciones generales.
 
