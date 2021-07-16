@@ -747,48 +747,48 @@ Sin embargo, cuando la fuente de entrada es de menor calidad, como blogs o publi
 
 A pesar de la existencia de algunos sistemas de propósito general, no existe una propuesta de arquitectura para un marco computacional que pueda aprender de manera simultánea y continua de las más variadas fuentes de información en línea. Otro desafío en este aspecto es obtener una representación computacionalmente conveniente de este conocimiento, independientemente del dominio, fuente y formato de los datos de entrada. Además, dicho sistema tiene que lidiar explícitamente con la gran cantidad de información falsa, irrelevante o deliberadamente falsa que se difunde a través de fuentes web.
 
-    \subsection{Quality Metrics}\label{sec:evaluation}
+\ subsection {Quality Metrics} \ label {sec: evaluación}
 
-% 	Once a computational system is implemented following the guidelines of the framework
-%     presented in this paper, it is necessary to perform some evaluation on its output.
-%     However, being a complex system, with many interrelated components, evaluating it
-%     is not as simple as comparing the actual output with the expected output.
-    In this section we present a methodology for evaluating such a framework and obtaining interesting metrics that can validate its performance across the large range of tasks the framework is intended to enable.
+% Una vez que se implementa un sistema computacional siguiendo las pautas del marco
+% presentado en este trabajo, es necesario realizar alguna evaluación sobre su salida.
+% Sin embargo, al ser un sistema complejo, con muchos componentes interrelacionados, evaluarlo
+% no es tan simple como comparar la salida real con la salida esperada.
+    En esta sección presentamos una metodología para evaluar dicho marco y obtener métricas interesantes que pueden validar su desempeño en la amplia gama de tareas que el marco pretende habilitar.
 
-    In a computational system or software framework, there are interesting software engineering metrics to evaluate. 
-    Such a system should be highly modular and extensible, so that it can be easily adapted to new input formats, or new algorithms can be easily plugged in and integrated into the whole pipeline.
-    The modular design of the framework can help in achieving a high degree of extensibility.
+    En un sistema computacional o marco de software, hay métricas de ingeniería de software interesantes para evaluar.
+    Dicho sistema debe ser altamente modular y extensible, de modo que pueda adaptarse fácilmente a los nuevos formatos de entrada, o los nuevos algoritmos se pueden conectar e integrar fácilmente en toda la tubería.
+    El diseño modular del marco puede ayudar a lograr un alto grado de extensibilidad.
 
-	  Besides these high level metrics, each of the tasks performed by the framework can be evaluated separately. 
-    Most of these tasks have a definite performance metric that can be used to rate the degree of correctness of such task. 
-    For many of the tasks described in the previous sections we can find standard performance metrics in the literature that can used to evaluate each particular process.
+    Además de estas métricas de alto nivel, cada una de las tareas realizadas por el marco se puede evaluar por separado.
+    La mayoría de estas tareas tienen una métrica de rendimiento definida que se puede utilizar para evaluar el grado de corrección de dicha tarea.
+    Para muchas de las tareas descritas en las secciones anteriores, podemos encontrar métricas de desempeño estándar en la literatura que pueden usarse para evaluar cada proceso en particular.
 
-%     For example, a sensor for
-%     extracting entities can be evaluated individually by running it on a tagged corpus
-%     and computing precision and recall.
+% Por ejemplo, un sensor para
+% de las entidades de extracción se pueden evaluar individualmente ejecutándolo en un corpus etiquetado
+% y precisión de cálculo y recuperación.
 
-    An aggregate metric of these individual performances could provide a high level overview of the performance of the whole framework.
-    However, designing an aggregate metric that provides a practical, interpretable, measure of the quality of the framework performance, can be very complex.
-    Each of the different tasks performed by the framework can have a very different baseline performance. 
-    A 90\% precision can be a very good result in some complex tasks, such as dependency parsing~\cite{AlbertiABCGKKMO17}, but mediocre in other tasks, such as image classification~\cite{Russakovsky2015}. 
-    Moreover, this baseline number can vary not only across tasks, but in the same task, according to which test suite (or corpus)
-    is used.
+    Una métrica agregada de estos desempeños individuales podría proporcionar una descripción general de alto nivel del desempeño de todo el marco.
+    Sin embargo, diseñar una métrica agregada que proporcione una medida práctica e interpretable de la calidad del desempeño del marco puede ser muy complejo.
+    Cada una de las diferentes tareas realizadas por el marco puede tener un rendimiento de referencia muy diferente.
+    Una precisión del 90 \% puede ser un muy buen resultado en algunas tareas complejas, como el análisis de dependencias ~ \ cite {AlbertiABCGKKMO17}, pero mediocre en otras tareas, como la clasificación de imágenes ~ \ cite {Russakovsky2015}.
+    Además, este número de referencia puede variar no solo entre las tareas, sino también en la misma tarea, según el conjunto de pruebas (o corpus)
+    se utiliza.
 
-	Going up one level of abstraction, for the general problem of ontology learning there are also several evaluation metrics and methodologies available, such as OntoRand~\cite{ontorand} and OntoMetric~\cite{ontometric}.
-  However, most of these methodologies are designed for evaluating a single ontology that is either created or modified using techniques from ontology learning.
-  Once more, extending these methodologies to a collection of ontologies is not as straightforward as aggregating or averaging the individual results.
-  On the other hand, when dealing with a collection of ontologies, other concerns can arise, such as intra-ontology consistency, which are not usually considered when evaluating a single ontology.
-  As a final consideration, the framework by design, is expected to maintain a degree of internal inconsistency in order to better cover multiple and possibly overlapping domains.
-  We present some of the most commonly described approaches in the literature for evaluating ontologies~\cite{petasis2011ontology} and describe how they can be used in our context.
+    Subiendo un nivel de abstracción, para el problema general del aprendizaje de la ontología, también hay varias métricas y metodologías de evaluación disponibles, como OntoRand ~ \ cite {ontorand} y OntoMetric ~ \ cite {ontometric}.
+    Sin embargo, la mayoría de estas metodologías están diseñadas para evaluar una sola ontología que se crea o modifica utilizando técnicas de aprendizaje de ontologías.
+    Una vez más, extender estas metodologías a una colección de ontologías no es tan sencillo como agregar o promediar los resultados individuales.
+    Por otro lado, cuando se trata de una colección de ontologías, pueden surgir otras inquietudes, como la consistencia intra-ontológica, que no suelen considerarse al evaluar una única ontología.
+    Como consideración final, se espera que el marco, por diseño, mantenga un grado de inconsistencia interna para cubrir mejor los dominios múltiples y posiblemente superpuestos.
+    Presentamos algunos de los enfoques más comúnmente descritos en la literatura para evaluar ontologías ~ \ cite {petasis2011ontology} y describimos cómo pueden usarse en nuestro contexto.
 
-    \paragraph{M1- Comparison with a gold standard.}
-	  This approach consists in comparing a learned ontology with a baseline ontology for the same domain~\cite{corcoglioniti2016frame}.
-    The baseline ontology is assumed to be both correct and largely representative of the domain.
-    This method provides a great trade-off of speed versus accuracy, since both ontologies can be automatically compared in a number of metrics without human intervention, and the results have a high reliability because the baseline ontology is created by experts.
-    Some disadvantages do exist, for example, it is not always easy to find a good baseline ontology for a given domain, especially if the domain is not very well defined or is very novel.
-    On the other hand, even two ontologies extracted from the same domain by experts can have wide differences with respect to the structure, and particularly to the names the classes and relations are assigned.
-    This requires some form of normalization and mapping between both ontologies prior to comparison.
-    This metric is difficult to use, particularly if we're creating new characteristics.
+    \paragraph{M1- Comparación con un patrón oro.}
+    Este enfoque consiste en comparar una ontología aprendida con una ontología de referencia para el mismo dominio~\cite{corcoglioniti2016frame}.
+    Se supone que la ontología de la línea de base es correcta y en gran medida representativa del dominio.
+    Este método proporciona una gran compensación entre velocidad y precisión, ya que ambas ontologías se pueden comparar automáticamente en una serie de métricas sin intervención humana, y los resultados tienen una alta confiabilidad porque la ontología de referencia es creada por expertos.
+    Existen algunas desventajas, por ejemplo, no siempre es fácil encontrar una buena ontología de base para un dominio dado, especialmente si el dominio no está muy bien definido o es muy novedoso.
+    Por otro lado, incluso dos ontologías extraídas del mismo dominio por expertos pueden tener grandes diferencias con respecto a la estructura y, en particular, a los nombres que se asignan a las clases y relaciones.
+    Esto requiere alguna forma de normalización y mapeo entre ambas ontologías antes de la comparación.
+    Esta métrica es difícil de usar, especialmente si estamos creando nuevas características. 
 
     \paragraph{M2- Evaluación experta.}
     Un término medio alternativo al enfoque anterior es tener un experto en el dominio (o varios) para simplemente mirar la ontología resultante y evaluarla de acuerdo con algunas métricas predefinidas~\cite{ROSPOCHER2016132}.
