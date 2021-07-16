@@ -598,33 +598,9 @@ Estas características se pueden entender en los siguientes términos:
 
   \item[Emotinet]
 
-  The general idea behind our approach is to model situations as chains of actions and
-their corresponding emotional effect using an ontological representation. According
-to the definition provided by Studer et al. [33], an ontology captures knowledge
-shared by a community that can be easily sharable with other communities. These two
-characteristics are especially relevant if we want the recall of our approach to be
-increased. Knowledge managed in our approach has to be shared by a large
-community and it also needs to be fed by heterogeneous sources of common
-knowledge to avoid uncertainties. However, specific assertions can be introduced to
-account for the specificities of individuals or contexts. In this manner, we can model
-the interaction of different events in the context in which they take place and add
-inference mechanisms to extract knowledge that is not explicitly present in the text.
-We can also include knowledge on the appraisal criteria relating to different concepts
-found in other ontologies and knowledge bases (to account for the different properties
-of the actor, action and object). At the same time, we can define the properties of
-emotions and how they combine. Such an approach can account for the differences in
-interpretation, as the specific knowledge on the individual beliefs or preferences can
-be easily added as action chains or properties of concepts.
+  La idea general detrás de nuestro enfoque es modelar situaciones como cadenas de acciones y su correspondiente efecto emocional utilizando una representación ontológica. Según la definición proporcionada por Studer et al. [33], una ontología captura el conocimiento compartido por una comunidad que se puede compartir fácilmente con otras comunidades. Estas dos características son especialmente relevantes si queremos aumentar el recuerdo de nuestro enfoque. El conocimiento gestionado en nuestro enfoque debe ser compartido por una gran comunidad y también debe ser alimentado por fuentes heterogéneas de conocimiento común para evitar incertidumbres. Sin embargo, se pueden introducir afirmaciones específicas para dar cuenta de las especificidades de los individuos o contextos. De esta manera, podemos modelar la interacción de diferentes eventos en el contexto en el que tienen lugar y agregar mecanismos de inferencia para extraer conocimiento que no está explícitamente presente en el texto. También podemos incluir conocimientos sobre los criterios de valoración relacionados con diferentes conceptos encontrados en otras ontologías y bases de conocimiento (para dar cuenta de las diferentes propiedades del actor, acción y objeto). Al mismo tiempo, podemos definir las propiedades de las emociones y cómo se combinan. Este enfoque puede dar cuenta de las diferencias en la interpretación, ya que el conocimiento específico sobre las creencias o preferencias individuales puede agregarse fácilmente como cadenas de acción o propiedades de los conceptos.
 
-Given these requirements, our approach defines a new knowledge base, called
-EmotiNet, to store action chains and their corresponding emotional labels from
-several situations in such a way that we will be able to extract general patterns of
-appraisal. From a more practical viewpoint, our approach defines an action chain as a
-sequence of action links, or simply actions that trigger an emotion on an actor. Each
-specific action link can be described with a tuple (actor, action type, patient,
-emotional reaction). Specifically, the EmotiNet KB was built by means of an iterative
-process that extracts the action chains from a document and adds them to the KB. This
-process is divided in a series of steps, explained in the subsequent sections. 
+  Ante estos requerimientos, nuestro enfoque define una nueva base de conocimiento, denominada EmotiNet, para almacenar cadenas de acción y sus correspondientes etiquetas emocionales de diversas situaciones de tal manera que seremos capaces de extraer patrones generales de valoración. Desde un punto de vista más práctico, nuestro enfoque define una cadena de acción como una secuencia de vínculos de acción, o simplemente acciones que desencadenan una emoción en un actor. Cada vínculo de acción específico se puede describir con una tupla (actor, tipo de acción, paciente, reacción emocional).
 
 \end{description}
 
