@@ -568,6 +568,13 @@ Estas características se pueden entender en los siguientes términos:
 
   \item[YAGO]
 
+  Datos de YAGO: - Entrada: infoboxes de Wikipedia, WordNet (y GeoNames en versiones posteriores) - Salida: KG con 1 millón de entidades y 5 millones de hechos (2007) → KG con 350K tipos de entidades, 10M entidades, 120M hechos (2016) Thomas Rebele, Fabian M. Suchanek y col. al, ISWC 2016– Información temporal y espacial
+
+  Contribuciones clave: - Rich Ontology: vinculación de categorías de Wikipedia a WordNet - Alta calidad: extracciones de alta precisión (~ 95 \%) • Otras contribuciones: - YAGO es decidible, extensible y compatible con RDFS
+
+  YAGO surgió por la necesidad de crear una ontología más grande utilizando las ontologías existentes actualmente, sus principales objetivos eran: • Unificación de Wikipedia y WordNet. • Hacer uso de estructuras e información ricas, tales como: Infoboxes, Category Pages, etc. • Asegurar la plausibilidad de los hechos a través de comprobación de tipo
+
+  Estructura del modelo de representación en YAGO: - Modelo de datos: extensión a RDFS, incluye transitividad acíclica (atr) .– Entidades: objetos ontológicos abstractos, con las siguientes propiedades: Cada entidad es parte de al menos una clase, Clases ordenadas en jerarquía taxonómica , Las relaciones son entidades (expresan la transitividad de las relaciones - atr), Los hechos son el triple: entidad, relación, entidad, Cada hecho tiene un identificador.
 
 
   \item[ConceptNet]
