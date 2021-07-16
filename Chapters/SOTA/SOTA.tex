@@ -134,7 +134,7 @@ DBPedia~\cite{lehmann2015dbpedia} y ConceptNet~\cite{conceptnet}.
 Otras posibles conceptualizaciones permiten capturar la semántica del lenguaje natural, como la Representación de significado abstracto~(AMR)~\cite{amr}. A pesar del poder de representación superior de AMR sobre estructuras simples como los tripletes Acción-Sujeto-Objetivo {y semántica básica
 relaciones}, el proceso de anotación para la resistencia a los antimicrobianos es considerablemente más complejo tanto para humanos como para técnicas automatizadas.
 
-La construcción de corpus anotados con la estructura Acción-Sujeto-Objetivo es el primer paso hacia el diseño de sistemas que puedan extraer automáticamente estas anotaciones. Existen varios corpus en la literatura, anotados con una variedad de esquemas diferentes, como CLEF~\cite{kelly2016overview}, Yago~\cite{fabian2007yago} y Emotinet~\cite{Balahur2011}.
+La construcción de corpus anotados con la estructura Acción-Sujeto-Objetivo es el primer paso hacia el diseño de sistemas que puedan extraer automáticamente estas anotaciones. Existen varios corpus en la literatura, anotados con una variedad de esquemas diferentes, como CLEF~\cite{kelly2016overview}, Yago~\cite{suchanek2007yago} y Emotinet~\cite{Balahur2011}.
 Sin embargo, la mayoría de estos recursos están anotados con conceptualizaciones específicas de dominio que son difíciles de extender a diferentes dominios de conocimiento.
 
 \subsection{General-purpose annotation models}\label{sec:general}
@@ -553,6 +553,9 @@ Estas características se pueden entender en los siguientes términos:
   \item[DrugSemantics]
   \item[DDI]
   \item[Bio AMR]
+
+  Este corpus incluye anotaciones de artículos de PubMed relacionados con el cáncer, que cubren 3 artículos completos (PMID: 24651010, PMID: 11777939, PMID: 15630473), así como las secciones de resultados de 46 artículos adicionales de PubMed. El corpus también incluye alrededor de 1000 oraciones, cada una del corpus de entrenamiento BEL BioCreative y del Chicago Corpus.
+
   \item[YAGO]
   \item[ConceptNet]
   \item[CLEF]
@@ -564,7 +567,7 @@ La mayoría de los corpus relacionados con la salud se anotan utilizando entidad
 
 Por otro lado, el corpus de Ixa MedGS~\cite{oronoz2015creation} fue previamente anotado automáticamente y luego revisado manualmente por expertos del dominio en Farmacología. Una alternativa interesante es el corpus de Bio AMR~\cite{bioamr}, que contiene anotaciones de AMR de varios documentos médicos, por lo que combina un esquema de anotación de propósito general en un dominio específico.
 
-En el contexto del conocimiento del dominio general, uno de los recursos más relevantes para nuestra investigación es YAGO~\cite{fabian2007yago}
+En el contexto del conocimiento del dominio general, uno de los recursos más relevantes para nuestra investigación es YAGO~\cite{suchanek2007yago}
 Consiste en una gran base de conocimientos extraída automáticamente de Wikipedia, WordNet y otras fuentes. Dado que YAGO está destinado a representar el conocimiento de dominio general, su estructura semántica se define en términos de triples de hechos, en el espíritu de RDF y otras representaciones ontológicas.
 En contraste, la base de conocimiento de Emotinet~\cite{Balahur2011} está orientada hacia un dominio específico (emociones), y se construye a partir de la anotación manual de entradas de blog, utilizando una estructura semántica general que vincula entidades, acciones y emociones.
 Aunque Emotinet está diseñado para un dominio en particular, su estructura es bastante general, en el sentido de que puede representar fácilmente cualquier tipo de evento o acción realizada por entidades. Como muestra la Tabla \ref{tab:stateofart}, el tipo de documentos utilizados es muy variable, lo que provoca grandes diferencias en cuanto a la extensión de los documentos, la estructura del discurso y el vocabulario. Una característica interesante es el tipo de anotación, ya sea manual, pre-automatizada con revisión de expertos o totalmente automatizada. Aunque investigaciones recientes muestran una tendencia creciente hacia la anotación pre-automatizada o totalmente automatizada, la anotación manual todavía se considera más confiable. La anotación manual todavía se considera más confiable.
@@ -691,10 +694,6 @@ A pesar de la existencia de algunos sistemas de propósito general, no existe un
 
 \subsection{Quality Metrics}\label{sec: evaluación}
 
-% Una vez que se implementa un sistema computacional siguiendo las pautas del marco
-% presentado en este trabajo, es necesario realizar alguna evaluación sobre su salida.
-% Sin embargo, al ser un sistema complejo, con muchos componentes interrelacionados, evaluarlo
-% no es tan simple como comparar la salida real con la salida esperada.
 En esta sección presentamos una metodología para evaluar dicho marco y obtener métricas interesantes que pueden validar su desempeño en la amplia gama de tareas que el marco pretende habilitar.
 
 En un sistema computacional o marco de software, hay métricas de ingeniería de software interesantes para evaluar.
@@ -704,10 +703,6 @@ El diseño modular del marco puede ayudar a lograr un alto grado de extensibilid
 Además de estas métricas de alto nivel, cada una de las tareas realizadas por el marco se puede evaluar por separado.
 La mayoría de estas tareas tienen una métrica de rendimiento definida que se puede utilizar para evaluar el grado de corrección de dicha tarea.
 Para muchas de las tareas descritas en las secciones anteriores, podemos encontrar métricas de desempeño estándar en la literatura que pueden usarse para evaluar cada proceso en particular.
-
-% Por ejemplo, un sensor para
-% de las entidades de extracción se pueden evaluar individualmente ejecutándolo en un corpus etiquetado
-% y precisión de cálculo y recuperación.
 
 Una métrica agregada de estos desempeños individuales podría proporcionar una descripción general de alto nivel del desempeño de todo el marco.
 Sin embargo, diseñar una métrica agregada que proporcione una medida práctica e interpretable de la calidad del desempeño del marco puede ser muy complejo.
@@ -720,10 +715,10 @@ Subiendo un nivel de abstracción, para el problema general del aprendizaje de l
 Sin embargo, la mayoría de estas metodologías están diseñadas para evaluar una sola ontología que se crea o modifica utilizando técnicas de aprendizaje de ontologías.
 Una vez más, extender estas metodologías a una colección de ontologías no es tan sencillo como agregar o promediar los resultados individuales.
 Por otro lado, cuando se trata de una colección de ontologías, pueden surgir otras inquietudes, como la consistencia intra-ontológica, que no suelen considerarse al evaluar una única ontología.
-Como consideración final, se espera que el marco, por diseño, mantenga un grado de inconsistencia interna para cubrir mejor los dominios múltiples y posiblemente superpuestos.
 Presentamos algunos de los enfoques más comúnmente descritos en la literatura para evaluar ontologías~\cite{petasis2011ontology} y describimos cómo pueden usarse en nuestro contexto.
 
 \paragraph{M1- Comparación con un patrón oro.}
+
 Este enfoque consiste en comparar una ontología aprendida con una ontología de referencia para el mismo dominio~\cite{corcoglioniti2016frame}.
 Se supone que la ontología de la línea de base es correcta y en gran medida representativa del dominio.
 Este método proporciona una gran compensación entre velocidad y precisión, ya que ambas ontologías se pueden comparar automáticamente en una serie de métricas sin intervención humana, y los resultados tienen una alta confiabilidad porque la ontología de referencia es creada por expertos.
@@ -733,6 +728,7 @@ Esto requiere alguna forma de normalización y mapeo entre ambas ontologías ant
 Esta métrica es difícil de usar, especialmente si estamos creando nuevas características.
 
 \paragraph{M2- Evaluación experta.}
+
 Un término medio alternativo al enfoque anterior es tener un experto en el dominio (o varios) para simplemente mirar la ontología resultante y evaluarla de acuerdo con algunas métricas predefinidas~\cite{ROSPOCHER2016132}.
 Este es posiblemente el método más confiable, en el sentido de que proporciona el mayor grado de validación que uno podría aspirar.
 Sin embargo, la clara desventaja radica en la cantidad limitada de información que un ser humano puede procesar en un tiempo razonable.
@@ -741,6 +737,7 @@ En este caso, se podría analizar un pequeño subconjunto de los datos y extrapo
 Esta métrica suele ser cara o difícil de usar.
 
 \paragraph{M3- Evaluación a través de una aplicación.}
+
 Un enfoque más práctico consiste en encontrar una aplicación interesante y evaluar si el uso de una ontología aprendida proporciona una mejora en esa aplicación~\cite{gurevych2003semantic}.
 Por ejemplo, usar una ontología aprendida sobre sentimientos humanos y frases relacionadas para mejorar el desempeño de un problema estándar de minería de opiniones.
 Si el uso del conocimiento representado en la ontología proporciona un impulso al rendimiento, medido por el enfoque estándar en la aplicación dada, obtenemos una validación confiable de que el proceso para aprender ontología, al menos, tiene un beneficio práctico medible.
@@ -751,6 +748,7 @@ Como desventaja, validar un caso de uso no es necesariamente una métrica de la 
 Esta métrica de hecho parece más simple pero en muchos casos no es necesario mejorar una tarea, sino un conjunto amplio.
 
 \paragraph{M4- Evaluación basada en datos.}
+
 Finalmente, se puede realizar una evaluación basada en datos, comparando las entidades y relaciones en una ontología con un corpus de datos, no usados   durante la construcción de la ontología, pero representativos del mismo dominio~\cite{brank2005survey}.
 La ontología se puede evaluar contando el número de entidades superpuestas presentes en ella con las que se encuentran en el corpus.
 Se debe tener cuidado para permitir alguna variación en el corpus con respecto a la ontología, por ejemplo, usando alguna forma de expansión de consultas.
@@ -770,10 +768,6 @@ En algunos casos, se puede encontrar un patrón oro y utilizarlo para obtener un
 En otros casos, siempre que se agregue una interfaz adecuada para consultar fácilmente el conocimiento, un experto en el dominio puede interactuar con el marco y dar una evaluación cualitativa para el dominio de interés.
 Desde un punto de vista pragmático, la evaluación más interesante y valiosa parece ser encontrar problemas prácticos relevantes que se puedan resolver o mejorar al utilizar nuestro marco.
 
-%The phenomenon of the post-truth era brings additional challenges. In this context, we believe
-%that for the problem of knowledge discovery the task of evaluating the relevance of the knowledge
-%extracted becomes more important than ever before.
-----------
 \subsection{Discusión de las tareas de aprendizaje}
 
 En la comunidad de aprendizaje de ontología, se han desarrollado varios marcos que atacan problemas similares a los que presentamos.
@@ -782,41 +776,21 @@ Por ejemplo, marcos como KnowItAll~\cite{knowitall}, Artequakt~\cite{artequakt} 
 Otros, como ASIUM~\cite{asium}, VIKEF~\cite{vikef} y SYNDICATE~\cite{syndikate} están orientados principalmente al enriquecimiento de ontologías.
 Sin embargo, muchas de las tareas o subproblemas que deben resolverse en cualquiera de estos dominios son muy similares y pueden reutilizarse.
 Por lo tanto, han surgido marcos más generales como Text2Onto~\cite{cimiano2005text2onto} o BOEMIE~\cite{boemie} que tratan con una combinación de estas tareas.
-Nuestro marco está diseñado para manejar las tareas comunes de aprendizaje de ontologías, incluida la creación, población, enriquecimiento, fusión y mapeo de ontologías.
-Cada una de estas tareas se realiza en uno o más de los módulos principales del marco, no como características independientes o aisladas, sino como parte integral del proceso de aprendizaje del marco.
-
-El módulo para procesar datos no estructurados se puede interpretar como una creación de ontología y una tubería de población, porque la entrada son datos no estructurados sin procesar y la salida es una ontología completamente nueva donde todo, desde clases y relaciones hasta instancias específicas, se crea automáticamente desde cero.
-Por otro lado, una vez que estas ontologías recién creadas son entregadas al módulo para el descubrimiento del conocimiento, se realizan varios procesos que se pueden interpretar como formas de enriquecimiento de ontologías, ya que se pueden descubrir nuevas relaciones y se pueden definir automáticamente reglas de inferencia.
-Finalmente, en el módulo de procesamiento de datos estructurados se realiza un proceso de fusión y mapeo de ontologías, para normalizar las ontologías entrantes frente al conocimiento ya almacenado.
 
 \subsection{Cantidad y complejidad}
 
 En cuanto a la cantidad y complejidad de conceptos reconocidos, las soluciones existentes se pueden dividir en aquellas que solo extraen entidades (ej., KnowItAll), aquellas que solo extraen relaciones (ej., ADAPTATIVA~\cite{adaptativa}, LEILA~\cite{leila}) y aquellos que intentan extraer ambos (por ejemplo, Artequakt, Web-> KB~\cite{webkb}, BOEMIE).
-Nuestro enfoque corresponde a esta última categoría, con el agregado de que intenta extraer también conceptos más abstractos a través de técnicas como la agrupación jerárquica.
-El descubrimiento de reglas de inferencia es otra tarea relevante que pretendemos integrar en el módulo de descubrimiento de conocimiento, como parte del proceso de generación de nuevo conocimiento.
-Este proceso enriquece las ontologías ya construidas al agregar conocimientos de nivel superior, en forma de predicados lógicos o axiomas.
+El descubrimiento de reglas de inferencia es otra tarea relevante que enriquece las ontologías ya construidas al agregar conocimientos de nivel superior, en forma de predicados lógicos o axiomas.
 Estos, a su vez, pueden usarse más adelante para descubrir instancias o relaciones faltantes, o para detectar valores atípicos y errores.
-
 
 \subsection{Uso del aprendizaje automático}
 
 La mayoría de los sistemas emplean algún tipo de herramientas de aprendizaje automático para la mayoría de las tareas. En particular, muchos emplean herramientas de PNL para procesar texto natural y extraer conocimientos, y técnicas estadísticas para detectar agrupaciones.
-Sin embargo, en general, la arquitectura de estos sistemas generalmente sigue una tubería diseñada muy estrictamente, donde los componentes se conectan cuidadosamente entre sí. Nuestra propuesta es diferente en el sentido de que pretendemos que nuestro sistema se pueda aprender completamente en el futuro.
-Todos los componentes, algoritmos y partes pueden medirse y evaluarse automáticamente, si el conocimiento de cómo interactúan estas partes se describe en una ontología organizacional dentro del marco.
-
-% NUEVO
-La ontología organizacional, una vez definida, debe proporcionar una descripción de los módulos del marco, hasta un grado de detalle que permita realizar un razonamiento automatizado sobre qué componentes se pueden conectar.
-Esta ontología podría usarse en un diseñador de canalización automático, es decir, un módulo que aprende a combinar componentes específicos (algoritmos, fuentes de datos, etc.) para una tarea de aprendizaje en particular.
-Al autoevaluar su propio desempeño en cada tarea en particular (dada una combinación de métricas de evaluación, este módulo podría aprender, por ejemplo, si para una fuente de datos en particular es más conveniente aplicar extracción de entidades o eliminar palabras vacías, o qué algoritmo de agrupamiento funciona mejor .
-Como ejemplo ilustrativo, varios canales de aprendizaje posibles son construidos a partir de componentes comunes.
-Una métrica de evaluación relevante para cada una de estas canalizaciones podría permitir que el marco descubra automáticamente las mejores combinaciones.
-Esto abre la puerta a la posibilidad de que, con el tiempo, el propio framework aprenda qué algoritmos y enfoques funcionan mejor en cada tarea o en cada dominio.
+Sin embargo, en general, la arquitectura de estos sistemas generalmente sigue una tubería diseñada muy estrictamente, donde los componentes se conectan cuidadosamente entre sí.
 
 \subsection{Entrada humana}
 
 La mayoría de los marcos y soluciones existentes requieren un cierto grado de interacción humana. En la mayoría de los casos, se espera que un experto en el dominio interactúe con una herramienta computacional para validar o refinar el resultado del proceso de aprendizaje.
-Como se explicó anteriormente, nuestro enfoque propone ser completamente automatizado, en el sentido de que el conocimiento final almacenado nunca puede ser revisado por un humano. Por lo tanto, todo el marco está diseñado con el propósito de una automatización completa. Todas las decisiones que determinan qué fragmentos de la información extraída se almacenan se basan en parámetros computacionales que pueden ajustarse automáticamente.
-Esto no niega algunos casos en los que un experto en el dominio podría interactuar con el marco, a través de alguna forma de interfaz de lenguaje natural, para acceder al conocimiento almacenado.
 Sin embargo, esta posibilidad de interacción es un resultado del marco, no una necesidad.
 
 \subsection{Generalización}
@@ -827,11 +801,7 @@ a dominios particulares (por ejemplo, SOBA, Artequakt). Las soluciones independi
 Si un sistema está simplemente diseñado para ser independiente del dominio y se utiliza para aprender de dos dominios muy diferentes, el resultado esperado es una especie de ontología combinada que representa ambos dominios con una aproximación de la unión de los conceptos (entidades y relaciones) en ellos. . Esta puede no ser la representación ideal, especialmente cuando se extiende a muchos dominios diferentes. Tratando de construir una ontología única que abarque todo el conocimiento que se puede extraer de
 varios dominios diferentes (posibles en el orden de cientos o miles) pueden ser significativamente más difíciles que una simple suma o unión de cada uno de los dominios individuales.
 
-Nuestro enfoque de la cobertura multidominio es diferente. Aunque el estudio de caso presentado solo involucra una ontología, nuestro marco está diseñado para aprender una nueva ontología cada vez que se descubre un nuevo dominio. Esta nueva ontología puede potencialmente fusionarse con ontologías existentes, pero también puede simplemente almacenarse como una nueva pieza de conocimiento utilizable. Con el tiempo, el sistema acumularía diferentes ontologías para diferentes dominios.
-Cuando surge la necesidad de utilizar dicho conocimiento (por ejemplo, para realizar respuestas automáticas a preguntas), el marco decidiría qué ontologías son relevantes en una tarea en particular. (es decir, una consulta en particular).
-Esto, a su vez, requiere un procesamiento más complejo, ya que podría ser necesario un enfoque de fusión de ontologías para calcular un resultado final para una tarea que involucra múltiples dominios. Sin embargo, creemos que esta mayor complejidad es un costo asequible en comparación con el poder expresivo obtenido al representar tanto conocimiento como sea posible sin las restricciones de tener una única taxonomía o un solo conjunto de reglas de inferencia.
-
-Esta creencia se inspira en parte en cómo funciona el conocimiento experto en humanos. Es cierto que los humanos tenemos un conjunto básico de habilidades que podrían considerarse independientes del dominio, como nuestras habilidades innatas para la coincidencia de patrones. Estas habilidades básicas se utilizan en muchas de las tareas con las que nos enfrentamos a diario.
+Es cierto que los humanos tenemos un conjunto básico de habilidades que podrían considerarse independientes del dominio, como nuestras habilidades innatas para la coincidencia de patrones. Estas habilidades básicas se utilizan en muchas de las tareas con las que nos enfrentamos a diario.
 La analogía computacional es un sistema con un único algoritmo de aprendizaje de propósito general que podría realizar, por ejemplo, tareas tan diferentes como el reconocimiento de voz, la clasificación de imágenes y la traducción con el mismo proceso.
 Este es el enfoque preferido por una parte de la comunidad de investigadores en aprendizaje automático~\cite{kaiser2017one},
 que esperan construir una inteligencia de propósito general a partir de un solo algoritmo de aprendizaje de propósito general y una única representación interna de propósito general.
