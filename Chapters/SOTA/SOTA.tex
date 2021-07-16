@@ -1424,35 +1424,25 @@ in each of these three domains, as well as some approaches similar to our propos
 %     presented in this paper, it is necessary to perform some evaluation on its output.
 %     However, being a complex system, with many interrelated components, evaluating it
 %     is not as simple as comparing the actual output with the expected output.
-    In this section we present a methodology for evaluating such a framework and obtaining
-    interesting metrics that can validate its performance across the large range of
-    tasks the framework is intended to enable.
+    In this section we present a methodology for evaluating such a framework and obtaining interesting metrics that can validate its performance across the large range of tasks the framework is intended to enable.
 
-    In a computational system or software framework, there are interesting
-    software engineering metrics to evaluate. Such a system should be highly modular and
-    extensible, so that it can be easily adapted to new input formats, or new algorithms
-    can be easily plugged in and integrated into the whole pipeline.
-    The modular design of the framework can help in achieving a high
-    degree of extensibility.
+    In a computational system or software framework, there are interesting software engineering metrics to evaluate. 
+    Such a system should be highly modular and extensible, so that it can be easily adapted to new input formats, or new algorithms can be easily plugged in and integrated into the whole pipeline.
+    The modular design of the framework can help in achieving a high degree of extensibility.
 
-	Besides these high level metrics, each of the tasks performed by the framework can be
-    evaluated separately. Most of these tasks have a definite performance metric that can
-    be used to rate the degree of correctness of such task. For many of the tasks described in the previous
-    sections we can find standard performance metrics in the literature that can used to
-    evaluate each particular process.
+	  Besides these high level metrics, each of the tasks performed by the framework can be evaluated separately. 
+    Most of these tasks have a definite performance metric that can be used to rate the degree of correctness of such task. 
+    For many of the tasks described in the previous sections we can find standard performance metrics in the literature that can used to evaluate each particular process.
 
 %     For example, a sensor for
 %     extracting entities can be evaluated individually by running it on a tagged corpus
 %     and computing precision and recall.
 
     An aggregate metric of these individual performances could provide a high level overview of the performance of the whole framework.
-    However, designing an aggregate metric that provides a practical, interpretable,
-    measure of the quality of the framework performance, can be very complex.
-    Each of the different tasks performed by the framework can have a very different
-    baseline performance. A 90\% precision can be a very good result
-    in some complex tasks, such as dependency parsing~\cite{AlbertiABCGKKMO17}, but mediocre in other tasks, such
-    as image classification~\cite{Russakovsky2015}. Moreover, this baseline number can
-    vary not only across tasks, but in the same task, according to which test suite (or corpus)
+    However, designing an aggregate metric that provides a practical, interpretable, measure of the quality of the framework performance, can be very complex.
+    Each of the different tasks performed by the framework can have a very different baseline performance. 
+    A 90\% precision can be a very good result in some complex tasks, such as dependency parsing~\cite{AlbertiABCGKKMO17}, but mediocre in other tasks, such as image classification~\cite{Russakovsky2015}. 
+    Moreover, this baseline number can vary not only across tasks, but in the same task, according to which test suite (or corpus)
     is used.
 
 	Going up one level of abstraction, for the general problem of ontology learning there are also several evaluation metrics and methodologies available, such as OntoRand~\cite{ontorand} and OntoMetric~\cite{ontometric}. 
