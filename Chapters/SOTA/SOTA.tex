@@ -875,8 +875,7 @@ Therefore, the need arises for computational tools to build ontologies with auto
 %     extracting entities can be evaluated individually by running it on a tagged corpus
 %     and computing precision and recall.
 
-    An aggregate metric of these individual performances could provide a high level
-    overview of the performance of the whole framework.
+    An aggregate metric of these individual performances could provide a high level overview of the performance of the whole framework.
     However, designing an aggregate metric that provides a practical, interpretable,
     measure of the quality of the framework performance, can be very complex.
     Each of the different tasks performed by the framework can have a very different
@@ -886,242 +885,126 @@ Therefore, the need arises for computational tools to build ontologies with auto
     vary not only across tasks, but in the same task, according to which test suite (or corpus)
     is used.
 
-	Going up one level of abstraction, for the general problem of ontology learning there are also
-    several evaluation metrics and methodologies available, such as OntoRand~\cite{ontorand}
-    and OntoMetric~\cite{ontometric}. However, most of these
-    methodologies are designed for evaluating a single ontology that is either created or
-    modified using techniques from ontology learning. Once more, extending these methodologies
-    to a collection of ontologies is not as straightforward as aggregating or averaging
-    the individual results. On the other hand, when dealing with a collection of ontologies,
-    other concerns can arise, such as intra-ontology consistency, which are not usually
-    considered when evaluating a single ontology. As a final consideration, the framework
-    by design, is expected to maintain a degree of internal inconsistency in order
-    to better cover multiple and possibly overlapping domains.
-    We present some of the most commonly described approaches in the literature for
-    evaluating ontologies~\cite{petasis2011ontology}
-    and describe how they can be used in our context.
+	Going up one level of abstraction, for the general problem of ontology learning there are also several evaluation metrics and methodologies available, such as OntoRand~\cite{ontorand} and OntoMetric~\cite{ontometric}. 
+  However, most of these methodologies are designed for evaluating a single ontology that is either created or modified using techniques from ontology learning. 
+  Once more, extending these methodologies to a collection of ontologies is not as straightforward as aggregating or averaging the individual results. 
+  On the other hand, when dealing with a collection of ontologies, other concerns can arise, such as intra-ontology consistency, which are not usually considered when evaluating a single ontology. 
+  As a final consideration, the framework by design, is expected to maintain a degree of internal inconsistency in order to better cover multiple and possibly overlapping domains.
+  We present some of the most commonly described approaches in the literature for evaluating ontologies~\cite{petasis2011ontology} and describe how they can be used in our context.
 
     \paragraph{M1- Comparison with a gold standard.}
-	This approach consists in comparing a learned ontology with a baseline ontology
-    for the same domain~\cite{corcoglioniti2016frame}. The baseline ontology is
-    assumed to be both correct and largely representative of the domain. This method
-    provides a great trade-off of speed versus accuracy, since both ontologies
-    can be automatically compared in a number of metrics without human intervention,
-    and the results have a high reliability because the baseline ontology is created
-    by experts. Some disadvantages do exist, for example, it is not always easy to
-    find a good baseline ontology for a given domain, especially if the domain is
-    not very well defined or is very novel. On the other hand, even two ontologies
-    extracted from the same domain by experts can have wide differences with respect to
-    the structure, and particularly to the names the classes and relations are
-    assigned. This requires some form of normalization and mapping between both ontologies
-    prior to comparison. This metric is difficult to use, particularly if
-    we're creating new characteristics.
+	  This approach consists in comparing a learned ontology with a baseline ontology for the same domain~\cite{corcoglioniti2016frame}. 
+    The baseline ontology is assumed to be both correct and largely representative of the domain. 
+    This method provides a great trade-off of speed versus accuracy, since both ontologies can be automatically compared in a number of metrics without human intervention, and the results have a high reliability because the baseline ontology is created by experts. 
+    Some disadvantages do exist, for example, it is not always easy to find a good baseline ontology for a given domain, especially if the domain is not very well defined or is very novel. 
+    On the other hand, even two ontologies extracted from the same domain by experts can have wide differences with respect to the structure, and particularly to the names the classes and relations are assigned. 
+    This requires some form of normalization and mapping between both ontologies prior to comparison. 
+    This metric is difficult to use, particularly if we're creating new characteristics.
 
-    \paragraph{M2- Expert evaluation.}
-    An alternative middle ground to the previous approach is having a domain
-    expert (or several) to simply look at the resulting ontology and evaluate
-    it according to some predefined metrics~\cite{ROSPOCHER2016132}.
-    This is arguably the most reliable method, in the sense that it provides
-    the highest degree of validation one could aspire. However, the clear
-    disadvantage lies in the limited amount of information that a human can
-    process in a reasonable time. This disadvantage is worsened in the case
-    where an ontology is created from a very large corpus of data, as is
-    the purpose of our framework. In this case, a small subset of the data
-    could be analyzed, and results extrapolated from there, but this idea
-    adds the complexity of determining a subset that is relevant enough but
-    remains of a manageable size.
-    This metric is usually expensive or difficult to use.
+    \paragraph{M2- Evaluación experta.}
+    Un término medio alternativo al enfoque anterior es tener un experto en el dominio (o varios) para simplemente mirar la ontología resultante y evaluarla de acuerdo con algunas métricas predefinidas~\cite{ROSPOCHER2016132}.
+    Este es posiblemente el método más confiable, en el sentido de que proporciona el mayor grado de validación que uno podría aspirar.
+    Sin embargo, la clara desventaja radica en la cantidad limitada de información que un ser humano puede procesar en un tiempo razonable.
+    Esta desventaja se agrava en el caso en que se crea una ontología a partir de un corpus de datos muy grande, como es el propósito de nuestro marco.
+    En este caso, se podría analizar un pequeño subconjunto de los datos y extrapolar los resultados desde allí, pero esta idea agrega la complejidad de determinar un subconjunto que es lo suficientemente relevante pero que sigue siendo de un tamaño manejable.
+    Esta métrica suele ser cara o difícil de usar.
 
-    \paragraph{M3- Evaluation through an application.}
-    A more practical approach consists in finding an interesting application and
-    evaluating if the use of a learned ontology provides an improvement in that
-    application~\cite{gurevych2003semantic}. For example, using a learned ontology
-    about human feelings and related phrases to improve the performance of a
-    standard opinion mining problem. If using the knowledge represented in the
-    ontology provides a boost to performance, as measured by the standard
-    approach in the given application, we obtain a reliable validation that
-    the process for learning ontology, at least, has a measurable practical benefit.
-    In some sense, this is one of the most valuable evaluations to perform,
-    because it provides an immediate comparison baseline for a practical problem.
-    The previous methods which only evaluate the ontology internally do not
-    necessarily guarantee that its content will be useful, even if it's correct by
-    all metrics. Another upside is that the evaluation process can be completely
-    automated, and scaled to match the complexity and size of the target application.
-    As a downside, validating a use case is not necessarily a metric for the overall
-    quality of the learned knowledge, and it's not clear if those results will
-    replicate in different domains and applications.
-    This metric indeed seem more simple but in many cases not need
-    improvement a task, but a wide set.
+    \paragraph{M3- Evaluación a través de una aplicación.}
+    Un enfoque más práctico consiste en encontrar una aplicación interesante y evaluar si el uso de una ontología aprendida proporciona una mejora en esa aplicación~\cite{gurevych2003semantic}.
+    Por ejemplo, usar una ontología aprendida sobre sentimientos humanos y frases relacionadas para mejorar el desempeño de un problema estándar de minería de opiniones.
+    Si el uso del conocimiento representado en la ontología proporciona un impulso al rendimiento, medido por el enfoque estándar en la aplicación dada, obtenemos una validación confiable de que el proceso para aprender ontología, al menos, tiene un beneficio práctico medible.
+    En cierto sentido, esta es una de las evaluaciones más valiosas para realizar, porque proporciona una línea base de comparación inmediata para un problema práctico.
+    Los métodos anteriores que solo evalúan la ontología internamente no garantizan necesariamente que su contenido sea útil, incluso si es correcto según todas las métricas.
+    Otra ventaja es que el proceso de evaluación se puede automatizar por completo y escalar para que coincida con la complejidad y el tamaño de la aplicación de destino.
+    Como desventaja, validar un caso de uso no es necesariamente una métrica de la calidad general del conocimiento aprendido, y no está claro si esos resultados se replicarán en diferentes dominios y aplicaciones.
+    Esta métrica de hecho parece más simple pero en muchos casos no es necesario mejorar una tarea, sino un conjunto amplio.
 
-    \paragraph{M4- Data driven evaluation.}
-    Finally, a data driven evaluation can be performed, by comparing the entities
-    and relations in an ontology to a corpus of data, not used during the
-    construction of the ontology, but representative of the same
-    domain~\cite{brank2005survey}. The ontology can be evaluated by counting
-    the number of overlapping entities present in it against those found in the corpus.
-    Care must be taken to allow for some variation in the corpus with respect to
-    the ontology, for example, using some form of query expansion.
-    This approach has been used to relatively compare different expert-made
-    ontologies against the same corpus and deciding which ontology provides
-    the best ``fit'' with the corpus~\cite{brewster2004data}.
-    However, obtaining an absolute metric of fit between an ontology and a
-    corpus is harder, mainly because it is not known beforehand what is the
-    value of fit one should expect to achieve.
-    Another possible issue of this approach, in the particular case of
-    ontologies that have been learned from the text, is to inadvertently
-    introduce a bias in the evaluation. If the methods used to compare the
-    ontology and the text corpus are correlated with those used to build the ontology,
-    then the results will be of a dubious validity.
-    For example, if one uses a NER algorithm during the building of the ontology,
-    and the same algorithm is used in the corpus to recognize relevant entities;
-    or if some co-occurrence metric is used for detecting relations in both cases.
-    This metric is complex to define and on many occasions is unrepresentative.
+    \paragraph{M4- Evaluación basada en datos.}
+    Finalmente, se puede realizar una evaluación basada en datos, comparando las entidades y relaciones en una ontología con un corpus de datos, no usados ​​durante la construcción de la ontología, pero representativos del mismo dominio~\cite{brank2005survey}.
+    La ontología se puede evaluar contando el número de entidades superpuestas presentes en ella con las que se encuentran en el corpus.
+    Se debe tener cuidado para permitir alguna variación en el corpus con respecto a la ontología, por ejemplo, usando alguna forma de expansión de consultas.
+    Este enfoque se ha utilizado para comparar relativamente diferentes ontologías creadas por expertos con el mismo corpus y decidir qué ontología proporciona el mejor `` ajuste '' con el corpus~\cite{brewster2004data}.
+    Sin embargo, obtener una métrica absoluta de ajuste entre una ontología y un corpus es más difícil, principalmente porque no se sabe de antemano cuál es el valor de ajuste que uno debería esperar lograr.
+    Otro posible problema de este enfoque, en el caso particular de las ontologías que se han aprendido del texto, es introducir inadvertidamente un sesgo en la evaluación.
+    Si los métodos utilizados para comparar la ontología y el corpus de texto están correlacionados con los utilizados para construir la ontología, entonces los resultados serán de dudosa validez.
+    Por ejemplo, si se usa un algoritmo NER durante la construcción de la ontología, y se usa el mismo algoritmo en el corpus para reconocer entidades relevantes; o si se usa alguna métrica de co-ocurrencia para detectar relaciones en ambos casos.
+    Esta métrica es compleja de definir y en muchas ocasiones no es representativa.
 
     \vspace{1em}
 
-    Evaluating a single ontology learning method is a complex task, as shown by the multiple approaches
-    proposed in the community. Hence, it's is very unlikely we can find a single automated metric
-    to measure the overall
-    performance of a framework as the one proposed. The best approach seems to be using a combination of the
-    existing methods, adapted to our scenario, with the added complexity of dealing with multiple ontologies
-    at the same time. In some cases a gold standard can be found and used to obtain a baseline comparison. In
-    other cases, provided a suitable interface for easily querying the knowledge is added, a domain expert can
-    interact with the framework and give a qualitative evaluation for the domain of interest.
-    From a pragmatical point of the view, the most interesting and valuable evaluation seems to be finding
-    relevant practical problems that can be solved, or improved, when using our framework.
+    Evaluar un solo método de aprendizaje de ontología es una tarea compleja, como lo demuestran los múltiples enfoques propuestos en la comunidad.
+    Por lo tanto, es muy poco probable que podamos encontrar una única métrica automatizada para medir el rendimiento general de un marco como el propuesto.
+    El mejor enfoque parece ser utilizar una combinación de los métodos existentes, adaptados a nuestro escenario, con la complejidad añadida de tratar con múltiples ontologías al mismo tiempo.
+    En algunos casos, se puede encontrar un patrón oro y utilizarlo para obtener una comparación de referencia.
+    En otros casos, siempre que se agregue una interfaz adecuada para consultar fácilmente el conocimiento, un experto en el dominio puede interactuar con el marco y dar una evaluación cualitativa para el dominio de interés.
+    Desde un punto de vista pragmático, la evaluación más interesante y valiosa parece ser encontrar problemas prácticos relevantes que se puedan resolver o mejorar al utilizar nuestro marco.
 
     %The phenomenon of the post-truth era brings additional challenges. In this context, we believe
     %that for the problem of knowledge discovery the task of evaluating the relevance of the knowledge
     %extracted becomes more important than ever before.
 ----------
-    \subsection{Learning tasks disscusion}
+\subsection{Discusión de las tareas de aprendizaje}
 
-In the ontology learning community, several frameworks have been developed which attack problems
-similar to the ones we present. Some of the approaches found in the literature concentrate on one
-particular task, i.e., ontology creation, population, or enrichment, among others. For example,
-frameworks like KnowItAll~\cite{knowitall}, Artequakt~\cite{artequakt} and SOBA~\cite{soba} are oriented mainly towards the task of ontology
-population. Others, such as ASIUM~\cite{asium}, VIKEF~\cite{vikef} and SYNDICATE~\cite{syndikate} are oriented mainly towards ontology enrichment.
-However, many of the tasks or subproblems that need to be solved in either of these domains are
-very similar and can be reused. Hence, more general frameworks such as Text2Onto~\cite{cimiano2005text2onto} or BOEMIE~\cite{boemie} have
-arisen which deal with a combination of these tasks.
-Our framework is designed to handle the common ontology learning tasks,
-including ontology creation, population, enrichment, merging and mapping.
-Each of these tasks is performed in one or more of the framework's main module,
-not as independent or isolated features,
-but as an integral part of the framework's learning process.
+En la comunidad de aprendizaje de ontología, se han desarrollado varios marcos que atacan problemas similares a los que presentamos.
+Algunos de los enfoques encontrados en la literatura se concentran en una tarea en particular, es decir, creación, población o enriquecimiento de ontologías, entre otras.
+Por ejemplo, marcos como KnowItAll~\cite{knowitall}, Artequakt~\cite{artequakt} y SOBA~\cite{soba} están orientados principalmente hacia la tarea de población de ontologías.
+Otros, como ASIUM~\cite{asium}, VIKEF~\cite{vikef} y SYNDICATE~\cite{syndikate} están orientados principalmente al enriquecimiento de ontologías.
+Sin embargo, muchas de las tareas o subproblemas que deben resolverse en cualquiera de estos dominios son muy similares y pueden reutilizarse.
+Por lo tanto, han surgido marcos más generales como Text2Onto~\cite{cimiano2005text2onto} o BOEMIE~\cite{boemie} que tratan con una combinación de estas tareas.
+Nuestro marco está diseñado para manejar las tareas comunes de aprendizaje de ontologías, incluida la creación, población, enriquecimiento, fusión y mapeo de ontologías.
+Cada una de estas tareas se realiza en uno o más de los módulos principales del marco, no como características independientes o aisladas, sino como parte integral del proceso de aprendizaje del marco.
 
-The module for processing unstructured data can be interpreted as an ontology
-creation and population pipeline, because the input is raw unstructured data and the output is
-a brand new ontology where everything from classes and relations to specific instances is
-created automatically from scratch.
-On the other hand, once these newly created ontologies are delivered to the module for knowledge
-discovery, several processes are performed which can be interpreted as forms of ontology
-enrichment, since new relations can be discovered and inference rules can be automatically defined.
-Finally, in the module for processing structured data a process of ontology merging and mapping is
-performed, to normalize the incoming ontologies against the knowledge already stored.
+El módulo para procesar datos no estructurados se puede interpretar como una creación de ontología y una tubería de población, porque la entrada son datos no estructurados sin procesar y la salida es una ontología completamente nueva donde todo, desde clases y relaciones hasta instancias específicas, se crea automáticamente desde cero.
+Por otro lado, una vez que estas ontologías recién creadas son entregadas al módulo para el descubrimiento del conocimiento, se realizan varios procesos que se pueden interpretar como formas de enriquecimiento de ontologías, ya que se pueden descubrir nuevas relaciones y se pueden definir automáticamente reglas de inferencia.
+Finalmente, en el módulo de procesamiento de datos estructurados se realiza un proceso de fusión y mapeo de ontologías, para normalizar las ontologías entrantes frente al conocimiento ya almacenado.
 
-\subsection{Quantity and complexity}
+\subsection{Cantidad y complejidad}
 
-Regarding the quantity and complexity of concepts recognized, the existing solutions can
-be divided into those that only extract entities (e.g., KnowItAll), those who only extract
-relations (e.g., ADAPTATIVA~\cite{adaptativa}, LEILA~\cite{leila}), and those which attempt to extract both (e.g., Artequakt, Web->KB~\cite{webkb}, BOEMIE).
-Our approach corresponds to this last category, with the addition that it attempts to extract also
-more abstract concepts via techniques such as hierarchical clustering.
-The discovery of inference rules is another relevant task that we intend to integrate
-in the module for knowledge discovery, as part of the process for generating new knowledge.
-This process enriches the ontologies already built by adding higher-level knowledge, in the form
-of logical predicates or axioms. These can in turn be used later for discovering missing instances
-or relations, or for detecting outliers and mistakes.
+En cuanto a la cantidad y complejidad de conceptos reconocidos, las soluciones existentes se pueden dividir en aquellas que solo extraen entidades (ej., KnowItAll), aquellas que solo extraen relaciones (ej., ADAPTATIVA~\cite{adaptativa}, LEILA~\cite{leila}) y aquellos que intentan extraer ambos (por ejemplo, Artequakt, Web-> KB~\cite{webkb}, BOEMIE).
+Nuestro enfoque corresponde a esta última categoría, con el agregado de que intenta extraer también conceptos más abstractos a través de técnicas como la agrupación jerárquica.
+El descubrimiento de reglas de inferencia es otra tarea relevante que pretendemos integrar en el módulo de descubrimiento de conocimiento, como parte del proceso de generación de nuevo conocimiento.
+Este proceso enriquece las ontologías ya construidas al agregar conocimientos de nivel superior, en forma de predicados lógicos o axiomas.
+Estos, a su vez, pueden usarse más adelante para descubrir instancias o relaciones faltantes, o para detectar valores atípicos y errores.
 
-\subsection{Use of machine learning}
 
-Most systems employ some form of machine learning tools for most of the
-tasks. In particular, many employ NLP tools to process natural text and extract pieces of knowledge,
-and statistical techniques to detect clusters. However, in general, the architecture of these
-systems generally follows a very strictly designed pipeline, where components are carefully
-connected to each other. Our proposal is different in the sense that we pretend our system
-to be fully learnable in the future. All components, algorithms, and parts, can be measured and evaluated
-automatically, if the knowledge of how these parts interact is described in an organizational
-ontology inside the framework.
+\subsection{Uso del aprendizaje automático}
+
+La mayoría de los sistemas emplean algún tipo de herramientas de aprendizaje automático para la mayoría de las tareas. En particular, muchos emplean herramientas de PNL para procesar texto natural y extraer conocimientos, y técnicas estadísticas para detectar agrupaciones.
+Sin embargo, en general, la arquitectura de estos sistemas generalmente sigue una tubería diseñada muy estrictamente, donde los componentes se conectan cuidadosamente entre sí. Nuestra propuesta es diferente en el sentido de que pretendemos que nuestro sistema se pueda aprender completamente en el futuro.
+Todos los componentes, algoritmos y partes pueden medirse y evaluarse automáticamente, si el conocimiento de cómo interactúan estas partes se describe en una ontología organizacional dentro del marco.
 
 % NUEVO
-The organizational ontology, once defined, should provide a description of the framework's
-modules, down to a degree of detail that allows performing automated reasoning about which
-components can be connected. This ontology could be used in an automatic pipeline
-designer, i.e., a module that learns how to combine specific components
-(algorithms, data sources, etc.) for a particular learning task. By self-evaluating
-its own performance on each particular task (given a combination of the evaluation
-metrics presented in section~\ref{sec:evaluation}), this module could learn, for example,
-if for a particular data source is more convenient applying entity extraction or removing
-stopwords, or which clustering algorithm performs better.
-As an illustrative example, Figure~\ref{fig:pipeline} shows several possible
-learning pipelines built from common components. A relevant evaluation metric for each
-of these pipelines could allow the framework to automatically discover the best combinations.
-This opens the door to the possibility of, in time, the framework
-itself learning which algorithms and approaches work better in each task, or in each domain.
-% ---
+La ontología organizacional, una vez definida, debe proporcionar una descripción de los módulos del marco, hasta un grado de detalle que permita realizar un razonamiento automatizado sobre qué componentes se pueden conectar.
+Esta ontología podría usarse en un diseñador de canalización automático, es decir, un módulo que aprende a combinar componentes específicos (algoritmos, fuentes de datos, etc.) para una tarea de aprendizaje en particular.
+Al autoevaluar su propio desempeño en cada tarea en particular (dada una combinación de métricas de evaluación, este módulo podría aprender, por ejemplo, si para una fuente de datos en particular es más conveniente aplicar extracción de entidades o eliminar palabras vacías, o qué algoritmo de agrupamiento funciona mejor .
+Como ejemplo ilustrativo, varios canales de aprendizaje posibles son construidos a partir de componentes comunes.
+Una métrica de evaluación relevante para cada una de estas canalizaciones podría permitir que el marco descubra automáticamente las mejores combinaciones.
+Esto abre la puerta a la posibilidad de que, con el tiempo, el propio framework aprenda qué algoritmos y enfoques funcionan mejor en cada tarea o en cada dominio.
 
-\subsection{Human input}
+\subsection{Entrada humana}
 
-Most of the frameworks and solutions existing require a certain degree of human interaction.
-In most cases, a domain expert is expected to interact with a computational tool to either validate or
-refine the output of learning pipeline.
-As explained before, our approach proposes to be completely automated,
-in the sense that the final knowledge stored may never be revised by a human. The whole framework is thus
-designed with the purpose of complete automation. All the decisions that determine which fragments
-of the information extracted get stored are based on computational parameters that can
-be automatically tunned.
-This does not deny some cases where a domain expert could interact with the framework,
-through some form of natural language interface, in order to access the stored knowledge.
-However, this possibility of interaction is a result of the framework, not a necessity.
+La mayoría de los marcos y soluciones existentes requieren un cierto grado de interacción humana. En la mayoría de los casos, se espera que un experto en el dominio interactúe con una herramienta computacional para validar o refinar el resultado del proceso de aprendizaje.
+Como se explicó anteriormente, nuestro enfoque propone ser completamente automatizado, en el sentido de que el conocimiento final almacenado nunca puede ser revisado por un humano. Por lo tanto, todo el marco está diseñado con el propósito de una automatización completa. Todas las decisiones que determinan qué fragmentos de la información extraída se almacenan se basan en parámetros computacionales que pueden ajustarse automáticamente.
+Esto no niega algunos casos en los que un experto en el dominio podría interactuar con el marco, a través de alguna forma de interfaz de lenguaje natural, para acceder al conocimiento almacenado.
+Sin embargo, esta posibilidad de interacción es un resultado del marco, no una necesidad.
 
-\subsection{Generalization}
+\subsection{Generalización}
 
-With respect to domain restrictions, we can classify existing solutions into those which are
-completely independent of domain (e.g., KnowItAll, LEILA, ISOLDE~\cite{isolde}) and those which are tailored
-to particular domains (e.g., SOBA, Artequakt). The domain independent solutions are usually designed
-so that there is no particular dependence tied to a domain, hence, the are reusable in several domains.
-However, this means one system can be used in one domain or another, but it doesn't necessarily
-means that the same system can learn a piece of knowledge of two different
-domains \emph{simultaneously}.
+Con respecto a las restricciones de dominio, podemos clasificar las soluciones existentes en aquellas que son completamente independientes del dominio (por ejemplo, KnowItAll, LEILA, ISOLDE~\cite{isolde}) y aquellas que están adaptadas
+a dominios particulares (por ejemplo, SOBA, Artequakt). Las soluciones independientes del dominio generalmente se diseñan de manera que no haya una dependencia particular ligada a un dominio, por lo tanto, son reutilizables en varios dominios. Sin embargo, esto significa que un sistema puede usarse en un dominio u otro, pero no significa necesariamente que el mismo sistema pueda aprender un poco de conocimiento de dos dominios diferentes \emph{simultáneamente}.
 
-If a system is simply designed to be domain-independent, and used to learn from two very different
-domains, the expected result is some sort of combined ontology that represents both domains with
-an approximation of the union of the concepts (entities and relations) therein.
-This might not be the ideal representation, specially when extending this to many different domains.
-Trying to build a single ontology that encompasses all the knowledge that can be mined from
-several different domains (possible in the order of hundreds or thousands) can be significantly
-more difficult than a simple summation or union of each of the single domains.
+Si un sistema está simplemente diseñado para ser independiente del dominio y se utiliza para aprender de dos dominios muy diferentes, el resultado esperado es una especie de ontología combinada que representa ambos dominios con una aproximación de la unión de los conceptos (entidades y relaciones) en ellos. . Esta puede no ser la representación ideal, especialmente cuando se extiende a muchos dominios diferentes. Tratando de construir una ontología única que abarque todo el conocimiento que se puede extraer de
+varios dominios diferentes (posibles en el orden de cientos o miles) pueden ser significativamente más difíciles que una simple suma o unión de cada uno de los dominios individuales.
 
-Our approach to multi-domain coverage is different. Even though the case study presented only involves
-one ontology, our framework is designed to learn a new ontology every time
-a new domain is discovered. This new ontology can be potentially merged into with
-existing ontologies, but it can also simply be stored as a brand new piece of usable knowledge.
-In time, the system would accumulate different ontologies for different domains.
-When the need arises to use such knowledge %(e.g. to perform automated question answering),
-the framework would decide which ontologies are relevant in a particular task. % (i.e., a particular query).
-This in turn requires a more complex processing since an ontology merging approach could be
-necessary to compute a final output for a task that involves multiple domains. However, we believe this increased
-complexity is an affordable cost compared to the expressive power gained by representing as much knowledge
-as possible without the restrictions of having a single taxonomy, or a single set of inference rules.
+Nuestro enfoque de la cobertura multidominio es diferente. Aunque el estudio de caso presentado solo involucra una ontología, nuestro marco está diseñado para aprender una nueva ontología cada vez que se descubre un nuevo dominio. Esta nueva ontología puede potencialmente fusionarse con ontologías existentes, pero también puede simplemente almacenarse como una nueva pieza de conocimiento utilizable. Con el tiempo, el sistema acumularía diferentes ontologías para diferentes dominios.
+Cuando surge la necesidad de utilizar dicho conocimiento (por ejemplo, para realizar respuestas automáticas a preguntas), el marco decidiría qué ontologías son relevantes en una tarea en particular. (es decir, una consulta en particular).
+Esto, a su vez, requiere un procesamiento más complejo, ya que podría ser necesario un enfoque de fusión de ontologías para calcular un resultado final para una tarea que involucra múltiples dominios. Sin embargo, creemos que esta mayor complejidad es un costo asequible en comparación con el poder expresivo obtenido al representar tanto conocimiento como sea posible sin las restricciones de tener una única taxonomía o un solo conjunto de reglas de inferencia.
 
-This belief is in part inspired by how the expert knowledge works in humans. It is true that
-humans have a basic set of skills which could be considered domain-independent, such as our innate
-abilities for pattern matching. These basic skills are used across many of the tasks we encounter daily.
-The computational analogy is a system with a single general purpose learning algorithm that could
-perform, for example, tasks as dissimilar as  speech recognition, image classification and translation
-with the same process.
-This is the preferred approach for a part of the community of researchers in machine learning~\cite{kaiser2017one},
-who expect to build a general purpose intelligence out of a single general purpose learning algorithm
-and a single general purpose internal representation.
+Esta creencia se inspira en parte en cómo funciona el conocimiento experto en humanos. Es cierto que los humanos tenemos un conjunto básico de habilidades que podrían considerarse independientes del dominio, como nuestras habilidades innatas para la coincidencia de patrones. Estas habilidades básicas se utilizan en muchas de las tareas con las que nos enfrentamos a diario.
+La analogía computacional es un sistema con un único algoritmo de aprendizaje de propósito general que podría realizar, por ejemplo, tareas tan diferentes como el reconocimiento de voz, la clasificación de imágenes y la traducción con el mismo proceso.
+Este es el enfoque preferido por una parte de la comunidad de investigadores en aprendizaje automático ~ \ cite {kaiser2017one},
+que esperan construir una inteligencia de propósito general a partir de un solo algoritmo de aprendizaje de propósito general y una única representación interna de propósito general.
 
-However, for really complex tasks, we argue that humans use specialized representations,
-learning algorithms, and inference techniques. A human expert in a highly complex domain (such as mathematics),
-doesn't use the same techniques for inference, than those used in real time tasks such
-as object and speech recognition. We acknowledge that inference in highly complex domains cannot be
-performed with intuition-based tools. Building an intelligent
-system that can perform inference in a number of highly complex domains simultaneously will
-require using specialized representations and techniques in each domain. It is towards this
-principle that we guide our design decisions.
+Sin embargo, para tareas realmente complejas, argumentamos que los humanos usan representaciones especializadas, algoritmos de aprendizaje y técnicas de inferencia. Un experto humano en un dominio altamente complejo (como las matemáticas), no utiliza las mismas técnicas para la inferencia que las que se utilizan en tareas en tiempo real como el reconocimiento de objetos y de voz. Reconocemos que la inferencia en dominios muy complejos no se puede realizar con herramientas basadas en la intuición. La construcción de un sistema inteligente que pueda realizar inferencias en varios dominios altamente complejos simultáneamente requerirá el uso de representaciones y técnicas especializadas en cada dominio. Es hacia este principio que guiamos nuestras decisiones de diseño.
 
   \section{Discusión}
