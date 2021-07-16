@@ -664,6 +664,40 @@ task submissions and results of the CLEF eHealth 2019 evaluation lab. Finally,
   
   \item[BARR2]
   
+  A subgroup from the BARR2 document collection was used to construct a manually labelled training and test set. We cautiously selected 684 clinical cases from
+SciELO Spain, which we distributed as follows: 318 clinical cases for the training set, 146 for the development set and 220 for the test set. Table 1 provides a
+statistical overview of these datasets, covering basic corpus statistics.
+The manual labeling of abbreviation mentions of the corpus was done using
+a customized version of Annotator. Then, the Brat annotation toolkit was used
+to revise manually mention annotations and to annotate the relations between
+short forms and their corresponding long forms, as well as nested mentions.
+Annotator7
+is a library for text annotation in browsers which provides a set of
+interoperable tools for annotating content in webpages. Brat8
+[11] is another
+intuitive web-based tool for text annotation for a variety of NLP tasks. Unlike
+Annotator, Brat gives the possibility to annotate relations between different
+entities.
+
+In order to make the annotation process as flexible as possible, annotators
+had access to the complete article of the clinical case to find their meanings explicitly mentioned in other sections. They also used several Spanish biomedical
+abbreviation and acronym dictionaries. In addition, we applied an automatic
+abbreviation-definition pairs detection algorithm [10] to detect different pairs
+in the full text, so annotators did not need to read all the article looking for
+explicit definitions, unless it was necessary. We also used an internal Spanish
+abbreviation-definition pair database10 to assign definitions to those abbreviations with no explicit definitions
+
+The corpus created for the track was composed of different open access clinical cases written in Spanish. Domain experts annotated abbreviations present in
+these reports, together with their definition. Inter-annotator agreement results
+showed that annotators agreed on the 88\% of the labeled cases, concluding that
+the guidelines they used were clearly structured.
+Examining which are the most frequent types of abbreviations, we observed
+that many of them corresponded to units of measure (key for detection of posology and dosage), anatomical entities, biochemical markers and treatments.
+When looking at the language of the definitions of abbreviations, only around
+68 percent corresponded to Spanish definitions, the remaining where mostly En-
+8 Intxaurrondo et al.
+glish definitions often related to substances, treatments and biochemical entities.
+We manually mapped 500 definitions to SNOMED. Examining the corresponding concept class showed that most corresponded to the class substance.
   
   
   \item[Emotinet]
