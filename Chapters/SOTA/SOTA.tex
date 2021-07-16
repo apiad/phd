@@ -727,126 +727,25 @@ However, one of the most complex task in this sense is maintaining
 an ontology up-to-date with respect to the massive amount of unstructured data that is generated and published every day.
 Therefore, the need arises for computational tools to build ontologies with automated or semi-automated processes.
 
-    \subsection{Ontology Learning}
+\subsection{Ontology Learning}
 
-    In the intersection of machine learning and knowledge representation,
-      the field of ontology learning has arisen to deal with the
-      complexity of manually maintaining and updating ontologies.
-      This field draws techniques and tools from both communities,
-      to automate part of the process of creating and maintaining ontologies.
-    Ontology learning has the potential of reducing the cost of creating
-    and, most importantly, maintaining large and complex ontologies~\cite{cimiano2009ontology}.
-      This problem is also addressed in
-      learning by reading~\cite{barker2007learning}, a field which draws techniques
-    the natural language processing and knowledge representation and reasoning communities.
-    The purpose is to build a formal representation of some particular field given unrestricted
-    textual data related to the field. This representation must also allow fully automatic
-    reasoning.
-      Learning by reading can be considered as a particular case of ontology learning,
-      even though it is only concerned with textual input, and the
-      output is not necessarily formated as an ontology.
+En la intersección del aprendizaje automático y la representación del conocimiento, ha surgido el campo del aprendizaje de ontologías para lidiar con la complejidad de mantener y actualizar ontologías manualmente. Este campo extrae técnicas y herramientas de ambas comunidades, para automatizar parte del proceso de creación y mantenimiento de ontologías. El aprendizaje de la ontología tiene el potencial de reducir el costo de crear y, lo que es más importante, mantener ontologías grandes y complejas~\cite{cimiano2009ontology}. Este problema también se aborda en el aprendizaje mediante la lectura~\cite{barker2007learning}, un campo en el que se extraen técnicas del procesamiento del lenguaje natural y las comunidades de representación y razonamiento del conocimiento. El propósito es construir una representación formal de algún campo en particular dados datos textuales sin restricciones relacionados con el campo. Esta representación también debe permitir un razonamiento completamente automático. El aprendizaje mediante la lectura se puede considerar como un caso particular de aprendizaje de ontología, aunque solo se refiere a la entrada textual, y la salida no está necesariamente formateada como una ontología.
 
-      In the field of ontology learning, two general high level tasks can be distinguished:
-      ontology population and ontology enrichment~\cite{petasis2011ontology}.
-      Ontology population deals with the
-      sub-problem of finding new instances for an already defined ontology, while
-      ontology enrichment deals with adding new concepts and relations to an existing
-      ontology. There is an overlap between these tasks, and most of the existing
-      approaches cannot be classified purely in these terms.
-      In this field, several tools have been proposed, which
-      combine different approaches and solve different subsets of the ontology
-      learning tasks. A brief review of these systems can help defining the
-      main characteristics that our framework should have.
-      % No sé si decir algo como a continuación se presentan varias de ellas
-      % atendiendo a sus características mas relevantes. Esto nos permite conocer
-      %la diversidad de enfoques y las potensialidades que debemos tener en cuenta
-      %para crear nuestro sistema
+En el campo del aprendizaje de la ontología, se pueden distinguir dos tareas generales de alto nivel: población de ontología y enriquecimiento de ontología~\cite{petasis2011ontology}. La población de ontologías se ocupa del subproblema de encontrar nuevas instancias para una ontología ya definida, mientras que el enriquecimiento de ontologías se ocupa de agregar nuevos conceptos y relaciones a una ontología existente. Existe una superposición entre estas tareas y la mayoría de los enfoques existentes no pueden clasificarse únicamente en estos términos. En este campo, se han propuesto varias herramientas, que combinan diferentes enfoques y resuelven diferentes subconjuntos de las tareas de aprendizaje de la ontología. Una breve revisión de estos sistemas puede ayudar a definir las principales características que debe tener nuestro framework.
 
-      % general (early approach)
-      Early approaches, such as SYNDIKATE~\cite{syndikate}, deal only with populating a
-      knowledge base, with a predefined ontological structure~(classes and relations).
-      % web approaches
-      Since the Web is a rich source of information, several approaches have focused on extracting knowledge
-      from it, exploiting the semi-structured format of web resources.
-      Some systems like ARTEQUAKT~\cite{artequakt} and SOBA~\cite{soba} are domain-specific,
-      respectively focusing on the art and the sports domains.
-      Other systems, like WEB-$>$KB~\cite{webkb} attempt to build general domain knowledge bases from the
-      web, exploiting also the structure of links between pages to identify relations.
-      % from structured data
-      Another example is the VIKEF~\cite{vikef} system, which uses product catalogs as sources of data, hence exploiting the
-      inherent structure present in this type of data.
-      % bootstraping with human knowledge
-      Even though most systems attempt fully-automatic extraction, some examples like ADAPTATIVA~\cite{adaptativa} include
-      a bootstrapping strategy, where human experts provide feedback about the extracted knowledge.
+Los primeros enfoques, como SYNDIKATE~\cite{syndikate}, tratan solo de poblar una base de conocimiento, con una estructura ontológica predefinida ~ (clases y relaciones). Dado que la Web es una rica fuente de información, varios enfoques se han centrado en extraer conocimiento de ella, explotando el formato semiestructurado de los recursos web. Algunos sistemas como ARTEQUAKT~\cite{artequakt} y SOBA~\cite{soba} son de dominio específico, centrándose respectivamente en el arte y los dominios deportivos. Otros sistemas, como WEB - $> $ KB~\cite{webkb} intentan construir bases de conocimiento de dominio general desde la web, explotando también la estructura de enlaces entre páginas para identificar relaciones. Otro ejemplo es el sistema VIKEF~\cite{vikef}, que utiliza catálogos de productos como fuentes de datos, aprovechando así la estructura inherente presente en este tipo de datos. Aunque la mayoría de los sistemas intentan una extracción completamente automática, algunos ejemplos como ADAPTATIVA~\cite{adaptativa} incluyen una estrategia de arranque, donde los expertos humanos brindan retroalimentación sobre el conocimiento extraído.
 
-      In order to extract relevant knowledge from unrestricted text, NLP techniques have
-      been introduced in systems such as OPTIMA~\cite{optima} and ISODLE~\cite{isolde}.
-      % rule-based
-      The use of natural language features can be used build rule-based systems,
-      like the OntoLT~\cite{buitelaar2004ontolt} proposal, that extract concepts and
-    relations via a mapping of linguistic classes to ontology classes.
-      % based on statistical models
-      An alternative approach is to use statistical or probabilistic models,
-      exemplified by systems such LEILA~\cite{leila} or Text2Onto~\cite{cimiano2005text2onto}.
-    % relevance
-      Another example is KnowItAll~\cite{knowitall}, which introduces a point-wise mutual information
-      metric to select relevant instances.
+Para extraer el conocimiento relevante de un texto sin restricciones, se han introducido técnicas de PNL en sistemas como OPTIMA~\cite{optima} e ISODLE~\cite{isolde}. El uso de características del lenguaje natural puede usarse para construir sistemas basados ​​en reglas, como la propuesta OntoLT~\cite{buitelaar2004ontolt}, que extrae conceptos y relaciones a través de un mapeo de clases lingüísticas a clases de ontología. Un enfoque alternativo es utilizar modelos estadísticos o probabilísticos, ejemplificados por sistemas como LEILA~\cite{leila} o Text2Onto~\cite{cimiano2005text2onto}. Otro ejemplo es KnowItAll~\cite{knowitall}, que introduce una métrica de información mutua puntual para seleccionar instancias relevantes.
 
-    Once instances of entities are relations are extracted from text, a natural question is
-      wether more abstract knowledge can be inferred from these examples.
-      The systems who address this issue often use unsupervised techniques to attempt
-      to discover inherent structures. Two relevant examples of this approach
-      are OntoGain~\cite{drymonas2010unsupervised} and ASIUM~\cite{asium},
-      which attempt to automatically build a hierarchy of concepts using clustering techniques.
-      % multimedia
-      The BOEMIE~\cite{boemie} system is another interesting example, since it
-      attempts to automatically infer abstract concepts from the concrete instances found,
-      but focuses not only on text, but also on multimedia sources such as images, and videos.
-    % never-ending learning
-      Most of the mentioned systems usually focus on one iteration of the extraction process.
-      However, more recent approaches, like NELL~\cite{mitchell2015never}, attempt
-      to learn continuosly from a stream of web data, and increase over time
-      both the amount and the quality of the knowledge discovered.
+Una vez que las instancias de entidades son relaciones se extraen del texto, una pregunta natural es si se puede inferir un conocimiento más abstracto de estos ejemplos. Los sistemas que abordan este problema a menudo utilizan técnicas no supervisadas para intentar descubrir estructuras inherentes. Dos ejemplos relevantes de este enfoque son OntoGain~\cite{drymonas2010unsupervised} y ASIUM~\cite{asium}, que intentan construir automáticamente una jerarquía de conceptos usando técnicas de agrupamiento. El sistema BOEMIE~\cite{boemie} es otro ejemplo interesante, ya que intenta inferir automáticamente conceptos abstractos de las instancias concretas encontradas, pero se centra no solo en el texto, sino también en fuentes multimedia como imágenes y videos. La mayoría de los sistemas mencionados generalmente se enfocan en una iteración del proceso de extracción. Sin embargo, los enfoques más recientes, como NELL~\cite{mitchell2015never}, intentan aprender continuamente de un flujo de datos web y aumentan con el tiempo tanto la cantidad como la calidad del conocimiento descubierto.
 
-    One of the issues with many of these approaches is the amount of spurious
-    information they generate~\cite{Maimon:2015:OLT:2870689.2870690}.
-    In general, there will be many unimportant
-    or redundant pieces of information in the analyzed corpora. A naive
-    approach that doesn't take this issue into consideration will create
-    immense ontologies with very little useful information. To tackle
-    this problem, OntoGain proposes a hierarchical clustering scheme
-    that attempts to identify general concepts and relations.
+Uno de los problemas con muchos de estos enfoques es la cantidad de información falsa que generan~\cite{Maimon: 2015: OLT: 2870689.2870690}. En general, habrá muchas piezas de información redundantes o sin importancia en los corpus analizados. Un enfoque ingenuo que no tenga en cuenta este tema creará ontologías inmensas con muy poca información útil. Para abordar este problema, OntoGain propone un esquema de agrupamiento jerárquico que intenta identificar conceptos y relaciones generales.
 
-    In general, these tools are focused on the extraction of knowledge and
-    on the task of finding relevant knowledge.
-      When the extracting knowledge from a trustworthy source, even if a natural
-      language source, it makes sense to
-      focus on optimizing recall, i.e., obtaining as much information as possible.
-      If the input source is a set of medical papers, or the main
-      web page of an institution, there is a high chance that most of the information
-      present in those documents is correct. Hence, an ontology extraction procedure
-      that maximizes recall will obtain good results.
+En general, estas herramientas están enfocadas a la extracción de conocimiento y a la tarea de encontrar conocimiento relevante. Cuando se extrae conocimiento de una fuente confiable, incluso si es una fuente de lenguaje natural, tiene sentido enfocarse en optimizar el recuerdo, es decir, obtener la mayor cantidad de información posible. Si la fuente de entrada es un conjunto de artículos médicos o la página web principal de una institución, existe una alta probabilidad de que la mayor parte de la información presente en esos documentos sea correcta. Por lo tanto, un procedimiento de extracción de ontología que maximice el recuerdo obtendrá buenos resultados.
 
-      However, when the input source is of a lesser quality, such as blogs or
-      social media posts, there is a greater chance that some, or even most,
-      of the information is fake or incorrect.
-      If we consider also the so called phenomena of the \textit{post-truth},
-      and acknowledge that some authors are deliberately sharing fake news
-      or facts, the problem becomes much harder, and pressing.
-      Even if deliberate lies were not an issue, most of the information shared
-      in social media and similar sources is irrelevant in a long term.
-      In this context, the problem of extracting a useful ontology from a large
-      corpora of Internet sources becomes less a problem of recognizing the pieces
-      of information lying in the corpus, and more a problem of filtering and selecting
-      the relevant information, once extracted.
+Sin embargo, cuando la fuente de entrada es de menor calidad, como blogs o publicaciones en redes sociales, existe una mayor probabilidad de que parte, o incluso la mayoría, de la información sea falsa o incorrecta. Si consideramos también los llamados fenómenos de la \textit{posverdad}, y reconocemos que algunos autores comparten deliberadamente noticias o hechos falsos, el problema se vuelve mucho más difícil y urgente. Incluso si las mentiras deliberadas no fueran un problema, la mayor parte de la información compartida en las redes sociales y fuentes similares es irrelevante a largo plazo. En este contexto, el problema de extraer una ontología útil de un gran corpus de fuentes de Internet se vuelve menos un problema de reconocimiento de las piezas de información que se encuentran en el corpus, y más un problema de filtrado y selección de la información relevante, una vez extraída.
 
-      Despite the existence of some general purpose systems,
-      there is no proposal of an architecture for a computational framework
-      that can simultaneously and continuosly learn from the most varied sources of information online.
-      Another challenge in this aspect is to obtain a computationally convenient representation
-      of this knowledge, independent of the domain, source and format of the input data.
-      Furthermore, such system has to explicitly deal with the large amount of spurious,
-      irrelevant, or deliberately fake information spread through web sources.
+A pesar de la existencia de algunos sistemas de propósito general, no existe una propuesta de arquitectura para un marco computacional que pueda aprender de manera simultánea y continua de las más variadas fuentes de información en línea. Otro desafío en este aspecto es obtener una representación computacionalmente conveniente de este conocimiento, independientemente del dominio, fuente y formato de los datos de entrada. Además, dicho sistema tiene que lidiar explícitamente con la gran cantidad de información falsa, irrelevante o deliberadamente falsa que se difunde a través de fuentes web.
 
     \subsection{Quality Metrics}\label{sec:evaluation}
 
@@ -885,20 +784,20 @@ Therefore, the need arises for computational tools to build ontologies with auto
     vary not only across tasks, but in the same task, according to which test suite (or corpus)
     is used.
 
-	Going up one level of abstraction, for the general problem of ontology learning there are also several evaluation metrics and methodologies available, such as OntoRand~\cite{ontorand} and OntoMetric~\cite{ontometric}. 
-  However, most of these methodologies are designed for evaluating a single ontology that is either created or modified using techniques from ontology learning. 
-  Once more, extending these methodologies to a collection of ontologies is not as straightforward as aggregating or averaging the individual results. 
-  On the other hand, when dealing with a collection of ontologies, other concerns can arise, such as intra-ontology consistency, which are not usually considered when evaluating a single ontology. 
+	Going up one level of abstraction, for the general problem of ontology learning there are also several evaluation metrics and methodologies available, such as OntoRand~\cite{ontorand} and OntoMetric~\cite{ontometric}.
+  However, most of these methodologies are designed for evaluating a single ontology that is either created or modified using techniques from ontology learning.
+  Once more, extending these methodologies to a collection of ontologies is not as straightforward as aggregating or averaging the individual results.
+  On the other hand, when dealing with a collection of ontologies, other concerns can arise, such as intra-ontology consistency, which are not usually considered when evaluating a single ontology.
   As a final consideration, the framework by design, is expected to maintain a degree of internal inconsistency in order to better cover multiple and possibly overlapping domains.
   We present some of the most commonly described approaches in the literature for evaluating ontologies~\cite{petasis2011ontology} and describe how they can be used in our context.
 
     \paragraph{M1- Comparison with a gold standard.}
-	  This approach consists in comparing a learned ontology with a baseline ontology for the same domain~\cite{corcoglioniti2016frame}. 
-    The baseline ontology is assumed to be both correct and largely representative of the domain. 
-    This method provides a great trade-off of speed versus accuracy, since both ontologies can be automatically compared in a number of metrics without human intervention, and the results have a high reliability because the baseline ontology is created by experts. 
-    Some disadvantages do exist, for example, it is not always easy to find a good baseline ontology for a given domain, especially if the domain is not very well defined or is very novel. 
-    On the other hand, even two ontologies extracted from the same domain by experts can have wide differences with respect to the structure, and particularly to the names the classes and relations are assigned. 
-    This requires some form of normalization and mapping between both ontologies prior to comparison. 
+	  This approach consists in comparing a learned ontology with a baseline ontology for the same domain~\cite{corcoglioniti2016frame}.
+    The baseline ontology is assumed to be both correct and largely representative of the domain.
+    This method provides a great trade-off of speed versus accuracy, since both ontologies can be automatically compared in a number of metrics without human intervention, and the results have a high reliability because the baseline ontology is created by experts.
+    Some disadvantages do exist, for example, it is not always easy to find a good baseline ontology for a given domain, especially if the domain is not very well defined or is very novel.
+    On the other hand, even two ontologies extracted from the same domain by experts can have wide differences with respect to the structure, and particularly to the names the classes and relations are assigned.
+    This requires some form of normalization and mapping between both ontologies prior to comparison.
     This metric is difficult to use, particularly if we're creating new characteristics.
 
     \paragraph{M2- Evaluación experta.}
@@ -1002,7 +901,7 @@ Esto, a su vez, requiere un procesamiento más complejo, ya que podría ser nece
 
 Esta creencia se inspira en parte en cómo funciona el conocimiento experto en humanos. Es cierto que los humanos tenemos un conjunto básico de habilidades que podrían considerarse independientes del dominio, como nuestras habilidades innatas para la coincidencia de patrones. Estas habilidades básicas se utilizan en muchas de las tareas con las que nos enfrentamos a diario.
 La analogía computacional es un sistema con un único algoritmo de aprendizaje de propósito general que podría realizar, por ejemplo, tareas tan diferentes como el reconocimiento de voz, la clasificación de imágenes y la traducción con el mismo proceso.
-Este es el enfoque preferido por una parte de la comunidad de investigadores en aprendizaje automático ~ \ cite {kaiser2017one},
+Este es el enfoque preferido por una parte de la comunidad de investigadores en aprendizaje automático~\cite{kaiser2017one},
 que esperan construir una inteligencia de propósito general a partir de un solo algoritmo de aprendizaje de propósito general y una única representación interna de propósito general.
 
 Sin embargo, para tareas realmente complejas, argumentamos que los humanos usan representaciones especializadas, algoritmos de aprendizaje y técnicas de inferencia. Un experto humano en un dominio altamente complejo (como las matemáticas), no utiliza las mismas técnicas para la inferencia que las que se utilizan en tareas en tiempo real como el reconocimiento de objetos y de voz. Reconocemos que la inferencia en dominios muy complejos no se puede realizar con herramientas basadas en la intuición. La construcción de un sistema inteligente que pueda realizar inferencias en varios dominios altamente complejos simultáneamente requerirá el uso de representaciones y técnicas especializadas en cada dominio. Es hacia este principio que guiamos nuestras decisiones de diseño.
