@@ -560,12 +560,11 @@ Estas características se pueden entender en los siguientes términos:
 
   \item[DDI]
 
-
   which is annotated with pharmacological substances as well as the interactions between them. The DDI corpus is the first corpus which includes pharmacodynamic (PD) and pharmacokinetic (PK) DDIs. A PD DDI occurs when the pharmacological effects of one drug are modified by the presence of another drug, while a PK DDI is the result from the interference of drug absorption, distribution, metabolism and/or elimination of a drug by another drug. While there are several annotated corpora with biological entities and their relationships (see Section 2), the shortage of annotated corpora for DDI extraction is the main bottleneck in the development of NLP systems for this area of Pharmacovigilance.
 
-  The DDI corpus has been developed for the DDI Extraction 2013 challenge (http://www.cs.york.ac.uk/semeval-2013/task9/), whose main goal is to provide a common framework for the evaluation of information extraction techniques applied to the recognition of pharmacological substances and the detection of DDIs from biomedical texts. For this purpose, two substasks have been proposed: the recognition and classification of drug names and the extraction and classification of their interactions. 
+  The DDI corpus has been developed for the DDI Extraction 2013 challenge (http://www.cs.york.ac.uk/semeval-2013/task9/), whose main goal is to provide a common framework for the evaluation of information extraction techniques applied to the recognition of pharmacological substances and the detection of DDIs from biomedical texts. For this purpose, two substasks have been proposed: the recognition and classification of drug names and the extraction and classification of their interactions.
 
-  Based on the sentence splitting during preprocessing, the DDI-DrugBank corpus contains 6795 sentences, and the DDI-MedLine corpus is made up of 2147 sentences. Table 2 shows the number of the named entity types annotated in each corpus. The most common type was drug (63\%) in both corpora. However, the numbers of other types of entity differ between both sub-corpora. For example, while the second most common type in the DDI-MedLine corpus was drug-n (23\%), these substances hardly ever occur in the DDI-DrugBank corpus. As regards relationships, Table 3 shows the numbers of the annotated relationships in each corpus. Effect was the dominant relationship found in the whole DDI corpus. Advice, accounting for 20.9\% of the whole relationship, showed an even greater disproportion between both corpora because the ratio of relationship being advice interactions in the DDI-DrugBank corpus (22\%) is much higher than in the DDI-Medline corpus (5\%). 
+  Based on the sentence splitting during preprocessing, the DDI-DrugBank corpus contains 6795 sentences, and the DDI-MedLine corpus is made up of 2147 sentences. Table 2 shows the number of the named entity types annotated in each corpus. The most common type was drug (63\%) in both corpora. However, the numbers of other types of entity differ between both sub-corpora. For example, while the second most common type in the DDI-MedLine corpus was drug-n (23\%), these substances hardly ever occur in the DDI-DrugBank corpus. As regards relationships, Table 3 shows the numbers of the annotated relationships in each corpus. Effect was the dominant relationship found in the whole DDI corpus. Advice, accounting for 20.9\% of the whole relationship, showed an even greater disproportion between both corpora because the ratio of relationship being advice interactions in the DDI-DrugBank corpus (22\%) is much higher than in the DDI-Medline corpus (5\%).
 
   \item[Bio AMR]
 
@@ -581,62 +580,18 @@ Estas características se pueden entender en los siguientes términos:
 
   Estructura del modelo de representación en YAGO: - Modelo de datos: extensión a RDFS, incluye transitividad acíclica (atr) .– Entidades: objetos ontológicos abstractos, con las siguientes propiedades: Cada entidad es parte de al menos una clase, Clases ordenadas en jerarquía taxonómica , Las relaciones son entidades (expresan la transitividad de las relaciones - atr), Los hechos son el triple: entidad, relación, entidad, Cada hecho tiene un identificador.
 
-
   \item[ConceptNet]
 
-  t is a knowledge representation project, providing a large semantic graph that describes general human
-  knowledge and how it is expressed in natural language. The
-  scope of ConceptNet includes words and common phrases
-  in any written human language. It provides a large set of
-  background knowledge that a computer application working with natural language text should know.
-  These words and phrases are related through an open domain of predicates, describing not just how words are related by their lexical definitions, but also how they are related through common knowledge. For example, its knowledge about “jazz” includes not just the properties that define it, such as IsA(jazz, genre of music); it also includes
-  incidental facts such as
-  • AtLocation(jazz, new orleans)
-  • UsedFor(saxophone, jazz), and
-  • plays percussion in(jazz drummer, jazz).
-  A cluster of related concepts and the ConceptNet assertions
-  that connect them is visualized in Figure 1.
-  ConceptNet originated as a representation for the knowledge collected by the Open Mind Common Sense project
-  (Singh et al., 2002), which uses a long-running interactive
-  Web site to collect new statements from visitors to the site,
-  and asks them target questions about statements it thinks
-  may be true. Later releases included knowledge from similar websites in other languages, such as Portuguese and
-  Dutch, and collaborations with online word games that
-  automatically collect general knowledge, yielding further
-  knowledge in English, Japanese, and Chinese.
-  ConceptNet gives a foundation of real-world knowledge to
-  a variety of AI projects and applications. Previous versions
-  of ConceptNet (Havasi et al., 2007) have been used, for example, to build a system for analyzing the emotional content of text (Cambria et al., 2010), to create a dialog system
-  for improving software specifications (Korner and Brumm,
-  2009), to recognize activities of daily living (Ullberg et al.,
-  2010), to visualize topics and trends in a corpus of unstructured text (Speer et al., 2010), and to create public information displays by reading text about people and projects
-  from a knowledge base (Havasi et al., 2011).
-  ConceptNet provides a combination of features not available in other knowledge representation projects:
-  • Its concepts are connected to natural language words
-  and phrases that can also be found in free text.
-  • It includes not just definitions and lexical relationships, but also the common-sense associations that ordinary people make among these concepts. Its sources
-  range in formality from dictionaries to online games.
-  • The concepts are not limited to a single language; they
-  can be from any written language.
-  • It integrates knowledge from sources with varying levels of granularity and varying registers of formality,
-  and makes them available through a common representation.
-  ConceptNet aims to contain both specific facts and the
-  messy, inconsistent world of common sense knowledge. To
-  truly understand concepts that appear in natural language
-  text, it is important to recognize the informal relations
-  between these concepts that are part of everyday knowledge, which are often under-represented in other lexical resources. WordNet, for example, can tell you that a dog is a
-  3679
-  type of carnivore, but not that it is a type of pet. It can tell
-  you that a fork is an eating utensil, but has no link between
-  fork and eat to tell you that a fork is used for eating.
-  Adding common sense knowledge creates many new questions. Can we say that “a fork is used for eating” if a fork
-  is used for other things besides eating, and other things are
-  used for eating? Should we make sure to distinguish the
-  eating utensil from the branching of a path? Is the statement still true in cultures that typically use chopsticks instead of forks? We can try to collect representations that
-  answer these questions, while pragmatically accepting that
-  much of the content of a common sense knowledge base
-  will leave them unresolved.
+  ConceptNett es un proyecto de representación del conocimiento, que proporciona un gran gráfico semántico que describe el conocimiento humano general y cómo se expresa en lenguaje natural. El alcance de ConceptNet incluye palabras y frases comunes en cualquier lenguaje humano escrito. Proporciona un amplio conjunto de conocimientos previos que debe conocer una aplicación informática que trabaja con texto en lenguaje natural. Estas palabras y frases se relacionan a través de un dominio abierto de predicados, que describen no solo cómo se relacionan las palabras por sus definiciones léxicas, sino también cómo se relacionan a través del conocimiento común. Por ejemplo, su conocimiento sobre el “jazz” incluye no solo las propiedades que lo definen, como IsA (jazz, género musical); También incluye hechos incidentales como
+  • AtLocation (jazz, nueva orleans)
+  • Usado para (saxofón, jazz) y
+  • toca percusión en (batería de jazz, jazz).
 
+  ConceptNet se originó como una representación del conocimiento recopilado por el proyecto Open Mind Common Sense (Singh et al., 2002), que utiliza un sitio web interactivo de larga duración para recopilar nuevas declaraciones de los visitantes del sitio y les hace preguntas específicas sobre afirmaciones que cree que pueden ser ciertas. Los lanzamientos posteriores incluyeron conocimientos de sitios web similares en otros idiomas, como portugués y holandés, y colaboraciones con juegos de palabras en línea que recopilan automáticamente conocimientos generales, lo que proporciona más conocimientos en inglés, japonés y chino.
+
+  ConceptNet proporciona una base de conocimiento del mundo real para una variedad de proyectos y aplicaciones de IA. Se han utilizado versiones anteriores de ConceptNet (Havasi et al., 2007), por ejemplo, para construir un sistema para analizar el contenido emocional del texto (Cambria et al., 2010), para crear un sistema de diálogo para mejorar las especificaciones del software (Korner y Brumm, 2009), para reconocer las actividades de la vida diaria (Ullberg et al., 2010), para visualizar temas y tendencias en un corpus de texto no estructurado (Speer et al., 2010), y para crear exhibiciones de información pública mediante la lectura de texto. sobre personas y proyectos desde una base de conocimiento (Havasi et al., 2011).
+
+  ConceptNet proporciona una combinación de características que no están disponibles en otros proyectos de representación del conocimiento: • Sus conceptos están conectados a palabras y frases en lenguaje natural que también se pueden encontrar en texto libre. • Incluye no solo definiciones y relaciones léxicas, sino también las asociaciones de sentido común que la gente común hace entre estos conceptos. Sus fuentes varían en formalidad desde diccionarios hasta juegos en línea. • Los conceptos no se limitan a un solo idioma; pueden ser de cualquier idioma escrito. • Integra conocimientos de fuentes con distintos niveles de granularidad y distintos registros de formalidad, y los pone a disposición a través de una representación común. ConceptNet tiene como objetivo contener tanto hechos específicos como el desordenado e inconsistente mundo del conocimiento de sentido común. Para comprender verdaderamente los conceptos que aparecen en un texto en lenguaje natural, es importante reconocer las relaciones informales entre estos conceptos que forman parte del conocimiento cotidiano, que a menudo están infrarrepresentados en otros recursos léxicos. WordNet, por ejemplo, puede decirle que un perro es un tipo de carnívoro, pero no que es un tipo de mascota. Puede decirle que un tenedor es un utensilio para comer, pero no tiene ningún vínculo entre tenedor y comer para indicarle que se usa un tenedor para comer. Agregar conocimiento de sentido común crea muchas preguntas nuevas. ¿Podemos decir que “un tenedor se usa para comer” si un tenedor se usa para otras cosas además de comer, y otras cosas se usan para comer? ¿Debemos asegurarnos de distinguir el utensilio para comer de la bifurcación de un camino? ¿Sigue siendo cierta la afirmación en culturas que suelen utilizar palillos en lugar de tenedores? Podemos intentar recopilar representaciones que respondan a estas preguntas, mientras aceptamos pragmáticamente que gran parte del contenido de una base de conocimiento de sentido común las dejará sin resolver.
 
   \item[CLEF]
 
