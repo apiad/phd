@@ -541,7 +541,7 @@ Estas características se pueden entender en los siguientes términos:
     \end{tabularx}
   }
   \caption{Summary of related corpora annotated with a general-purpose schema, or not specific to the health domain.
-      {Percentage values for \textbf{Documents} indicate how many of the original documents were actually annotated, as reported by the original authors. SPO: Subject, Predicate, Object triplets; SAT+R: Subject, Action, Target triplets and additional Relations; SAOE:  Subject, Action, Object, Emotion tuples.}%%%%CHANGE explain percentages and abbreviations
+      {Percentage values for \textbf{Documents} indicate how many of the original documents were actually annotated, as reported by the original authors. SPO: Subject, Predicate, Object triplets; SAT+R: Subject, Action, Target triplets and additional Relations; SAOE:  Subject, Action, Object, Emotion tuples.}
     \label{tab:stateofart2}}
 \end{table}
 
@@ -549,119 +549,49 @@ Estas características se pueden entender en los siguientes términos:
 
 \begin{description}
   \item[Ixa MedGS]
-  
+
   Consiste en resúmenes de alta anotados sintáctica y semánticamente escritos en español espontáneo por médicos. El objetivo es utilizar este corpus para desarrollar herramientas de anotación automática y, por lo tanto, facilitar a los médicos la recuperación de información de las HCE. Los datos — historias clínicas electrónicas recogidas en el Hospital Galdakao-Usansolo — fueron objeto de un convenio entre el Servicio Vasco de Salud y la Universidad del País Vasco, en el que el Servicio de Salud facilitó un corpus totalmente despojado de datos identificativos de carácter personal y autorizó su uso. exclusivamente con fines de investigación.
 
-  El corpus se centra en los Efectos Adversos (EA), que el informe ENEAS [8] —estudio nacional sobre Efectos Adversos asociados a la hospitalización publicado por el Ministerio de Sanidad y Consumo español— define de la siguiente manera: un accidente o incidente que haya herido o pueda ha lesionado al paciente durante el tratamiento. Entre los diferentes EA que se distinguen en el informe, la gran mayoría está relacionada con una de las siguientes tres causas: (i) prescripción de medicamentos (37,4\% de todos los EA); (ii) infecciones nosocomiales (25,3\% de todos los EA); y (iii) procedimientos (25,0\% del total de EA). Nuestro trabajo se concentra especialmente en las reacciones adversas a los medicamentos (RAM), definidas como trastornos inevitables o difíciles de evitar, con o sin lesión, que se producen cuando los medicamentos se utilizan de forma adecuada [8]. Los resultados y conclusiones del informe ENEAS se presentaron en [9]: se estudiaron veinticuatro hospitales españoles para determinar el impacto y la prevenibilidad de los EA. De los EA asociados con el uso de medicamentos (37,4\% de todos los EA), el 34,8% se clasificaron como prevenibles.
-  
+  El corpus se centra en los Efectos Adversos (EA), que el informe ENEAS [8] —estudio nacional sobre Efectos Adversos asociados a la hospitalización publicado por el Ministerio de Sanidad y Consumo español— define de la siguiente manera: un accidente o incidente que haya herido o pueda ha lesionado al paciente durante el tratamiento. Entre los diferentes EA que se distinguen en el informe, la gran mayoría está relacionada con una de las siguientes tres causas: (i) prescripción de medicamentos (37,4\% de todos los EA); (ii) infecciones nosocomiales (25,3\% de todos los EA); y (iii) procedimientos (25,0\% del total de EA). Nuestro trabajo se concentra especialmente en las reacciones adversas a los medicamentos (RAM), definidas como trastornos inevitables o difíciles de evitar, con o sin lesión, que se producen cuando los medicamentos se utilizan de forma adecuada [8]. Los resultados y conclusiones del informe ENEAS se presentaron en [9]: se estudiaron veinticuatro hospitales españoles para determinar el impacto y la prevenibilidad de los EA. De los EA asociados con el uso de medicamentos (37,4\% de todos los EA), el 34,8\% se clasificaron como prevenibles.
+
   \item[DrugSemantics]
-  
+
   una colección de resúmenes de las características del producto en español. Se anotó manualmente con entidades con nombre farmacoterapéutico, que se detallan en el esquema de anotaciones de DrugSemantics. Los anotadores fueron una Enfermera Registrada (RN) y dos estudiantes de la Licenciatura en Enfermería. La calidad del corpus de DrugSemantics se evaluó midiendo su fiabilidad de anotación (F general = 79,33\% [IC 95\%: 78,35–80,31]), así como su precisión de anotación (global [IC 95\%: 94,11–95,19]). Además, el proceso de construcción estándar de oro se describe en detalle. En total, nuestro corpus contiene más de 2000 entidades con nombre, 780 oraciones y 226,729 tokens. Por último, se presenta un módulo de Clasificación de Entidades Nombradas capacitado en DrugSemantics con el objetivo de mostrar la calidad de nuestro corpus, así como un ejemplo de cómo usarlo.
 
   \item[DDI]
-  
-  
-  
+
+
+
   \item[Bio AMR]
 
   Este corpus incluye anotaciones de artículos de PubMed relacionados con el cáncer, que cubren 3 artículos completos (PMID: 24651010, PMID: 11777939, PMID: 15630473), así como las secciones de resultados de 46 artículos adicionales de PubMed. El corpus también incluye alrededor de 1000 oraciones, cada una del corpus de entrenamiento BEL BioCreative y del Chicago Corpus.
 
   \item[YAGO]
-  
-  
-  
+
+
+
   \item[ConceptNet]
-  
-  
-  
+
+
+
   \item[CLEF]
-  
-  The CLEF eHealth labs are open for everybody. We particularly welcome academic and industrial researchers, scientists, engineers, and graduate students in
-natural language processing, machine learning, and biomedical/health informatics to participate. We also encourage participation by multi-disciplinary teams
-that combine technological skills with biomedical expertise.
-This, the seventh year of the evaluation lab (and eight year of the workshop),
-aiming to build upon the resource development and evaluation approaches by
-the previous six or seven years of CLEF eHealth [8,9,14,16,26,28,29], offered
-the following two tasks [15]:
-– Task 1. Multilingual Information Extraction: International Classification of
-Diseases, Version 10 (ICD-10) coding of non-technical summaries (NTSs) of
-animal experiments in German [22] and
-– Task 2. Technology Assisted Reviews (TAR) in Empirical Medicine in
-English [13].
-In addition, Task 3. Consumer Health Search in Mono- and Multilingual Settings
-was initially advertised, but unfortunately, due to unforeseen circumstances, it
-had to be postponed3.
-The Multilingual Information Extraction task challenged participants to
-index German NTSs of animal experiments with the ICD-10 terminology of
-diseases. A detailed analysis based on the diseases addressed by the NTSs allows
-more transparency of the animal experiments being carried out by researchers
-[2]. It could be treated as a text classification or cascaded named entity recognition and normalization task. Even though we only addressed one language
-(German), we encouraged participants to explore multilingual approaches. The
-results of high performing systems could be used within the workflow of institutes mandated by the European Union (EU) to publish the NTSs approved in
-their states. The 2019 Task 1 built upon the 2016–2018 information extraction
-tasks [19–21], which already addressed the ICD-10 terminology to code causes of
-death from a corpus of death reports in French (2016, 2017, and 2018), English
-(2017), Hungarian (2018), and Italian (2018). Prior to this, the CLEF eHealth
-tasks considered Unified Medical Language System (UMLS) and Systematized
-3 The organizers apologize to the teams that registered their interest in the task for
-any inconvenience caused by this delay.
-Overview of the CLEF eHealth Evaluation Lab 2019 325
-Nomenclature of Medicine—Clinical Terms (SNoMed-CT) codification of clinical reports in English in 2013, and UMLS named entity recognition of clinical
-reports in French in 2015, among others [27].
-The TAR task was a high-recall IR task in English that aimed at evaluating search algorithms that seek to identify all studies relevant for conducting a
-systematic review in empirical medicine. The results of the explored approaches
-in the submitted systems towards generating a clear overview of the current
-scientific consensus could be informing health care and its policy making in the
-future. This automated generator might release scientists and policy advisors’
-time from the currently laborious iterative process of conducting publication
-searches and revising them in order to retrieve all the documents that are relevant for the purposes of writing reliable systematic reviews; this hard challenge
-is known in the IR domain as the total recall problem and with the number
-of published medical papers expanding rapidly, the need for automation in this
-process becomes of utmost importance.
-This year’s Task 2, differed from the past two years [11,12] by diversifying the
-focus across different type of reviews including Diagnostic Test Accuracy (DTA),
-Intervention, Prognosis, and Qualitative reviews. Even though search in the area
-of DTA reviews is generally considered the hardest [18], this year we wanted to
-investigate how the technology that has been developed over the past two years
-would extend to other types of reviews. The typical process of searching for
-scientific publications to conduct a systematic review consists of three stages:
-(a) specifying a number of inclusion criteria that characterize the articles relevant
-to the review and constructing a complex Boolean Query to express them, (b)
-screening the abstracts and titles that result from the Boolean query, and (c)
-reading and screening the full documents that passed the Abstract and Title
-Screening. Building on the 2017 task, which focused on the second stage of the
-process, that is, Abstract and Title Screening, and same as the 2018 task, the
-2019 task focused both on the first stage (subtask 1 ) and second stage (subtask
-2 ) of the process, that is, Boolean Search and Abstract and Title Screening.
-More precisely, these subtasks of Task 2 were defined as follows:
-– Subtask 1. Prior to constructing a Boolean Query researchers have to design
-and write a search protocol that in written and in detail defines what constitutes a relevant study for their review. For the challenge associated with the
-first stage of the process, participants were provided with the relevant pieces
-of a protocol, in an attempt to complete search effectively and efficiently
-bypassing the construction of the Boolean query.
-– Subtask 2. Given the results of the Boolean Search from stage 1 as the starting
-point, participants were required to rank the set of abstracts (A). The task had
-the following two goals: (i) to produce an efficient ordering of the documents,
-such that all of the relevant abstracts are retrieved as early as possible, and
-(ii) to identify a subset of A which contains all or as many of the relevant
-abstracts for the least effort (i.e., total number of abstracts to be assessed).
-The Consumer Health Search task was advertised as a continuation of
-the previous CLEF eHealth IR tasks that ran every year since the onset of
-326 L. Kelly et al.
-CLEF eHealth evaluation labs in 2013 [5–7,10,23,25,30], and embraced the Text
-REtrieval Conference (TREC) -style evaluation process, with a shared collection
-of searchable documents and their search queries, the contribution of runs from
-participants, and the subsequent formation of relevance assessments and evaluation of these participants’ submissions. For the first time, the search queries (and
-their variants) were intended to not only be in written format but also in spoken
-format, with automatic speech-to-text transcripts provided. The new document
-collection introduced in the 2018 Task 3, consisting of over 5 million pages from
-the World Wide Web (WWW) was to be used for this task. This was a compilation of Web pages of selected domains acquired from the CommonCrawl4.
-User stories for search query and query variant generation were those, using the
-discharge summaries and forum posts, we used in previous years of the task.
-The remainder of this overview paper is structured as follows: First, in Sect. 2,
-we detail for each task its text documents; human annotations, queries, and relevance assessments; and evaluation methods. After this, in Sect. 3, we describe the
-task submissions and results of the CLEF eHealth 2019 evaluation lab. Finally,
-  
+
+  Este, el séptimo año del laboratorio de evaluación (y el octavo año del taller), con el objetivo de aprovechar los enfoques de evaluación y desarrollo de recursos de los seis o siete años anteriores de CLEF eHealth [8,9,14,16,26,28 , 29], ofreció las dos tareas siguientes [15]: Tarea 1. Extracción de información multilingüe: Clasificación internacional de enfermedades, versión 10 (ICD-10) codificación de resúmenes no técnicos (NTS) de experimentos con animales en alemán [22] y Tarea 2. Revisiones asistidas por tecnología (TAR) en Medicina empírica en inglés [13].
+
+  La tarea de Extracción de información multilingüe desafió a los participantes a indexar los NTS alemanes de experimentos con animales con la terminología de enfermedades de la CIE-10. Un análisis detallado basado en las enfermedades abordadas por los NTS permite una mayor transparencia de los experimentos con animales que están llevando a cabo los investigadores [2]. Podría tratarse como una clasificación de texto o como una tarea de normalización y reconocimiento de entidades nombradas en cascada. Aunque solo abordamos un idioma (alemán), alentamos a los participantes a explorar enfoques multilingües. Los resultados de los sistemas de alto rendimiento podrían utilizarse dentro del flujo de trabajo de los institutos encargados por la Unión Europea (UE) de publicar los NTS aprobados en sus estados. La Tarea 1 de 2019 se basó en las tareas de extracción de información de 2016-2018 [19-21], que ya abordó la terminología de la CIE-10 para codificar las causas de muerte a partir de un corpus de informes de defunción en francés (2016, 2017 y 2018), inglés (2017), húngaro (2018) e italiano (2018). Previo a esto, las tareas de eHealth de CLEF consideraron el Sistema Unificado de Lenguaje Médico (UMLS) y Sistematizaron 3. Los organizadores piden disculpas a los equipos que registraron su interés en la tarea por las molestias ocasionadas por este retraso.
+
+  Descripción general del Laboratorio de evaluación de eHealth de CLEF 2019
+
+  Nomenclatura de medicina: codificación de términos clínicos (SNoMed-CT) de informes clínicos en inglés en 2013, y reconocimiento de entidades nombradas UMLS de informes clínicos en francés en 2015, entre otros [27]. La tarea TAR fue una tarea de RI de alta recordación en inglés que tenía como objetivo evaluar algoritmos de búsqueda que buscan identificar todos los estudios relevantes para realizar una revisión sistemática en medicina empírica. Los resultados de los enfoques explorados en los sistemas presentados para generar una visión general clara del consenso científico actual podrían estar informando la atención médica y su formulación de políticas en el futuro. Este generador automatizado podría liberar tiempo a los científicos y asesores de políticas del laborioso proceso iterativo actual de realizar búsquedas de publicaciones y revisarlas para recuperar todos los documentos que son relevantes para la redacción de revisiones sistemáticas confiables; Este difícil desafío se conoce en el dominio de las relaciones internacionales como el problema de la recuperación total y con el número de artículos médicos publicados que se expanden rápidamente, la necesidad de automatización en este proceso se vuelve de suma importancia.
+
+  La Tarea 2 de este año se diferenció de los dos últimos años [11, 12] al diversificar el enfoque en diferentes tipos de revisiones que incluyen Exactitud de la prueba de diagnóstico (DTA), Intervención, Pronóstico y Revisiones cualitativas. Aunque la búsqueda en el área de revisiones de DTA generalmente se considera la más difícil [18], este año queríamos investigar cómo la tecnología que se ha desarrollado durante los últimos dos años se extendería a otros tipos de revisiones. El proceso típico de búsqueda de publicaciones científicas para realizar una revisión sistemática consta de tres etapas: (a) especificar una serie de criterios de inclusión que caracterizan los artículos relevantes para la revisión y construir una consulta booleana compleja para expresarlos, (b) seleccionar el resúmenes y títulos que resulten de la consulta booleana, y (c) leer y filtrar los documentos completos que pasaron la revisión de resumen y título. Sobre la base de la tarea de 2017, que se centró en la segunda etapa del proceso, es decir, la selección de resumen y título, y al igual que la tarea de 2018, la tarea de 2019 se centró tanto en la primera etapa (subtarea 1) como en la segunda etapa (subtarea 2 ) del proceso, es decir, búsqueda booleana y selección de resumen y título. Más precisamente, estas subtareas de la Tarea 2 se definieron de la siguiente manera:
+
+  Subtarea 1. Antes de construir una consulta booleana, los investigadores deben diseñar y escribir un protocolo de búsqueda que, por escrito y en detalle, defina lo que constituye un estudio relevante para su revisión. Para el desafío asociado con la primera etapa del proceso, los participantes recibieron las piezas relevantes de un protocolo, en un intento de completar la búsqueda de manera efectiva y eficiente sin pasar por la construcción de la consulta booleana.
+
+  Subtarea 2. Dados los resultados de la búsqueda booleana de la etapa 1 como punto de partida, se pidió a los participantes que clasificaran el conjunto de resúmenes (A). La tarea tenía los siguientes dos objetivos: (i) producir un ordenamiento eficiente de los documentos, de modo que todos los resúmenes relevantes se recuperen lo antes posible, y (ii) identificar un subconjunto de A que contenga todos o tantos de los resúmenes relevantes para el menor esfuerzo (es decir, el número total de resúmenes a evaluar).
+
+  La tarea Consumer Health Search se anunció como una continuación de las tareas anteriores de CLEF eHealth IR que se ejecutaban todos los años desde el inicio de L. Kelly et al. Los laboratorios de evaluación de eHealth de CLEF en 2013 [5–7,10,23,25,30], y abrazaron el proceso de evaluación al estilo Text REtrieval Conference (TREC), con una colección compartida de documentos de búsqueda y sus consultas de búsqueda, la contribución de las ejecuciones de los participantes, y la posterior formación de evaluaciones de relevancia y evaluación de las presentaciones de estos participantes. Por primera vez, las consultas de búsqueda (y sus variantes) estaban destinadas no solo a estar en formato escrito sino también en formato hablado, con transcripciones automáticas de voz a texto. La nueva colección de documentos introducida en la Tarea 3 de 2018, que consta de más de 5 millones de páginas de la World Wide Web (WWW), se utilizaría para esta tarea. Esta fue una compilación de páginas web de dominios seleccionados adquiridos de CommonCrawl4. Las historias de usuario para la consulta de búsqueda y la generación de variantes de consulta fueron aquellas que, utilizando los resúmenes de descarga y las publicaciones del foro, usamos en años anteriores de la tarea.
+
   \item[BARR2]
   
   A subgroup from the BARR2 document collection was used to construct a manually labelled training and test set. We cautiously selected 684 clinical cases from
@@ -702,33 +632,9 @@ We manually mapped 500 definitions to SNOMED. Examining the corresponding concep
   
   \item[Emotinet]
 
-  The general idea behind our approach is to model situations as chains of actions and
-their corresponding emotional effect using an ontological representation. According
-to the definition provided by Studer et al. [33], an ontology captures knowledge
-shared by a community that can be easily sharable with other communities. These two
-characteristics are especially relevant if we want the recall of our approach to be
-increased. Knowledge managed in our approach has to be shared by a large
-community and it also needs to be fed by heterogeneous sources of common
-knowledge to avoid uncertainties. However, specific assertions can be introduced to
-account for the specificities of individuals or contexts. In this manner, we can model
-the interaction of different events in the context in which they take place and add
-inference mechanisms to extract knowledge that is not explicitly present in the text.
-We can also include knowledge on the appraisal criteria relating to different concepts
-found in other ontologies and knowledge bases (to account for the different properties
-of the actor, action and object). At the same time, we can define the properties of
-emotions and how they combine. Such an approach can account for the differences in
-interpretation, as the specific knowledge on the individual beliefs or preferences can
-be easily added as action chains or properties of concepts.
+  La idea general detrás de nuestro enfoque es modelar situaciones como cadenas de acciones y su correspondiente efecto emocional utilizando una representación ontológica. Según la definición proporcionada por Studer et al. [33], una ontología captura el conocimiento compartido por una comunidad que se puede compartir fácilmente con otras comunidades. Estas dos características son especialmente relevantes si queremos aumentar el recuerdo de nuestro enfoque. El conocimiento gestionado en nuestro enfoque debe ser compartido por una gran comunidad y también debe ser alimentado por fuentes heterogéneas de conocimiento común para evitar incertidumbres. Sin embargo, se pueden introducir afirmaciones específicas para dar cuenta de las especificidades de los individuos o contextos. De esta manera, podemos modelar la interacción de diferentes eventos en el contexto en el que tienen lugar y agregar mecanismos de inferencia para extraer conocimiento que no está explícitamente presente en el texto. También podemos incluir conocimientos sobre los criterios de valoración relacionados con diferentes conceptos encontrados en otras ontologías y bases de conocimiento (para dar cuenta de las diferentes propiedades del actor, acción y objeto). Al mismo tiempo, podemos definir las propiedades de las emociones y cómo se combinan. Este enfoque puede dar cuenta de las diferencias en la interpretación, ya que el conocimiento específico sobre las creencias o preferencias individuales puede agregarse fácilmente como cadenas de acción o propiedades de los conceptos.
 
-Given these requirements, our approach defines a new knowledge base, called
-EmotiNet, to store action chains and their corresponding emotional labels from
-several situations in such a way that we will be able to extract general patterns of
-appraisal. From a more practical viewpoint, our approach defines an action chain as a
-sequence of action links, or simply actions that trigger an emotion on an actor. Each
-specific action link can be described with a tuple (actor, action type, patient,
-emotional reaction). Specifically, the EmotiNet KB was built by means of an iterative
-process that extracts the action chains from a document and adds them to the KB. This
-process is divided in a series of steps, explained in the subsequent sections. 
+  Ante estos requerimientos, nuestro enfoque define una nueva base de conocimiento, denominada EmotiNet, para almacenar cadenas de acción y sus correspondientes etiquetas emocionales de diversas situaciones de tal manera que seremos capaces de extraer patrones generales de valoración. Desde un punto de vista más práctico, nuestro enfoque define una cadena de acción como una secuencia de vínculos de acción, o simplemente acciones que desencadenan una emoción en un actor. Cada vínculo de acción específico se puede describir con una tupla (actor, tipo de acción, paciente, reacción emocional).
 
 \end{description}
 
@@ -817,8 +723,8 @@ Hay muchos recursos que se utilizan en la tarea del procesamiento del lenguaje n
 El aprendizaje de ontologías se ocupa del problema de crear automáticamente una ontología a partir de varios recursos. Los ejemplos incluyen análisis de minería, principalmente
 el estudio de texto en lenguaje natural~\cite{}. En esta tarea en particular, se han presentado varios enfoques, desde el análisis sintáctico y semántico de corpora~\cite{} hasta enfoques estadísticos y basados   en el aprendizaje automático~\cite{}.
 
-Se han propuesto varias herramientas y sistemas para esta tarea. Text2Onto~\cite{cimiano2005text2onto} es un marco para el descubrimiento de cambios impulsado por datos que emplea un modelo de ontología probabilística (POM). 
-OntoLT~\cite{buitelaar2004ontolt} extrae conceptos y relaciones automáticamente de colecciones de texto anotadas lingüísticamente, por medio de un conjunto de reglas, que asigna clases lingüísticas a clases de ontología. 
+Se han propuesto varias herramientas y sistemas para esta tarea. Text2Onto~\cite{cimiano2005text2onto} es un marco para el descubrimiento de cambios impulsado por datos que emplea un modelo de ontología probabilística (POM).
+OntoLT~\cite{buitelaar2004ontolt} extrae conceptos y relaciones automáticamente de colecciones de texto anotadas lingüísticamente, por medio de un conjunto de reglas, que asigna clases lingüísticas a clases de ontología.
 Un enfoque más nuevo es OntoGain~\cite{drymonas2010unsupervised}, que utiliza un enfoque no supervisado y explota la información léxica inherente del término de varias palabras para extraer conceptos de nivel superior.
 
 Uno de los problemas con estos enfoques es la cantidad de información falsa que generan~\cite{Maimon:2015:OLT:2870689.2870690}. En general, habrá muchas piezas de información redundantes o sin importancia en los corpus analizados. Un enfoque ingenuo que no tenga en cuenta este tema creará ontologías inmensas con muy poca información útil. Para abordar este problema, OntoGain propone un esquema de agrupamiento jerárquico que intenta identificar conceptos y relaciones generales.
