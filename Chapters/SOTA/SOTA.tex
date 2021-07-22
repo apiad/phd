@@ -39,20 +39,12 @@ Al comprender el mundo como compuesto de conceptos que interactúan entre sí a 
 La forma más sencilla de combinar conceptos y acciones es a través de relaciones binarias, donde un concepto actúa como sujeto y otro como objetivo.
 Además, existen algunos tipos de relaciones suficientemente generales, como los hipónimos y los holónimos, que son utilizados en todos los dominios del discurso humano.
 
+Para entender el estado del arte en el descubrimiento automático de conocimiento a partir de lenguaje natural es necesario entonces analizar varias áreas de investigación.
+Las técnicas para la representación semántica de conocimiento, su almacenamiento y procesamiento computacional, y sus métricas de evaluación, se presentan en la Sección~\ref{sec:sota-ontology}.
+Luego, la Seccion~\ref{sota-annotation} resume los principales esquemas de anotación existentes, así como las herramientas de anotación más populares. También se presenta una breve descripción y comparación de varios recursos lingüísticos de múltiples dominios.
+Finalmente, en la sección~\ref{sec:sota-ml} se analiza el papel que juega el aprendizaje automático en el descubrimiento de conocimiento, tanto desde la creación de modelos de detección de entidades y relaciones como desde la construcción de herramientas de anotación asistida más inteligentes.
 
-
-% RESUMEN DEL PROCESO
-
-- explicar el proceso y las tareas
-- definir un esquema de anotacion, modelo semántico, que sea bueno
-- herramientas con las que hacer la anotacion
-- anotación asistida y utilidades para anotar mejor
-- anotar un corpus con metricas de calidad y merging, hablar de la metodologia de anotacion
-- entrenar sistemas de machine learning para la extraccion automática
-- diseñar entornos de evaluación (challenges) para comparar sistemas
-- construir ontologías
-
-\section{Representación del Conocimiento}
+\section{Representación del Conocimiento}\label{sec:sota-ontology}
 
 Desde los albores de la informática, uno de los problemas que ha atraído gran atención es el de representar el conocimiento en un formato computacional, de modo que se pueda realizar un razonamiento automático para descubrir verdades nuevas, previamente desconocidas~\cite{sowa2000knowledge}. Podría decirse que la tecnología de representación del conocimiento más popular en uso son las ontologías~\cite{guarino1995formal}, que se han convertido en el estándar \emph{de facto}.
 Las ontologías se pueden definir como una especificación formal de una conceptualización~\cite{asuncion2003}. Esto representa conceptos, relaciones entre estos conceptos, instancias de estos conceptos y reglas de inferencia para derivar nuevas relaciones.
