@@ -1,27 +1,37 @@
 \chapter{Estado del Arte}\label{Chapter:SOTA}
 \markboth{\MakeUppercase{Estado del Arte}}{}
 
-El crecimiento exponencial de Internet en las últimas décadas ha producido un excedente masivo de información textual en todas las áreas del quehacer humano. Este escenario presenta tanto una oportunidad como un desafío para los investigadores. Por un lado, se dispone de una cantidad cada vez mayor de literatura científica, donde se podrían encontrar posibles soluciones para problemas críticos vinculando resultados parciales publicados en distintos documentos. Por otro lado, la extensión de la información disponible no puede ser procesada por humanos solos en un período de tiempo razonable.
+En las últimas décadas el crecimiento de Internet ha puesto a disposición de los seres humanos un volumen cada vez mayor de información.
 Este fenómeno ha sido denominado Big Data~\cite{bigdata}, y su estudio ha atraído la atención de diferentes comunidades de investigación como inteligencia empresarial~\cite{chen2012business}, ingeniería que incluye física y biológica~\cite{wu2014data} y redes sociales~\cite{shah2015big}.
-Por lo tanto, los esfuerzos se han dirigido recientemente hacia el diseño de técnicas automáticas que pueden descubrir piezas de información relevantes en grandes corpora, establecer conexiones lógicas y sintetizar conocimientos útiles.
-El primer paso en muchas de estas técnicas implica la recopilación, el procesamiento y la anotación de datos que se pueden usar para entrenar algoritmos de aprendizaje automático o construir sistemas expertos mediante el uso de técnicas de procesamiento del lenguaje natural.
+Una fracción mayoritaria de esta información se encuentra en formato no estructurado: texto en lenguaje natural, imágenes, videos, audio, entre otros.
+A diferencia de la información estructurada~(e.j., almacenada en bases de datos), la información no estructurada presenta ambigüedad, redundancia, y otras características que dificultan su comprensión.
+Esta dificultad es todavía mayor si se pretende construir sistemas computacionales que hagan uso del conocimiento implícitamente almacenado en grandes volúmenes información no estructurada.
+Por lo tanto, un primer paso en la utilización de estas fuentes de información consiste en representar la información existente en estructuras semánticas que sean computacionalmente tratables.
+
+% Por este motivo, un paso
+% El crecimiento exponencial de Internet en las últimas décadas ha producido un excedente masivo de información textual en todas las áreas del quehacer humano.
+% Este escenario presenta tanto una oportunidad como un desafío para los investigadores. Por un lado, se dispone de una cantidad cada vez mayor de literatura científica, donde se podrían encontrar posibles soluciones para problemas críticos vinculando resultados parciales publicados en distintos documentos. Por otro lado, la extensión de la información disponible no puede ser procesada por humanos solos en un período de tiempo razonable.
+% Por lo tanto, los esfuerzos se han dirigido recientemente hacia el diseño de técnicas automáticas que pueden descubrir piezas de información relevantes en grandes corpora, establecer conexiones lógicas y sintetizar conocimientos útiles.
+% El primer paso en muchas de estas técnicas implica la recopilación, el procesamiento y la anotación de datos que se pueden usar para entrenar algoritmos de aprendizaje automático o construir sistemas expertos mediante el uso de técnicas de procesamiento del lenguaje natural.
 
 Los seres humanos intentan representar el mundo en el que vivimos y los hechos y eventos que suceden usando el lenguaje.
 El lenguaje permite estructurar las ideas para que puedan compartirse con otras personas.
-Por este motivo, el procesamiento automático del lenguaje natural ha sido foco de investigaciones recientes.
-La mayoría de los recursos lingüísticos más importantes se basan en fuentes del inglés, motivados en parte por la abundancia de materia prima disponible~(por ejemplo, enciclopedias en línea, trabajos de investigación), lo cual no es sorprendente dado que el inglés es el idioma más predominante en ciencia, tecnología y comunicaciones.
-Sin embargo, los recursos en inglés no siempre son directamente aplicables a otros idiomas.
-Aunque la traducción automática ha alcanzado una precisión impresionante en dominios abiertos, sigue siendo un desafío crear recursos en varios idiomas, como el español, que es menos predominante en los dominios técnicos~\cite{villegas2018mespen}.
-En lugar de centrarse en lenguajes de nicho específicos, una posible línea de investigación es diseñar recursos que sean agnósticos del lenguaje, en el sentido de que se puedan generalizar a varios lenguajes con poco esfuerzo, en virtud de que se basan en características comunes subyacentes compartidas por muchos lenguajes.
+Por este motivo, el procesamiento computacional del lenguaje natural ha sido foco de investigaciones recientes.
+Generalmente, una de las formas más comunes de representar piezas arbitrarias de conocimiento es a través de la noción de conceptos y acciones~\cite{teleologies}.
+Al comprender el mundo como compuesto de conceptos que interactúan entre sí a través de acciones, los humanos pueden comunicar una gran variedad y complejidad de información y conocimiento.
+La forma más sencilla de combinar conceptos y acciones es a través de relaciones binarias, donde un concepto actúa como sujeto y otro como objetivo.
+
+% La mayoría de los recursos lingüísticos más importantes se basan en fuentes del inglés, motivados en parte por la abundancia de materia prima disponible~(por ejemplo, enciclopedias en línea, trabajos de investigación), lo cual no es sorprendente dado que el inglés es el idioma más predominante en ciencia, tecnología y comunicaciones.
+% Sin embargo, los recursos en inglés no siempre son directamente aplicables a otros idiomas.
+% Aunque la traducción automática ha alcanzado una precisión impresionante en dominios abiertos, sigue siendo un desafío crear recursos en varios idiomas, como el español, que es menos predominante en los dominios técnicos~\cite{villegas2018mespen}.
+% En lugar de centrarse en lenguajes de nicho específicos, una posible línea de investigación es diseñar recursos que sean agnósticos del lenguaje, en el sentido de que se puedan generalizar a varios lenguajes con poco esfuerzo, en virtud de que se basan en características comunes subyacentes compartidas por muchos lenguajes.
 
 % Los humanos consumen la información ambiental y la transforman en conceptos independientes, que pueden relacionarse entre sí.
 % En general, solo almacenamos una pequeña parte de toda la información que procesamos todos los días.
 % Esta información consta de los conceptos y relaciones más importantes, que pueden ser útiles en situaciones futuras.
 % Así, aprendemos básicamente separando lo que podría considerarse ruido de la información que pensamos que será útil en el futuro.
 % En general, dijimos dos tipos de recuerdos: uno para el conocimiento reciente y otro donde almacenamos el conocimiento durante mucho tiempo.
-Generalmente, una de las formas más comunes de representar piezas arbitrarias de conocimiento es a través de la noción de conceptos y acciones~\cite{teleologies}.
-Al comprender el mundo como compuesto de conceptos que interactúan entre sí a través de acciones, los humanos pueden comunicar una gran variedad y complejidad de información y conocimiento.
-La forma más sencilla de combinar conceptos y acciones es a través de relaciones binarias, donde un concepto actúa como sujeto y otro como objetivo.
+
 
 Las ontologías son una de las representaciones más comunes del conocimiento en formato digital.
 Las ontologías, las bases de conocimiento, las redes semánticas y las representaciones computacionales similares a menudo se basan en el concepto del triplete Sujeto-Verbo-Objeto, incluso si se hace referencia a los componentes individuales usando términos diferentes (es decir, relaciones en tripletes RDF o predicados en lógica bases de conocimiento).
