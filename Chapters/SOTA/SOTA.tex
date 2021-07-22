@@ -8,134 +8,38 @@ A diferencia de la información estructurada~(e.j., almacenada en bases de datos
 Esta dificultad es todavía mayor si se pretende construir sistemas computacionales que hagan uso del conocimiento implícitamente almacenado en grandes volúmenes información no estructurada.
 Por lo tanto, un primer paso en la utilización de estas fuentes de información consiste en representar la información existente en estructuras semánticas que sean computacionalmente tratables.
 
-% Por este motivo, un paso
-% El crecimiento exponencial de Internet en las últimas décadas ha producido un excedente masivo de información textual en todas las áreas del quehacer humano.
-% Este escenario presenta tanto una oportunidad como un desafío para los investigadores. Por un lado, se dispone de una cantidad cada vez mayor de literatura científica, donde se podrían encontrar posibles soluciones para problemas críticos vinculando resultados parciales publicados en distintos documentos. Por otro lado, la extensión de la información disponible no puede ser procesada por humanos solos en un período de tiempo razonable.
-% Por lo tanto, los esfuerzos se han dirigido recientemente hacia el diseño de técnicas automáticas que pueden descubrir piezas de información relevantes en grandes corpora, establecer conexiones lógicas y sintetizar conocimientos útiles.
-% El primer paso en muchas de estas técnicas implica la recopilación, el procesamiento y la anotación de datos que se pueden usar para entrenar algoritmos de aprendizaje automático o construir sistemas expertos mediante el uso de técnicas de procesamiento del lenguaje natural.
-
-Los seres humanos intentan representar el mundo en el que vivimos y los hechos y eventos que suceden usando el lenguaje.
-El lenguaje permite estructurar las ideas para que puedan compartirse con otras personas.
-Por este motivo, el procesamiento computacional del lenguaje natural ha sido foco de investigaciones recientes.
-Generalmente, una de las formas más comunes de representar piezas arbitrarias de conocimiento es a través de la noción de conceptos y acciones~\cite{teleologies}.
-Al comprender el mundo como compuesto de conceptos que interactúan entre sí a través de acciones, los humanos pueden comunicar una gran variedad y complejidad de información y conocimiento.
-La forma más sencilla de combinar conceptos y acciones es a través de relaciones binarias, donde un concepto actúa como sujeto y otro como objetivo.
-
-% La mayoría de los recursos lingüísticos más importantes se basan en fuentes del inglés, motivados en parte por la abundancia de materia prima disponible~(por ejemplo, enciclopedias en línea, trabajos de investigación), lo cual no es sorprendente dado que el inglés es el idioma más predominante en ciencia, tecnología y comunicaciones.
-% Sin embargo, los recursos en inglés no siempre son directamente aplicables a otros idiomas.
-% Aunque la traducción automática ha alcanzado una precisión impresionante en dominios abiertos, sigue siendo un desafío crear recursos en varios idiomas, como el español, que es menos predominante en los dominios técnicos~\cite{villegas2018mespen}.
-% En lugar de centrarse en lenguajes de nicho específicos, una posible línea de investigación es diseñar recursos que sean agnósticos del lenguaje, en el sentido de que se puedan generalizar a varios lenguajes con poco esfuerzo, en virtud de que se basan en características comunes subyacentes compartidas por muchos lenguajes.
-
-% Los humanos consumen la información ambiental y la transforman en conceptos independientes, que pueden relacionarse entre sí.
-% En general, solo almacenamos una pequeña parte de toda la información que procesamos todos los días.
-% Esta información consta de los conceptos y relaciones más importantes, que pueden ser útiles en situaciones futuras.
-% Así, aprendemos básicamente separando lo que podría considerarse ruido de la información que pensamos que será útil en el futuro.
-% En general, dijimos dos tipos de recuerdos: uno para el conocimiento reciente y otro donde almacenamos el conocimiento durante mucho tiempo.
-
-Las ontologías son una de las representaciones más comunes del conocimiento en formato digital.
-Las ontologías, las bases de conocimiento, las redes semánticas y las representaciones computacionales similares a menudo se basan en representaciones de tipo Sujeto-Verbo-Objeto, incluso si se hace referencia a los componentes individuales usando términos diferentes (es decir, relaciones en tripletes RDF o predicados en lógica bases de conocimiento).
-
+Las ontologías son una de las representaciones más comunes del conocimiento en formato digital~\cite{guarino1995formal}.
 El auge de la web semántica ha fomentado la creación de ontologías y bases de conocimiento a gran escala en varios dominios.
 Algunas ontologías representan dominios generales, como DBPedia, y recopilan una gran proporción del conocimiento humano común.
 Otros operan en un dominio más específico pero incorporan datos más detallados sobre el dominio.
 Uno de los mayores obstáculos para representar grandes volumenes de conocimiento en estructuras semánticas es la cantidad de esfuerzo y tiempo que necesitan los expertos para construir ontologías de forma manual~\cite{gomez2006ontological, petasis2011ontology}.
 En este sentido, el campo del aprendizaje de la ontología~\cite{buitelaar2005ontology} estudia las técnicas y metodologías que permiten la extracción automática o semiautomática de ontologías de fuentes de información no estructuradas, como el texto en lenguaje natural~\cite{mitchell2015never,Balahur2011}.
 
-Descubrir automáticamente conocimiento relevante en lenguaje natural requiere del diseño de algoritmos que sean capaces de reconocer en el texto los elementos semánticos más importantes y las relaciones entre ellos.
+Descubrir automáticamente conocimiento relevante en lenguaje natural requiere del diseño de algoritmos que sean capaces de asociar una interpretación semántica a un fragmento de texto en lenguaje natural.
 La complejidad del lenguaje natural hace impracticable el definir de manera explícita las reglas que permiten a un ser humano comprender toda la variedad lingüistica existente.
 La alternativa es utilizar algoritmos que sean capaces de descubrir automáticamente estas reglas~(o aproximaciones de las mismas) directamente de los datos.
-El aprendizaje automático es un área de la inteligencia artificial, de creciente auge, que permite diseñar algoritmos que aprendan a partir de datos.
+El aprendizaje automático es un área de la inteligencia artificial, de creciente auge, que permite diseñar algoritmos que aprendan a partir de datos~\cite{mitchel_ml}.
 Uno de los paradigmas más utilizados en este campo es el aprendizaje supervisado.
-En este paradigma, en vez de codificar directamente las reglas, se le provee a un algoritmo con un conjunto~(generalmente grande) de ejemplos de entrada y salida, lo que permite realizar un proceso de ``entrenamiento'' en el cuál se infieren automáticamente las posibles reglas que mejor se ajustan a esos ejemplos.
+En este paradigma, en vez de codificar directamente las reglas, se le provee a un algoritmo con un conjunto~(generalmente grande) de ejemplos de entrada y salida, lo que permite realizar un proceso de ``entrenamiento'' en el cuál se infieren automáticamente las posibles reglas que mejor se ajustan a esos ejemplos~\cite{murphy_ml}.
 Otros enfoques de aprendizaje automático, incluyendo no supervisado y por refuerzo, también pueden ser aplicados al descubrimiento de conocimiento, pero son menos comunes.
 
+De manera general no es factible diseñar un algoritmo que obtenga directamente de lenguaje natural una ontología formalmente definida.
+Por el contrario, el proceso generalmente se divide en varias fases que permiten ir refinando progresivamente la información hasta extraer el conocimiento relevante.
+El primer paso consiste en detectar en el texto las entidades relevantes y las relaciones semánticas entre ellas.
+Este paso ya representa un reto significativo, pues la propia naturaleza del lenguaje natural hace que el mismo conocimiento pueda ser expresado de diferentes maneras, y que el mismo texto corresponda a diferentes interpretaciones.
+Resolver este problema con aprendizaje supervisado requiere de un número considerable de ejemplos de texto en lenguaje natural, donde un experto humano ha señalado los fragmentos que corresponden a entidades y relaciones.
+
+Más allá del costo de este proceso de anotación manual, es necesario diseñar esquemas de anotación que sean a la vez suficientemente sencillos como para ser aprendidos automáticamente, y suficientemente expresivos como para ser capaces de representar la semántica deseada.
+Según el dominio de interés, es posible que las entidades y relaciones a detectar sean de tipos muy específicos~(e.j., fármacos y enfermedades~\cite{goldberg1996drug} o interacciones entre genes y proteínas~\cite{tanabe2005genetag}),
+o de propósito general.
+
+Definir un esquema de anotación generalizable a muchos dominios e idiomas requiere encontrar una representación semántica común capaz de expresar ideas muy generales independientemente de la sintaxis y las reglas gramaticales de cada idioma.
+Una de las formas más comunes de representar piezas arbitrarias de conocimiento es a través de la noción de conceptos y acciones~\cite{teleologies}.
+Al comprender el mundo como compuesto de conceptos que interactúan entre sí a través de acciones, los humanos pueden comunicar una gran variedad y complejidad de información y conocimiento.
+La forma más sencilla de combinar conceptos y acciones es a través de relaciones binarias, donde un concepto actúa como sujeto y otro como objetivo.
+Además, existen algunos tipos de relaciones suficientemente generales, como los hipónimos y los holónimos, que son utilizados en todos los dominios del discurso humano.
 
 
-hace falta algoritmos de machine learning
-
-los algoritmos aprenden de datos anotados
-
-hay que diseñar esquemas de anotación
-
-% Una de las cuestiones más importantes en el aprendizaje de ontología a partir del texto natural es cómo reconocer qué conocimiento es relevante en un dominio. Por lo general, en un corpus de texto natural, una gran parte de la información será falsa o sin importancia~\cite{Kanya2009InformationE}.
-% Los seres humanos tienen una capacidad innata para olvidar los hechos espurios o sin importancia que se nos presentan a diario, y solo almacenan a largo plazo ese conocimiento que es relevante para un propósito particular.
-% Se han propuesto varias métricas relevantes~\cite{manning2008introduction, brank2005survey}.
-% En general, el conocimiento más relevante puede estar relacionado con las acciones y conceptos que aparecen con mayor frecuencia en un dominio.
-
-El diseño de modelos de anotaciones que puedan generalizarse a varios dominios requiere decidir una representación básica del lenguaje que cubra una amplia gama de semánticas.
-Además, estas representaciones deben ser lo más independientes posible de la sintaxis y las reglas gramaticales, si se espera que se generalicen a varios idiomas.
-Un trabajo reciente~\cite{estevez2018gathering} sugiere que los tripletes Sujeto-Acción-Objetivo pueden usarse para detectar una gran cantidad de interacciones semánticas en lenguaje natural, independientemente del dominio y relativamente independientes del lenguaje, ya que
-más del 75\% de los lenguajes humanos emplean alguna variación de la estructura gramatical Sujeto-Verbo-Objeto~\cite{crystal2004cambridge}.
-Asimismo, varias representaciones ontológicas a menudo concuerdan en una serie de relaciones de propósito general, (por ejemplo, \textit{es-a} hipónimos, \textit{parte-de} holónimos) que son útiles en cualquier dominio.
-Otras conceptualizaciones permiten capturar la semántica más cercana al lenguaje natural, como la Representación de significado abstracto, AMR~\cite{banarescu2013abstract}.
-La construcción de corpus anotados con estructuras semánticas de propósito general como sujeto-acción-objetivo y relaciones ontológicas de alto nivel es el primer paso en el diseño de sistemas que pueden descubrir conocimiento automáticamente en una variedad de dominios y escenarios.
-
-La investigación en el descubrimiento del conocimiento requiere no solo recursos lingüísticos~(por ejemplo, corpus anotados) sino también recursos e infraestructuras computacionales que permitan a los investigadores evaluar sistemáticamente sus resultados y compararlos objetivamente con enfoques alternativos.
-Esto implica la definición formal de tareas y el diseño de métricas de evaluación objetivas que aseguren que es posible una comparación justa.
-Aún mejor es un sistema de evaluación disponible públicamente donde los investigadores pueden presentar sus resultados, garantizando que se apliquen los mismos criterios de evaluación y liberando a los investigadores de reproducir el entorno de evaluación. Dicho sistema también garantizaría un proceso de investigación más transparente y reproducible, y proporcionaría un depósito centralizado de los enfoques existentes, lo que ayudaría a los nuevos investigadores a actualizarse sobre el estado de la técnica.
-
-% El crecimiento acelerado de Internet ha producido un excedente de información (noticias, correo electrónico, redes sociales, blogs) que supera con creces nuestra capacidad de procesamiento y consumo de datos.
-% Así, la construcción de sistemas automáticos que puedan extraer conocimiento de este flujo de información se ha convertido en uno de los campos de investigación más activos en la informática.
-
-% Hoy en día, una de las mayores fuentes de información de Internet
-% es texto en lenguaje natural, que aparece en noticias, opiniones, mensajes, enciclopedias y muchas otras formas de comunicación digital.
-% Esto no es accidental, ya que las palabras~(representadas computacionalmente como texto) son uno de los canales de comunicación más importantes a lo largo de la historia de la humanidad.
-% Uno de los conceptos más básicos reconocibles en el lenguaje natural que brindan información útil son las acciones. Por lo general, se asocian con dos conceptos distintivos, el sujeto y el objetivo. El primero es quién realiza la acción, y el segundo es quién recibe las consecuencias de dicha acción.
-% Identificar correctamente las acciones, sus correspondientes sujetos y destinatarios es uno de los retos más básicos y fundamentales para comprender la información.
-
-- importancia de la semántica
-
-% PAPER ICAII
-
-
-% Esta estructura simple es muy común en los lenguajes humanos.
-% Más del 75\% de los idiomas tienen una estructura sintáctica que sigue el orden SVO (sujeto-verbo-objeto) o SOV (sujeto-objeto-verbo~\cite{cambridge}.
-% Además, Sujeto-Verbo-Objeto es el orden más común en las lenguas criollas, lo que se ha sugerido como una indicación de que es el orden más natural.
-% para la psicología humana.~\cite{diamond2013rise}.
-% Como ejemplo, de la oración `` Arnold conduce un automóvil '' y obtenemos un triplete Sujeto-Verbo-Objeto \verb|(Arnold, conduce, automóvil)|.
-
-% Esta estructura es omnipresente en muchos problemas diferentes en el campo del procesamiento del lenguaje natural.
-% Diferentes autores han empleado un Sujeto-Verbo-Objeto para una estructura similar o para representar conocimiento extraído de un texto natural, en una variedad de dominios~\cite{mitchell2015never,Balahur2011}.
-% Así, una representación basada en el triplete Sujeto-Verbo-Objeto es adecuada para la representación genérica del conocimiento, independientemente del dominio.
-
-% Las ontologías son una de las representaciones más comunes del conocimiento en formato digital.
-% Las ontologías, las bases de conocimiento, las redes semánticas y las representaciones computacionales similares a menudo se basan en el concepto del triplete Sujeto-Verbo-Objeto, incluso si se hace referencia a los componentes individuales usando términos diferentes (es decir, relaciones en tripletes RDF o predicados en lógica bases de conocimiento).
-
-% El auge de la web semántica ha fomentado la creación de ontologías y bases de conocimiento a gran escala en varios dominios.
-% Algunas ontologías representan dominios generales, como DBPedia, y recopilan una gran proporción del conocimiento humano común.
-% Otros operan en un dominio más específico pero incorporan datos más detallados sobre el dominio.
-% Uno de los mayores obstáculos para el desarrollo de la web semántica es la cantidad de esfuerzo y tiempo que necesitan los expertos humanos para construir ontologías a mano~\cite{gomez2006ontological, petasis2011ontology}.
-% En este sentido, el campo del aprendizaje de la ontología~\cite{buitelaar2005ontology} estudia las técnicas y metodologías que permiten la extracción automática o semiautomática de ontologías de fuentes de información no estructuradas, como el texto natural~\cite{mitchell2015never,Balahur2011}.
-
-% Una de las cuestiones más importantes en el aprendizaje de ontología a partir del texto natural es cómo reconocer qué conocimiento es relevante en un dominio. Por lo general, en un corpus de texto natural, una gran parte de la información será falsa o sin importanci~\cite{Kanya2009InformationE}.
-% Los seres humanos tienen una capacidad innata para olvidar los hechos espurios o sin importancia que se nos presentan a diario, y solo almacenan a largo plazo ese conocimiento que es relevante para un propósito particular.
-% Se han propuesto varias métricas relevantes~\cite{manning2008introduction, brank2005survey}.
-% En general, el conocimiento más relevante puede estar relacionado con las acciones y conceptos que aparecen con mayor frecuencia en un dominio.
-
-% PAPER JBI
-
-% El sector de la salud digital es de gran interés para la comunidad investigadora dados los posibles beneficios sociales derivados de la aplicación de tecnologías de descubrimiento automático del conocimiento. La comunidad de investigación ha producido una gran cantidad de corpus anotados en diferentes subdominios de este sector, desde interacciones específicas (p. Ej., Fármaco-enfermedad~\cite{goldberg1996drug} o interacciones gen-proteína~\cite{tanabe2005genetag}) hasta amplio alcance y dominio (por ejemplo, informes de ensayos clínico ~\cite{nye2018corpus}).
-% Los corpus y las tecnologías de dominios específicos son de vital importancia en la medicina de alta precisión.
-% Sin embargo, los sistemas construidos para dominios muy específicos son posiblemente más difíciles de generalizar y extender que los sistemas construidos sobre conceptualizaciones de propósito general.
-% Como tal, existe un interés creciente en diseñar modelos de anotación y corpus con semántica de propósito general que se puedan usar en una variedad de dominios o como un componente en sistemas más especializados.
-
-% Además del dominio, el lenguaje es otra dimensión que ha sido el foco de investigaciones recientes.
-% La mayoría de los recursos lingüísticos más importantes se basan en fuentes del inglés, motivados en parte por la abundancia de materia prima disponible~(por ejemplo, enciclopedias en línea, trabajos de investigación), lo cual no es sorprendente dado que el inglés es el idioma más predominante en ciencia, tecnología y comunicaciones.
-% Sin embargo, los recursos en inglés no siempre son directamente aplicables a otros idiomas.
-% Aunque la traducción automática ha alcanzado una precisión impresionante en dominios abiertos, sigue siendo un desafío crear recursos en varios idiomas, como el español, que es menos predominante en los dominios técnicos~\cite{villegas2018mespen}.
-% En lugar de centrarse en lenguajes de nicho específicos, una posible línea de investigación es diseñar recursos que sean agnósticos del lenguaje, en el sentido de que se puedan generalizar a varios lenguajes con poco esfuerzo, en virtud de que se basan en características comunes subyacentes compartidas por muchos lenguajes.
-
-% El diseño de modelos de anotaciones que puedan generalizarse a varios dominios requiere decidir una representación básica del lenguaje que cubra una amplia gama de semánticas.
-% Además, estas representaciones deben ser lo más independientes posible de la sintaxis y las reglas gramaticales, si se espera que se generalicen a varios idiomas.
-% Un trabajo reciente~\cite{estevez2018gathering} sugiere que los tripletes Sujeto-Acción-Objetivo pueden usarse para detectar una gran cantidad de interacciones semánticas en lenguaje natural, independientemente del dominio y relativamente independientes del lenguaje, ya que
-% más del 75 \% de los lenguajes humanos emplean alguna variación de la estructura gramatical Sujeto-Verbo-Objeto~\cite{crystal2004cambridge}.
-% Asimismo, varias representaciones ontológicas a menudo concuerdan en una serie de relaciones de propósito general, (por ejemplo, \textit{es-a} hipónimos, \textit{parte-de} holónimos) que son útiles en cualquier dominio.
-% Otras conceptualizaciones permiten capturar la semántica más cercana al lenguaje natural, como la Representación de significado abstracto, AMR~\cite{banarescu2013abstract}.
-% La construcción de corpus anotados con estructuras semánticas de propósito general como sujeto-acción-objetivo y relaciones ontológicas de alto nivel es el primer paso en el diseño de sistemas que pueden descubrir conocimiento automáticamente en una variedad de dominios y escenarios.
-
-% La investigación en el descubrimiento del conocimiento requiere no solo recursos lingüísticos~(por ejemplo, corpus anotados) sino también recursos e infraestructuras computacionales que permitan a los investigadores evaluar sistemáticamente sus resultados y compararlos objetivamente con enfoques alternativos.
-% Esto implica la definición formal de tareas y el diseño de métricas de evaluación objetivas que aseguren que es posible una comparación justa.
-% Aún mejor es un sistema de evaluación disponible públicamente donde los investigadores pueden presentar sus resultados, garantizando que se apliquen los mismos criterios de evaluación y liberando a los investigadores de reproducir el entorno de evaluación. Dicho sistema también garantizaría un proceso de investigación más transparente y reproducible, y proporcionaría un depósito centralizado de los enfoques existentes, lo que ayudaría a los nuevos investigadores a actualizarse sobre el estado de la técnica.
 
 % RESUMEN DEL PROCESO
 
