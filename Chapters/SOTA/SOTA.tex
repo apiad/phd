@@ -32,25 +32,34 @@ La forma más sencilla de combinar conceptos y acciones es a través de relacion
 % Así, aprendemos básicamente separando lo que podría considerarse ruido de la información que pensamos que será útil en el futuro.
 % En general, dijimos dos tipos de recuerdos: uno para el conocimiento reciente y otro donde almacenamos el conocimiento durante mucho tiempo.
 
-
 Las ontologías son una de las representaciones más comunes del conocimiento en formato digital.
-Las ontologías, las bases de conocimiento, las redes semánticas y las representaciones computacionales similares a menudo se basan en el concepto del triplete Sujeto-Verbo-Objeto, incluso si se hace referencia a los componentes individuales usando términos diferentes (es decir, relaciones en tripletes RDF o predicados en lógica bases de conocimiento).
+Las ontologías, las bases de conocimiento, las redes semánticas y las representaciones computacionales similares a menudo se basan en representaciones de tipo Sujeto-Verbo-Objeto, incluso si se hace referencia a los componentes individuales usando términos diferentes (es decir, relaciones en tripletes RDF o predicados en lógica bases de conocimiento).
 
 El auge de la web semántica ha fomentado la creación de ontologías y bases de conocimiento a gran escala en varios dominios.
 Algunas ontologías representan dominios generales, como DBPedia, y recopilan una gran proporción del conocimiento humano común.
 Otros operan en un dominio más específico pero incorporan datos más detallados sobre el dominio.
-Uno de los mayores obstáculos para el desarrollo de la web semántica es la cantidad de esfuerzo y tiempo que necesitan los expertos humanos para construir ontologías a mano~\cite{gomez2006ontological, petasis2011ontology}.
-En este sentido, el campo del aprendizaje de la ontología~\cite{buitelaar2005ontology} estudia las técnicas y metodologías que permiten la extracción automática o semiautomática de ontologías de fuentes de información no estructuradas, como el texto natural~\cite{mitchell2015never,Balahur2011}.
+Uno de los mayores obstáculos para representar grandes volumenes de conocimiento en estructuras semánticas es la cantidad de esfuerzo y tiempo que necesitan los expertos para construir ontologías de forma manual~\cite{gomez2006ontological, petasis2011ontology}.
+En este sentido, el campo del aprendizaje de la ontología~\cite{buitelaar2005ontology} estudia las técnicas y metodologías que permiten la extracción automática o semiautomática de ontologías de fuentes de información no estructuradas, como el texto en lenguaje natural~\cite{mitchell2015never,Balahur2011}.
 
-Una de las cuestiones más importantes en el aprendizaje de ontología a partir del texto natural es cómo reconocer qué conocimiento es relevante en un dominio. Por lo general, en un corpus de texto natural, una gran parte de la información será falsa o sin importanci~\cite{Kanya2009InformationE}.
-Los seres humanos tienen una capacidad innata para olvidar los hechos espurios o sin importancia que se nos presentan a diario, y solo almacenan a largo plazo ese conocimiento que es relevante para un propósito particular.
-Se han propuesto varias métricas relevantes~\cite{manning2008introduction, brank2005survey}.
-En general, el conocimiento más relevante puede estar relacionado con las acciones y conceptos que aparecen con mayor frecuencia en un dominio.
+Descubrir automáticamente conocimiento relevante en lenguaje natural requiere del diseño de algoritmos que sean capaces de reconocer en el texto los elementos semánticos más importantes y las relaciones entre ellos.
+El aprendizaje automático es un área de investigación de creciente auge que permite diseñar algoritmos que aprendan a partir de los datos.
+
+
+hace falta algoritmos de machine learning
+
+los algoritmos aprenden de datos anotados
+
+hay que diseñar esquemas de anotación
+
+% Una de las cuestiones más importantes en el aprendizaje de ontología a partir del texto natural es cómo reconocer qué conocimiento es relevante en un dominio. Por lo general, en un corpus de texto natural, una gran parte de la información será falsa o sin importancia~\cite{Kanya2009InformationE}.
+% Los seres humanos tienen una capacidad innata para olvidar los hechos espurios o sin importancia que se nos presentan a diario, y solo almacenan a largo plazo ese conocimiento que es relevante para un propósito particular.
+% Se han propuesto varias métricas relevantes~\cite{manning2008introduction, brank2005survey}.
+% En general, el conocimiento más relevante puede estar relacionado con las acciones y conceptos que aparecen con mayor frecuencia en un dominio.
 
 El diseño de modelos de anotaciones que puedan generalizarse a varios dominios requiere decidir una representación básica del lenguaje que cubra una amplia gama de semánticas.
 Además, estas representaciones deben ser lo más independientes posible de la sintaxis y las reglas gramaticales, si se espera que se generalicen a varios idiomas.
 Un trabajo reciente~\cite{estevez2018gathering} sugiere que los tripletes Sujeto-Acción-Objetivo pueden usarse para detectar una gran cantidad de interacciones semánticas en lenguaje natural, independientemente del dominio y relativamente independientes del lenguaje, ya que
-más del 75 \% de los lenguajes humanos emplean alguna variación de la estructura gramatical Sujeto-Verbo-Objeto~\cite{crystal2004cambridge}.
+más del 75\% de los lenguajes humanos emplean alguna variación de la estructura gramatical Sujeto-Verbo-Objeto~\cite{crystal2004cambridge}.
 Asimismo, varias representaciones ontológicas a menudo concuerdan en una serie de relaciones de propósito general, (por ejemplo, \textit{es-a} hipónimos, \textit{parte-de} holónimos) que son útiles en cualquier dominio.
 Otras conceptualizaciones permiten capturar la semántica más cercana al lenguaje natural, como la Representación de significado abstracto, AMR~\cite{banarescu2013abstract}.
 La construcción de corpus anotados con estructuras semánticas de propósito general como sujeto-acción-objetivo y relaciones ontológicas de alto nivel es el primer paso en el diseño de sistemas que pueden descubrir conocimiento automáticamente en una variedad de dominios y escenarios.
