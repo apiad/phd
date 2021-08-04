@@ -150,65 +150,65 @@ Por último, un sistema de aprendizaje de ontología moderno tendrá que lidiar 
 
 \subsection{Evaluación del Conocimiento}\label{sec: evaluación}
 
-En un sistema computacional o marco de software, hay métricas de ingeniería de software interesantes para evaluar.
-Dicho sistema debe ser altamente modular y extensible, de modo que pueda adaptarse fácilmente a los nuevos formatos de entrada, o los nuevos algoritmos se pueden conectar e integrar fácilmente en toda la tubería.
-El diseño modular del marco puede ayudar a lograr un alto grado de extensibilidad.
+Para evaluar un sistema de descubrimiento de conocimiento es necesario considerar dos dominios de características de interés.
+En primer lugar, como sistema computacional, existen métricas de ingeniería de software relevantes.
+Adicionalmente, siendo el principal objetivo de este tipo de sistemas la construcción de representaciones semánticas del conocimiento de un dominio concreto, es necesario evaluar también dicho conocimiento.
 
-Además de estas métricas de alto nivel, cada una de las tareas realizadas por el marco se puede evaluar por separado.
-La mayoría de estas tareas tienen una métrica de rendimiento definida que se puede utilizar para evaluar el grado de corrección de dicha tarea.
-Para muchas de las tareas descritas en las secciones anteriores, podemos encontrar métricas de desempeño estándar en la literatura que pueden usarse para evaluar cada proceso en particular.
+Desde el punto de vista de la ingeniería de software, es importante diseñar sistemas modulares y extensibles, de modo que puedan adaptarse fácilmente a los nuevos formatos de entrada, o nuevos algoritmos se pueden conectar e integrar fácilmente en todo el flujo.
+Además de estas métricas cualitativas, cada una de las tareas realizadas por un sistema se puede evaluar por separado de forma cuantitativa.
+La mayoría de estas tareas tienen una métrica de rendimiento definida que se puede utilizar para evaluar el grado de correctitud de dicha tarea.
+Para muchas de las tareas descritas en las secciones anteriores, existen métricas de rendimiento estándar en la literatura que pueden usarse para evaluar cada proceso en particular, tales como precisión, recobrado, F-medida, Kappa, entre otras.
 
-Una métrica agregada de estos desempeños individuales podría proporcionar una descripción general de alto nivel del desempeño de todo el marco.
-Sin embargo, diseñar una métrica agregada que proporcione una medida práctica e interpretable de la calidad del desempeño del marco puede ser muy complejo.
-Cada una de las diferentes tareas realizadas por el marco puede tener un rendimiento de referencia muy diferente.
-Una precisión del 90\% puede ser un muy buen resultado en algunas tareas complejas, como el análisis de dependencias~\cite{AlbertiABCGKKMO17}, pero mediocre en otras tareas, como la clasificación de imágenes~\cite{Russakovsky2015}.
-Además, este número de referencia puede variar no solo entre las tareas, sino también en la misma tarea, según el conjunto de pruebas (o corpus)
-se utiliza.
+Una métrica agregada de estos rendimientos individuales podría proporcionar una descripción general de alto nivel del desempeño de todo el sistema.
+Sin embargo, diseñar una métrica agregada que proporcione una medida práctica e interpretable de la calidad del rendimiento de todo un proceso de aprendizaje ontológico es una tarea compleja.
+Cada una de las diferentes tareas realizadas por el sistema puede tener un rendimiento de referencia muy diferente.
+Una precisión del $90\%$ puede ser un muy buen resultado en algunas tareas complejas, como el análisis de dependencias~\cite{AlbertiABCGKKMO17}, pero mediocre en otras tareas, como la clasificación de imágenes~\cite{Russakovsky2015}.
+Además, este número de referencia puede variar no solo entre las tareas, sino también en la misma tarea, según el conjunto de pruebas (o corpus) se utiliza.
 
 Subiendo un nivel de abstracción, para el problema general del aprendizaje de la ontología, también hay varias métricas y metodologías de evaluación disponibles, como OntoRand~\cite{ontorand} y OntoMetric~\cite{ontometric}.
 Sin embargo, la mayoría de estas metodologías están diseñadas para evaluar una sola ontología que se crea o modifica utilizando técnicas de aprendizaje de ontologías.
 Una vez más, extender estas metodologías a una colección de ontologías no es tan sencillo como agregar o promediar los resultados individuales.
 Por otro lado, cuando se trata de una colección de ontologías, pueden surgir otras inquietudes, como la consistencia intra-ontológica, que no suelen considerarse al evaluar una única ontología.
-Presentamos algunos de los enfoques más comúnmente descritos en la literatura para evaluar ontologías~\cite{petasis2011ontology} y describimos cómo pueden usarse en nuestro contexto.
+A continuación se presentan algunos de los enfoques más comúnmente descritos en la literatura para evaluar ontologías~\cite{petasis2011ontology}.
 
 \paragraph{M1- Comparación con un patrón oro.}
 
 Este enfoque consiste en comparar una ontología aprendida con una ontología de referencia para el mismo dominio~\cite{corcoglioniti2016frame}.
-Se supone que la ontología de la línea de base es correcta y en gran medida representativa del dominio.
+Se supone que la ontología de referencia es correcta y en gran medida representativa del dominio.
 Este método proporciona una gran compensación entre velocidad y precisión, ya que ambas ontologías se pueden comparar automáticamente en una serie de métricas sin intervención humana, y los resultados tienen una alta confiabilidad porque la ontología de referencia es creada por expertos.
-Existen algunas desventajas, por ejemplo, no siempre es fácil encontrar una buena ontología de base para un dominio dado, especialmente si el dominio no está muy bien definido o es muy novedoso.
+Existen algunas desventajas, por ejemplo, no siempre es fácil encontrar una buena ontología de referencia para un dominio dado, especialmente si el dominio no está muy bien definido o es muy novedoso.
 Por otro lado, incluso dos ontologías extraídas del mismo dominio por expertos pueden tener grandes diferencias con respecto a la estructura y, en particular, a los nombres que se asignan a las clases y relaciones.
 Esto requiere alguna forma de normalización y mapeo entre ambas ontologías antes de la comparación.
-Esta métrica es difícil de usar, especialmente si estamos creando nuevas características.
+Esta métrica es difícil de usar, especialmente cuando se crean nuevas características.
 
 \paragraph{M2- Evaluación experta.}
 
-Un término medio alternativo al enfoque anterior es tener un experto en el dominio (o varios) para simplemente mirar la ontología resultante y evaluarla de acuerdo con algunas métricas predefinidas~\cite{ROSPOCHER2016132}.
-Este es posiblemente el método más confiable, en el sentido de que proporciona el mayor grado de validación que uno podría aspirar.
+Un término medio alternativo al enfoque anterior es tener un experto en el dominio (o varios) que analicen la ontología resultante y la evalúen de acuerdo con algunas métricas predefinidas~\cite{ROSPOCHER2016132}.
+Este es posiblemente el método más confiable, en el sentido de que proporciona el mayor grado de validación al que se podría aspirar.
 Sin embargo, la clara desventaja radica en la cantidad limitada de información que un ser humano puede procesar en un tiempo razonable.
-Esta desventaja se agrava en el caso en que se crea una ontología a partir de un corpus de datos muy grande, como es el propósito de nuestro marco.
-En este caso, se podría analizar un pequeño subconjunto de los datos y extrapolar los resultados desde allí, pero esta idea agrega la complejidad de determinar un subconjunto que es lo suficientemente relevante pero que sigue siendo de un tamaño manejable.
-Esta métrica suele ser cara o difícil de usar.
+Esta desventaja se agrava en el caso en que se crea una ontología a partir de un corpus de datos muy grande, como es el propósito de muchos sistemas que procesan texto en lenguaje natural.
+En este caso, se podría analizar un pequeño subconjunto de los datos y extrapolar los resultados, pero esta idea agrega la complejidad de determinar un subconjunto que es lo suficientemente relevante pero que sigue siendo de un tamaño manejable.
+Esta métrica suele ser costosa y difícil de usar.
 
 \paragraph{M3- Evaluación a través de una aplicación.}
 
 Un enfoque más práctico consiste en encontrar una aplicación interesante y evaluar si el uso de una ontología aprendida proporciona una mejora en esa aplicación~\cite{gurevych2003semantic}.
 Por ejemplo, usar una ontología aprendida sobre sentimientos humanos y frases relacionadas para mejorar el desempeño de un problema estándar de minería de opiniones.
-Si el uso del conocimiento representado en la ontología proporciona un impulso al rendimiento, medido por el enfoque estándar en la aplicación dada, obtenemos una validación confiable de que el proceso para aprender ontología, al menos, tiene un beneficio práctico medible.
+Si el uso del conocimiento representado en la ontología proporciona un incremento del rendimiento, medido por el enfoque estándar en la aplicación dada, esto proporciona una validación confiable de que el proceso para aprender la ontología, al menos, tiene un beneficio práctico medible.
 En cierto sentido, esta es una de las evaluaciones más valiosas para realizar, porque proporciona una línea base de comparación inmediata para un problema práctico.
 Los métodos anteriores que solo evalúan la ontología internamente no garantizan necesariamente que su contenido sea útil, incluso si es correcto según todas las métricas.
 Otra ventaja es que el proceso de evaluación se puede automatizar por completo y escalar para que coincida con la complejidad y el tamaño de la aplicación de destino.
 Como desventaja, validar un caso de uso no es necesariamente una métrica de la calidad general del conocimiento aprendido, y no está claro si esos resultados se replicarán en diferentes dominios y aplicaciones.
-Esta métrica de hecho parece más simple pero en muchos casos no es necesario mejorar una tarea, sino un conjunto amplio.
+Aunque esta métrica parece la más efectiva, en muchos casos al diseñar un sistema de descubrimiento de conocimiento, no se tiene definida una única aplicación de interés, sino un conjunto amplio de aplicaciones potenciales.
 
 \paragraph{M4- Evaluación basada en datos.}
 
-Finalmente, se puede realizar una evaluación basada en datos, comparando las entidades y relaciones en una ontología con un corpus de datos, no usados   durante la construcción de la ontología, pero representativos del mismo dominio~\cite{brank2005survey}.
+Finalmente, se puede realizar una evaluación basada en datos, comparando las entidades y relaciones en una ontología con un corpus de datos, no usados durante la construcción de la ontología, pero representativos del mismo dominio~\cite{brank2005survey}.
 La ontología se puede evaluar contando el número de entidades superpuestas presentes en ella con las que se encuentran en el corpus.
 Se debe tener cuidado para permitir alguna variación en el corpus con respecto a la ontología, por ejemplo, usando alguna forma de expansión de consultas.
-Este enfoque se ha utilizado para comparar relativamente diferentes ontologías creadas por expertos con el mismo corpus y decidir qué ontología proporciona el mejor `` ajuste '' con el corpus~\cite{brewster2004data}.
-Sin embargo, obtener una métrica absoluta de ajuste entre una ontología y un corpus es más difícil, principalmente porque no se sabe de antemano cuál es el valor de ajuste que uno debería esperar lograr.
-Otro posible problema de este enfoque, en el caso particular de las ontologías que se han aprendido del texto, es introducir inadvertidamente un sesgo en la evaluación.
+Este enfoque se ha utilizado para comparar relativamente diferentes ontologías creadas por expertos con el mismo corpus y decidir qué ontología proporciona el mejor ``ajuste'' con respecto al corpus~\cite{brewster2004data}.
+Sin embargo, obtener una métrica absoluta de ajuste entre una ontología y un corpus es más difícil, principalmente porque no se sabe de antemano cuál es el valor de ajuste óptimo que se podría esperar.
+Otro posible problema de este enfoque, en el caso particular de las ontologías que se han aprendido de texto en lenguaje natural, es introducir inadvertidamente un sesgo en la evaluación.
 Si los métodos utilizados para comparar la ontología y el corpus de texto están correlacionados con los utilizados para construir la ontología, entonces los resultados serán de dudosa validez.
 Por ejemplo, si se usa un algoritmo NER durante la construcción de la ontología, y se usa el mismo algoritmo en el corpus para reconocer entidades relevantes; o si se usa alguna métrica de co-ocurrencia para detectar relaciones en ambos casos.
 Esta métrica es compleja de definir y en muchas ocasiones no es representativa.
@@ -216,43 +216,49 @@ Esta métrica es compleja de definir y en muchas ocasiones no es representativa.
 \vspace{1em}
 
 Evaluar un solo método de aprendizaje de ontología es una tarea compleja, como lo demuestran los múltiples enfoques propuestos en la comunidad.
-Por lo tanto, es muy poco probable que podamos encontrar una única métrica automatizada para medir el rendimiento general de un marco como el propuesto.
-El mejor enfoque parece ser utilizar una combinación de los métodos existentes, adaptados a nuestro escenario, con la complejidad añadida de tratar con múltiples ontologías al mismo tiempo.
+Por lo tanto, es poco probable encontrar una única métrica automatizada para medir el rendimiento general de un sistema de descubrimiento de conocimiento de propósito general.
+El mejor enfoque parece ser utilizar una combinación de los métodos existentes, adaptados al escenario en cuestón.
 En algunos casos, se puede encontrar un patrón oro y utilizarlo para obtener una comparación de referencia.
 En otros casos, siempre que se agregue una interfaz adecuada para consultar fácilmente el conocimiento, un experto en el dominio puede interactuar con el marco y dar una evaluación cualitativa para el dominio de interés.
 Desde un punto de vista pragmático, la evaluación más interesante y valiosa parece ser encontrar problemas prácticos relevantes que se puedan resolver o mejorar al utilizar nuestro marco.
 
-\subsection{Criterios Cualitativos de Evaluación}
+\subsection{Comparación Cualitativa de Enfoques de Descubrimiento de Conocimiento}
 
-En la comunidad de aprendizaje de ontología, se han desarrollado varios marcos que atacan problemas similares a los que presentamos.
+En la comunidad de aprendizaje de ontología, se han desarrollado varios marcos que atacan problemas de descubrimiento de conocimiento en varios dominios.
 Algunos de los enfoques encontrados en la literatura se concentran en una tarea en particular, es decir, creación, población o enriquecimiento de ontologías, entre otras.
 Por ejemplo, marcos como KnowItAll~\cite{knowitall}, Artequakt~\cite{artequakt} y SOBA~\cite{soba} están orientados principalmente hacia la tarea de población de ontologías.
 Otros, como ASIUM~\cite{asium}, VIKEF~\cite{vikef} y SYNDICATE~\cite{syndikate} están orientados principalmente al enriquecimiento de ontologías.
 Sin embargo, muchas de las tareas o subproblemas que deben resolverse en cualquiera de estos dominios son muy similares y pueden reutilizarse.
 Por lo tanto, han surgido marcos más generales como Text2Onto~\cite{cimiano2005text2onto} o BOEMIE~\cite{boemie} que tratan con una combinación de estas tareas.
 
-En cuanto a la cantidad y complejidad de conceptos reconocidos, las soluciones existentes se pueden dividir en aquellas que solo extraen entidades (ej., KnowItAll), aquellas que solo extraen relaciones (ej., ADAPTATIVA~\cite{adaptativa}, LEILA~\cite{leila}) y aquellos que intentan extraer ambos (por ejemplo, Artequakt, Web-> KB~\cite{webkb}, BOEMIE).
+En cuanto a la cantidad y complejidad de conceptos reconocidos, las soluciones existentes se pueden dividir en aquellas que solo extraen entidades (ej., KnowItAll), aquellas que solo extraen relaciones (ej., ADAPTATIVA~\cite{adaptativa}, LEILA~\cite{leila}) y aquellos que intentan extraer ambos (por ejemplo, Artequakt, Web->KB~\cite{webkb}, BOEMIE).
 El descubrimiento de reglas de inferencia es otra tarea relevante que enriquece las ontologías ya construidas al agregar conocimientos de nivel superior, en forma de predicados lógicos o axiomas.
 Estos, a su vez, pueden usarse más adelante para descubrir instancias o relaciones faltantes, o para detectar valores atípicos y errores.
 
-La mayoría de los sistemas emplean algún tipo de herramientas de aprendizaje automático para la mayoría de las tareas. En particular, muchos emplean herramientas de PNL para procesar texto natural y extraer conocimientos, y técnicas estadísticas para detectar agrupaciones.
-Sin embargo, en general, la arquitectura de estos sistemas generalmente sigue una tubería diseñada muy estrictamente, donde los componentes se conectan cuidadosamente entre sí.
+La mayoría de los sistemas emplean algún tipo de herramientas de aprendizaje automático para la mayoría de las tareas.
+En particular, muchos emplean herramientas de PLN para procesar texto natural y extraer conocimientos, y técnicas estadísticas para detectar agrupaciones.
+Sin embargo, en general, la arquitectura de estos sistemas generalmente sigue un flujo de trabajo estrictamente diseñado donde los componentes se conectan entre sí de formas predeterminadas.
 
 La mayoría de los marcos y soluciones existentes requieren un cierto grado de interacción humana. En la mayoría de los casos, se espera que un experto en el dominio interactúe con una herramienta computacional para validar o refinar el resultado del proceso de aprendizaje.
 Sin embargo, esta posibilidad de interacción es un resultado del marco, no una necesidad.
 
-Con respecto a las restricciones de dominio, podemos clasificar las soluciones existentes en aquellas que son completamente independientes del dominio (por ejemplo, KnowItAll, LEILA, ISOLDE~\cite{isolde}) y aquellas que están adaptadas
-a dominios particulares (por ejemplo, SOBA, Artequakt). Las soluciones independientes del dominio generalmente se diseñan de manera que no haya una dependencia particular ligada a un dominio, por lo tanto, son reutilizables en varios dominios. Sin embargo, esto significa que un sistema puede usarse en un dominio u otro, pero no significa necesariamente que el mismo sistema pueda aprender un poco de conocimiento de dos dominios diferentes \emph{simultáneamente}.
+Con respecto a las restricciones de dominio, podemos clasificar las soluciones existentes en aquellas que son completamente independientes del dominio (por ejemplo, KnowItAll, LEILA, ISOLDE~\cite{isolde}) y aquellas que están adaptadas a dominios particulares (por ejemplo, SOBA, Artequakt).
+Las soluciones independientes del dominio generalmente se diseñan de manera que no haya una dependencia particular ligada a un dominio, por lo tanto, son reutilizables en varios dominios.
+Sin embargo, esto significa que un sistema puede usarse en un dominio u otro, pero no significa necesariamente que el mismo sistema pueda aprender un poco de conocimiento de dos dominios diferentes \emph{simultáneamente}.
 
-Si un sistema está simplemente diseñado para ser independiente del dominio y se utiliza para aprender de dos dominios muy diferentes, el resultado esperado es una especie de ontología combinada que representa ambos dominios con una aproximación de la unión de los conceptos (entidades y relaciones) en ellos. . Esta puede no ser la representación ideal, especialmente cuando se extiende a muchos dominios diferentes. Tratando de construir una ontología única que abarque todo el conocimiento que se puede extraer de
-varios dominios diferentes (posibles en el orden de cientos o miles) pueden ser significativamente más difíciles que una simple suma o unión de cada uno de los dominios individuales.
+Si un sistema está simplemente diseñado para ser independiente del dominio y se utiliza para aprender de dos dominios muy diferentes, el resultado esperado es una especie de ontología combinada que representa ambos dominios con una aproximación de la unión de los conceptos (entidades y relaciones) en ellos. 
+Esta puede no ser la representación ideal, especialmente cuando se extiende a muchos dominios diferentes.
+Tratando de construir una ontología única que abarque todo el conocimiento que se puede extraer de varios dominios diferentes (posiblemente en el orden de cientos o miles) pueden ser significativamente más difíciles que una simple suma o unión de cada uno de los dominios individuales.
 
-Es cierto que los humanos tenemos un conjunto básico de habilidades que podrían considerarse independientes del dominio, como nuestras habilidades innatas para la coincidencia de patrones. Estas habilidades básicas se utilizan en muchas de las tareas con las que nos enfrentamos a diario.
+Es cierto que los humanos tenemos un conjunto básico de habilidades que podrían considerarse independientes del dominio, como nuestras habilidades innatas para la coincidencia de patrones. 
+Estas habilidades básicas se utilizan en muchas de las tareas con las que nos enfrentamos a diario.
 La analogía computacional es un sistema con un único algoritmo de aprendizaje de propósito general que podría realizar, por ejemplo, tareas tan diferentes como el reconocimiento de voz, la clasificación de imágenes y la traducción con el mismo proceso.
-Este es el enfoque preferido por una parte de la comunidad de investigadores en aprendizaje automático~\cite{kaiser2017one},
-que esperan construir una inteligencia de propósito general a partir de un solo algoritmo de aprendizaje de propósito general y una única representación interna de propósito general.
+Este es el enfoque preferido por una parte de la comunidad de investigadores en aprendizaje automático~\cite{kaiser2017one} que esperan construir una inteligencia de propósito general a partir de un solo algoritmo de aprendizaje de propósito general y una única representación interna de propósito general.
 
-Sin embargo, para tareas realmente complejas, argumentamos que los humanos usan representaciones especializadas, algoritmos de aprendizaje y técnicas de inferencia. Un experto humano en un dominio altamente complejo (como las matemáticas), no utiliza las mismas técnicas para la inferencia que las que se utilizan en tareas en tiempo real como el reconocimiento de objetos y de voz. Reconocemos que la inferencia en dominios muy complejos no se puede realizar con herramientas basadas en la intuición. La construcción de un sistema inteligente que pueda realizar inferencias en varios dominios altamente complejos simultáneamente requerirá el uso de representaciones y técnicas especializadas en cada dominio. Es hacia este principio que guiamos nuestras decisiones de diseño.
+Sin embargo, para tareas realmente complejas, se puede argumentar que los humanos usan representaciones especializadas, algoritmos de aprendizaje y técnicas de inferencia.
+Un experto humano en un dominio altamente complejo (como las matemáticas), no utiliza las mismas técnicas para la inferencia que las que se utilizan en tareas en tiempo real como el reconocimiento de objetos y de voz.
+La inferencia en dominios muy complejos no se puede realizar con herramientas basadas en la intuición.
+Por lo tanto, la construcción de un sistema inteligente que pueda realizar inferencias en varios dominios altamente complejos simultáneamente requerirá el uso de representaciones y técnicas especializadas en cada dominio.
 
 \section{Anotación Semántica de Lenguaje Natural}\label{sec:sota-annotation}
 
