@@ -202,50 +202,50 @@ Sin embargo, para tareas realmente complejas, argumentamos que los humanos usan 
 
 \section{Anotación Semántica de Lenguaje Natural}\label{sec:sota-annotation}
 
-El descubrimiento del conocimiento es un campo de la informática que muestra un crecimiento acelerado en las últimas tres décadas.
-Los avances en esta área se han aplicado en muchos dominios, desde bases de datos~\cite{fayyad1996data, knowledgeDatabase} hasta imágenes~\cite{lu2016visual} y texto en lenguaje natural~\cite{carlson2010toward}.
+Como ya se ha mencionado, el descubrimiento del conocimiento es un campo de la informática que muestra un crecimiento acelerado en muchos dominios, desde bases de datos~\cite{fayyad1996data, knowledgeDatabase} hasta imágenes~\cite{lu2016visual} y texto en lenguaje natural~\cite{carlson2010toward}.
 Específicamente en el texto en lenguaje natural, este campo es de gran relevancia en los dominios biomédico y de salud, donde se utiliza para realizar tareas como
-Reconocimiento de entidades nombradas~(NER), extracción de relaciones y generación de hipótesis, entre otros.~\cite{simpson2012biomedical}.
+reconocimiento de entidades nombradas~(NER), extracción de relaciones y generación de hipótesis, entre otros~\cite{simpson2012biomedical}.
 Estas tareas generalmente utilizan corpus anotados para aprender las características que aparecen en el texto y mapearlas con las estructuras de conocimiento.
 Para cada tarea, se han diseñado modelos de anotaciones específicos que se enfocan en elementos específicos del texto.
 Por ejemplo, en las tareas NER es más importante centrarse en frases nominales que en otras construcciones gramaticales.
 
-A pesar de que estas tareas específicas de dominio son diferentes, la mayoría de ellas comparten características comunes. Por ejemplo, la mayoría de las tareas se ocupan de la detección de entidades relevantes y sus relaciones. Por lo tanto, la promoción de modelos de anotación de propósito general permitiría el diseño de técnicas de descubrimiento de conocimiento reutilizables y entre dominios.
-En esta línea, se han desarrollado varias representaciones semánticas independientes del dominio~(por ejemplo, AMR~\cite{amr}, PropBank~\cite{propbank}, FrameNet~\cite{framenet}).
-Sin embargo, estas representaciones se basan en gran medida en léxicos detallados que definen roles semánticos específicos para el significado de cada palabra. Por tanto, desarrollar sistemas de descubrimiento de conocimiento con este nivel de detalle supone grandes retos. El uso de una representación semántica más burda, incluso con la pérdida de cierta capacidad de representación, simplificaría la creación de técnicas automáticas basadas en el aprendizaje automático.
-Esta representación también podría usarse como la primera etapa en una canalización para una tarea específica de dominio, reutilizando así recursos y técnicas en dominios con pocos recursos disponibles.
-En esta sección presentamos una revisión de los modelos de anotaciones relevantes en los que nos inspiramos.
-Nos centramos en los modelos de anotación de propósito general así como en los modelos de anotación que se han aplicado al dominio de salud.
-
-Para proporcionar resultados de búsqueda más detallados, los documentos se pueden procesar para extraer las entidades semánticas relevantes y los hechos mencionados.
-La tarea de descubrir automáticamente el conocimiento semántico a partir del texto está cubierta por áreas de investigación como el aprendizaje de ontología~\cite{cimiano2009ontology} y {aprender leyendo}~\cite{barker2007learning},
-cuyo propósito es construir redes semánticas que {capturen} el conocimiento presente en grandes colecciones de texto.
-Estas redes semánticas permiten el uso de motores de búsqueda que brindan un análisis más allá de la relevancia del contenido textual, explotando la estructura semántica de la red.
-En este contexto, el procesamiento de contenidos textuales de salud ha despertado un {gran interés}~\cite{gonzalez2017capturing}, motivado por la gran cantidad de documentos médicos publicados anualmente.
-
-Existen varios enfoques para construir representaciones semánticas del conocimiento.
+Existen varios enfoques para construir representaciones semánticas del conocimiento para la anotación de texto en lenguaje natural.
 En muchos casos, estas representaciones utilizan una conceptualización específica de dominio.
 Aunque esto proporciona una representación más especializada, hace que estos enfoques sean más difíciles de aplicar a una amplia gama de dominios.
-Alternativamente, se podría utilizar una conceptualización de propósito general, que sea capaz de representar entidades y hechos de múltiples dominios de conocimiento.
-Tal conceptualización debería ser lo suficientemente general como para dar cabida a muchos dominios diferentes, pero aún para proporcionar un grado de expresividad necesario para las tareas de extracción de conocimiento.
-Una posible conceptualización es utilizar tripletas de \textit{sujeto-acción-objetivo}~\cite{suilan2018}.
+Sin embargo, a pesar de que estas tareas específicas de dominio son diferentes, la mayoría de ellas comparten características comunes.
+Por ejemplo, la mayoría de las tareas se ocupan de la detección de entidades relevantes y sus relaciones.
+Por lo tanto, la creación de modelos de anotación de propósito general permite el diseño de técnicas de descubrimiento de conocimiento reutilizables y entre dominios.
+En esta línea, se han desarrollado varias representaciones semánticas independientes del dominio~(por ejemplo, AMR~\cite{amr}, PropBank~\cite{propbank}, FrameNet~\cite{framenet}).
+Estas representaciones se basan en gran medida en léxicos detallados que definen roles semánticos específicos para el significado de cada palabra.
+Por este motivo, desarrollar sistemas de descubrimiento de conocimiento con este nivel de detalle supone retos significativos.
+
+Alternativamente, es posible utilizar una conceptualización de propósito general más simple, que sea capaz de representar entidades y hechos de múltiples dominios de conocimiento.
+Tal conceptualización debe ser lo suficientemente general como para dar cabida a dominios diferentes, siempre que se garantice el grado de expresividad necesario para las tareas de extracción de conocimiento.
+Una posible conceptualización de esta naturaleza es utilizar tripletas de \textit{Sujeto-Acción-Objetivo}~\cite{suilan2018}.
 Esta estructura ha demostrado ser útil para representar el conocimiento en dominios específicos, como críticas de cine~\cite{suilan2018} o análisis de sentimiento.
-Además, las tripletas Sujeto-Acción-Objetivo extraídos automáticamente del texto se pueden vincular posteriormente a relaciones específicas de dominio mediante el uso de redes semánticas.
-Como ejemplo, el sistema \textit{SemRep}~\cite{semrep} extrae tripletes Sujeto-Predicado-Objeto de textos naturales de eSalud. Los predicados están vinculados a relaciones específicas en la red semántica UMLS~\cite{umls}.
+Además, las tripletas \textit{Sujeto-Acción-Objetivo} extraídos automáticamente del texto se pueden vincular posteriormente a relaciones específicas de dominio mediante el uso de redes semánticas.
+Como ejemplo, el sistema \textit{SemRep}~\cite{semrep} extrae tripletas \textit{Sujeto-Predicado-Objeto} de textos en lenguaje natural en el dominio de la salud.
+Los predicados están vinculados a relaciones específicas en la red semántica UMLS~\cite{umls}.
 
-Un trabajo reciente en el desarrollo de teleologías~\cite{teleologies} sugiere que los tripletes Acción-Sujeto-Objetivo pueden ser la base para conceptualizaciones de propósito general en muchos dominios diferentes, ya que este triplete permite la captura de interacciones entre objetos a través de las acciones que realizan en El uno al otro.
-Un pequeño conjunto de relaciones semánticas, como \textit{hiponomía} y \textit{holonomía} pueden proporcionar una estructura semántica adicional a la RAM.
-representación. Estas relaciones ``generales'' son comunes en la mayoría de las bases de conocimiento, independientemente del dominio, como WordNet~\cite{miller1998wordnet},
+El uso de representaciones semánticas más simples, incluso con la pérdida de cierta capacidad de representación, permite simplificar la creación de técnicas automáticas basadas en el aprendizaje automático.
+Estas representaciones también pueden usarse como la primera etapa en sistemas diseñados para una tarea específica de dominio, reutilizando así recursos y técnicas en dominios con pocos recursos disponibles.
+
+Un trabajo reciente en el desarrollo de teleologías~\cite{teleologies} sugiere que las tripletas \textit{Sujeto-Acción-Objetivo} pueden ser la base para conceptualizaciones de propósito general en muchos dominios diferentes, ya que esta estructura permite la captura de interacciones entre objetos a través de las acciones que realizan.
+Un pequeño conjunto de relaciones semánticas, como \textit{hiponomía} y \textit{holonomía} pueden proporcionar una estructura semántica complementaria.
+Estas relaciones ``generales'' son comunes en la mayoría de las bases de conocimiento, independientemente del dominio, como WordNet~\cite{miller1998wordnet},
 DBPedia~\cite{lehmann2015dbpedia} y ConceptNet~\cite{conceptnet}.
-Otras posibles conceptualizaciones permiten capturar la semántica del lenguaje natural, como la Representación de significado abstracto~(AMR)~\cite{amr}. A pesar del poder de representación superior de AMR sobre estructuras simples como los tripletes Acción-Sujeto-Objetivo y relaciones semánticas básicas, el proceso de anotación para AMR es considerablemente más complejo tanto para humanos como para técnicas automatizadas.
+Otras posibles conceptualizaciones permiten capturar la semántica del lenguaje natural, como la anteriormente mencionada ``Representación de Significado Abstracto''~(AMR)~\cite{amr}.
+A pesar del poder de representación superior de AMR sobre estructuras simples como las tripletas \textit{Sujeto-Acción-Objetivo} y relaciones semánticas básicas, el proceso de anotación para AMR es considerablemente más complejo tanto para humanos como para técnicas automatizadas.
 
-La construcción de corpus anotados con la estructura Acción-Sujeto-Objetivo es el primer paso hacia el diseño de sistemas que puedan extraer automáticamente estas anotaciones. Existen varios corpus en la literatura, anotados con una variedad de esquemas diferentes, como CLEF~\cite{kelly2016overview}, Yago~\cite{suchanek2007yago} y Emotinet~\cite{Balahur2011}.
+La construcción de corpus anotados con la estructura \textit{Acción-Sujeto-Objetivo} es el primer paso hacia el diseño de sistemas que puedan extraer automáticamente estas anotaciones.
+Existen varios corpus en la literatura, anotados con una variedad de esquemas diferentes, como CLEF~\cite{kelly2016overview}, Yago~\cite{suchanek2007yago} y Emotinet~\cite{Balahur2011}.
 Sin embargo, la mayoría de estos recursos están anotados con conceptualizaciones específicas de dominio que son difíciles de extender a diferentes dominios de conocimiento.
 
 \subsection{Modelos de Anotación de Propósito General}\label{sec:general}
 
 Se han desarrollado varios modelos de anotación semántica de propósito general, que intentan representar la semántica de una oración más allá de la estructura sintáctica.
 Estos modelos se basan libremente en la estructura gramatical Sujeto-Verbo-Objeto que es omnipresente en el lenguaje humano.
+En esta sección se analizan cuatro modelos de representación semántica a nivel de oración basados en esta estructura gramatical.
 
 \subsubsection*{PropBank}
 
