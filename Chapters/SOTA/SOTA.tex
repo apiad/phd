@@ -246,11 +246,11 @@ Con respecto a las restricciones de dominio, podemos clasificar las soluciones e
 Las soluciones independientes del dominio generalmente se diseñan de manera que no haya una dependencia particular ligada a un dominio, por lo tanto, son reutilizables en varios dominios.
 Sin embargo, esto significa que un sistema puede usarse en un dominio u otro, pero no significa necesariamente que el mismo sistema pueda aprender un poco de conocimiento de dos dominios diferentes \emph{simultáneamente}.
 
-Si un sistema está simplemente diseñado para ser independiente del dominio y se utiliza para aprender de dos dominios muy diferentes, el resultado esperado es una especie de ontología combinada que representa ambos dominios con una aproximación de la unión de los conceptos (entidades y relaciones) en ellos. 
+Si un sistema está simplemente diseñado para ser independiente del dominio y se utiliza para aprender de dos dominios muy diferentes, el resultado esperado es una especie de ontología combinada que representa ambos dominios con una aproximación de la unión de los conceptos (entidades y relaciones) en ellos.
 Esta puede no ser la representación ideal, especialmente cuando se extiende a muchos dominios diferentes.
 Tratando de construir una ontología única que abarque todo el conocimiento que se puede extraer de varios dominios diferentes (posiblemente en el orden de cientos o miles) pueden ser significativamente más difíciles que una simple suma o unión de cada uno de los dominios individuales.
 
-Es cierto que los humanos tenemos un conjunto básico de habilidades que podrían considerarse independientes del dominio, como nuestras habilidades innatas para la coincidencia de patrones. 
+Es cierto que los humanos tenemos un conjunto básico de habilidades que podrían considerarse independientes del dominio, como nuestras habilidades innatas para la coincidencia de patrones.
 Estas habilidades básicas se utilizan en muchas de las tareas con las que nos enfrentamos a diario.
 La analogía computacional es un sistema con un único algoritmo de aprendizaje de propósito general que podría realizar, por ejemplo, tareas tan diferentes como el reconocimiento de voz, la clasificación de imágenes y la traducción con el mismo proceso.
 Este es el enfoque preferido por una parte de la comunidad de investigadores en aprendizaje automático~\cite{kaiser2017one} que esperan construir una inteligencia de propósito general a partir de un solo algoritmo de aprendizaje de propósito general y una única representación interna de propósito general.
@@ -471,17 +471,20 @@ De manera similar a otro software del lado del servidor, la instalación de GATE
 
 \subsubsection*{Knowtator}
 
-En Knowtator, un esquema de anotación se define con definiciones de clases, instancias, ranuras y facetas de Protégé utilizando la función de edición de la base de conocimientos de Protégé. El esquema de anotación definido se puede aplicar a una tarea de anotación de texto sin tener que escribir ninguna tarea.
-software específico o editar archivos de configuración especializados. Los esquemas de anotación en Knowtator pueden modelar fenómenos sintácticos (por ejemplo, análisis sintácticos superficiales) y semánticos (por ejemplo, interacciones proteína-proteína).
+Knowtator es una herramienta de anotación basada en Protégé~\cite{protege}.
+En Knowtator, un esquema de anotación se define con definiciones de clases, instancias, ranuras y facetas de Protégé utilizando la función de edición de la base de conocimientos de este sistema.
+El esquema de anotación definido se puede aplicar a una tarea de anotación de texto sin tener que escribir ningún software específico para esa tarea o editar archivos de configuración especializados.
+Los esquemas de anotación en Knowtator pueden modelar fenómenos sintácticos (por ejemplo, análisis sintácticos superficiales) y semánticos (por ejemplo, interacciones proteína-proteína).
 
-Knowtator aborda la definición de un esquema de anotación como una tarea de ingeniería del conocimiento aprovechando las fortalezas de Protégé como editor de una base de conocimiento. Protégé tiene componentes de interfaz de usuario para definir marcos de clase, instancia, ranura y faceta.
-Un esquema de anotación de Knowtator se crea definiendo marcos utilizando estos componentes de interfaz de usuario como lo haría un ingeniero de conocimiento al crear un modelo conceptual de algún dominio. Para Knowtator, las definiciones de marcos modelan los fenómenos que la tarea de anotación busca capturar.
+Knowtator aborda la definición de un esquema de anotación como una tarea de ingeniería del conocimiento aprovechando las fortalezas de Protégé como editor de una base de conocimiento.
+Protégé tiene componentes de interfaz de usuario para definir marcos de clases, instancias, ranuras y facetas.
+Un esquema de anotación de Knowtator se crea definiendo marcos utilizando estos componentes de interfaz de usuario como lo haría un ingeniero de conocimiento al crear un modelo conceptual de algún dominio.
+Para Knowtator, las definiciones de marcos modelan los fenómenos que la tarea de anotación busca capturar.
 
-Como ejemplo simple, la tarea de anotación de co-referencia que viene con Callisto se puede modelar en Protégé con dos definiciones de clase llamadas marcables y encadenadas. La clase de cadena tiene dos referencias de ranuras y primary\_reference que están restringidas por facetas para tener valores de tipo marcables. Este esquema de anotación simple ahora se puede usar para anotar fenómenos de co-referencia que ocurren en el texto usando Knowtator. Anotaciones en Knowtator creadas con este sencillo esquema de anotaciones.
-
-Una fortaleza clave de Knowtator es su capacidad para relacionar anotaciones entre sí a través de las definiciones de ranuras de las clases anotadas correspondientes. En el ejemplo de co-referencia, las referencias de espacio de la cadena de clases relacionan las anotaciones marcables para las extensiones de texto "el gato" y "Él" con la anotación de la cadena. Las restricciones de las ranuras garantizan que las relaciones entre las anotaciones sean coherentes.
-
-Protégé es capaz de representar modelos conceptuales mucho más sofisticados y complejos que pueden ser utilizados, a su vez, por Knowtator para la anotación de texto. Además, debido a que Protégé se usa a menudo para crear modelos conceptuales de dominios relacionados con disciplinas biomédicas, Knowtator es esp,ecialmente adecuado para capturar entidades con nombre y relaciones entre entidades con nombre para esos dominios.
+Una fortaleza clave de Knowtator es su capacidad para relacionar anotaciones entre sí a través de las definiciones de ranuras de las clases anotadas correspondientes.
+Las restricciones de las ranuras garantizan que las relaciones entre las anotaciones sean coherentes.
+Protégé es capaz de representar modelos conceptuales mucho más sofisticados y complejos que otros sistemas, y que pueden ser utilizados por Knowtator para la anotación de texto.
+Además, debido a que Protégé se usa a menudo para crear modelos conceptuales de dominios relacionados con disciplinas biomédicas, Knowtator es especialmente adecuado para capturar entidades nombradas y relaciones entre entidades nombradas para esos dominios.
 
 \subsubsection*{WebAnno}
 
