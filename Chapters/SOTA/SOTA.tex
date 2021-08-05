@@ -87,16 +87,16 @@ Por tanto, surge la necesidad de herramientas computacionales para construir ont
 
 \subsection{Aprendizaje de Ontologías}
 
-El problema de descubrir, almacenar y utilizar el conocimiento en una forma computacionalmente eficaz ha sido ampliamente estudiado~\cite{mitchell2015never, ROSPOCHER2016132, cimiano2009ontology}. 
-Este problema ha sido tratado desde dos áreas de investigación distintas pero complementarias: los campos de representación del conocimiento y aprendizaje automático. 
-La comunidad de representación del conocimiento proporciona medios para representar y operar computacionalmente con el conocimiento almacenado en formas que pueden asegurar cierto grado de consistencia lógica. 
-Por el contrario, la comunidad de aprendizaje automático proporciona herramientas para obtener conocimientos útiles a partir de grandes colecciones de datos estructurados y no estructurados. 
-En la intersección del aprendizaje automático y la representación del conocimiento, ha surgido el campo del aprendizaje de ontologías para lidiar con la complejidad de mantener y actualizar ontologías manualmente. 
-Este campo extrae técnicas y herramientas de ambas comunidades, para automatizar parte del proceso de creación y mantenimiento de ontologías. 
+El problema de descubrir, almacenar y utilizar el conocimiento en una forma computacionalmente eficaz ha sido ampliamente estudiado~\cite{mitchell2015never, ROSPOCHER2016132, cimiano2009ontology}.
+Este problema ha sido tratado desde dos áreas de investigación distintas pero complementarias: los campos de representación del conocimiento y aprendizaje automático.
+La comunidad de representación del conocimiento proporciona medios para representar y operar computacionalmente con el conocimiento almacenado en formas que pueden asegurar cierto grado de consistencia lógica.
+Por el contrario, la comunidad de aprendizaje automático proporciona herramientas para obtener conocimientos útiles a partir de grandes colecciones de datos estructurados y no estructurados.
+En la intersección del aprendizaje automático y la representación del conocimiento, ha surgido el campo del aprendizaje de ontologías para lidiar con la complejidad de mantener y actualizar ontologías manualmente.
+Este campo extrae técnicas y herramientas de ambas comunidades, para automatizar parte del proceso de creación y mantenimiento de ontologías.
 
-El aprendizaje de ontologías tiene el potencial de reducir el costo de crear y, lo que es más importante, mantener ontologías grandes y complejas~\cite{cimiano2009ontology}. 
-Este problema también se aborda en el paradigma de \textit{learning by reading}~\cite{barker2007learning}, un campo en el que se utilizan técnicas del procesamiento del lenguaje natural y de la comunidad de representación del conocimiento. 
-El propósito es construir una representación formal de algún campo en particular dados datos textuales sin restricciones relacionados con el campo. 
+El aprendizaje de ontologías tiene el potencial de reducir el costo de crear y, lo que es más importante, mantener ontologías grandes y complejas~\cite{cimiano2009ontology}.
+Este problema también se aborda en el paradigma de \textit{learning by reading}~\cite{barker2007learning}, un campo en el que se utilizan técnicas del procesamiento del lenguaje natural y de la comunidad de representación del conocimiento.
+El propósito es construir una representación formal de algún campo en particular dados datos textuales sin restricciones relacionados con el campo.
 Esta representación también debe permitir un razonamiento completamente automático. El aprendizaje mediante la lectura se puede considerar como un caso particular de aprendizaje de ontología, aunque solo se refiere a la entrada textual, y la salida no está necesariamente en el formato de una ontología.
 
 Se han propuesto varias herramientas y sistemas para esta tarea.
@@ -104,44 +104,44 @@ Text2Onto~\cite{cimiano2005text2onto} es un marco para el descubrimiento de camb
 OntoLT~\cite{buitelaar2004ontolt} extrae conceptos y relaciones automáticamente de colecciones de texto anotadas lingüísticamente, por medio de un conjunto de reglas, que asigna clases lingüísticas a clases de ontología.
 Un enfoque más nuevo es OntoGain~\cite{drymonas2010unsupervised}, que utiliza un enfoque no supervisado y explota la información léxica inherente del término de varias palabras para extraer conceptos de nivel superior.
 
-En el campo del aprendizaje de ontologías, se pueden distinguir dos tareas generales de alto nivel: población de ontologías y enriquecimiento de ontologías~\cite{petasis2011ontology}. 
+En el campo del aprendizaje de ontologías, se pueden distinguir dos tareas generales de alto nivel: población de ontologías y enriquecimiento de ontologías~\cite{petasis2011ontology}.
 La población de ontologías se ocupa del subproblema de encontrar nuevas instancias para una ontología ya definida, mientras que el enriquecimiento de ontologías se ocupa de agregar nuevos conceptos y relaciones a una ontología existente.
-Existe una superposición entre estas tareas y la mayoría de los enfoques existentes no pueden clasificarse únicamente en estos términos. 
-En este campo, se han propuesto varias herramientas, que combinan diferentes enfoques y resuelven diferentes subconjuntos de las tareas de aprendizaje de ontologías. 
+Existe una superposición entre estas tareas y la mayoría de los enfoques existentes no pueden clasificarse únicamente en estos términos.
+En este campo, se han propuesto varias herramientas, que combinan diferentes enfoques y resuelven diferentes subconjuntos de las tareas de aprendizaje de ontologías.
 A continuación se hace una breve revisión de estos sistemas para ayudar a definir las principales características.
 
-Los primeros enfoques, como SYNDIKATE~\cite{syndikate}, tratan solo de poblar una base de conocimiento, con una estructura ontológica predefinida~(clases y relaciones). 
-Dado que la Web es una rica fuente de información, varios enfoques se han centrado en extraer conocimiento de ella, explotando el formato semiestructurado de los recursos web. 
-Algunos sistemas como ARTEQUAKT~\cite{artequakt} y SOBA~\cite{soba} son de dominio específico, centrándose respectivamente en el arte y los dominios deportivos. 
-Otros sistemas, como WEB->KB~\cite{webkb} intentan construir bases de conocimiento de dominio general desde la web, explotando también la estructura de enlaces entre páginas para identificar relaciones. 
-Otro ejemplo es el sistema VIKEF~\cite{vikef}, que utiliza catálogos de productos como fuentes de datos, aprovechando así la estructura inherente presente en este tipo de datos. 
+Los primeros enfoques, como SYNDIKATE~\cite{syndikate}, tratan solo de poblar una base de conocimiento, con una estructura ontológica predefinida~(clases y relaciones).
+Dado que la Web es una rica fuente de información, varios enfoques se han centrado en extraer conocimiento de ella, explotando el formato semiestructurado de los recursos web.
+Algunos sistemas como ARTEQUAKT~\cite{artequakt} y SOBA~\cite{soba} son de dominio específico, centrándose respectivamente en el arte y los dominios deportivos.
+Otros sistemas, como WEB->KB~\cite{webkb} intentan construir bases de conocimiento de dominio general desde la web, explotando también la estructura de enlaces entre páginas para identificar relaciones.
+Otro ejemplo es el sistema VIKEF~\cite{vikef}, que utiliza catálogos de productos como fuentes de datos, aprovechando así la estructura inherente presente en este tipo de datos.
 Aunque la mayoría de los sistemas intentan una extracción completamente automática, algunos ejemplos como ADAPTATIVA~\cite{adaptativa} incluyen una estrategia de inicialización, donde los expertos humanos brindan retroalimentación sobre el conocimiento extraído.
 
-Para extraer el conocimiento relevante de un texto en lenguaje natural, se han introducido técnicas de PLN en sistemas como OPTIMA~\cite{optima} e ISODLE~\cite{isolde}. 
-El uso de características del lenguaje natural puede usarse para construir sistemas basados en reglas, como la propuesta OntoLT~\cite{buitelaar2004ontolt}, que extrae conceptos y relaciones a través de un mapeo de clases lingüísticas a clases de ontología. 
-Un enfoque alternativo es utilizar modelos estadísticos o probabilísticos, ejemplificados por sistemas como LEILA~\cite{leila} o Text2Onto~\cite{cimiano2005text2onto}. 
+Para extraer el conocimiento relevante de un texto en lenguaje natural, se han introducido técnicas de PLN en sistemas como OPTIMA~\cite{optima} e ISODLE~\cite{isolde}.
+El uso de características del lenguaje natural puede usarse para construir sistemas basados en reglas, como la propuesta OntoLT~\cite{buitelaar2004ontolt}, que extrae conceptos y relaciones a través de un mapeo de clases lingüísticas a clases de ontología.
+Un enfoque alternativo es utilizar modelos estadísticos o probabilísticos, ejemplificados por sistemas como LEILA~\cite{leila} o Text2Onto~\cite{cimiano2005text2onto}.
 Otro ejemplo es KnowItAll~\cite{knowitall}, que introduce una métrica de información mutua puntual~(PMI) para seleccionar instancias relevantes.
 
-Una vez que las instancias de entidades y relaciones se extraen del texto, una pregunta natural es si se puede inferir un conocimiento más abstracto de estos ejemplos. 
-Los sistemas que abordan este problema a menudo utilizan técnicas no supervisadas para intentar descubrir estructuras inherentes. 
-Dos ejemplos relevantes de este enfoque son OntoGain~\cite{drymonas2010unsupervised} y ASIUM~\cite{asium}, que intentan construir automáticamente una jerarquía de conceptos usando técnicas de agrupamiento. 
-El sistema BOEMIE~\cite{boemie} es otro ejemplo interesante, ya que intenta inferir automáticamente conceptos abstractos de las instancias concretas encontradas, pero se centra no solo en el texto, sino también en fuentes multimedia como imágenes y videos. 
-La mayoría de los sistemas mencionados generalmente se enfocan en una iteración del proceso de extracción. 
+Una vez que las instancias de entidades y relaciones se extraen del texto, una pregunta natural es si se puede inferir un conocimiento más abstracto de estos ejemplos.
+Los sistemas que abordan este problema a menudo utilizan técnicas no supervisadas para intentar descubrir estructuras inherentes.
+Dos ejemplos relevantes de este enfoque son OntoGain~\cite{drymonas2010unsupervised} y ASIUM~\cite{asium}, que intentan construir automáticamente una jerarquía de conceptos usando técnicas de agrupamiento.
+El sistema BOEMIE~\cite{boemie} es otro ejemplo interesante, ya que intenta inferir automáticamente conceptos abstractos de las instancias concretas encontradas, pero se centra no solo en el texto, sino también en fuentes multimedia como imágenes y videos.
+La mayoría de los sistemas mencionados generalmente se enfocan en una iteración del proceso de extracción.
 Sin embargo, los enfoques más recientes, como NELL~\cite{mitchell2015never}, intentan aprender continuamente de un flujo de datos web y aumentan con el tiempo tanto la cantidad como la calidad del conocimiento descubierto.
 
-Uno de los problemas con muchos de estos enfoques es la cantidad de información falsa que generan~\cite{Maimon:2015:OLT:2870689.2870690}. 
-En general, habrá muchas piezas de información redundantes o sin importancia en los corpus analizados. 
-Un enfoque ingenuo que no tenga en cuenta este tema creará ontologías inmensas con muy poca información útil. 
+Uno de los problemas con muchos de estos enfoques es la cantidad de información falsa que generan~\cite{Maimon:2015:OLT:2870689.2870690}.
+En general, habrá muchas piezas de información redundantes o sin importancia en los corpus analizados.
+Un enfoque ingenuo que no tenga en cuenta este tema creará ontologías inmensas con muy poca información útil.
 Para abordar este problema, OntoGain propone un esquema de agrupamiento jerárquico que intenta identificar conceptos y relaciones generales.
 
-En general, estas herramientas están enfocadas a la extracción de conocimiento y a la tarea de encontrar conocimiento relevante. 
-Cuando se extrae conocimiento de una fuente confiable, incluso si es una fuente de lenguaje natural, tiene sentido enfocarse en optimizar el recobrado, es decir, obtener la mayor cantidad de información posible. 
-Si la fuente de entrada es un conjunto de artículos médicos o la página web principal de una institución, existe una alta probabilidad de que la mayor parte de la información presente en esos documentos sea correcta. 
+En general, estas herramientas están enfocadas a la extracción de conocimiento y a la tarea de encontrar conocimiento relevante.
+Cuando se extrae conocimiento de una fuente confiable, incluso si es una fuente de lenguaje natural, tiene sentido enfocarse en optimizar el recobrado, es decir, obtener la mayor cantidad de información posible.
+Si la fuente de entrada es un conjunto de artículos médicos o la página web principal de una institución, existe una alta probabilidad de que la mayor parte de la información presente en esos documentos sea correcta.
 Por lo tanto, un procedimiento de extracción de ontología que maximice el recobrado obtendrá buenos resultados.
 
-Sin embargo, cuando la fuente de entrada es de menor calidad, como blogs o publicaciones en redes sociales, existe una mayor probabilidad de que parte, o incluso la mayoría, de la información sea falsa o incorrecta. 
-Si consideramos también el llamado fenómeno de la \textit{posverdad}, y reconocemos que algunos autores comparten deliberadamente noticias o hechos falsos, el problema se vuelve mucho más difícil y urgente. 
-Incluso si las mentiras deliberadas no fueran un problema, la mayor parte de la información compartida en las redes sociales y fuentes similares es irrelevante a largo plazo. 
+Sin embargo, cuando la fuente de entrada es de menor calidad, como blogs o publicaciones en redes sociales, existe una mayor probabilidad de que parte, o incluso la mayoría, de la información sea falsa o incorrecta.
+Si consideramos también el llamado fenómeno de la \textit{posverdad}, y reconocemos que algunos autores comparten deliberadamente noticias o hechos falsos, el problema se vuelve mucho más difícil y urgente.
+Incluso si las mentiras deliberadas no fueran un problema, la mayor parte de la información compartida en las redes sociales y fuentes similares es irrelevante a largo plazo.
 En este contexto, el problema de extraer una ontología útil de un gran corpus de fuentes de Internet se vuelve menos un problema de reconocimiento de las piezas de información que se encuentran en el corpus, y más un problema de filtrado y selección de la información relevante, una vez extraída.
 
 A pesar de la existencia de algunos sistemas de propósito general, no existe una propuesta definitiva que pueda aprender de manera simultánea y continua de las más variadas fuentes de información en línea.
@@ -337,10 +337,13 @@ Cada clase de verbo está completamente descrita por roles temáticos, preferenc
 Cada clase en VerbNet contiene un conjunto de descripciones sintácticas, o marcos sintácticos, que describen las posibles realizaciones superficiales de la estructura del argumento para construcciones como transitivo, intransitivo, frases preposicionales, resultantes y un gran conjunto de alternancias de diátesis.
 Las restricciones semánticas se utilizan para restringir los tipos de roles temáticos permitidos por los argumentos, y se pueden imponer restricciones adicionales para indicar la naturaleza sintáctica del constituyente que probablemente esté asociado con el rol temático.
 Los marcos sintácticos también pueden estar restringidos en términos de qué preposiciones están permitidas.
-Cada cuadro está asociado con información semántica explícita, expresada como una conjunción de predicados semánticos booleanos como "movimiento", "contacto" o "causa".
-Cada predicado semántico está asociado con una variable de evento E que permite a los predicados especificar cuándo en el evento el predicado es verdadero (inicio (E) para la etapa preparatoria, durante (E) para la etapa de culminación y final (E) para la etapa consecuente ).
+Cada cuadro está asociado con información semántica explícita, expresada como una conjunción de predicados semánticos booleanos como ``movimiento'', ``contacto'' o ``causa''.
+Cada predicado semántico está asociado con una variable de evento E que permite a los predicados especificar cuándo en el evento el predicado es verdadero.
 
-VerbNet se ha integrado recientemente con 57 nuevas clases de la extensión propuesta de Korhonen y Briscoe (2004) (K \& B) a la clasificación original de Levin (Kipper et al., 2006). Este trabajo ha implicado asociar descripciones sintáctico-semánticas detalladas a las clases K \& B, así como organizarlas apropiadamente en la taxonomía VN existente. También se ha incorporado a VN un conjunto adicional de 53 clases nuevas de Korhonen y Ryant (2005) (K \& R). El resultado es un recurso de libre acceso que constituye la clasificación de verbos al estilo Levin más completa y versátil para inglés. Después de las dos extensiones, VN ahora también ha aumentado nuestra cobertura de tokens de PropBank (Palmer et. Al., 2005) del 78,45 \% al 90,86 \%, lo que hace factible la creación de un corpus de capacitación sustancial anotado con etiquetas de roles temáticos de VN y membresía de clase. asignaciones, que se publicará en 2007. Esto permitirá finalmente la experimentación a gran escala sobre la utilidad de las clases basadas en sintaxis para mejorar el rendimiento de analizadores sintácticos y etiquetadoras de roles semánticos en nuevos dominios.
+VerbNet se integra con clases de una extensión propuesta a la clasificación original de Levin~\cite{Kipper2006}.
+Esta integración permite asociar descripciones sintáctico-semánticas detalladas a las clases de verbos nuevas, así como organizarlas apropiadamente en la taxonomía existente en VerbNet.
+También se ha incorporado a VerbNet un conjunto adicional de 53 clases nuevas de~\citet{Korhonen2005}.
+El resultado es un recurso de libre acceso que constituye la clasificación de verbos más completa y versátil para idioma inglés.
 
 \subsubsection*{PropBank}
 
@@ -358,37 +361,29 @@ El significado de cada etiqueta de argumento se define en relación con cada ver
 Cada conjunto de etiquetas de argumento y sus definiciones se denomina un \textit{frameset} y proporciona un identificador único para el sentido del verbo, un significado para ese sentido del verbo y el conjunto de argumentos esperados.
 Por cada una de las definiciones, el esquema propone una serie de oraciones de ejemplo que demuestran varias realizaciones sintácticas para ese \textit{frameset}.
 
-El material de capacitación para el reconocimiento de propuestas, PropBank, está siendo anotado en inglés, basado en un consenso desarrollado en 2000 entre grupos de investigación de BBN, MITRE, New York University y Penn.
-Tomando como punto de partida el Corpus del Penn Treebank II Wall Street Journal de un millón de palabras (Marcus 1994), estamos agregando una anotación de estructura de argumento predicado.
-Aproximadamente una cuarta parte del TreeBank, que comprende en gran parte textos de informes financieros, ha sido extraído y sirve como nuestro enfoque inicial para la capacitación y para proporcionar una entrega más temprana de texto con anotaciones completas.
-Este subcorpus debe completarse en junio de 2002, mientras que el resto del corpus se completará en el verano de 2003.
-El proyecto actual solo anota predicados verbales, dejando de lado nominalizaciones, adjetivos y preposiciones para una fase posterior.
-En un artículo separado (Kingsbury, Marcus \& Palmer, de próxima publicación) discutimos las diferencias entre PropBank y recursos similares como Verbnet, Wordnet y Framenet.
+Tomando como punto de partida el Corpus del Penn Treebank II Wall Street Journal de un millón de palabras~\cite{Marcus1994}, PropBank agrega una anotación de estructura de argumento predicado.
 Al crear anotaciones para la estructura del argumento, se usa una combinación de factores sintácticos y semánticos, aunque las claves sintácticas son las más importantes.
-El método general es el siguiente: para cualquier predicado dado, se hace un estudio de los usos del predicado y los usos se dividen en sentidos principales si es necesario.
-Estos sentidos están divididos más por motivos sintácticos que semánticos, evitando así las divisiones detalladas y a menudo arbitrarias de, por ejemplo, WordNet.
-Los argumentos esperados de cada sentido se numeran secuencialmente desde Arg0 a Arg5.
-De acuerdo con las pautas establecidas por la comunidad ACE descritas anteriormente, no se intenta hacer que las etiquetas de los argumentos tengan el mismo "significado" de un sentido de un verbo a otro, por ejemplo, el "papel" que juega Arg2 en un sentido de un Arg3 puede jugar un predicado dado en otro sentido.
-Por otro lado, pretendemos que los predicados que pertenecen a la misma clase VerbNet compartan 2 BBN etiquetados de manera similar ya ha completado la anotación de co-referencia de pronombre en los mismos argumentos de datos, de acuerdo con la casi sinonimia de los predicados.
+El método general consiste en realizar un estudio de los usos de cada predicado dado, dividiéndose en sus sentidos principales si es necesario.
+Estos sentidos están divididos más por motivos sintácticos que semánticos, evitando así las divisiones detalladas de WordNet.
+Los argumentos esperados de cada sentido se numeran secuencialmente desde \texttt{Arg0} a \texttt{Arg5}.
+De acuerdo con pautas establecidas por la comunidad, no se intenta hacer que las etiquetas de los argumentos tengan el mismo ``significado'' de un sentido de un verbo a otro, por ejemplo, el papel que juega \texttt{Arg2} en un sentido puede corresponder al papel que juega \texttt{Arg3} puede en otro predicado dado, o en otro sentido.
 
 \subsubsection*{AMR}
 
-Una propuesta más reciente es Representación de significado abstracto~\cite[ARM]{amr}. AMR constituye un esquema de representación semántica para oraciones en inglés que también intenta cubrir una amplia gama de relaciones semánticas con un modelo de propósito general.
+Una propuesta más reciente es Representación de Significado Abstracto~\cite[AMR]{amr}.
+AMR constituye un esquema de representación semántica para oraciones en inglés que también intenta cubrir una amplia gama de relaciones semánticas con un modelo de propósito general.
 AMR incluye roles semánticos de PropBank, así como resolución de correferencia dentro de la misma oración, entidades y tipos nombrados, negación y otros modificadores en una estructura gráfica que representa el significado de una oración en lenguaje natural.
 Sin embargo, a pesar de que AMR captura el significado semántico completo de una oración, para el propósito del descubrimiento del conocimiento, sigue siendo considerablemente abstracto, y es necesario un procesamiento adicional para extraer estructuras concretas de conocimiento~\cite{rao2017biomedical}.
 
-Nuestros principios básicos son:
-Los AMR son gráficos enraizados y etiquetados que son fáciles de leer para las personas y fáciles de recorrer para los programas.
-AMR tiene como objetivo abstraerse de las idiosincrasias sintácticas. Intentamos asignar el
-mismo AMR a oraciones que tienen el mismo significado básico. Por ejemplo, a las frases “la describió como un genio”, “su descripción de ella: genio” y “ella era un genio, según su descripción” se les asigna el mismo AMR.
-AMR hace un uso extensivo de los conjuntos de marcos PropBank (Kingsbury y Palmer, 2002; Palmer et al., 2005). Por ejemplo, representamos una frase como "inversor en bonos" utilizando el marco "invertir-01", aunque no aparecen verbos en la frase.
-AMR es agnóstico sobre cómo podríamos querer derivar significados de cadenas, o viceversa. Al traducir oraciones a AMR, no dictamos una secuencia particular de aplicaciones de reglas ni proporcionamos alineaciones que reflejen dichas secuencias de reglas. Esto hace que el sembanking sea muy rápido y permite a los investigadores explorar sus propias ideas sobre cómo se relacionan las cadenas con los significados.
-AMR está fuertemente sesgado hacia el inglés. No es un interlingua.
-
-El modelo de anotación propuesto en esta investigación comparte similitudes con los modelos de anotación semántica de propósito general como AMR y PropBank.
-En contraste con estos recursos, nuestro modelo no distingue entre diferentes tipos de acciones, que están vagamente relacionadas con los verbos. En cambio, definimos dos roles de propósito general, el agente que realiza una acción y el receptor de los efectos de la acción. Estos roles corresponden aproximadamente a \texttt{ARG0} y \texttt{ARG1} respectivamente en PropBank, aunque en casos específicos su significado semántico puede diferir.
-Esta simplificación está dirigida a permitir la automatización del proceso de anotación con el uso de técnicas de aprendizaje automático.
-Otra diferencia clave de nuestro modelo es la inclusión de relaciones taxonómicas de propósito general~(por ejemplo, \textit{hipernomía} / \textit{hiponomía} y \textit{merónimo} / \textit{holónimo}) que se infieren de la oración. Estas relaciones están dirigidas a facilitar la construcción automática de bases de conocimiento.
+La estructura AMR consiste en un árbol etiquetado que debe ser fácil de leer para las personas y fácil de procesar computacionalmente.
+AMR tiene como objetivo abstraerse de las idiosincrasias sintácticas.
+Para ello, se intenta asignar el mismo árbol AMR a oraciones que tienen el mismo significado básico.
+Por ejemplo, a las frases ``la describió como un genio'', ``su descripción de ella: genio'' y ``ella era un genio, según su descripción'' se les asigna el mismo árbol AMR.
+AMR hace un uso extensivo de los conjuntos de marcos PropBank.
+Por ejemplo, una frase como ``inversor en bonos'' se representa utilizando el marco \texttt{invertir-01}, aunque no aparecen verbos en la frase.
+AMR es agnóstico al respecto de cómo derivar significados de cadenas, o viceversa.
+Al traducir oraciones a AMR, no existe una secuencia particular de aplicaciones de reglas ni alineaciones que reflejen dichas secuencias de reglas.
+Por otro lado, a pesar de su generalidad, AMR está fuertemente sesgado hacia el inglés, y no es un recurso interlingua.
 
 \subsection{Modelos de Anotación en el Dominio de la Salud}\label{sec:health}
 
