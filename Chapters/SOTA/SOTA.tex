@@ -497,7 +497,7 @@ Además, debido a que Protégé se usa a menudo para crear modelos conceptuales 
 \subsubsection*{WebAnno}
 
 WebAnno es una herramienta de anotación basada en tecnologías web WebAnno que presenta varias funcionalidades que permiten la anotación de estructuras semánticas.
-En primer lugar, las características de ranura permiten el modelado apropiado de estructuras de predicado-argumento para etiquetado semántico~(\textit{Semantic Role Labelling, SRL}).
+En primer lugar, las características de ranura permiten el modelado apropiado de estructuras de predicado-argumento para etiquetado de roles semánticos~(\textit{Semantic Role Labelling, SRL}).
 WebAnno soporta los siguientes tipos de anotaciones semánticas adicionales: participantes y circunstancias para la anotación de eventos, relaciones n-arias para la extracción de relaciones y tareas de relleno de espacios para la extracción de información.
 
 Además las restricciones ayudan a los anotadores al realizar un filtrado sensible al contexto de los conjuntos de etiquetas semánticas disponibles.
@@ -508,7 +508,7 @@ Las reglas de restricción se pueden definir manualmente o se pueden generar aut
 Por último, WebAnno ofrece una interfaz de anotación mejorada para un proceso de anotación optimizado utilizando una barra lateral permanentemente visible en lugar de un cuadro de diálogo emergente para editar anotaciones y sus características.
 Estas nuevas funcionalidades se integran bien con las funcionalidades existentes en versiones anteriores de WebAnno, en particular su soporte para la anotación de estructuras sintácticas, permitiendo así la anotación semántica en coordinación con la anotación sintáctica.
 
-WebAnno se desarrolló e implementó en coordinación con anotadores expertos en el contexto de un proyecto de anotación~\cite{Mujdricza-Maydt2016} para la desambiguación del sentido de las palabras (WSD) y etiquetado semántico~(SRL) en textos en idioma alemán.
+WebAnno se desarrolló e implementó en coordinación con anotadores expertos en el contexto de un proyecto de anotación~\cite{Mujdricza-Maydt2016} para la desambiguación del sentido de las palabras (WSD) y etiquetado de roles semánticos~(SRL) en textos en idioma alemán.
 Algunos ejemplos de esquemas de SRL bien conocidos motivados por diferentes teorías lingüísticas fueron presentados anteriormente en este capítulo: FrameNet, PropBank y VerbNet.
 La anotación de SRL se basa típicamente en estructuras sintácticas obtenidas de bancos de árboles, como el Penn Treebank basado en constituyentes (para la anotación de PropBank), o el banco de árboles TIGER alemán para la anotación de estilo FrameNet~\cite{Burchardt2009}.
 Un argumento se identifica típicamente por la extensión de su cabeza sintáctica o constituyente sintáctico.
@@ -536,23 +536,33 @@ La primitiva de anotación más básica identifica un intervalo de texto y le as
 Estas anotaciones base se pueden conectar mediante relaciones binarias, dirigidas o no dirigidas, que se pueden configurar para, por ejemplo, extracción de relación simple, o anotación de marco de verbos al estilo VerbNet.
 BRAT admite también asociaciones n-arias de anotaciones, lo que permite la anotación de estructuras de eventos.
 Los aspectos adicionales de las anotaciones se pueden marcar utilizando atributos binarios o de valores múltiples que se pueden agregar a otras anotaciones.
+Finalmente, los anotadores pueden adjuntar notas de texto de forma libre a cualquier anotación.
 
-Finalmente, los anotadores pueden adjuntar notas de texto de forma libre a cualquier anotación. Además de las tareas de extracción de información, estas primitivas de anotación permiten configurar BRAT para su uso en varias otras tareas, como fragmentación (Abney, 1991), etiquetado de roles semánticos (Gildea y Jurafsky, 2002; Carreras y Márquez, 2005) y dependencia anotación (Nivre, 2003) (consulte la Figura 1 para ver ejemplos). Además, tanto el cliente BRAT como el servidor implementan soporte completo para el estándar Unicode, lo que permite que la herramienta admita la anotación de texto usando p. Ej. Caracteres chinos o devanagar ¯ ¯ı. BRAT se distribuye con ejemplos de más de 20 corpus para una variedad de tareas, que involucran textos en siete idiomas diferentes e incluyen ejemplos de corpus como los presentados para las tareas compartidas de CoNLL sobre el reconocimiento de entidades con nombre independientes del idioma (Tjong Kim Sang y De Meulder, 2003) y análisis de dependencia multilingüe (Buchholz y Marsi, 2006). BRAT también implementa un sistema completamente configurable para verificar restricciones detalladas en la semántica de la anotación, por ejemplo, especificando que un evento TRANSFER debe tomar exactamente uno de cada uno de los argumentos DADOR, RECIPIENTE y BENEFICIARIO, cada uno de los cuales debe tener uno de los, tipos PERSON, ORGANIZATION o GEO -ENTIDAD POLÍTICA, así como un argumento DINERO de tipo DINERO, y opcionalmente puede tomar un argumento LUGAR de tipo UBICACIÓN (LDC, 2005). La verificación de restricciones está completamente integrada en la interfaz de anotaciones y la retroalimentación es inmediata, con efectos visuales claros que marcan las anotaciones incompletas o erróneas (Figura 3).
+Además de las tareas de extracción de información, estas primitivas de anotación permiten configurar BRAT para su uso en varias otras tareas, como fragmentación, etiquetado de roles semánticos y anotación de dependencias.
+Además, tanto el cliente BRAT como el servidor implementan soporte completo para el estándar Unicode.
+BRAT se distribuye con ejemplos de más de 20 corpus para una variedad de tareas, que involucran textos en siete idiomas diferentes e incluyen ejemplos de corpus como los presentados para las tareas compartidas de CoNLL sobre el reconocimiento de entidades con nombre independientes del idioma~\cite{TjongKimSang2003} y análisis de dependencia multilingüe~{Buchholz2006}.
+BRAT también implementa un sistema configurable para verificar restricciones detalladas en la semántica de la anotación, por ejemplo, especificando que un evento debe tomar obligatoriamente ciertos tipos de argumentos, y opcionalmente otros.
+La verificación de restricciones está integrada en la interfaz de anotaciones y la retroalimentación es inmediata, con efectos visuales que marcan las anotaciones incompletas o erróneas.
 
-BRAT admite dos enfoques estándar para integrar los resultados de las herramientas de anotación completamente automáticas en un flujo de trabajo de anotación: las importaciones de anotaciones masivas se pueden realizar mediante herramientas de conversión de formato distribuidas con BRAT para muchos formatos estándar (como BIO en línea y con formato de columna), y herramientas que Proporcionar interfaces de servicios web estándar que se pueden configurar para que se invoquen desde la interfaz de usuario; sin embargo, los juicios humanos no se pueden reemplazar o basar en un análisis completamente automático sin algún riesgo de introducir sesgos y reducir la calidad de las anotaciones. Para abordar este problema, hemos estado estudiando formas de aumentar el proceso de anotación con información de métodos estadísticos y de aprendizaje automático para respaldar el proceso de anotación y, al mismo tiempo, implicar el juicio del anotador humano para cada anotación. Como una realización específica basada en este enfoque, hemos integrado un sistema de desambiguación de clases semánticas basado en el aprendizaje automático introducido recientemente, capaz de ofrecer múltiples salidas con estimaciones de probabilidad que se demostró que puede reducir la ambigüedad en promedio en más del 75 \% mientras conserva el clase correcta en una media del 99 \% de los casos en seis cuerpos (Stenetorp et al., 2011a). La sección 4 presenta una evaluación de la contribución de este componente a la productividad del anotador.
+BRAT admite dos enfoques estándar para integrar los resultados de las herramientas de anotación automáticas en un flujo de trabajo de anotación.
+Las importaciones de anotaciones masivas se pueden realizar mediante herramientas de conversión de formato distribuidas con BRAT para varios formatos estándar (como BIO en línea y con formato de columna).
+Además, BRAT se puede integrar con herramientas que proporcionan interfaces de servicios web estándar configurables para ser invocadas desde la interfaz de usuario.
+Se debe tener en cuenta, sin embargo, que los juicios humanos no se pueden reemplazar o basar en un análisis completamente automático sin algún riesgo de introducir sesgos y reducir la calidad de las anotaciones.
+Para abordar este problema, BRAT propone mecanismos para aumentar el proceso de anotación con información de métodos estadísticos y de aprendizaje automático para respaldar el proceso de anotación y, al mismo tiempo, implicar el juicio del anotador humano para cada anotación.
+Como una realización específica basada en este enfoque, se ha integrado un sistema de desambiguación de clases semánticas basado en el aprendizaje automático capaz de ofrecer múltiples salidas con estimaciones de probabilidad que se demostró que puede reducir la ambigüedad en promedio en más del 75\% mientras conserva el clase correcta en una media del 99\% de los casos en seis corpus~{Stenetorp2011}.
 
-BRAT implementa un conjunto completo de funciones de búsqueda, lo que permite a los usuarios realizar búsquedas en columnas de documentos Figura 4: Las opciones del cuadro de diálogo de búsqueda de BRAT para anotaciones de texto, relaciones, estructuras de eventos o simplemente texto, con un rico conjunto de opciones de búsqueda definibles mediante un simple punto y -hacer clic
-interfaz (Figura 4). Además, los resultados de la búsqueda pueden mostrarse opcionalmente usando la concordancia de palabras clave en el contexto y ordenados para navegar
-utilizando cualquier aspecto de la anotación coincidente (por ejemplo, tipo, texto o contexto).
+BRAT implementa un conjunto de funciones de búsqueda que permite a los usuarios realizar búsquedas en columnas de documentos.
+Además, los resultados de la búsqueda pueden mostrarse opcionalmente usando la concordancia de palabras clave en el contexto y ser ordenados para navegar utilizando cualquier aspecto de la anotación coincidente (por ejemplo, tipo, texto o contexto).
+Una desventaja de BRAT radica en la imposibilidad de relacionar entre sí o asignar atributos a anotaciones de relaciones.
 
 \subsubsection*{BioQRator}
 
-BioQRator es una interfaz de usuario de propósito general para anotar bioentidades y relaciones. 
-Esto le permite a uno crear fácilmente una interfaz personalizada para cualquier proyecto de bio-curación si la tarea involucrada es anotar entidades y/o relaciones. 
-Un tema importante para los sistemas de annotación son los múltiples formatos diferentes que se utilizan. 
-Para abordar este problema, los autores adoptan BioC como formato estándar de entrada y salida. 
-Para la entrada, se pueden utilizar documentos con formato BioC o resúmenes de PubMed. 
-Para la salida, los documentos anotados también se pueden guardar en formato BioC o CSV (valores separados por comas). Más importante aún, BioQRator proporciona una interfaz web interactiva fácil de usar. 
+BioQRator es una interfaz de usuario de propósito general para anotar bioentidades y relaciones.
+Esto le permite a uno crear fácilmente una interfaz personalizada para cualquier proyecto de bio-curación si la tarea involucrada es anotar entidades y/o relaciones.
+Un tema importante para los sistemas de annotación son los múltiples formatos diferentes que se utilizan.
+Para abordar este problema, los autores adoptan BioC como formato estándar de entrada y salida.
+Para la entrada, se pueden utilizar documentos con formato BioC o resúmenes de PubMed.
+Para la salida, los documentos anotados también se pueden guardar en formato BioC o CSV (valores separados por comas). Más importante aún, BioQRator proporciona una interfaz web interactiva fácil de usar.
 También es compatible con varios navegadores, incluidos Chrome, Firefox y Safari (parcialmente compatible con Internet Explorer).
 
 % La tarea interactiva de BioCreative (IAT) es un evento diseñado para explorar las interacciones usuario-sistema, promover el desarrollo de herramientas útiles de minería de texto y proporcionar un canal de comunicación para las comunidades de biocuración y minería de texto (20, 21). Para BioCreative IV, un equipo participante definió un tema y tareas para la evaluación de los curadores. Los voluntarios biocuradores fueron asignados a los equipos participantes en función de sus intereses en temas definidos. La tarea de BioCreative IAT es especialmente significativa para las comunidades de minería de textos porque ha habido poco esfuerzo para evaluar formalmente las herramientas de curación. Para demostrar la usabilidad de BioQRator en BioCreative IV, se definió una tarea PPI y se utilizó la búsqueda PIE (22, 23) para un recurso externo de minería de texto. Se utilizaron las bases de datos necesarias como PubMed, Entrez Gene y UniProt para proporcionar enlaces web para BioQRator.
@@ -577,16 +587,16 @@ Otra ventaja en el lado fácil de usar es el hecho de que las funciones automati
 
 \subsubsection*{prodigy}
 
-Prodigy es una herramienta de anotación moderna para crear datos de entrenamiento y evaluación para modelos de aprendizaje automático. 
+Prodigy es una herramienta de anotación moderna para crear datos de entrenamiento y evaluación para modelos de aprendizaje automático.
 También se puede utilizar Prodigy para ayudar a inspeccionar y limpiar sus datos, realizar análisis de errores y desarrollar sistemas basados en reglas para usar en combinación con modelos estadísticos.
 Además de la interfaz visual contiene una biblioteca de código en Python.
 
-La biblioteca incluye una variedad de flujos de trabajo prediseñados y instrucciones de línea de comandos para varias tareas, y componentes bien documentados para implementar los scripts propios del usuario en su flujo de trabajo. 
-Los scripts pueden especificar cómo se cargan y guardan los datos, cambiar qué preguntas se hacen en la interfaz de anotación e incluso pueden definir HTML y JavaScript personalizados para cambiar el comportamiento de la interfaz. 
+La biblioteca incluye una variedad de flujos de trabajo prediseñados y instrucciones de línea de comandos para varias tareas, y componentes bien documentados para implementar los scripts propios del usuario en su flujo de trabajo.
+Los scripts pueden especificar cómo se cargan y guardan los datos, cambiar qué preguntas se hacen en la interfaz de anotación e incluso pueden definir HTML y JavaScript personalizados para cambiar el comportamiento de la interfaz.
 La aplicación web está optimizada para una anotación rápida, intuitiva y eficiente.
 
-% La misión de Prodigy es ayudar a hacer más de todos esos procesos manuales o semiautomáticos que todos sabemos que no hacemos lo suficiente. 
-% Para la mayoría de los científicos de datos, el consejo de dedicar más tiempo a analizar sus datos es como el consejo de usar hilo dental o dormir más: es fácil reconocer que es un buen consejo, pero no siempre es fácil de poner en práctica. 
+% La misión de Prodigy es ayudar a hacer más de todos esos procesos manuales o semiautomáticos que todos sabemos que no hacemos lo suficiente.
+% Para la mayoría de los científicos de datos, el consejo de dedicar más tiempo a analizar sus datos es como el consejo de usar hilo dental o dormir más: es fácil reconocer que es un buen consejo, pero no siempre es fácil de poner en práctica.
 % Prodigy ayuda brindándole una herramienta práctica y flexible que se adapta fácilmente a su flujo de trabajo. Con pasos concretos a seguir en lugar de un objetivo vago, la anotación y la inspección de datos cambiarán de algo que debe hacer a algo que hará.
 
 \subsubsection*{TextAE}
