@@ -436,7 +436,7 @@ No solo es más rápido iniciar un proyecto de anotación con esta herramienta, 
       esquema personalizado      & \ok                                    & \ok                                & \ok                              & \ok                           & \ok                                & \ok                            & \ok                              & \ok                             & \ok                               & \ok                                 & \ok                              & \ok                             \\ %
       interfaz colaborativa      & \ok                                    &                                    & \ap                              & \ap                           & \ap                                & \ap                            & \ap                              &                                 & \ok                               & \ok                                 &                                  & \ap                             \\ % F10
       interfaz web               & \ok                                    &                                    & \ok                              & \ok                           & \ok                                & \ok                            & \ok                              & \ok                             & \ok                               & \ok                                 & \ok                              & \ok                             \\ %
-      auto-manejado              & \ok                                    & \ok                                & \ok                              & \ok                           &                                    & \ok                            & \ok                              & \ok                             &                                   & \ok                                 &                                  & \ok                             \\ %
+      auto-manejado              & \ok                                    & \ok                                & \ok                              & \ok                           &                                    & \ok                            & \ok                              & \ok                             & \ok                               & \ok                                 &                                  & \ok                             \\ %
       código abierto             & \ok                                    & \ok                                & \ok                              & \ok                           &                                    & \ok                            &                                  & \ok                             &                                   & \ok                                 & \ok                              & \ok                             \\ % T2
       referencia                 & \cite{gate}                            & \cite{knowtator}                   & \cite{webanno}                   & \cite{brat}                   & \cite{bioqrator}                   & \cite{catma}                   & \cite{prodigy}                   & \cite{textae}                   & \cite{lighttag}                   & \cite{djangology}                   & \cite{myminer}                   & \cite{watsl}                    \\
       \bottomrule
@@ -620,65 +620,60 @@ Esto permite crear documentación, guías de anotación, y otros archivos en for
 LightTag es una herramienta de anotación comercial que funciona a través de una interfaz web tanto manejada por el proveedor de la herramienta como auto-manejada.
 En este sentido, se diferencia de otras herramientas similares de código cerrado en que puede ser integrada con sistemas propios e instalada en infraestructura propia, en caso de ser necesario.
 
-LightTag permite anotaciones multi-etiqueta de entidades y relaciones, así como etiquetas a nivel de documento, tanto clases binarias como mútiples.
-Permite
+LightTag propone varias funcionalidades interesantes para aumentar la productividad de los anotadores.
+En primer ligar, permite anotaciones multi-etiqueta de entidades y relaciones, así como etiquetas a nivel de documento, tanto clases binarias como mútiples.
+Así mismo, es posible anotar frases, palabras exactas, o cualquier división a nivel de símbolos.
+A partir de una interfaz de búsqueda, permite la anotación de entidades usando listas de etiquetas largas.
+Esta herramienta permite crear guías de anotación dentro de la interfaz de anotación, y asociarla a los proyectos y documentos, de forma que sean fácilmente accesibles por los anotadores.
+Mediante una interfaz web, es posible asociar predicciones de modelos de aprendizaje a documentos en forma de pre-anotaciones, que luego pueden ser revisadas y corregidas por los anotadores.
 
-Trabaje más rápido con nuestra interfaz optimizada
-Atajos de teclado
-Sin supuestos de tokenización
-Soporte completo de Unicode
-Anotaciones de subpalabras y frases
-Idiomas RTL y CJK
-Anotaciones de entidad, clasificación y relación
-
-Controle la calidad de sus datos
-El modo de revisión y la generación de informes de LightTag facilitan garantizar que sus datos sean perfectos y que sus anotadores estén funcionando al máximo.
-
-Controle la calidad de sus datos
-El modo de revisión y la generación de informes de LightTag facilitan garantizar que sus datos sean perfectos y que sus anotadores estén funcionando al máximo.
+Desde el punto de vista del manejo de proyectos, las versiones más avanzadas de LightTag permiten la anotación colaborativa, así como la creación de equipos y el manejo de las tareas de anotación con un sistema de calendario y asignación automática.
+En un proyecto de anotación, es posible definir roles para los diferentes anotadores, y crear reportes de rendimiento para comparar la efectividad de cada anotador o equipo.
+Finalmente, LightTag ofrece funcionalidades para el análisis y mantenimiento de la calidad de las anotaciones.
+Produce automáticamente métricas de consenso entre anotadores en tiempo real, y permite la corrección y verificación de anotaciones \textit{a posteriori} en función de los roles definidos.
 
 \subsubsection*{Djangology}
 
-La aplicación web de anotación Djangology se creó originalmente para satisfacer las necesidades de un proyecto de anotación colaborativo que involucra a más de 250 participantes internacionales. 
-El objetivo del proyecto era crear un corpus estándar que esté anotado con entidades nombradas del dominio de interés: estudios médicos de las condiciones de trauma, shock y sepsis. 
-Los resúmenes de una conferencia de la North American Shock Society se utilizaron para identificar las entidades nombradas de dominio específico a través de un proceso automatizado. 
-Las anotaciones de entidades nombradas tuvieron que ser validadas por expertos en el dominio. 
+La aplicación web de anotación Djangology se creó originalmente para satisfacer las necesidades de un proyecto de anotación colaborativo que involucra a más de 250 participantes internacionales.
+El objetivo del proyecto era crear un corpus estándar que esté anotado con entidades nombradas del dominio de interés: estudios médicos de las condiciones de trauma, shock y sepsis.
+Los resúmenes de una conferencia de la North American Shock Society se utilizaron para identificar las entidades nombradas de dominio específico a través de un proceso automatizado.
+Las anotaciones de entidades nombradas tuvieron que ser validadas por expertos en el dominio.
 El sistema Djangology estuvo en uso durante dos años consecutivos (2008 y 2009), logrando una tasa de respuesta media de los contribuyentes del 70 \%.
 
-Las necesidades del proyecto llevaron a un conjunto de requisitos comunes a proyectos similares de anotación colaborativa altamente distribuida. 
-Se necesitaba una interfaz de administración para gestionar documentos y usuarios, así como para la definición de esquemas de anotación. 
-Las anotaciones creadas mediante un proceso automatizado debían cargarse en el sistema. 
-Los participantes fueron notificados por correo electrónico y se les presentó un enlace a la interfaz web de la aplicación. 
-Después de iniciar sesión, los anotadores pudían ver una lista de documentos asignados. 
-Se necesitaba una interfaz de usuario intuitiva basada en la web para permitir a los participantes anotar documentos con un mínimo de texto instructivo. 
-El acceso fácil y rápido a las anotaciones fue crucial para el éxito del proyecto. 
-Como el tiempo de los expertos en dominios es bastante valioso, las complicadas instrucciones de instalación o anotación serían prohibitivas. 
+Las necesidades del proyecto llevaron a un conjunto de requisitos comunes a proyectos similares de anotación colaborativa altamente distribuida.
+Se necesitaba una interfaz de administración para gestionar documentos y usuarios, así como para la definición de esquemas de anotación.
+Las anotaciones creadas mediante un proceso automatizado debían cargarse en el sistema.
+Los participantes fueron notificados por correo electrónico y se les presentó un enlace a la interfaz web de la aplicación.
+Después de iniciar sesión, los anotadores pudían ver una lista de documentos asignados.
+Se necesitaba una interfaz de usuario intuitiva basada en la web para permitir a los participantes anotar documentos con un mínimo de texto instructivo.
+El acceso fácil y rápido a las anotaciones fue crucial para el éxito del proyecto.
+Como el tiempo de los expertos en dominios es bastante valioso, las complicadas instrucciones de instalación o anotación serían prohibitivas.
 El sistema también necesitaba mostrar estadísticas de acuerdos interannotadores, así como la evaluación.
 
-Djangology se puede implantar en cualquier servidor accesible desde la web y requiere una instalación de Python, una instalación de Django y conectividad a un servidor de base de datos. 
-El código fuente y las instrucciones de instalación se pueden encontrar en el sitio web del proyecto\footnote{\url{http://djangology.sourceforge.net/}}. 
-Los autores estiman que el tiempo de instalación y configuración de un extremo a otro para un desarrollador experto en Python y Django es de menos de una hora. 
+Djangology se puede implantar en cualquier servidor accesible desde la web y requiere una instalación de Python, una instalación de Django y conectividad a un servidor de base de datos.
+El código fuente y las instrucciones de instalación se pueden encontrar en el sitio web del proyecto\footnote{\url{http://djangology.sourceforge.net/}}.
+Los autores estiman que el tiempo de instalación y configuración de un extremo a otro para un desarrollador experto en Python y Django es de menos de una hora.
 Una vez implantado, se puede acceder a la aplicación desde cualquier navegador web; no se necesitan complementos de navegador, instalación de JVM o configuraciones de seguridad personalizadas, ya que la comunicación cliente-servidor se basa en solicitudes HTTP y Ajax estándar.
 
 El esquema de la base de datos de la aplicación y la interfaz de usuario se pueden ampliar y personalizar rápidamente agregando nuevos atributos a la clase de modelo de Python correspondiente. El formulario web correspondiente y el esquema de la base de datos subyacente se actualizan de forma transparente mediante el marco de Django.
 
-La aplicación Djangology presenta a los administradores una interfaz para crear o modificar proyectos de anotaciones y administrar usuarios. 
-Los administradores pueden importar documentos (documento único o por lotes) en un proyecto, definir el esquema de anotación del proyecto, crear cuentas de anotadores y asignar anotadores a proyectos específicos y a una lista de documentos. 
-Las anotaciones y los documentos existentes también se pueden cargar fácilmente en el sistema a través de scripts Python personalizados (scripts Django independientes) o mediante una conexión directa a la base de datos Djangology. 
-Djangology se ha utilizado para importar anotaciones creadas manualmente en formato Knowtator y desde BioScope Corpus \cite{Szarvas2008}, así como anotaciones creadas automáticamente por los marcos Gate y UIMA \cite{Ferrucci2004} y el sistema Metamap de la Biblioteca Nacional de Medicina. 
+La aplicación Djangology presenta a los administradores una interfaz para crear o modificar proyectos de anotaciones y administrar usuarios.
+Los administradores pueden importar documentos (documento único o por lotes) en un proyecto, definir el esquema de anotación del proyecto, crear cuentas de anotadores y asignar anotadores a proyectos específicos y a una lista de documentos.
+Las anotaciones y los documentos existentes también se pueden cargar fácilmente en el sistema a través de scripts Python personalizados (scripts Django independientes) o mediante una conexión directa a la base de datos Djangology.
+Djangology se ha utilizado para importar anotaciones creadas manualmente en formato Knowtator y desde BioScope Corpus \cite{Szarvas2008}, así como anotaciones creadas automáticamente por los marcos Gate y UIMA \cite{Ferrucci2004} y el sistema Metamap de la Biblioteca Nacional de Medicina.
 En el flujo de trabajo del sistema, a los colaboradores se les suele enviar por correo electrónico la información de autenticación del sistema y se les presenta un enlace a la aplicación.
 
-Una vez que hayan iniciado sesión, los anotadores pueden seleccionar uno de sus documentos asignados y continuar utilizando la interfaz de anotación basada en la web. 
-Una página web basada en Ajax permite a los colaboradores resaltar un fragmento de texto y asignarlo a uno de los tipos de anotaciones predefinidos (según el esquema de anotaciones del proyecto). 
-El procedimiento para ingresar nuevas anotaciones y modificar las existentes es intuitivo y se basa en las convenciones de la interfaz de usuario. 
-El sistema está diseñado específicamente para requerir una inversión mínima de tiempo por parte de los anotadores involucrados. 
+Una vez que hayan iniciado sesión, los anotadores pueden seleccionar uno de sus documentos asignados y continuar utilizando la interfaz de anotación basada en la web.
+Una página web basada en Ajax permite a los colaboradores resaltar un fragmento de texto y asignarlo a uno de los tipos de anotaciones predefinidos (según el esquema de anotaciones del proyecto).
+El procedimiento para ingresar nuevas anotaciones y modificar las existentes es intuitivo y se basa en las convenciones de la interfaz de usuario.
+El sistema está diseñado específicamente para requerir una inversión mínima de tiempo por parte de los anotadores involucrados.
 No es necesario instalar, configurar o leer los manuales de usuario por parte de los colaboradores.
-Las anotaciones se guardan en la base de datos de backend a medida que se ingresan, lo que garantiza que no se pierda ningún trabajo. 
-Para ahorrar el esfuerzo de los anotadores, una vez que se anota una frase, todas las apariciones de la frase en el documento se anotan automáticamente con la misma etiqueta. 
-Los usuarios también tienen la posibilidad de anular las anotaciones creadas automáticamente o cambiar el comportamiento predeterminado del sistema. 
+Las anotaciones se guardan en la base de datos de backend a medida que se ingresan, lo que garantiza que no se pierda ningún trabajo.
+Para ahorrar el esfuerzo de los anotadores, una vez que se anota una frase, todas las apariciones de la frase en el documento se anotan automáticamente con la misma etiqueta.
+Los usuarios también tienen la posibilidad de anular las anotaciones creadas automáticamente o cambiar el comportamiento predeterminado del sistema.
 Si lo desea, los contribuyentes también pueden marcar los documentos como completados para alertar al administrador del proyecto sobre el progreso de la anotación.
 
-Una vez que se recopilan las anotaciones de varios contribuyentes, los administradores de proyectos tienen la capacidad de ver las estadísticas del acuerdo interannotador: una variedad de métricas basadas en proyectos y documentos por pares se calculan y presentan en la interfaz de usuario. 
+Una vez que se recopilan las anotaciones de varios contribuyentes, los administradores de proyectos tienen la capacidad de ver las estadísticas del acuerdo interannotador: una variedad de métricas basadas en proyectos y documentos por pares se calculan y presentan en la interfaz de usuario.
 Dado que el análisis de los desacuerdos entre los anotadores es una tarea común, también se proporciona una interfaz para una comparación lado a lado de las anotaciones de los documentos.
 
 \subsubsection*{MyMiner}
