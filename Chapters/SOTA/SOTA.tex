@@ -678,39 +678,39 @@ Dado que el análisis de los desacuerdos entre los anotadores es una tarea comú
 
 \subsubsection*{MyMiner}
 
-MyMiner es una aplicación web interactiva basada en un diseño modular con el propósito de ayudar a los usuarios en las tareas de biocuración y anotación de texto. 
-La interfaz de MyMiner está diseñada para ser fácil de usar y no requiere la instalación de ningún software local. 
-Cada módulo tiene una opción de exportar para guardar los resultados. 
-El tiempo dedicado a procesar un documento se registra en el archivo exportado. 
-Para mejorar la facilidad de uso, los autores han adoptado y conservado un diseño de pantalla común entre los módulos de la aplicación. 
-El área de análisis del documento de entrada se encuentra en la parte superior de la página; las opciones y herramientas se colocan debajo de la zona de selección principal. 
+MyMiner es una aplicación web interactiva basada en un diseño modular con el propósito de ayudar a los usuarios en las tareas de biocuración y anotación de texto.
+La interfaz de MyMiner está diseñada para ser fácil de usar y no requiere la instalación de ningún software local.
+Cada módulo tiene una opción de exportar para guardar los resultados.
+El tiempo dedicado a procesar un documento se registra en el archivo exportado.
+Para mejorar la facilidad de uso, los autores han adoptado y conservado un diseño de pantalla común entre los módulos de la aplicación.
+El área de análisis del documento de entrada se encuentra en la parte superior de la página; las opciones y herramientas se colocan debajo de la zona de selección principal.
 MyMiner combina PHP, JavaScript y AJAX para mejorar la interactividad del usuario. El núcleo del sistema MyMiner cubre cuatro módulos de aplicación que pueden usarse de forma independiente o combinarse siguiendo los pasos de una tubería de biocuración.
 MyMiner maneja cualquier texto sin formato, incluidos resúmenes de artículos, oraciones de documentos, términos de ontología o descripciones de enfermedades.
 
-El módulo "Etiquetado de archivos" es una interfaz de clasificación de texto manual fácil de usar que permite clasificar documentos, resúmenes, oraciones o términos, ofreciendo la posibilidad de ingresar etiquetas de clase especificadas por el usuario. 
-Este módulo podría usarse, por ejemplo, para clasificar documentos como relevantes o no para un tema específico de una consulta de PubMed. 
-Su propósito es cubrir la tarea de triaje (selección de artículos) que realizan los anotadores de la base de datos, pero también se puede utilizar para cualquier registro de clasificación manual. 
-Los datos etiquetados que resultan de esta clasificación pueden servir como conjuntos de entrenamiento y prueba para sistemas de categorización de texto. 
-Para reducir el tiempo de clasificación manual, el sistema ofrece la opción de establecer dinámicamente fragmentos de texto resaltadoscomo positivos y negativos. 
-Estas son expresiones que los usuarios pueden establecer en cualquier momento durante el proceso de etiquetado para resaltar el texto relevante (marcado en amarillo) o no relevante (marcado en rojo) para el tema de interés. 
-El sistema ofrece la posibilidad de cargar las pautas de clasificación para que el anotador pueda consultarlas cuando sea necesario. 
-Los usuarios pueden pausar y reanudar el proceso de conservación en cualquier momento guardando el documento clasificado. 
-Para reanudar la clasificación, el archivo guardado se carga como archivo de entrada. 
-Se registra el tiempo empleado por un usuario para seleccionar la etiqueta correspondiente. 
+El módulo "Etiquetado de archivos" es una interfaz de clasificación de texto manual fácil de usar que permite clasificar documentos, resúmenes, oraciones o términos, ofreciendo la posibilidad de ingresar etiquetas de clase especificadas por el usuario.
+Este módulo podría usarse, por ejemplo, para clasificar documentos como relevantes o no para un tema específico de una consulta de PubMed.
+Su propósito es cubrir la tarea de triaje (selección de artículos) que realizan los anotadores de la base de datos, pero también se puede utilizar para cualquier registro de clasificación manual.
+Los datos etiquetados que resultan de esta clasificación pueden servir como conjuntos de entrenamiento y prueba para sistemas de categorización de texto.
+Para reducir el tiempo de clasificación manual, el sistema ofrece la opción de establecer dinámicamente fragmentos de texto resaltadoscomo positivos y negativos.
+Estas son expresiones que los usuarios pueden establecer en cualquier momento durante el proceso de etiquetado para resaltar el texto relevante (marcado en amarillo) o no relevante (marcado en rojo) para el tema de interés.
+El sistema ofrece la posibilidad de cargar las pautas de clasificación para que el anotador pueda consultarlas cuando sea necesario.
+Los usuarios pueden pausar y reanudar el proceso de conservación en cualquier momento guardando el documento clasificado.
+Para reanudar la clasificación, el archivo guardado se carga como archivo de entrada.
+Se registra el tiempo empleado por un usuario para seleccionar la etiqueta correspondiente.
 Esto puede resultar útil para estimar la eficiencia de los anotadores y la dificultad de la tarea.
 
-El módulo "Comparar archivo" facilita la comparación directa de colecciones de elementos etiquetados generados por varios enfoques o personas. 
-Además, es posible crear subconjuntos a partir de estas colecciones en función del acuerdo o desacuerdo de las etiquetas de anotación. 
-Este módulo se puede utilizar para comparar y evaluar métodos de clasificación de documentos entre varias personas o softwares. 
-Muestra un resumen global con información que cubre: 
-(i) el número de documentos dentro de cada clase; 
-(ii) el tiempo medio necesario para clasificar el texto; 
-(iii) la correlación entre el tiempo de clasificación y la longitud del texto o 
-(iv) el número de elementos etiquetados de manera diferente entre los anotadores. 
-Este módulo permite extraer una colección de textos (conocido como corpus \textit{Gold Standard}) que han sido etiquetados consistentemente por todos los anotadores. 
-Alternativamente, el módulo también se puede utilizar para extraer los casos límite etiquetados de manera diferente. 
-Las anotaciones apresuradas o inexactas se pueden detectar por desacuerdos entre los anotadores y/o una mala correlación entre el tamaño del documento y el tiempo de clasificación. 
-Estos casos se pueden usar para refinar y mejorar las pautas de clasificación. 
+El módulo "Comparar archivo" facilita la comparación directa de colecciones de elementos etiquetados generados por varios enfoques o personas.
+Además, es posible crear subconjuntos a partir de estas colecciones en función del acuerdo o desacuerdo de las etiquetas de anotación.
+Este módulo se puede utilizar para comparar y evaluar métodos de clasificación de documentos entre varias personas o softwares.
+Muestra un resumen global con información que cubre:
+(i) el número de documentos dentro de cada clase;
+(ii) el tiempo medio necesario para clasificar el texto;
+(iii) la correlación entre el tiempo de clasificación y la longitud del texto o
+(iv) el número de elementos etiquetados de manera diferente entre los anotadores.
+Este módulo permite extraer una colección de textos (conocido como corpus \textit{Gold Standard}) que han sido etiquetados consistentemente por todos los anotadores.
+Alternativamente, el módulo también se puede utilizar para extraer los casos límite etiquetados de manera diferente.
+Las anotaciones apresuradas o inexactas se pueden detectar por desacuerdos entre los anotadores y/o una mala correlación entre el tamaño del documento y el tiempo de clasificación.
+Estos casos se pueden usar para refinar y mejorar las pautas de clasificación.
 El módulo Comparar archivo se ha utilizado para estimar la coherencia de las anotaciones manuales entre varios individuos y métodos.
 
 El módulo "Etiquetado de entidades" (reconocimiento de menciones de entidades) permite detectar manualmente objetos conceptuales importantes dentro de un documento, un primer paso para una mayor identificación de eventos de anotación y relaciones para poblar bases de datos de conocimiento.
@@ -718,13 +718,13 @@ Este módulo puede usarse, por ejemplo, para crear un corpus de menciones de gen
 Ofrece una interfaz interactiva que permite a los usuarios identificar semiautomáticamente varios tipos de entidades dentro de los documentos.
 Ha sido diseñado como un editor en línea WYSIWYG (What You See Is What You Get) que permite la adición de etiquetas especificadas por el usuario para nuevos tipos de entidades.
 Para la detección de bioentidades importantes, este módulo proporciona el reconocimiento automático de proteínas, ADN, ARN, líneas celulares y tipos de células mediante la integración del marcador ABNER~\cite{Settles2005}.
-MyMiner incorpora además el sistema LINNAEUS para identificar especies y organismos~\cite{Gerner2010}. 
+MyMiner incorpora además el sistema LINNAEUS para identificar especies y organismos~\cite{Gerner2010}.
 Además, las entidades definidas por el usuario se pueden detectar si se proporcionan diccionarios de términos y etiquetas.
 Para mejorar la precisión de las anotaciones, las etiquetas se pueden editar y las etiquetas generadas incorrectamente se pueden eliminar.
 
 El módulo "Entity Linking" facilita la anotación manual de bioentidades mencionadas en un documento con identificadores estandarizados.
 Este módulo puede usarse, por ejemplo, para vincular manualmente artículos a identificadores de enfermedades y proteínas para crear un catálogo de proteínas involucradas en patologías.
-Los nombres de genes y proteínas se reconocen automáticamente y se muestran como una lista que se puede editar manualmente, y se pueden agregar nuevas entidades y eliminar las identificadas incorrectamente. 
+Los nombres de genes y proteínas se reconocen automáticamente y se muestran como una lista que se puede editar manualmente, y se pueden agregar nuevas entidades y eliminar las identificadas incorrectamente.
 Para cada nombre de gen o proteína, MyMiner sugiere una lista clasificada de identificadores UniProt que utilizan el mecanismo de puntuación de búsqueda UniProt~\cite{Arighi2011}.
 Para este propósito, MyMiner lanza consultas asincrónicas a las respectivas bases de datos (UniProt, taxonomía NCBI, OMIM y archivo de ontología proporcionado por el usuario) utilizando solicitudes AJAX.
 Para organismos, proteínas, enfermedades y términos de ontología, se muestra una breve descripción para ayudar a validar posibles aciertos candidatos y para ayudar durante la desambiguación manual de identificadores de bases de datos potenciales.
@@ -733,16 +733,31 @@ Si las especies se especifican antes de una búsqueda de identificadores de prot
 
 \subsubsection*{WAT-SL}
 
-WAT-SL (Herramienta de anotación web para etiquetado de segmentos), una herramienta de anotación basada en la web de código abierto dedicada al etiquetado de segmentos.1 WAT-SL proporciona todas las funcionalidades para ejecutar y administrar proyectos de etiquetado de segmentos de manera eficiente. Su interfaz de anotación autodescriptiva solo requiere un navegador web, lo que la hace particularmente conveniente para los procesos de anotaciones remotas. La interfaz se puede adaptar fácilmente a los requisitos del proyecto utilizando tecnologías web estándar para centrarse en las etiquetas de segmento específicas en cuestión y cumplir con las expectativas de diseño de los anotadores. Al mismo tiempo, asegura que los textos a etiquetar permanezcan legibles durante todo el proceso de anotación. Este proceso se basa en el servidor y se puede interrumpir en cualquier momento. El progreso del anotador se puede monitorear constantemente, ya que todas las interacciones relevantes de los anotadores se registran en un formato de texto sin formato basado en valores clave.
+WAT-SL es una herramienta de anotación basada en tecnologías web de código abierto dedicada al etiquetado de segmentos.
+WAT-SL proporciona funcionalidades para ejecutar y administrar proyectos de etiquetado de segmentos de manera eficiente. Su interfaz de anotación es autodescriptiva y solo requiere un navegador web, lo que la hace particularmente conveniente para los procesos de anotaciones remotos.
+La interfaz se puede adaptar a los requisitos del proyecto utilizando tecnologías web estándar.
+Al mismo tiempo, WAT-SL asegura que los textos a etiquetar permanezcan legibles durante todo el proceso de anotación.
+ste proceso se basa en el servidor y se puede interrumpir en cualquier momento.
+El progreso del anotador es monitoreable en tiempo real, ya que todas las interacciones relevantes de los anotadores se registran en un archivo de texto sin formato basado en valores clave.
 
-WAT-SL es una herramienta de anotación basada en web lista para usar y fácilmente personalizable que se dedica al etiquetado de segmentos y que se centra en un uso fácil para todas las partes involucradas: anotadores, curadores de anotaciones y organizadores de proyectos de anotaciones. En WAT-SL, el proceso de anotación se divide en tareas, que generalmente corresponden a textos individuales. Juntas, estas tareas forman un proyecto.
+En WAT-SL, el proceso de anotación se divide en tareas, que generalmente corresponden a textos individuales y conforman un proyecto de anotación.
+La interfaz de WAT-SL proporciona pistas visuales para ayudar a los anotadores a identificar fácilmente los segmentos anotados.
+Por ejemplo, para ayudar a los anotadores a formar un modelo mental de la interfaz de anotaciones, los colores de fondo de los segmentos etiquetados coinciden con los colores de las etiquetas en el menú.
+Todas las etiquetas se guardan automáticamente, evitando pérdida de datos en caso de cortes de energía, problemas de conexión o similares.
+En algunos casos, los textos pueden estar segmentados en exceso, por ejemplo, debido a una segmentación automática.
+En estos casos WAT-SL permite a los anotadores marcar un segmento para continuar en el siguiente segmento.
+Adicionalmente, la interfaz de anotaciones incluye un cuadro de texto para introducir comentarios para los organizadores del proyecto.
+Esto permite una retroalimentación entre los anotadores y los administradores.
 
-Una vez que se etiqueta un segmento, su color de fondo cambia y el botón muestra una abreviatura de la etiqueta respectiva. Para ayudar a los anotadores a formar un modelo mental de la interfaz de anotaciones, los colores de fondo de los segmentos etiquetados coinciden con los colores de las etiquetas en el menú. Todas las etiquetas se guardan automáticamente, evitando cualquier pérdida de datos en caso de cortes de energía, problemas de conexión o similares.
-En algunos casos, los textos pueden estar segmentados en exceso, por ejemplo, debido a una segmentación automática. Si este es el caso, WAT-SL permite a los anotadores marcar un segmento para continuar en el siguiente segmento. A continuación, la interfaz conectará visualmente estos segmentos (consulte los botones que muestran “->” en la Figura 2). Finalmente, la interfaz de anotaciones incluye un cuadro de texto para dejar comentarios a los organizadores del proyecto. Para simplificar la formulación de comentarios, cada segmento está numerado, y el número se muestra cuando se mueve el cursor del mouse sobre él.
+Después de que se completa un proceso de anotación, generalmente sigue una fase de curación en la que las anotaciones de diferentes anotadores se consolidan en un resultado final.
+La interfaz de curación de WAT-SL permite una curación eficiente al imitar la interfaz de anotación con tres ajustes.
+En primer lugar, los segmentos para los cuales la mayoría de los anotadores acordaron una etiqueta están preetiquetados en consecuencia.
+En segundo lugar, el menú muestra para cada etiqueta cuántos anotadores la eligieron.
+Finalmente, la descripción de la etiqueta muestra (anonimizada) qué anotador eligió la etiqueta, para que los curadores puedan interpretar cada etiqueta en su contexto.
 
-Después de que se completa un proceso de anotación, generalmente sigue una fase de curación en la que las anotaciones de diferentes anotadores se consolidan en una. La interfaz de curación de WAT-SL permite una curación eficiente al imitar la interfaz de anotación con tres ajustes (Figura 3): Primero, los segmentos para los cuales la mayoría de los anotadores acordaron una etiqueta están preetiquetados en consecuencia. En segundo lugar, el menú muestra para cada etiqueta cuántos anotadores la eligieron. Y tercero, la descripción de la etiqueta muestra (anonimizada) qué anotador eligió la etiqueta, para que los curadores puedan interpretar cada etiqueta en su contexto. Se puede acceder a la curación bajo la misma URL que la anotación para permitir que los anotadores de algunas tareas sean curadores de otras tareas.
-
-WAT-SL es una aplicación Java independiente de plataforma y fácil de implementar, con pocas configuraciones almacenadas en un simple archivo "clave = valor". Entre otros, los anotadores se gestionan en este archivo asignando un nombre de usuario, una contraseña y un conjunto de tareas a cada uno de ellos. Para cada tarea, el organizador de un proyecto de anotación crea un directorio (ver más abajo). WAT-SL utiliza el nombre del directorio como nombre de la tarea en todas las ocasiones. Una vez que se ejecuta el archivo Java que proporcionamos, lee todas las configuraciones e inicia un servidor. El servidor está inmediatamente listo para aceptar solicitudes de los anotadores.
+Desde el punto de vista de la arquitectura de software, WAT-SL es una aplicación Java independiente de la plataforma con pocas configuraciones almacenadas en un archivo de configuración llave-valor.
+Por ejemplo, los anotadores se gestionan en este archivo asignando un nombre de usuario, una contraseña y un conjunto de tareas a cada uno de ellos.
+Para cada tarea, el organizador de un proyecto de anotación crea un directorio, que WAT-SL utiliza como nombre de la tarea en todas las ocasiones.
 
 \section{Construcción de Recursos Lingüísticos}
 
