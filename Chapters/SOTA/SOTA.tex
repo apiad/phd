@@ -412,7 +412,7 @@ Un ejemplo es la necesidad de incluir {causalidad} y {vinculación} como relacio
 Asimismo, la anotación carece de la capacidad de representar correferencias (`` \textit{esto} '', `` \textit{eso} '') y, por esta razón, muchas oraciones no se pueden anotar completamente.
 Además, las construcciones lingüísticas complejas que representan conceptos compuestos (por ejemplo, `` \textit{los pacientes que recibieron tratamiento} '') son difíciles de anotar, especialmente cuando participan en otras relaciones.
 
-\subsection{Herramientas de Anotación}
+\subsection{Herramientas de Anotación}\label{subsec:annotation-tools}
 
 Un elemento importante a considerar en la investigación sobre descubrimiento de conocimiento es la existencia de recursos e infraestructura computacionales que apoyan el desarrollo de nuevos enfoques.
 La creación de recursos lingüísticos a menudo surge de un proceso de anotación manual por parte de expertos humanos, que requiere herramientas computacionales para la anotación real, así como mecanismos para mezclar anotaciones y cálculo de métricas de consenso, idealmente en un entorno colaborativo.
@@ -1002,35 +1002,44 @@ El corpus de referencia consta de dos porciones, seleccionadas para propósitos 
 
 \begin{description}
   \item[Registros completos de pacientes]
-        Dos aplicaciones en CLEF implican agregar datos en un solo registro de paciente. La crónica de CLEF construye un modelo cronológico para un paciente, integrando eventos tanto del registro estructurado como no estructurado8. La generación de informes CLEF crea informes agregados y en lenguaje natural a partir de la crónica9. Estas dos aplicaciones requieren registros completos de pacientes para su desarrollo y prueba. Se seleccionaron dos registros completos de pacientes para esta parte del corpus, de dos de las principales categorías de diagnóstico, para dar un número medio de documentos y una combinación de tipos y longitudes de documentos.
+        Dos aplicaciones en CLEF implican agregar datos en un solo registro de paciente.
+        Estas dos aplicaciones requieren registros completos de pacientes para su desarrollo y prueba.
+        Para ello, se seleccionaron dos registros completos de pacientes para esta parte del corpus, de dos de las principales categorías de diagnóstico, para dar un número medio de documentos y una combinación de tipos y longitudes de documentos.
   \item[Muestra aleatoria estratificada]
-        La mayor parte del patrón oro sirve como material de desarrollo y evaluación para IE. Con el fin de garantizar un entrenamiento uniforme y una evaluación justa en todo el corpus, el muestreo de esta porción es aleatorio y estratificado, de modo que refleje la distribución de la población a lo largo de varios ejes. La Tabla 1 muestra las proporciones de narrativas clínicas a lo largo de dos de estos ejes. La anotación inicial de la muestra aleatoria se centra en 50 de cada uno de los relatos clínicos, los informes de histopatología y los informes de imágenes. Se espera que el número final de documentos anotados sea mayor que esto.
+        La mayor parte del corpus de referencia sirve como material de desarrollo y evaluación para tareas de extración de información.
+        Con el fin de garantizar un entrenamiento uniforme y una evaluación justa en todo el corpus, el muestreo de esta porción es aleatorio y estratificado, de modo que refleje la distribución de los documentos.
+        La anotación inicial de la muestra aleatoria se centra en 50 de cada uno de los relatos clínicos, los informes de histopatología y los informes de imágenes, para un total de 150 documentos anotados.
 \end{description}
 
-El estándar de oro de CLEF es un corpus anotado semánticamente. Nos interesa extraer las principales entidades semánticas del texto. Por entidad, nos referimos a alguna cosa del mundo real a la que se hace referencia en el texto: los fármacos que se mencionan, las pruebas que se realizaron, etc. También nos interesa extraer las relaciones entre entidades: la condición indicada por un fármaco, el resultado de una investigación, etc.
+El corpus de referencia CLEF es un corpus anotado semánticamente, concentrado en las principales entidades semánticas del texto.
+Se considera entidad a cualquier elemento del mundo real a la que se hace referencia en el texto: los fármacos que se mencionan, las pruebas que se realizaron, etc.
+Además, se anotan las relaciones entre entidades: la condición indicada por un fármaco, el resultado de una investigación, etc.
 
-La anotación está anclada en el texto. Los anotadores marcan tramos de texto con un tipo: fármaco, lugar geométrico, etc. Los anotadores también pueden marcar palabras que modifican tramos (como negación) y marcar relaciones como vínculos entre tramos. Dos o más intervalos pueden hacer referencia a la misma cosa en el mundo real, en cuyo caso son co-referencia. Esto también está marcado por los anotadores. Algunos aspectos de la anotación se muestran en el Diagrama 1.
+La anotación está anclada en el texto.
+Los anotadores marcan tramos de texto con un tipo: fármaco, lugar geométrico, etc.
+Los anotadores también pueden marcar palabras que modifican tramos (como negación) y marcar relaciones como vínculos entre tramos.
+Dos o más intervalos pueden hacer referencia al mismo elemento en el mundo real, en cuyo caso son co-referencia.
 
-Los tipos de anotaciones se describen en un esquema, que se muestra en el Diagrama 2. El esquema se ha basado en un conjunto de requisitos desarrollados entre médicos y lingüistas computacionales en CLEF (no existen esquemas o teorías estándar en esta área). Los tipos de esquema se asignan a tipos en la red semántica UMLS. A los efectos de la anotación, el esquema se modela como una ontología Protégé-Frames10. La anotación se lleva a cabo utilizando una versión adaptada del complemento Knowtator para Protégé11. Este fue elegido por su manejo de las relaciones, luego de evaluar varias de tales herramientas.
+Los tipos de anotaciones se describen en un esquema basado en un conjunto de requisitos desarrollados entre médicos y lingüistas computacionales en CLEF (no existen esquemas o teorías estándar en esta área).
+Los tipos de esquema se asignan a tipos en la red semántica UMLS.
+A los efectos de la anotación, el esquema se modela como una ontología.
+La anotación se lleva a cabo utilizando una versión adaptada de la herramienta \texttt{Knowtator}~(ver Sección~\ref{subsec:annotation-tools}).
 
-La metodología de anotación sigue los estándares establecidos de procesamiento del lenguaje natural12. Los anotadores trabajan según las pautas acordadas; los documentos están anotados por al menos dos anotadores; los documentos solo se utilizan cuando el acuerdo supera un umbral; las diferencias las resuelve un tercer anotador experimentado. Estos puntos se analizan más adelante.
+La metodología de anotación sigue los estándares establecidos de procesamiento del lenguaje natural.Todos los documentos están anotados por al menos dos anotadores, y solo se utilizan cuando el acuerdo supera un umbral de consenso.
+En tal caso, las diferencias las resuelve un tercer anotador experimentado.
 
-Directrices de anotación
-La coherencia es fundamental para la calidad de un patrón oro. Es importante que todos los documentos estén anotados con el mismo estándar. Las preguntas surgen regularmente al realizar anotaciones. Por ejemplo, ¿deberían dividirse las expresiones de varias palabras? ¿Debería anotarse el “infarto de miocardio” como una condición, o como una condición y un locus? Para garantizar la coherencia, se proporciona un conjunto de pautas a los anotadores. Estos describen en detalle lo que debe y no debe anotarse; cómo decidir si dos entidades están relacionadas; cómo lidiar con la co-referencia; y varios casos especiales. Las pautas también proporcionan una secuencia de pasos, una receta, que los anotadores deben seguir al trabajar en un documento. Esta receta está diseñada para minimizar los errores de omisión. Las directrices en sí mismas se desarrollaron a través de un proceso iterativo riguroso, que se describe a continuación.
+Dado que la coherencia es fundamental para la calidad de un corpus de referencia, es importante que todos los documentos estén anotados con el mismo estándar.
+Para garantizar la coherencia, en CLEF se proporcionó un conjunto de pautas a los anotadores.
+Estas describen en detalle lo que debe y no debe anotarse; cómo decidir si dos entidades están relacionadas; cómo lidiar con la co-referencia; y varios casos especiales.
+Las pautas también proporcionan una secuencia de pasos que los anotadores deben seguir al trabajar en un documento, diseñada para minimizar los errores de omisión.
 
-Anotación doble
-Un documento anotado individualmente puede reflejar muchos problemas: la idiosincrasia de un anotador individual; errores puntuales cometidos por un solo anotador; anotadores que constantemente rinden menos. Hay muchos esquemas de anotación alternativos diseñados para superar esto, todos los cuales implican más tiempo de anotador. La doble anotación es una alternativa ampliamente utilizada, en la que cada documento es anotado independientemente por dos anotadores, y los conjuntos de anotaciones se comparan para lograr un acuerdo.
+La concordancia entre documentos con anotaciones dobles se mide en CLEF utilizando la concordancia entre anotadores (IAA, que se muestra a continuación).
+Los pares de anotaciones dobles se rechazan si el acuerdo no supera algún umbral (actualmente el 80\% para las entidades).
+El proceso de resolución lo lleva a cabo un tercer anotador experimentado.
+Todos los acuerdos de los anotadores originales se aceptan en un conjunto de consenso, y el tercer anotador decide sobre las diferencias, de acuerdo con un conjunto de pautas estrictas.
 
-Métricas de acuerdo
-Medimos la concordancia entre documentos con anotaciones dobles utilizando la concordancia entre anotadores (IAA, que se muestra a continuación). Los pares de anotaciones dobles se rechazan si el acuerdo no supera algún umbral (actualmente el 80\% para las entidades).
-
-Resolución de diferencia
-La doble anotación se puede utilizar para mejorar la calidad de la anotación y, por lo tanto, la calidad de los modelos estadísticos entrenados en esas anotaciones. Esto se logra combinando anotaciones dobles para dar un conjunto más cercano a la "verdad" (aunque generalmente se acepta como imposible definir un estándar de oro de "verdad absoluta" en una tarea de anotación con la complejidad de CLEF). El proceso de resolución lo lleva a cabo un tercer anotador experimentado. Todos los acuerdos de los anotadores originales se aceptan en un conjunto de consenso, y el tercer anotador decide sobre las diferencias, de acuerdo con un conjunto de pautas estrictas. De esta manera, las anotaciones permanecen al menos con anotaciones dobles.
-
-Experiencia del anotador
-Con el fin de examinar la facilidad con que otros anotadores con distintos niveles de experiencia podrían aplicar las directrices, también entregamos un lote de documentos a nuestros anotadores de desarrollo, a otro médico, a un biólogo con experiencia en lingüística y a un lingüista computacional. Cada uno recibió una formación muy limitada. Las anotaciones resultantes se compararon entre sí y con un conjunto de consenso creado a partir de los dos anotadores de desarrollo. La matriz IAA para este grupo se muestra en la Tabla 4. Este pequeño experimento muestra que incluso con un entrenamiento muy limitado, las puntuaciones de concordancia que se acercan a la aceptabilidad son alcanzables. Un análisis de diferencias sugirió que el lingüista computacional estaba encontrando más co-referencias pronominales y relaciones señaladas verbalmente que los médicos, pero que, como era de esperar, los médicos encontraron más relaciones que requerían conocimiento del dominio para resolverse. Una combinación de conocimientos médicos y lingüísticos parece ser la mejor opción.
-
-Hemos dilucidado una metodología para la anotación de un estándar de oro para la EI clínica y hemos demostrado que es viable. Los resultados iniciales muestran que se pueden lograr niveles prometedores de acuerdo entre los anotadores. Hemos examinado la aplicabilidad de la anotación a varios subgéneros de textos clínicos, y nuestros resultados sugieren que las pautas desarrolladas para un subgénero pueden aplicarse fructíferamente a otros. Nuestro trabajo ha planteado varios desafíos. En términos de resultados, la mayor dificultad ha sido lograr una anotación de relación consistente. Desde el punto de vista organizativo, la coordinación de muchos anotadores ha resultado difícil. El acceso al corpus está actualmente restringido: nuestro desafío final es desarrollar un marco de gobernanza en el que pueda estar disponible de manera más amplia.
+Más allá del corpus anotado, CLEF propone una metodología para la anotación de un estándar de oro para la extracción de información clínica y demuestra que es viable.
+Los resultados iniciales muestran que se pueden lograr niveles prometedores de acuerdo entre los anotadores, aún aquellos sin experticia técnica en el dominio del conocimiento concreto que se está anotando.
 
 \subsubsection*{BARR2}
 
