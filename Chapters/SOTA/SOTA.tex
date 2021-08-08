@@ -903,9 +903,9 @@ El corpus \texttt{IxA MedGS} se concentra especialmente en las \textit{reaccione
 
 \subsubsection*{DrugSemantics}
 
-DrugSemantics es una colección de resúmenes en español de las características de diferentes productos farmaceúticos. 
-Se anotó manualmente con entidades con nombre farmacoterapéutico, que se detallan en el esquema de anotaciones de DrugSemantics. 
-Los anotadores fueron una Enfermera Registrada y dos estudiantes de la Licenciatura en Enfermería. La calidad del corpus de DrugSemantics se evaluó midiendo su fiabilidad de anotación (F general = 79,33\% [IC 95\%: 78,35–80,31]), así como su precisión de anotación (global [IC 95\%: 94,11–95,19]). 
+DrugSemantics es una colección de resúmenes en español de las características de diferentes productos farmaceúticos.
+Se anotó manualmente con entidades con nombre farmacoterapéutico, que se detallan en el esquema de anotaciones de DrugSemantics.
+Los anotadores fueron una Enfermera Registrada y dos estudiantes de la Licenciatura en Enfermería. La calidad del corpus de DrugSemantics se evaluó midiendo su fiabilidad de anotación (F general = 79,33\% [IC 95\%: 78,35–80,31]), así como su precisión de anotación (global [IC 95\%: 94,11–95,19]).
 En total, el corpus contiene más de 2 000 entidades con nombre, 780 oraciones y 226 729 palabras. Por último, los autores presentan un módulo de Clasificación de Entidades Nombradas entrenado en DrugSemantics con el objetivo de mostrar la calidad del corpus, así como un ejemplo de cómo usarlo.
 Esto muestra que el copus anotado puede utilizarse para crear algortimos de anotación automática.
 
@@ -920,7 +920,7 @@ El corpus DDI fue desarrollado para el desafío DDI Extraction 2013\footnote{\ur
 En este desafío se propusieron dos etapas: el reconocimiento y clasificación de nombres de fármacos y la extracción y clasificación de sus interacciones.
 
 Las fuentes de contenido textual para la construcción del corpus DDI fueron DrugBank~\cite{} y Medline~\cite{}, resultando en dos colecciones, DDI-DrugBank, y DDI-Medline, respectivamente.
-Basado en la división de oraciones durante el preprocesamiento, el corpus DDI-DrugBank contiene 6795 oraciones, y el corpus DDI-MedLine se compone de 2147 oraciones. 
+Basado en la división de oraciones durante el preprocesamiento, el corpus DDI-DrugBank contiene 6795 oraciones, y el corpus DDI-MedLine se compone de 2147 oraciones.
 El tipo de entidad más común presente en ambas colecciones fueron los \textit{fármacos} (63 \%).
 Sin embargo, los números de otros tipos de entidades difieren entre ambas colecciones.
 En cuanto a las relaciones, el \textit{efecto} fue la relación dominante encontrada en todo el corpus DDI.
@@ -934,22 +934,22 @@ El corpus también incluye alrededor de 1000 oraciones, cada una del corpus de e
 
 \subsubsection*{YAGO}
 
-YAGO surge por la necesidad de crear una ontología más grande utilizando las ontologías existentes actualmente, sus principales objetivos eran: 
+YAGO surge por la necesidad de crear una ontología más grande utilizando las ontologías existentes actualmente, sus principales objetivos eran:
 \begin{itemize}
   \item Unificación de Wikipedia y WordNet.
   \item Hacer uso de estructuras e información, tales como: Infoboxes, Category Pages, etc.
   \item Asegurar la plausibilidad de los hechos a través de comprobación de tipo
 \end{itemize}
 
-La entrada de datos de YAGO se compone de cuadros de información semiestructurada de artículos de Wikipedia y entradas de WordNet y Geonames(en versiones posteriores). 
+La entrada de datos de YAGO se compone de cuadros de información semiestructurada de artículos de Wikipedia y entradas de WordNet y Geonames(en versiones posteriores).
 El resultado es una base de conocimiento que en su primera versión en 2007 contaba con más de 1 millón de entidades y 5 millones de hechos.
 En versiones posteriores se ha extendido a 350K tipos de entidades, 10M entidades, 120M hechos e incorporando información temporal y espacial.
 
-La estructura del modelo de representación de YAGO es una extensión de RDFS que incluye transitividad acíclica. 
-Las entidades son objetos ontológicos abstractos. 
+La estructura del modelo de representación de YAGO es una extensión de RDFS que incluye transitividad acíclica.
+Las entidades son objetos ontológicos abstractos.
 Cada entidad es parte de al menos una clase y las clases están ordenadas en jerarquía taxonómica.
 Las relaciones son un tipo especial de entidad.
-Los hechos son tripletas de la forma: entidad, relación, entidad. 
+Los hechos son tripletas de la forma: entidad, relación, entidad.
 Cada hecho tiene un identificador único.
 
 La contribución clave de YAGO es que proporciona una vinculación semántica de categorías de Wikipedia a Wordnet, con una alta calidad en la extracción de conocimiento~(la precisión de los hechos extraídos es estimada en un 95\%).
@@ -957,10 +957,10 @@ Además, la estructura del conocimiento representaod en YAGO es decidible, exten
 
 \subsubsection*{ConceptNet}
 
-ConceptNett es un proyecto de representación del conocimiento, que proporciona un gran grafo semántico que describe el conocimiento humano general y cómo se expresa en lenguaje natural. 
+ConceptNett es un proyecto de representación del conocimiento, que proporciona un gran grafo semántico que describe el conocimiento humano general y cómo se expresa en lenguaje natural.
 El alcance de ConceptNet incluye palabras y frases comunes en cualquier lenguaje humano escrito.
-Proporciona un amplio conjunto de conocimientos previos que debe conocer una aplicación informática que trabaja con texto en lenguaje natural. 
-Estas palabras y frases se relacionan a través de un dominio abierto de predicados, que describen no solo cómo se relacionan las palabras por sus definiciones léxicas, sino también cómo se relacionan a través del conocimiento común. 
+Proporciona un amplio conjunto de conocimientos previos que debe conocer una aplicación informática que trabaja con texto en lenguaje natural.
+Estas palabras y frases se relacionan a través de un dominio abierto de predicados, que describen no solo cómo se relacionan las palabras por sus definiciones léxicas, sino también cómo se relacionan a través del conocimiento común.
 Por ejemplo, su conocimiento sobre el “jazz” incluye no solo las propiedades que lo definen, como IsA (jazz, género musical); También incluye hechos incidentales como:
 \begin{itemize}
   \item AtLocation (jazz, nueva orleans)
@@ -968,46 +968,69 @@ Por ejemplo, su conocimiento sobre el “jazz” incluye no solo las propiedades
   \item Toca percusión en (batería de jazz, jazz).
 \end{itemize}
 
-ConceptNet se originó como una representación del conocimiento recopilado por el proyecto Open Mind Common Sense \cite{Singh2002}, que utiliza un sitio web interactivo de larga duración para recopilar nuevas declaraciones de los visitantes del sitio y les hace preguntas específicas sobre afirmaciones que cree que pueden ser ciertas. 
+ConceptNet se originó como una representación del conocimiento recopilado por el proyecto Open Mind Common Sense \cite{Singh2002}, que utiliza un sitio web interactivo de larga duración para recopilar nuevas declaraciones de los visitantes del sitio y les hace preguntas específicas sobre afirmaciones que cree que pueden ser ciertas.
 Los lanzamientos posteriores incluyeron conocimientos de sitios web similares en otros idiomas, como portugués y holandés, y colaboraciones con juegos de palabras en línea que recopilan automáticamente conocimientos generales, lo que proporciona más conocimientos en inglés, japonés y chino.
 
-ConceptNet proporciona una base de conocimiento del mundo real para una variedad de proyectos y aplicaciones de Inteligencia Artificial. 
+ConceptNet proporciona una base de conocimiento del mundo real para una variedad de proyectos y aplicaciones de Inteligencia Artificial.
 Se han utilizado versiones anteriores de ConceptNet, por ejemplo, para construir un sistema para analizar el contenido emocional del texto \cite{Cambria2010}, para crear un sistema de diálogo para mejorar las especificaciones del software \cite{Korner2009}, para reconocer las actividades de la vida diaria \cite{Ullberg2010}, para visualizar temas y tendencias en un corpus de texto no estructurado \cite{Speer2010}, y para crear exhibiciones de información pública mediante la lectura de texto sobre personas y proyectos desde una base de conocimiento \cite{Havasi2011}.
 
-ConceptNet proporciona una combinación de características que no están disponibles en otros proyectos de representación del conocimiento: 
+ConceptNet proporciona una combinación de características que no están disponibles en otros proyectos de representación del conocimiento:
 \begin{itemize}
   \item Sus conceptos están conectados a palabras y frases en lenguaje natural que también se pueden encontrar en texto libre.
   \item Incluye no solo definiciones y relaciones léxicas, sino también las asociaciones de sentido común que la gente común hace entre estos conceptos. Sus fuentes varían en formalidad desde diccionarios hasta juegos en línea.
-  \item Los conceptos no se limitan a un solo idioma; pueden ser de cualquier idioma escrito. 
+  \item Los conceptos no se limitan a un solo idioma; pueden ser de cualquier idioma escrito.
   \item Integra conocimientos de fuentes con distintos niveles de granularidad y distintos registros de formalidad, y los pone a disposición a través de una representación común.
 \end{itemize}
 
-ConceptNet tiene como objetivo contener tanto hechos específicos como el desordenado e inconsistente mundo del conocimiento de sentido común. 
-Para comprender verdaderamente los conceptos que aparecen en un texto en lenguaje natural, es importante reconocer las relaciones informales entre estos conceptos que forman parte del conocimiento cotidiano, que a menudo están infrarrepresentados en otros recursos léxicos. 
-WordNet, por ejemplo, puede decirle que un perro es un tipo de carnívoro, pero no que es un tipo de mascota. 
-Puede decirle que un tenedor es un utensilio para comer, pero no tiene ningún vínculo entre tenedor y comer para indicarle que se usa un tenedor para comer. 
+ConceptNet tiene como objetivo contener tanto hechos específicos como el desordenado e inconsistente mundo del conocimiento de sentido común.
+Para comprender verdaderamente los conceptos que aparecen en un texto en lenguaje natural, es importante reconocer las relaciones informales entre estos conceptos que forman parte del conocimiento cotidiano, que a menudo están infrarrepresentados en otros recursos léxicos.
+WordNet, por ejemplo, puede decirle que un perro es un tipo de carnívoro, pero no que es un tipo de mascota.
+Puede decirle que un tenedor es un utensilio para comer, pero no tiene ningún vínculo entre tenedor y comer para indicarle que se usa un tenedor para comer.
 Agregar conocimiento de sentido común crea muchas preguntas nuevas. ¿Podemos decir que “un tenedor se usa para comer” si un tenedor se usa para otras cosas además de comer, y otras cosas se usan para comer? ¿Debemos asegurarnos de distinguir el utensilio para comer de la bifurcación de un camino? ¿Sigue siendo cierta la afirmación en culturas que suelen utilizar palillos en lugar de tenedores?
 ConceptNet intentar recopilar representaciones que respondan a estas preguntas, mientras aceptamos pragmáticamente que gran parte del contenido de una base de conocimiento de sentido común las dejará sin resolver.
 
 \subsubsection*{CLEF}
 
-El corpus de CLEF presentado en esta sección se construyó para el Laboratorio y Taller de Evaluación de eHealth, CLEF 2019~\cite{}.
-En este taller se presentaron a la comunidad científica dos tareas: Extracción de información multilingüe, en concreto, en documentos de clasificación internacional de enfermedades, versión 10 (ICD-10) y codificación de resúmenes no técnicos (NTS) de experimentos con animales en alemán; y revisiones asistidas por tecnología (TAR) en medicina empírica en inglés.
+El corpus CLEF consta de registros estructurados y documentos de texto libre de 20234 pacientes, provenientes del Royal Marsden Hospital (RMH), uno de los centros oncológicos especializados más grandes de Europa.
+Los documentos de texto libre constan de tres tipos: narrativas clínicas; informes de histopatología; e informes de imágenes.
+La confidencialidad de los pacientes fue garantizada mediante una variedad de medidas técnicas y organizativas, incluida la seudonimización automática y la inspección manual.
 
-La tarea de extracción de información multilingüe desafió a los participantes a indexar los NTS alemanes de experimentos con animales con la terminología de enfermedades de la CIE-10.
-Puede considerarse como una clasificación de texto o como una tarea de normalización y reconocimiento de entidades nombradas en cascada.
+Dado el costo de la anotación humana, la porción de referencia del corpus consiste en un subconjunto relativamente pequeño de todo el corpus de 565000 documentos.
+Para evitar eventos que son raros o que están fuera de los requisitos principales del proyecto, está restringido por diagnóstico y solo considera documentos de aquellos pacientes con un código de diagnóstico primario en una de las subcategorías de nivel superior del Capítulo II de la CIE-10 (neoplasias).
+Además, solo contiene aquellas subcategorías que cubren más del 5\% de narrativas e informes.
+El corpus de referencia consta de dos porciones, seleccionadas para propósitos ligeramente diferentes.
 
-Descripción general del Laboratorio de evaluación de eHealth de CLEF 2019
+\begin{description}
+  \item[Registros completos de pacientes]
+        Dos aplicaciones en CLEF implican agregar datos en un solo registro de paciente. La crónica de CLEF construye un modelo cronológico para un paciente, integrando eventos tanto del registro estructurado como no estructurado8. La generación de informes CLEF crea informes agregados y en lenguaje natural a partir de la crónica9. Estas dos aplicaciones requieren registros completos de pacientes para su desarrollo y prueba. Se seleccionaron dos registros completos de pacientes para esta parte del corpus, de dos de las principales categorías de diagnóstico, para dar un número medio de documentos y una combinación de tipos y longitudes de documentos.
+  \item[Muestra aleatoria estratificada]
+        La mayor parte del patrón oro sirve como material de desarrollo y evaluación para IE. Con el fin de garantizar un entrenamiento uniforme y una evaluación justa en todo el corpus, el muestreo de esta porción es aleatorio y estratificado, de modo que refleje la distribución de la población a lo largo de varios ejes. La Tabla 1 muestra las proporciones de narrativas clínicas a lo largo de dos de estos ejes. La anotación inicial de la muestra aleatoria se centra en 50 de cada uno de los relatos clínicos, los informes de histopatología y los informes de imágenes. Se espera que el número final de documentos anotados sea mayor que esto.
+\end{description}
 
-Nomenclatura de medicina: codificación de términos clínicos (SNoMed-CT) de informes clínicos en inglés en 2013, y reconocimiento de entidades nombradas UMLS de informes clínicos en francés en 2015, entre otros [27]. La tarea TAR fue una tarea de RI de alta recordación en inglés que tenía como objetivo evaluar algoritmos de búsqueda que buscan identificar todos los estudios relevantes para realizar una revisión sistemática en medicina empírica. Los resultados de los enfoques explorados en los sistemas presentados para generar una visión general clara del consenso científico actual podrían estar informando la atención médica y su formulación de políticas en el futuro. Este generador automatizado podría liberar tiempo a los científicos y asesores de políticas del laborioso proceso iterativo actual de realizar búsquedas de publicaciones y revisarlas para recuperar todos los documentos que son relevantes para la redacción de revisiones sistemáticas confiables; Este difícil desafío se conoce en el dominio de las relaciones internacionales como el problema de la recuperación total y con el número de artículos médicos publicados que se expanden rápidamente, la necesidad de automatización en este proceso se vuelve de suma importancia.
+El estándar de oro de CLEF es un corpus anotado semánticamente. Nos interesa extraer las principales entidades semánticas del texto. Por entidad, nos referimos a alguna cosa del mundo real a la que se hace referencia en el texto: los fármacos que se mencionan, las pruebas que se realizaron, etc. También nos interesa extraer las relaciones entre entidades: la condición indicada por un fármaco, el resultado de una investigación, etc.
 
-La Tarea 2 de este año se diferenció de los dos últimos años [11, 12] al diversificar el enfoque en diferentes tipos de revisiones que incluyen Exactitud de la prueba de diagnóstico (DTA), Intervención, Pronóstico y Revisiones cualitativas. Aunque la búsqueda en el área de revisiones de DTA generalmente se considera la más difícil [18], este año queríamos investigar cómo la tecnología que se ha desarrollado durante los últimos dos años se extendería a otros tipos de revisiones. El proceso típico de búsqueda de publicaciones científicas para realizar una revisión sistemática consta de tres etapas: (a) especificar una serie de criterios de inclusión que caracterizan los artículos relevantes para la revisión y construir una consulta booleana compleja para expresarlos, (b) seleccionar el resúmenes y títulos que resulten de la consulta booleana, y (c) leer y filtrar los documentos completos que pasaron la revisión de resumen y título. Sobre la base de la tarea de 2017, que se centró en la segunda etapa del proceso, es decir, la selección de resumen y título, y al igual que la tarea de 2018, la tarea de 2019 se centró tanto en la primera etapa (subtarea 1) como en la segunda etapa (subtarea 2 ) del proceso, es decir, búsqueda booleana y selección de resumen y título. Más precisamente, estas subtareas de la Tarea 2 se definieron de la siguiente manera:
+La anotación está anclada en el texto. Los anotadores marcan tramos de texto con un tipo: fármaco, lugar geométrico, etc. Los anotadores también pueden marcar palabras que modifican tramos (como negación) y marcar relaciones como vínculos entre tramos. Dos o más intervalos pueden hacer referencia a la misma cosa en el mundo real, en cuyo caso son co-referencia. Esto también está marcado por los anotadores. Algunos aspectos de la anotación se muestran en el Diagrama 1.
 
-Subtarea 1. Antes de construir una consulta booleana, los investigadores deben diseñar y escribir un protocolo de búsqueda que, por escrito y en detalle, defina lo que constituye un estudio relevante para su revisión. Para el desafío asociado con la primera etapa del proceso, los participantes recibieron las piezas relevantes de un protocolo, en un intento de completar la búsqueda de manera efectiva y eficiente sin pasar por la construcción de la consulta booleana.
+Los tipos de anotaciones se describen en un esquema, que se muestra en el Diagrama 2. El esquema se ha basado en un conjunto de requisitos desarrollados entre médicos y lingüistas computacionales en CLEF (no existen esquemas o teorías estándar en esta área). Los tipos de esquema se asignan a tipos en la red semántica UMLS. A los efectos de la anotación, el esquema se modela como una ontología Protégé-Frames10. La anotación se lleva a cabo utilizando una versión adaptada del complemento Knowtator para Protégé11. Este fue elegido por su manejo de las relaciones, luego de evaluar varias de tales herramientas.
 
-Subtarea 2. Dados los resultados de la búsqueda booleana de la etapa 1 como punto de partida, se pidió a los participantes que clasificaran el conjunto de resúmenes (A). La tarea tenía los siguientes dos objetivos: (i) producir un ordenamiento eficiente de los documentos, de modo que todos los resúmenes relevantes se recuperen lo antes posible, y (ii) identificar un subconjunto de A que contenga todos o tantos de los resúmenes relevantes para el menor esfuerzo (es decir, el número total de resúmenes a evaluar).
+La metodología de anotación sigue los estándares establecidos de procesamiento del lenguaje natural12. Los anotadores trabajan según las pautas acordadas; los documentos están anotados por al menos dos anotadores; los documentos solo se utilizan cuando el acuerdo supera un umbral; las diferencias las resuelve un tercer anotador experimentado. Estos puntos se analizan más adelante.
 
-La tarea Consumer Health Search se anunció como una continuación de las tareas anteriores de CLEF eHealth IR que se ejecutaban todos los años desde el inicio de L. Kelly et al. Los laboratorios de evaluación de eHealth de CLEF en 2013 [5–7,10,23,25,30], y abrazaron el proceso de evaluación al estilo Text REtrieval Conference (TREC), con una colección compartida de documentos de búsqueda y sus consultas de búsqueda, la contribución de las ejecuciones de los participantes, y la posterior formación de evaluaciones de relevancia y evaluación de las presentaciones de estos participantes. Por primera vez, las consultas de búsqueda (y sus variantes) estaban destinadas no solo a estar en formato escrito sino también en formato hablado, con transcripciones automáticas de voz a texto. La nueva colección de documentos introducida en la Tarea 3 de 2018, que consta de más de 5 millones de páginas de la World Wide Web (WWW), se utilizaría para esta tarea. Esta fue una compilación de páginas web de dominios seleccionados adquiridos de CommonCrawl4. Las historias de usuario para la consulta de búsqueda y la generación de variantes de consulta fueron aquellas que, utilizando los resúmenes de descarga y las publicaciones del foro, usamos en años anteriores de la tarea.
+Directrices de anotación
+La coherencia es fundamental para la calidad de un patrón oro. Es importante que todos los documentos estén anotados con el mismo estándar. Las preguntas surgen regularmente al realizar anotaciones. Por ejemplo, ¿deberían dividirse las expresiones de varias palabras? ¿Debería anotarse el “infarto de miocardio” como una condición, o como una condición y un locus? Para garantizar la coherencia, se proporciona un conjunto de pautas a los anotadores. Estos describen en detalle lo que debe y no debe anotarse; cómo decidir si dos entidades están relacionadas; cómo lidiar con la co-referencia; y varios casos especiales. Las pautas también proporcionan una secuencia de pasos, una receta, que los anotadores deben seguir al trabajar en un documento. Esta receta está diseñada para minimizar los errores de omisión. Las directrices en sí mismas se desarrollaron a través de un proceso iterativo riguroso, que se describe a continuación.
+
+Anotación doble
+Un documento anotado individualmente puede reflejar muchos problemas: la idiosincrasia de un anotador individual; errores puntuales cometidos por un solo anotador; anotadores que constantemente rinden menos. Hay muchos esquemas de anotación alternativos diseñados para superar esto, todos los cuales implican más tiempo de anotador. La doble anotación es una alternativa ampliamente utilizada, en la que cada documento es anotado independientemente por dos anotadores, y los conjuntos de anotaciones se comparan para lograr un acuerdo.
+
+Métricas de acuerdo
+Medimos la concordancia entre documentos con anotaciones dobles utilizando la concordancia entre anotadores (IAA, que se muestra a continuación). Los pares de anotaciones dobles se rechazan si el acuerdo no supera algún umbral (actualmente el 80\% para las entidades).
+
+Resolución de diferencia
+La doble anotación se puede utilizar para mejorar la calidad de la anotación y, por lo tanto, la calidad de los modelos estadísticos entrenados en esas anotaciones. Esto se logra combinando anotaciones dobles para dar un conjunto más cercano a la "verdad" (aunque generalmente se acepta como imposible definir un estándar de oro de "verdad absoluta" en una tarea de anotación con la complejidad de CLEF). El proceso de resolución lo lleva a cabo un tercer anotador experimentado. Todos los acuerdos de los anotadores originales se aceptan en un conjunto de consenso, y el tercer anotador decide sobre las diferencias, de acuerdo con un conjunto de pautas estrictas. De esta manera, las anotaciones permanecen al menos con anotaciones dobles.
+
+Experiencia del anotador
+Con el fin de examinar la facilidad con que otros anotadores con distintos niveles de experiencia podrían aplicar las directrices, también entregamos un lote de documentos a nuestros anotadores de desarrollo, a otro médico, a un biólogo con experiencia en lingüística y a un lingüista computacional. Cada uno recibió una formación muy limitada. Las anotaciones resultantes se compararon entre sí y con un conjunto de consenso creado a partir de los dos anotadores de desarrollo. La matriz IAA para este grupo se muestra en la Tabla 4. Este pequeño experimento muestra que incluso con un entrenamiento muy limitado, las puntuaciones de concordancia que se acercan a la aceptabilidad son alcanzables. Un análisis de diferencias sugirió que el lingüista computacional estaba encontrando más co-referencias pronominales y relaciones señaladas verbalmente que los médicos, pero que, como era de esperar, los médicos encontraron más relaciones que requerían conocimiento del dominio para resolverse. Una combinación de conocimientos médicos y lingüísticos parece ser la mejor opción.
+
+Hemos dilucidado una metodología para la anotación de un estándar de oro para la EI clínica y hemos demostrado que es viable. Los resultados iniciales muestran que se pueden lograr niveles prometedores de acuerdo entre los anotadores. Hemos examinado la aplicabilidad de la anotación a varios subgéneros de textos clínicos, y nuestros resultados sugieren que las pautas desarrolladas para un subgénero pueden aplicarse fructíferamente a otros. Nuestro trabajo ha planteado varios desafíos. En términos de resultados, la mayor dificultad ha sido lograr una anotación de relación consistente. Desde el punto de vista organizativo, la coordinación de muchos anotadores ha resultado difícil. El acceso al corpus está actualmente restringido: nuestro desafío final es desarrollar un marco de gobernanza en el que pueda estar disponible de manera más amplia.
 
 \subsubsection*{BARR2}
 
