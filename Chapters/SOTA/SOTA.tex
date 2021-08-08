@@ -892,9 +892,14 @@ La causalidad y la implicación son relaciones de propósito general que permite
 
 \subsubsection*{Ixa MedGS}
 
-Consiste en resúmenes de alta anotados sintáctica y semánticamente escritos en español espontáneo por médicos. El objetivo es utilizar este corpus para desarrollar herramientas de anotación automática y, por lo tanto, facilitar a los médicos la recuperación de información de las HCE. Los datos — historias clínicas electrónicas recogidas en el Hospital Galdakao-Usansolo — fueron objeto de un convenio entre el Servicio Vasco de Salud y la Universidad del País Vasco, en el que el Servicio de Salud facilitó un corpus totalmente despojado de datos identificativos de carácter personal y autorizó su uso. exclusivamente con fines de investigación.
+Consiste en resúmenes de alta anotados sintáctica y semánticamente escritos en idioma españolpor personal médico.
+Este corpus fue diseñado para desarrollar herramientas de anotación automática y, por lo tanto, facilitar a los médicos la recuperación de información de las historias clínicas.
+Los datos consisten en historias clínicas electrónicas recogidas en el Hospital Galdakao-Usansolo.
+Fueron recopilados a partir de un convenio entre el Servicio Vasco de Salud y la Universidad del País Vasco, en el que el Servicio de Salud facilitó un corpus anonimizado eliminando los datos identificativos de carácter personal y autorizó su uso exclusivamente con fines de investigación.
 
-El corpus se centra en los Efectos Adversos (EA), que el informe ENEAS [8] —estudio nacional sobre Efectos Adversos asociados a la hospitalización publicado por el Ministerio de Sanidad y Consumo español— define de la siguiente manera: un accidente o incidente que haya herido o pueda ha lesionado al paciente durante el tratamiento. Entre los diferentes EA que se distinguen en el informe, la gran mayoría está relacionada con una de las siguientes tres causas: (i) prescripción de medicamentos (37,4\% de todos los EA); (ii) infecciones nosocomiales (25,3\% de todos los EA); y (iii) procedimientos (25,0\% del total de EA). Nuestro trabajo se concentra especialmente en las reacciones adversas a los medicamentos (RAM), definidas como trastornos inevitables o difíciles de evitar, con o sin lesión, que se producen cuando los medicamentos se utilizan de forma adecuada [8]. Los resultados y conclusiones del informe ENEAS se presentaron en [9]: se estudiaron veinticuatro hospitales españoles para determinar el impacto y la prevenibilidad de los EA. De los EA asociados con el uso de medicamentos (37,4\% de todos los EA), el 34,8\% se clasificaron como prevenibles.
+El corpus se centra en la anotación de los \textit{efectos adversos} definidos en un informe (\textit{Estudio Nacional sobre Efectos Adversos asociados a la hospitalización}) publicado por el Ministerio de Sanidad y Consumo español como todo accidente o incidente que haya herido o pueda haber lesionado al paciente durante el tratamiento.
+Entre los diferentes efectos adversos que se distinguen en el informe, la gran mayoría está relacionada con una de las siguientes tres causas: (i) prescripción de medicamentos (37,4\% de todos los EA); (ii) infecciones nosocomiales (25,3\% de todos los EA); y (iii) procedimientos (25,0\% del total de EA).
+El corpus \texttt{IxA MedGS} se concentra especialmente en las \textit{reacciones adversas a los medicamentos}, definidas como trastornos inevitables o difíciles de evitar, con o sin lesión, que se producen cuando los medicamentos se utilizan de forma adecuada.
 
 \subsubsection*{DrugSemantics}
 
@@ -914,13 +919,13 @@ Este corpus incluye anotaciones de artículos de PubMed relacionados con el cán
 
 \subsubsection*{YAGO}
 
-Datos de YAGO: - Entrada: infoboxes de Wikipedia, WordNet (y GeoNames en versiones posteriores) - Salida: KG con 1 millón de entidades y 5 millones de hechos (2007) → KG con 350K tipos de entidades, 10M entidades, 120M hechos (2016) Thomas Rebele, Fabian M. Suchanek y col. al, ISWC 2016– Información temporal y espacial
-
-Contribuciones clave: - Rich Ontology: vinculación de categorías de Wikipedia a WordNet - Alta calidad: extracciones de alta precisión (~ 95 \%) • Otras contribuciones: - YAGO es decidible, extensible y compatible con RDFS
-
 YAGO surgió por la necesidad de crear una ontología más grande utilizando las ontologías existentes actualmente, sus principales objetivos eran: • Unificación de Wikipedia y WordNet. • Hacer uso de estructuras e información ricas, tales como: Infoboxes, Category Pages, etc. • Asegurar la plausibilidad de los hechos a través de comprobación de tipo
 
 Estructura del modelo de representación en YAGO: - Modelo de datos: extensión a RDFS, incluye transitividad acíclica (atr) .– Entidades: objetos ontológicos abstractos, con las siguientes propiedades: Cada entidad es parte de al menos una clase, Clases ordenadas en jerarquía taxonómica , Las relaciones son entidades (expresan la transitividad de las relaciones - atr), Los hechos son el triple: entidad, relación, entidad, Cada hecho tiene un identificador.
+
+Datos de YAGO: - Entrada: infoboxes de Wikipedia, WordNet (y GeoNames en versiones posteriores) - Salida: KG con 1 millón de entidades y 5 millones de hechos (2007) → KG con 350K tipos de entidades, 10M entidades, 120M hechos (2016) Thomas Rebele, Fabian M. Suchanek y col. al, ISWC 2016– Información temporal y espacial
+
+Contribuciones clave: - Rich Ontology: vinculación de categorías de Wikipedia a WordNet - Alta calidad: extracciones de alta precisión (~ 95 \%) • Otras contribuciones: - YAGO es decidible, extensible y compatible con RDFS
 
 \subsubsection*{ConceptNet}
 
