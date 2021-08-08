@@ -952,16 +952,37 @@ Además, la estructura del conocimiento representaod en YAGO es decidible, exten
 
 \subsubsection*{ConceptNet}
 
-ConceptNett es un proyecto de representación del conocimiento, que proporciona un gran gráfico semántico que describe el conocimiento humano general y cómo se expresa en lenguaje natural. El alcance de ConceptNet incluye palabras y frases comunes en cualquier lenguaje humano escrito. Proporciona un amplio conjunto de conocimientos previos que debe conocer una aplicación informática que trabaja con texto en lenguaje natural. Estas palabras y frases se relacionan a través de un dominio abierto de predicados, que describen no solo cómo se relacionan las palabras por sus definiciones léxicas, sino también cómo se relacionan a través del conocimiento común. Por ejemplo, su conocimiento sobre el “jazz” incluye no solo las propiedades que lo definen, como IsA (jazz, género musical); También incluye hechos incidentales como
-• AtLocation (jazz, nueva orleans)
-• Usado para (saxofón, jazz) y
-• toca percusión en (batería de jazz, jazz).
+ConceptNett es un proyecto de representación del conocimiento, que proporciona un gran grafo semántico que describe el conocimiento humano general y cómo se expresa en lenguaje natural. 
+El alcance de ConceptNet incluye palabras y frases comunes en cualquier lenguaje humano escrito.
+Proporciona un amplio conjunto de conocimientos previos que debe conocer una aplicación informática que trabaja con texto en lenguaje natural. 
+Estas palabras y frases se relacionan a través de un dominio abierto de predicados, que describen no solo cómo se relacionan las palabras por sus definiciones léxicas, sino también cómo se relacionan a través del conocimiento común. 
+Por ejemplo, su conocimiento sobre el “jazz” incluye no solo las propiedades que lo definen, como IsA (jazz, género musical); También incluye hechos incidentales como:
+\begin{itemize}
+  \item AtLocation (jazz, nueva orleans)
+  \item Usado para (saxofón, jazz) y
+  \item Toca percusión en (batería de jazz, jazz).
+\end{itemize}
 
-ConceptNet se originó como una representación del conocimiento recopilado por el proyecto Open Mind Common Sense (Singh et al., 2002), que utiliza un sitio web interactivo de larga duración para recopilar nuevas declaraciones de los visitantes del sitio y les hace preguntas específicas sobre afirmaciones que cree que pueden ser ciertas. Los lanzamientos posteriores incluyeron conocimientos de sitios web similares en otros idiomas, como portugués y holandés, y colaboraciones con juegos de palabras en línea que recopilan automáticamente conocimientos generales, lo que proporciona más conocimientos en inglés, japonés y chino.
+ConceptNet se originó como una representación del conocimiento recopilado por el proyecto Open Mind Common Sense \cite{Singh2002}, que utiliza un sitio web interactivo de larga duración para recopilar nuevas declaraciones de los visitantes del sitio y les hace preguntas específicas sobre afirmaciones que cree que pueden ser ciertas. 
+Los lanzamientos posteriores incluyeron conocimientos de sitios web similares en otros idiomas, como portugués y holandés, y colaboraciones con juegos de palabras en línea que recopilan automáticamente conocimientos generales, lo que proporciona más conocimientos en inglés, japonés y chino.
 
-ConceptNet proporciona una base de conocimiento del mundo real para una variedad de proyectos y aplicaciones de IA. Se han utilizado versiones anteriores de ConceptNet (Havasi et al., 2007), por ejemplo, para construir un sistema para analizar el contenido emocional del texto (Cambria et al., 2010), para crear un sistema de diálogo para mejorar las especificaciones del software (Korner y Brumm, 2009), para reconocer las actividades de la vida diaria (Ullberg et al., 2010), para visualizar temas y tendencias en un corpus de texto no estructurado (Speer et al., 2010), y para crear exhibiciones de información pública mediante la lectura de texto. sobre personas y proyectos desde una base de conocimiento (Havasi et al., 2011).
+ConceptNet proporciona una base de conocimiento del mundo real para una variedad de proyectos y aplicaciones de Inteligencia Artificial. 
+Se han utilizado versiones anteriores de ConceptNet, por ejemplo, para construir un sistema para analizar el contenido emocional del texto \cite{Cambria2010}, para crear un sistema de diálogo para mejorar las especificaciones del software \cite{Korner2009}, para reconocer las actividades de la vida diaria \cite{Ullberg2010}, para visualizar temas y tendencias en un corpus de texto no estructurado \cite{Speer2010}, y para crear exhibiciones de información pública mediante la lectura de texto sobre personas y proyectos desde una base de conocimiento \cite{Havasi2011}.
 
-ConceptNet proporciona una combinación de características que no están disponibles en otros proyectos de representación del conocimiento: • Sus conceptos están conectados a palabras y frases en lenguaje natural que también se pueden encontrar en texto libre. • Incluye no solo definiciones y relaciones léxicas, sino también las asociaciones de sentido común que la gente común hace entre estos conceptos. Sus fuentes varían en formalidad desde diccionarios hasta juegos en línea. • Los conceptos no se limitan a un solo idioma; pueden ser de cualquier idioma escrito. • Integra conocimientos de fuentes con distintos niveles de granularidad y distintos registros de formalidad, y los pone a disposición a través de una representación común. ConceptNet tiene como objetivo contener tanto hechos específicos como el desordenado e inconsistente mundo del conocimiento de sentido común. Para comprender verdaderamente los conceptos que aparecen en un texto en lenguaje natural, es importante reconocer las relaciones informales entre estos conceptos que forman parte del conocimiento cotidiano, que a menudo están infrarrepresentados en otros recursos léxicos. WordNet, por ejemplo, puede decirle que un perro es un tipo de carnívoro, pero no que es un tipo de mascota. Puede decirle que un tenedor es un utensilio para comer, pero no tiene ningún vínculo entre tenedor y comer para indicarle que se usa un tenedor para comer. Agregar conocimiento de sentido común crea muchas preguntas nuevas. ¿Podemos decir que “un tenedor se usa para comer” si un tenedor se usa para otras cosas además de comer, y otras cosas se usan para comer? ¿Debemos asegurarnos de distinguir el utensilio para comer de la bifurcación de un camino? ¿Sigue siendo cierta la afirmación en culturas que suelen utilizar palillos en lugar de tenedores? Podemos intentar recopilar representaciones que respondan a estas preguntas, mientras aceptamos pragmáticamente que gran parte del contenido de una base de conocimiento de sentido común las dejará sin resolver.
+ConceptNet proporciona una combinación de características que no están disponibles en otros proyectos de representación del conocimiento: 
+\begin{itemize}
+  \item Sus conceptos están conectados a palabras y frases en lenguaje natural que también se pueden encontrar en texto libre.
+  \item Incluye no solo definiciones y relaciones léxicas, sino también las asociaciones de sentido común que la gente común hace entre estos conceptos. Sus fuentes varían en formalidad desde diccionarios hasta juegos en línea.
+  \item Los conceptos no se limitan a un solo idioma; pueden ser de cualquier idioma escrito. 
+  \item Integra conocimientos de fuentes con distintos niveles de granularidad y distintos registros de formalidad, y los pone a disposición a través de una representación común.
+\end{itemize}
+
+ConceptNet tiene como objetivo contener tanto hechos específicos como el desordenado e inconsistente mundo del conocimiento de sentido común. 
+Para comprender verdaderamente los conceptos que aparecen en un texto en lenguaje natural, es importante reconocer las relaciones informales entre estos conceptos que forman parte del conocimiento cotidiano, que a menudo están infrarrepresentados en otros recursos léxicos. 
+WordNet, por ejemplo, puede decirle que un perro es un tipo de carnívoro, pero no que es un tipo de mascota. 
+Puede decirle que un tenedor es un utensilio para comer, pero no tiene ningún vínculo entre tenedor y comer para indicarle que se usa un tenedor para comer. 
+Agregar conocimiento de sentido común crea muchas preguntas nuevas. ¿Podemos decir que “un tenedor se usa para comer” si un tenedor se usa para otras cosas además de comer, y otras cosas se usan para comer? ¿Debemos asegurarnos de distinguir el utensilio para comer de la bifurcación de un camino? ¿Sigue siendo cierta la afirmación en culturas que suelen utilizar palillos en lugar de tenedores?
+ConceptNet intentar recopilar representaciones que respondan a estas preguntas, mientras aceptamos pragmáticamente que gran parte del contenido de una base de conocimiento de sentido común las dejará sin resolver.
 
 \subsubsection*{CLEF}
 
