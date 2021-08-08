@@ -918,13 +918,26 @@ Este corpus incluye anotaciones de artículos de PubMed relacionados con el cán
 
 \subsubsection*{YAGO}
 
-Datos de YAGO: - Entrada: infoboxes de Wikipedia, WordNet (y GeoNames en versiones posteriores) - Salida: KG con 1 millón de entidades y 5 millones de hechos (2007) → KG con 350K tipos de entidades, 10M entidades, 120M hechos (2016) Thomas Rebele, Fabian M. Suchanek y col. al, ISWC 2016– Información temporal y espacial
+YAGO surge por la necesidad de crear una ontología más grande utilizando las ontologías existentes actualmente, sus principales objetivos eran: 
+\begin{itemize}
+  \item Unificación de Wikipedia y WordNet.
+  \item Hacer uso de estructuras e información, tales como: Infoboxes, Category Pages, etc.
+  \item Asegurar la plausibilidad de los hechos a través de comprobación de tipo
+\end{itemize}
 
-Contribuciones clave: - Rich Ontology: vinculación de categorías de Wikipedia a WordNet - Alta calidad: extracciones de alta precisión (~ 95 \%) • Otras contribuciones: - YAGO es decidible, extensible y compatible con RDFS
+La entrada de datos de YAGO se compone de cuadros de información semiestructurada de artículos de Wikipedia y entradas de WordNet y Geonames(en versiones posteriores). 
+El resultado es una base de conocimiento que en su primera versión en 2007 contaba con más de 1 millón de entidades y 5 millones de hechos.
+En versiones posteriores se ha extendido a 350K tipos de entidades, 10M entidades, 120M hechos e incorporando información temporal y espacial.
 
-YAGO surgió por la necesidad de crear una ontología más grande utilizando las ontologías existentes actualmente, sus principales objetivos eran: • Unificación de Wikipedia y WordNet. • Hacer uso de estructuras e información ricas, tales como: Infoboxes, Category Pages, etc. • Asegurar la plausibilidad de los hechos a través de comprobación de tipo
+La estructura del modelo de representación de YAGO es una extensión de RDFS que incluye transitividad acíclica. 
+Las entidades son objetos ontológicos abstractos. 
+Cada entidad es parte de al menos una clase y las clases están ordenadas en jerarquía taxonómica.
+Las relaciones son un tipo especial de entidad.
+Los hechos son tripletas de la forma: entidad, relación, entidad. 
+Cada hecho tiene un identificador único.
 
-Estructura del modelo de representación en YAGO: - Modelo de datos: extensión a RDFS, incluye transitividad acíclica (atr) .– Entidades: objetos ontológicos abstractos, con las siguientes propiedades: Cada entidad es parte de al menos una clase, Clases ordenadas en jerarquía taxonómica , Las relaciones son entidades (expresan la transitividad de las relaciones - atr), Los hechos son el triple: entidad, relación, entidad, Cada hecho tiene un identificador.
+LA contribución clave de YAGO es que proporciona una vinculación semántica de categorías de Wikipedia a Wordnet, con una alta calidad en la extracción de conocimiento~(la precisión de los hechos extraídos es estimada en un 95\%).
+Además, la estructura del conocimiento representaod en YAGO es decidible, extensible, y compatible con RDFS.
 
 \subsubsection*{ConceptNet}
 
