@@ -70,7 +70,7 @@
 
 %%TC:ignore
 
-	\part{Artículos Publicados}
+	\part{Artículos Publicados o Aceptados}
 
 	\fancyhf{}
     \renewcommand{\headrulewidth}{1pt}
@@ -90,10 +90,14 @@
     \include{Chapters/Papers/CorpusV2}
     \includepdf[pages=1-, scale=1.05, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/JBI-20.pdf}
 
-    \part{Artículos No Publicados}
+	\include{Chapters/Papers/SEPLN-18}
+    \includepdf[pages=1-, scale=0.9, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/SEPLN-18.pdf}
+
+	\include{Chapters/Papers/SEPLN-21}
+    \includepdf[pages=1-, scale=0.9, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/SEPLN-21.pdf}
 
     \include{Chapters/Papers/Annotation}
-    \includepdf[pages=1-, scale=0.9, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/EMNLP.pdf}
+    \includepdf[pages=1-, scale=0.9, offset=0 -0.75cm, pagecommand={\thispagestyle{fancy}}]{./Chapters/Papers/RANLP-ActiveLearning.pdf}
 
 %%TC:endignore
 
