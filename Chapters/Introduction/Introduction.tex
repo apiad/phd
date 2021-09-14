@@ -112,22 +112,22 @@ Esta situación dificulta el desarrollo de técnicas capaces de descubrir conoci
 
 El objetivo general de esta Tesis es el diseño y construcción de un ecosistema para apoyar el desarrollo de tecnologías
 en el campo del descubrimiento de conocimiento. Este ecosistema consta de recursos lingüísticos, como la definición de un modelo semántico de anotación y corpus; herramientas e infraestructura para desplegar y evaluar sistemas; y, métricas de evaluación para permitir comparaciones justas. Concretamente, las contribuciones de esta investigación son:
-\begin{itemize}
+\begin{enumerate}
     \item La definición de un modelo semántico y un esquema de anotación para capturar la semántica del lenguaje natural que es generalizable a cualquier dominio.
     \item La construcción de varios recursos lingüísticos (corpus) manualmente anotados en idioma español, específicamente orientados al dominio de la salud, y un análisis de sus métricas de calidad y características fundamentales.
     \item La definición formal de una tarea de descubrimiento de conocimiento basada en estos recursos lingüísticos, incluyendo métricas objetivas de evaluación en diferentes subtareas.
     \item El desarrollo de una infraestructura para apoyar la creación de sistemas para la tarea mencionada, incluyendo herramientas y sistemas de base; y un servicio en línea para la evaluación automática y continua de nuevas técnicas.
     \item La organización y evaluación de eventos competitivos para incentivar en la comunidad científica el desarrollo de tecnologías de descubrimiento de conocimiento en idioma español, así como un análisis de los resultados obtenidos y una discusión de las líneas de desarrollo más prometedoras.
     \item El desarrollo de una estrategia computacional para acelerar la construcción de recursos lingüísticos mediante la inclusión de un sistema de aprendizaje en el ciclo de anotación que provea sugerencias al anotador humano.
-\end{itemize}
+\end{enumerate}
 
 \section{Estructura de la Tesis}
 \label{chap1:thesis-structure}
 
-La presente tesis está organizada por el sistema de compendio de artículos científicos. Se presentan un total de seis artículos publicados o aceptados para publicación que resumen todo el trabajo realizado en la consecución de los objetivos definidos en la Sección~\ref{chap1:objectives}.
-La Parte I presenta un Capítulo que analiza el estado actual de la técnica en varios campos de investigación relevantes para esta Tesis.
-A modo de resumen se presenta además un Capítulo que recoge los principales resultados obtenidos.
-Los artículos publicados o aceptados se organizan en la Parte II.
+La presente tesis está organizada por el sistema de compendio de artículos científicos. Se presentan un total de seis artículos publicados que resumen todo el trabajo realizado en la consecución de los objetivos definidos en la Sección~\ref{chap1:objectives}.
+La Parte I presenta en el Capítulo~\ref{Chapter:SOTA} un análsis del estado actual de la técnica en varios campos de investigación relevantes para esta Tesis.
+A modo de resumen se presenta además el Capítulo~\ref{Chap:Results} que recoge los principales resultados obtenidos.
+Los artículos publicados organizan en la Parte II.
 Finalmente se presentan unas conclusiones generales y recomendaciones de trabajo futuro en la Parte III.
 
 A continuación se describe en mayor detalle el contenido de cada capítulo.
@@ -139,19 +139,20 @@ A continuación se describe en mayor detalle el contenido de cada capítulo.
 
 \item [Capítulo~\ref{Chap:Results}] presenta los principales resultados obtenidos en el curso de la investigación, agrupados en 6 secciones fundamentales dedicadas a cada uno de los objetivos de investigación presentados en la Sección~\ref{chap1:objectives}.
 
-\item[Parte II] presenta los seis artículos que conforman el compendio de investigación de esta Tesis:
+\item[Parte II] presenta los seis artículos que conforman el compendio de investigación de esta Tesis, y que dan soporte a cada una de las contribuciones presentadas en la Sección~\ref{chap1:objectives}:
 
-\item [Capítulo~\ref{Chap:Schema}] presenta el artículo \textit{A General Purpose Annotation Model for Knowledge Discovery: A Case Study in Spanish Clinical Text}, que define el diseño conceptual de un esquema de anotación independiente de dominio e idioma para la extracción de conocimiento en lenguaje natural. Este esquema fue utilizado para la anotación de tres versiones del corpus \textit{eHealth-KD} que será presentado en los capítulos siguientes.
+\item [Capítulo~\ref{Chap:Schema}] da soporte a la Contribución 1, con el diseño conceptual de un esquema de anotación independiente de dominio e idioma para la extracción de conocimiento en lenguaje natural, presentado en el artículo \textit{A General Purpose Annotation Model for Knowledge Discovery: A Case Study in Spanish Clinical Text}. Este esquema fue utilizado para la anotación de tres versiones del corpus \textit{eHealth-KD} que será presentado en los capítulos siguientes.
 
-\item [Capítulo~\ref{Chap:CorpusV1}] presenta el artículo \textit{A Corpus to support eHealth Knowledge Discovery technologies}, con la primera versión del corpus \textit{eHealth-KD}, anotado en el contexto de la competencia \textit{eHealth Knowledge Discovery} organizada en el Taller de Análisis Semántico (TASS 2018). Esta primera versión fue anotada con una versión simplificada del esquema presentado en el Capítulo~\ref{Chap:Schema}.
+\item [Capítulo~\ref{Chap:CorpusV1}] da soporte a la Contribución 2, presentando la primera versión del corpus \textit{eHealth-KD}, anotado en el contexto de la competencia \textit{eHealth Knowledge Discovery} organizada en el Taller de Análisis Semántico (TASS 2018), descrita en el artículo \textit{A Corpus to support eHealth Knowledge Discovery technologies}. Esta primera versión del corpus fue anotada con una versión simplificada del esquema presentado en el Capítulo~\ref{Chap:Schema}.
 
-\item [Capítulo~\ref{Chap:CorpusV2}] presenta el artículo \textit{A Computational Ecosystem to Support eHealth Knowledge Discovery Technologies in Spanish}, con las contribuciones principales de la investigación, que consisten en una segunda versión del corpus, anotado con el esquema completo, así como el diseño de una infraestructura y recursos para el desarrollo de tecnologías de descubrimiento de conocimiento.
+\item [Capítulo~\ref{Chap:eHealthKD18}] da soporte a las Contribuciones 3 y 5, describiendo la primera edición del evento \textit{eHealth Knowledge Discovery} a través del artículo \textit{Analysis of eHealth Knowledge Discovery Systems inthe TASS 2018 Workshop}. En este evento se utilizó la primera versión del corpus \textit{eHealth-KD} presentado en el Capítulo~\ref{Chap:CorpusV1}. El artículo presenta además las métricas de evaluación, y una breve descripción de los sistemas que participaron en la competencia.
 
-\item [Capítulo~\ref{Chap:eHealthKD18}] presenta el artículo \textit{Analysis of eHealth Knowledge Discovery Systems inthe TASS 2018 Workshop}, que describe la primera edición del evento \textit{eHealth Knowledge Discovery}, donde se utilizó la primera versión del corpus \textit{eHealth-KD} presentado en esta tesis. El artículo presenta además las métricas de evaluación, y un breve de los sistemas que participaron en la competencia.
+\item [Capítulo~\ref{Chap:CorpusV2}] da soporte a la Contribución 4, que es el resultado principal de esta tesis, consistente en una segunda versión del corpus  anotado con el esquema completo, así como el diseño de una infraestructura y recursos para el desarrollo de tecnologías de descubrimiento de conocimiento.
+Estos resultados se presentan en el artículo \textit{A Computational Ecosystem to Support eHealth Knowledge Discovery Technologies in Spanish}.
 
-\item [Capítulo~\ref{Chap:eHealthKD21}] presenta el artículo \textit{Overview of the eHealth Knowledge DiscoveryChallenge at IberLEF 2021}, que resume la última edición hasta la fecha de este evento. Este artículo permite apreciar la evolución tanto de los recursos y tareas como de los enfoques presentados por los participantes a lo largo de cuatro ediciones de dicha competición.
+\item [Capítulo~\ref{Chap:eHealthKD21}] da soporte a la Contribución 5, resumiendo la última edición hasta la fecha de este evento en el artículo \textit{Overview of the eHealth Knowledge Discovery Challenge at IberLEF 2021}. Este artículo permite apreciar la evolución tanto de los recursos y tareas como de los enfoques presentados por los participantes a lo largo de cuatro ediciones de dicha competición.
 
-\item [Capítulo~\ref{Chap:Annotation}] presenta el artículo \textit{Active Learning for Assisted Corpus Construction: A Case Study in Knowledge Discovery from Biomedical Text}, que propone una estrategia para acelerar considerablemente el proceso de anotación manual a partir de introducir un sistema de aprendizaje en el ciclo de anotación. Esta estrategia fue desarrollada a partir de las experiencias ganadas durante el proceso de anotación, normalización y publicación del corpus \textit{eHealth-KD} y los eventos competitivos relacionados.
+\item [Capítulo~\ref{Chap:Annotation}] da soporte a la Contribución 6, proponiendo una estrategia para acelerar considerablemente el proceso de anotación manual a partir de introducir un sistema de aprendizaje en el ciclo de anotación. Dicha estrategia se presenta en el artículo \textit{Active Learning for Assisted Corpus Construction: A Case Study in Knowledge Discovery from Biomedical Text}. Esta estrategia fue desarrollada a partir de las experiencias ganadas durante el proceso de anotación, normalización y publicación del corpus \textit{eHealth-KD} y los eventos competitivos relacionados.
 
 \item[Parte III] presenta las conclusiones y recomendaciones.
 
