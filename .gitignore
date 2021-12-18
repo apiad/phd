@@ -322,3 +322,4 @@ TSWLatexianTemp*
 # End of https://www.toptal.com/developers/gitignore/api/linux
 Thesis.pdf
 Agradecimientos.pdf
+*.pdf
